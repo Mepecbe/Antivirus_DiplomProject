@@ -38,48 +38,36 @@ namespace Core
 
     static class Initialization
     {
-        //dll библиотеки модулей в которых необходимо вызвать функцию EntryPoint
-        static readonly string[] moduleNames  = new string[] {
-            "MODULE__DRIVER_CONNECTOR.dll", 
-            "MODULE__FILTER.dll",
-            "MODULE__RESERVE_NEW_FILE_DETECTOR.dll",
-            "MODULE__SCANNER_SERVICE.dll"
-        };
-
         static void Main(string[] args)
         {
-            //Первый операнд - название именованной трубы, по которому будет производится соединение 
-            //  с внешней программой
-
-            /* ПРОВЕРКА КОНТРОЛЬНОЙ СУММЫ ФАЙЛОВ(ЦЕЛОСТНОСТЬ ФАЙЛОВ МОДУЛЕЙ)*/
-
-            /* КОНЕЦ ПРОВЕРКИ*/
-
+            //Старт загрузчика
             {
-                Assembly asm = Assembly.LoadFrom(moduleNames[0]);
+                //Запуск модулей
+                foreach(string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
+                {
+                    Console.WriteLine(FileName);
 
-                Console.WriteLine("Типы");
-                foreach (Type a in asm.GetTypes()) Console.WriteLine(a);
-                //return; 
+                    Assembly asm = Assembly.LoadFrom(FileName);
 
-                Type t = asm.GetType("MODULE_DRIVERCONNECTOR.Initializator", true, true);
-                Type[] type = asm.GetTypes();
-                                
-                object obj = Activator.CreateInstance(t);
+                    string ModuleFileName = FileName.Substring(FileName.LastIndexOf('\\') + 1);
+                    Type t = asm.GetType(ModuleFileName.Substring(0,ModuleFileName.Length-3) + "Initializator", true, true);
 
-                MethodInfo method = t.GetMethod("EntryPoint");
+                    MethodInfo method = t.GetMethod("EntryPoint");
 
-                // вызываем метод, передаем ему значения для параметров и получаем результат
-                object result = method.Invoke(null, new object[] { });
-                Console.WriteLine(result);
+                    if (method == null)
+                    {
+                        Console.WriteLine("===\nТОЧКА ВХОДА В НЕ НАЙДЕНА\n===");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вызов метода EntryPoint");
+                        object result = method.Invoke(null, new object[] { });
+                        Console.WriteLine(result);
+                    }
+                }
             }
 
             //ScanQueue.receiveThread.Start();
         }
     }
 }
-
-/*
- * При запуске проверить контрольную сумму файлов с теми, что на сервере
- * Драйвер запрещает всяческие операции над файлами сторонним приложениям
- */

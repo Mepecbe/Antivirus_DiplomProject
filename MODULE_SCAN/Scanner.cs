@@ -15,6 +15,14 @@ namespace MODULE_SCAN
     {
 
     }
+
+    public static class Initializator
+    {
+        public static byte EntryPoint()
+        {
+            return 1;
+        }
+    }
 }
 
 /*

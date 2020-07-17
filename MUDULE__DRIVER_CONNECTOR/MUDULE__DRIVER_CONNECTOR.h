@@ -20,13 +20,17 @@
 using namespace System;
 
 #pragma managed
+[assembly:CLSCompliant(true)];
 
 namespace MODULE_DRIVERCONNECTOR {
-	static public class Initializator
+	[CLSCompliant(true)]
+	ref class Initializator
 	{
-	    static Byte EntryPoint() {
-			return 1;
+		public : static void PublicEntryPoint() {
+			 
 		}
 	};
+
+	
 }
 
