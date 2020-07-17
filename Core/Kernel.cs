@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Core
 {
@@ -36,38 +37,81 @@ namespace Core
         });
     }
 
+    static class Loader
+    {
+        private static List<Module> Modules = new List<Module>();
+
+        public class Module
+        {
+            public  string ModuleName;
+            public  Assembly ModuleAssembly;
+            private bool Running;
+            public  bool IsRunning { get { return this.Running; } }
+
+            public Module(string ModuleFileName)
+            {
+                this.Running = false;
+                this.ModuleName = ModuleFileName;
+                this.ModuleAssembly = Assembly.LoadFrom("Modules\\" + ModuleFileName);
+
+                {
+                    //Проверка существования класса инициализатора
+                    bool found = false;
+                    foreach (Type type in this.ModuleAssembly.GetTypes())
+                    {
+                        if (type.Name == "Initializator")
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        //Не найден класс инициализатора
+                        return;
+                    }
+                }
+
+                //Вход в модуль
+                Type InitializatorType = this.ModuleAssembly.GetType(ModuleFileName.Substring(0, ModuleFileName.Length - 3) + "Initializator", true, true);
+                MethodInfo EntryPoint = InitializatorType.GetMethod("EntryPoint");
+
+                if (EntryPoint == null)
+                {
+                    return;
+                }
+                else
+                {
+                    object result = EntryPoint.Invoke(null, new object[] { });
+
+                    if ((byte)result != 0)
+                    {
+                        this.Running = true;
+                    }
+                }
+            }
+        }
+
+        public static void LoadModule(string ModuleFileName)
+        {
+            Modules.Add(new Module(ModuleFileName));
+        }
+    }
+
     static class Initialization
     {
         static void Main(string[] args)
         {
-            //Старт загрузчика
+            //Точка входа в антивирус
+
             {
                 //Запуск модулей
                 foreach(string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
                 {
-                    Console.WriteLine(FileName);
-
-                    Assembly asm = Assembly.LoadFrom(FileName);
-
-                    string ModuleFileName = FileName.Substring(FileName.LastIndexOf('\\') + 1);
-                    Type t = asm.GetType(ModuleFileName.Substring(0,ModuleFileName.Length-3) + "Initializator", true, true);
-
-                    MethodInfo method = t.GetMethod("EntryPoint");
-
-                    if (method == null)
-                    {
-                        Console.WriteLine("===\nТОЧКА ВХОДА В НЕ НАЙДЕНА\n===");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Вызов метода EntryPoint");
-                        object result = method.Invoke(null, new object[] { });
-                        Console.WriteLine(result);
-                    }
+                    Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\')+1, FileName.Length - FileName.LastIndexOf('\\')-1));
                 }
             }
-
-            //ScanQueue.receiveThread.Start();
         }
     }
 }
