@@ -22,12 +22,12 @@ using namespace System;
 #pragma managed
 [assembly:CLSCompliant(true)];
 
-namespace MODULE_DRIVERCONNECTOR {
+namespace MODULE__DRIVER_CONNECTOR {
 	[CLSCompliant(true)]
 	ref class Initializator
 	{
-		public : static void PublicEntryPoint() {
-			 
+		public : static byte EntryPoint() {
+			return 0;
 		}
 	};
 

@@ -39,7 +39,7 @@ namespace Core
 
     static class Loader
     {
-        private static List<Module> Modules = new List<Module>();
+        public static List<Module> Modules = new List<Module>();
 
         public class Module
         {
@@ -85,7 +85,7 @@ namespace Core
                 {
                     object result = EntryPoint.Invoke(null, new object[] { });
 
-                    if ((byte)result != 0)
+                    if ((byte)result == 0)
                     {
                         this.Running = true;
                     }
@@ -110,6 +110,12 @@ namespace Core
                 foreach(string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
                 {
                     Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\')+1, FileName.Length - FileName.LastIndexOf('\\')-1));
+                }
+
+                Console.WriteLine("Проверка таблицы сервисов");
+                foreach(Loader.Module m in Loader.Modules)
+                {
+                    Console.WriteLine($"Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
                 }
             }
         }
