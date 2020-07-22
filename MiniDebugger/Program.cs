@@ -9,18 +9,42 @@ using System.Reflection;
 using System.IO.Pipes;
 using System.Threading;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace MiniDebugger
 {
     class Program
     {
-        static NamedPipeServerStream server = new NamedPipeServerStream("Antivirus_Dbg");
-
-
+        static NamedPipeServerStream server;
 
 
         static Task Main(string[] args)
         {
+            /*операнд 0 - r(receive) или s(sender), мод работы программы*/
+            if (args.Length == 2)
+            {
+                if (args[0] == "r")
+                {
+                    new Task(() => PipeReader(args[1])).Start();
+                }
+                else if (args[0] == "s")
+                {
+                    new Task(() => PipeWriter(args[1])).Start();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Неправильный операнд 0, должно быть r или s");
+                    Console.ReadKey();
+                    return null;
+                }
+
+                return Task.Delay(-1);
+            }
+            /*========*/
+
+            server = new NamedPipeServerStream("Antivirus_Dbg");
+
             Console.Write("Нажмите Enter что бы выбрать модуль для загрузки....");
             Console.ReadLine();
 
@@ -45,10 +69,9 @@ namespace MiniDebugger
 
                 ModulePath = modulePaths[number];
             }
-
-
-
             /**/
+
+
             string name = ModulePath.Substring(ModulePath.LastIndexOf('\\') + 1);
 
             Console.Clear();
@@ -92,16 +115,14 @@ namespace MiniDebugger
             /* ============================================================= */
 
 
-
+            Console.Clear();
             new Thread(pipeReceiver).Start();
-            Thread.Sleep(500);
 
-            EntryPoint.Invoke(null, new object[] { });
-            FuncAfterEntryPoint();
 
+            DebugDetector(EntryPoint);
+            
             return Task.Delay(-1);
         }
-
 
 
         static void pipeReceiver()
@@ -111,7 +132,6 @@ namespace MiniDebugger
             Console.WriteLine("[DbgPipe] Подключён модуль");
 
             StreamReader DbgReader = new StreamReader(server, Encoding.Unicode);
-
 
             while (true)
             {
@@ -152,17 +172,66 @@ namespace MiniDebugger
             }
         }
 
-        public static void FuncAfterEntryPoint()
+        /*====*/
+        public static void PipeReader(string PipeName)
         {
-            NamedPipeServerStream server = new NamedPipeServerStream("FileNamePipe");
+            Console.WriteLine("PipeReader for \"{0}\"\nWait connection", PipeName);
+            NamedPipeServerStream server = new NamedPipeServerStream(PipeName);
             server.WaitForConnection();
+            Console.WriteLine("Connected!");
 
             StreamReader reader = new StreamReader(server, Encoding.Unicode);
 
             while (true)
             {
                 string msg = reader.ReadLine();
-                Console.WriteLine("[FuncAfterEntryPoint] " + msg);
+                Console.WriteLine($"[{PipeName}] " + msg);
+            }
+        }
+
+        public static void PipeWriter(string PipeName)
+        {
+            Console.WriteLine("PipeWriter for \"{0}\"", PipeName);
+            NamedPipeClientStream server = new NamedPipeClientStream(PipeName);
+            server.Connect();
+
+            StreamWriter writer = new StreamWriter(server, Encoding.Unicode);
+
+            while (true)
+            {
+                Console.Write("cmd -> ");
+                writer.WriteLine(Console.ReadLine());
+            }
+        }
+        /*====*/
+
+
+
+
+        static void DebugDetector(MethodInfo EntryPoint)
+        {
+            //Создание процесса на чтение трубы FileNamePipe
+            Process Reader = Process.Start("MiniDebugger.exe", "r FileNamePipe");
+            
+            Thread.Sleep(2000);
+            EntryPoint.Invoke(null, new object[] { });
+            
+
+
+
+
+            while (true)
+            {
+                //Для команд
+                /* create <название именованной трубы, по которой так же будет производится прием>*/
+                /* send <название именованной трубы, в которую отправить> <что отправить>*/
+                string command = Console.ReadLine();
+
+                switch (command.Substring(0, command.IndexOf(' ')))
+                {
+                    case "create": { break; }
+                    case "send": { break; }
+                }
             }
         }
     }
