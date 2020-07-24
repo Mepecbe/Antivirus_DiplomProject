@@ -10,18 +10,22 @@ using System.IO.Pipes;
 using System.Threading;
 using System.Net.Http.Headers;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace MiniDebugger
 {
     class Program
     {
         static NamedPipeServerStream server;
+        static List<int> IDs = new List<int>();
 
 
         static Task Main(string[] args)
         {
-            /*операнд 0 - r(receive) или s(sender), мод работы программы*/
-            if (args.Length == 2)
+            System.Console.CancelKeyPress += OnClose;
+
+            /*операнд 0 - r(receive) или s(sender) или c(command), мод работы программы*/
+            if (args.Length > 0)
             {
                 if (args[0] == "r")
                 {
@@ -30,6 +34,9 @@ namespace MiniDebugger
                 else if (args[0] == "s")
                 {
                     new Task(() => PipeWriter(args[1])).Start();
+                }else if(args[0] == "c")
+                {
+                    new Task(() => CommandLine()).Start();
                 }
                 else
                 {
@@ -118,13 +125,21 @@ namespace MiniDebugger
             Console.Clear();
             new Thread(pipeReceiver).Start();
 
-
-            DebugDetector(EntryPoint);
+            /*Запуск "скриптов" отладки*/
+            Debug_PartitionMon(EntryPoint);
             
             return Task.Delay(-1);
         }
 
 
+        static void OnClose(object sender, ConsoleCancelEventArgs e)
+        {
+            foreach (int id in IDs) Process.GetProcessById(id).Kill();
+        }
+
+        /// <summary>
+        /// Функция для приема и вывода информации, принимаемой по трубе
+        /// </summary>
         static void pipeReceiver()
         {
             Console.WriteLine("[DbgPipe] Ожидание подключения отлаживаемых модулей");
@@ -181,6 +196,7 @@ namespace MiniDebugger
             Console.WriteLine("Connected!");
 
             StreamReader reader = new StreamReader(server, Encoding.Unicode);
+            
 
             while (true)
             {
@@ -206,33 +222,81 @@ namespace MiniDebugger
         /*====*/
 
 
-
-
-        static void DebugDetector(MethodInfo EntryPoint)
+        ///<summary>
+        /// Командная строка отладчика
+        /// </summary>
+        public static void CommandLine()
         {
-            //Создание процесса на чтение трубы FileNamePipe
-            Process Reader = Process.Start("MiniDebugger.exe", "r FileNamePipe");
-            
-            Thread.Sleep(2000);
-            EntryPoint.Invoke(null, new object[] { });
-            
-
-
-
+            Console.WriteLine("Debugger command line");
+            List<NamedPipeClientStream> PipeConnections = new List<NamedPipeClientStream>();
 
             while (true)
             {
-                //Для команд
                 /* create <название именованной трубы, по которой так же будет производится прием>*/
-                /* send <название именованной трубы, в которую отправить> <что отправить>*/
+                /* send <что отправить>        после нажатия Enter появляется список выбора, на какую трубу отправить*/
+                /* conn <Название трубы>*/
+                Console.Write("cmd -> ");
                 string command = Console.ReadLine();
 
                 switch (command.Substring(0, command.IndexOf(' ')))
                 {
-                    case "create": { break; }
-                    case "send": { break; }
+                    case "create":
+                        {
+
+                            break;
+                        }
+
+                    case "send":
+                        {
+                            Console.Write("Введите сообщение: ");
+                            string message = Console.ReadLine();
+
+                            if(PipeConnections.Count > 1)
+                                foreach (NamedPipeClientStream client in PipeConnections) Console.WriteLine(client);
+                            else
+                            {
+                                PipeConnections[0].Write(Encoding.Unicode.GetBytes(message), 0, message.Length * 2);
+                            }
+
+                            break;
+                        }
+
+                    case "conn":
+                        {
+                            PipeConnections.Append(new NamedPipeClientStream(command.Substring(command.IndexOf(' ')+1)));
+                            Console.Write("Проба подключения к " + command.Substring(command.IndexOf(' ') + 1) + "...");
+
+                            try
+                            {
+                                PipeConnections[PipeConnections.Count - 1].Connect(500);
+                                Console.WriteLine("успешно");
+                            }
+                            catch
+                            {
+                                Console.WriteLine("не успешно");
+                                PipeConnections.RemoveAt(PipeConnections.Count - 1);
+                            }
+                            break;
+                        }
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Мини "скрипт" для отладки модуля монитора разделов
+        /// </summary>
+        /// <param name="EntryPoint">Ссылка на точку входа</param>
+        static void Debug_PartitionMon(MethodInfo EntryPoint)
+        {
+            //Создание процесса(отдельного окна) на чтение трубы FileNamePipe
+            IDs.Add(Process.Start("MiniDebugger.exe", "r FileNamePipe").Id);
+
+            Thread.Sleep(2000);
+            EntryPoint.Invoke(null, new object[] { });
+
+            //Конец скрипта, Создаем командную строку отладчика в новом окне
+            IDs.Add(Process.Start("MiniDebugger.exe", "c").Id);            
         }
     }
 }
