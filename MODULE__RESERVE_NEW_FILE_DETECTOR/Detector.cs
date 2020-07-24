@@ -45,40 +45,47 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
     public static class ReserveDetector
     {
-        const string PipeName = "FileNamePipe";
-
         public static Thread CommandExecuter = new Thread(CommandThread);
         private static FileSystemWatcher[] FileSystemWatchers = new FileSystemWatcher[0];
-        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream(PipeName);
+        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream("FileNamePipe");
+        private static StreamReader PipeReader;
         private static Task[] PartitionMonitors = new Task[0];
 
         public static void CommandThread()
         {
 #if DEBUG
             Debugger.StartDebug();
-            Debugger.WriteLog(Debugger.LogLevel.Warning, $"[FileDetector] Ожидание подключения к трубе \"{PipeName}\""); 
+            Debugger.WriteLog(Debugger.LogLevel.Warning, $"[FileDetector] Ожидание подключения к трубе FileNamePipe"); 
 #endif
 
             ClientStream.Connect();
+            PipeReader = new StreamReader(ClientStream);
 
 #if DEBUG
             Debugger.WriteLog(Debugger.LogLevel.Warning, "[FileDetector] Подключен к ядру");
 #endif
             while (true)
             {
-                byte[] buffer = new byte[512];
-                if(ClientStream.Read(buffer, 0, 512) > 0)
+#if DEBUG
+                Debugger.WriteLog("[FileDetector] [CommandThread] Read...");
+#endif
+                string buffer = PipeReader.ReadLine();
+#if DEBUG
+                Debugger.WriteLog("[FileDetector] [CommandThread] Readed");
+#endif
+
+
+                if (buffer.Length > 0)
                 {
-                    string command = Encoding.Unicode.GetString(buffer);
-                    string op1 = command.Substring(command.IndexOf('*'), command.Length - command.LastIndexOf('*') - 1);
-                    string op2 = command.Substring(command.LastIndexOf('*'));
+                    string op1 = buffer.Substring(buffer.IndexOf('*')+1, buffer.Length - buffer.IndexOf('&')-1);
+                    string op2 = buffer.Substring(buffer.IndexOf('&')+1);
 
 #if DEBUG
-                    Debugger.WriteLog("[FileDetector] [CommandThread] " + command);
+                    Debugger.WriteLog("[FileDetector] [CommandThread] " + buffer);
                     Debugger.WriteLog($"[FileDetector] [CommandThread] op1 and op2 = \"{op1}\" and \"{op2}\" ");
 #endif
 
-                    switch (command[0])
+                    switch (buffer[0])
                     {
                         case '0': 
                             {

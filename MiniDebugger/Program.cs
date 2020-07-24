@@ -190,18 +190,29 @@ namespace MiniDebugger
         /*====*/
         public static void PipeReader(string PipeName)
         {
-            Console.WriteLine("PipeReader for \"{0}\"\nWait connection", PipeName);
+            Console.WriteLine("PipeReader(Named Pipe Server) for \"{0}\"\nWait connection", PipeName);
             NamedPipeServerStream server = new NamedPipeServerStream(PipeName);
             server.WaitForConnection();
             Console.WriteLine("Connected!");
 
             StreamReader reader = new StreamReader(server, Encoding.Unicode);
-            
+
+            Console.WriteLine("exec user func");
+            {
+                Thread.Sleep(300);
+                StreamWriter writer = new StreamWriter(server, Encoding.Unicode) { AutoFlush = true };
+                writer.WriteLine(@"0*D:\&*.*"); //Создание монитора раздела
+                server.WaitForPipeDrain();
+            }
+            Console.WriteLine("End");
+
 
             while (true)
             {
                 string msg = reader.ReadLine();
-                Console.WriteLine($"[{PipeName}] " + msg);
+                
+                if(msg.Length > 0)
+                    Console.WriteLine($"[{PipeName}] " + msg);
             }
         }
 
