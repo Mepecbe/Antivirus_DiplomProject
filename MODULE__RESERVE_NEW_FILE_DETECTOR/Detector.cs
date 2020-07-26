@@ -43,45 +43,68 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
     }
 #endif
 
-    public static class ReserveDetector
+    public static class PartitionMonitor
     {
+        private static Task[] PartitionMonitors = new Task[0];
         public static Thread CommandExecuter = new Thread(CommandThread);
         private static FileSystemWatcher[] FileSystemWatchers = new FileSystemWatcher[0];
-        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream("FileNamePipe");
-        private static StreamReader PipeReader;
-        private static Task[] PartitionMonitors = new Task[0];
+        
+        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream("PartitionMon_FilePaths");
+        private static NamedPipeServerStream CommandStream = new NamedPipeServerStream("PartitionMon_Command");
+
+        private static StreamReader CommandReader; //Для чтения команд
+        private static StreamWriter Writer; //Для отправки путей к файлам
 
         public static void CommandThread()
         {
 #if DEBUG
             Debugger.StartDebug();
-            Debugger.WriteLog(Debugger.LogLevel.Warning, $"[FileDetector] Ожидание подключения к трубе FileNamePipe"); 
+            Debugger.WriteLog(Debugger.LogLevel.Warning, $"[FileDetector] Wait connection to pipe PartitionMon_FilePaths"); 
 #endif
 
             ClientStream.Connect();
-            PipeReader = new StreamReader(ClientStream);
+            Writer = new StreamWriter(ClientStream, Encoding.Unicode) { AutoFlush = true };
 
 #if DEBUG
-            Debugger.WriteLog(Debugger.LogLevel.Warning, "[FileDetector] Подключен к ядру");
+            Debugger.WriteLog(Debugger.LogLevel.Info, $"[FileDetector] Connected to PartitionMon_FilePaths");
+            Debugger.WriteLog(Debugger.LogLevel.Warning, $"[FileDetector] Create command pipe and wait client connection");
+#endif
+
+            CommandStream.WaitForConnection();
+            CommandReader = new StreamReader(CommandStream, Encoding.Unicode);
+
+#if DEBUG
+            Debugger.WriteLog(Debugger.LogLevel.Info, "[FileDetector] Connected to PartitionMon_FilePaths");
 #endif
             while (true)
             {
 #if DEBUG
-                Debugger.WriteLog("[FileDetector] [CommandThread] Read...");
+                Debugger.WriteLog("[FileDetector] [CommandThread] Wait command...");
 #endif
-                string buffer = PipeReader.ReadLine();
+                string buffer = CommandReader.ReadLine();
 #if DEBUG
-                Debugger.WriteLog("[FileDetector] [CommandThread] Readed");
+                Debugger.WriteLog("[FileDetector] [CommandThread] Read command");
 #endif
 
 
                 if (buffer.Length > 0)
                 {
-                    string op1 = buffer.Substring(buffer.IndexOf('*')+1, buffer.Length - buffer.IndexOf('&')-1);
-                    string op2 = buffer.Substring(buffer.IndexOf('&')+1);
-
+                    //Парсинг операндов
+                    string op1 = string.Empty, op2 = string.Empty;
+                    
+                    try
+                    {
+                        op1 = buffer.Substring(buffer.IndexOf('*') + 1, buffer.Length - buffer.IndexOf('&') - 1);
+                        op2 = buffer.Substring(buffer.IndexOf('&') + 1);
+                    }
+                    catch
+                    {
 #if DEBUG
-                    Debugger.WriteLog("[FileDetector] [CommandThread] " + buffer);
+                        Debugger.WriteLog($"[FileDetector] [CommandThread] Error parse operands");
+#endif
+                        continue;
+                    }
+#if DEBUG
                     Debugger.WriteLog($"[FileDetector] [CommandThread] op1 and op2 = \"{op1}\" and \"{op2}\" ");
 #endif
 
@@ -89,12 +112,14 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                     {
                         case '0': 
                             {
+                                //Создание монитора раздела
                                 CreatePartitionMon(op1, op2);
                                 break; 
                             }
 
                         case '1':
                             {
+                                //Отключение монитора раздела
                                 break;
                             }
 
@@ -129,6 +154,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 #if DEBUG
             Debugger.WriteLog($"[FileDetector] [CreateFileEvent] Detected create file {e.Name}");
 #endif
+            Writer.WriteLine((int)e.ChangeType + e.FullPath);
         }
 
         static void ChangedFileEvent(object sender, FileSystemEventArgs e)
@@ -136,6 +162,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 #if DEBUG
             Debugger.WriteLog($"[FileDetector] [ChangedFileEvent] Detected changed file {e.Name}");
 #endif
+            Writer.WriteLine((int)e.ChangeType + e.FullPath);
         }
     }
 
@@ -143,7 +170,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
     {
         public static byte EntryPoint()
         {
-            ReserveDetector.CommandExecuter.Start();
+            PartitionMonitor.CommandExecuter.Start();
             return 0;
         }
     }

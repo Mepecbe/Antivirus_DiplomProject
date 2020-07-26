@@ -24,14 +24,14 @@ namespace MiniDebugger
         {
             System.Console.CancelKeyPress += OnClose;
 
-            /*операнд 0 - r(receive) или s(sender) или c(command), мод работы программы*/
+            /*операнд 0 - r(receive) или w(writer) или c(command), мод работы программы*/
             if (args.Length > 0)
             {
                 if (args[0] == "r")
                 {
                     new Task(() => PipeReader(args[1])).Start();
                 }
-                else if (args[0] == "s")
+                else if (args[0] == "w")
                 {
                     new Task(() => PipeWriter(args[1])).Start();
                 }else if(args[0] == "c")
@@ -123,24 +123,34 @@ namespace MiniDebugger
 
 
             Console.Clear();
-            new Thread(pipeReceiver).Start();
+            new Thread(Debug_PipeReader).Start();
 
             /*Запуск "скриптов" отладки*/
             Debug_PartitionMon(EntryPoint);
             
+
             return Task.Delay(-1);
         }
 
 
         static void OnClose(object sender, ConsoleCancelEventArgs e)
         {
-            foreach (int id in IDs) Process.GetProcessById(id).Kill();
+            foreach (int id in IDs) 
+                try { 
+                    Process.GetProcessById(id).Kill(); 
+                } 
+                 catch 
+                { 
+                    Console.WriteLine("Процесс {0} уже был завершен, пропуск", id); 
+                }
+
+            Console.WriteLine("End debug, press any key....");
         }
 
         /// <summary>
         /// Функция для приема и вывода информации, принимаемой по трубе
         /// </summary>
-        static void pipeReceiver()
+        static void Debug_PipeReader()
         {
             Console.WriteLine("[DbgPipe] Ожидание подключения отлаживаемых модулей");
             server.WaitForConnection();
@@ -197,32 +207,29 @@ namespace MiniDebugger
 
             StreamReader reader = new StreamReader(server, Encoding.Unicode);
 
-            Console.WriteLine("exec user func");
-            {
-                Thread.Sleep(300);
-                StreamWriter writer = new StreamWriter(server, Encoding.Unicode) { AutoFlush = true };
-                writer.WriteLine(@"0*D:\&*.*"); //Создание монитора раздела
-                server.WaitForPipeDrain();
-            }
-            Console.WriteLine("End");
-
-
             while (true)
             {
                 string msg = reader.ReadLine();
                 
                 if(msg.Length > 0)
                     Console.WriteLine($"[{PipeName}] " + msg);
+                else
+                    if (!server.IsConnected)
+                    {
+                        Console.WriteLine("DISCONNECT!!! Wait for connection....");
+                        server.WaitForConnection();
+                    }
             }
         }
 
         public static void PipeWriter(string PipeName)
         {
-            Console.WriteLine("PipeWriter for \"{0}\"", PipeName);
+            Console.WriteLine("PipeWriter(Client) for \"{0}\", wait connect", PipeName);
             NamedPipeClientStream server = new NamedPipeClientStream(PipeName);
             server.Connect();
+            Console.WriteLine("Connection successful");
 
-            StreamWriter writer = new StreamWriter(server, Encoding.Unicode);
+            StreamWriter writer = new StreamWriter(server, Encoding.Unicode) { AutoFlush = true };
 
             while (true)
             {
@@ -301,7 +308,8 @@ namespace MiniDebugger
         static void Debug_PartitionMon(MethodInfo EntryPoint)
         {
             //Создание процесса(отдельного окна) на чтение трубы FileNamePipe
-            IDs.Add(Process.Start("MiniDebugger.exe", "r FileNamePipe").Id);
+            IDs.Add(Process.Start("MiniDebugger.exe", "r PartitionMon_FilePaths").Id);
+            IDs.Add(Process.Start("MiniDebugger.exe", "w PartitionMon_Command").Id);
 
             Thread.Sleep(2000);
             EntryPoint.Invoke(null, new object[] { });
