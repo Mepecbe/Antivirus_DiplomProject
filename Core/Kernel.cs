@@ -43,10 +43,10 @@ namespace Core
 
         public class Module
         {
-            public  string ModuleName;
-            public  Assembly ModuleAssembly;
+            public string ModuleName;
+            public Assembly ModuleAssembly;
             private bool Running;
-            public  bool IsRunning { get { return this.Running; } }
+            public bool IsRunning { get { return this.Running; } }
 
             public Module(string ModuleFileName)
             {
@@ -107,13 +107,13 @@ namespace Core
 
             {
                 //Запуск модулей
-                foreach(string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
+                foreach (string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
                 {
-                    Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\')+1, FileName.Length - FileName.LastIndexOf('\\')-1));
+                    Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
                 }
 
                 Console.WriteLine("Проверка таблицы сервисов");
-                foreach(Loader.Module m in Loader.Modules)
+                foreach (Loader.Module m in Loader.Modules)
                 {
                     Console.WriteLine($"Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
                 }

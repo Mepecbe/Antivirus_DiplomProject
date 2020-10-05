@@ -34,7 +34,8 @@ namespace MiniDebugger
                 else if (args[0] == "w")
                 {
                     new Task(() => PipeWriter(args[1])).Start();
-                }else if(args[0] == "c")
+                }
+                else if (args[0] == "c")
                 {
                     new Task(() => CommandLine()).Start();
                 }
@@ -59,7 +60,7 @@ namespace MiniDebugger
 
             {
                 byte number = 0;
-                string[] modulePaths = Directory.GetFiles("..\\Modules\\", "*.dll"); 
+                string[] modulePaths = Directory.GetFiles("..\\Modules\\", "*.dll");
                 foreach (string module in modulePaths)
                 {
                     Console.WriteLine($"[{number++}]->" + module);
@@ -111,7 +112,7 @@ namespace MiniDebugger
 
             Type Initializator = moduleAssembly.GetType(name.Substring(0, name.Length - 3) + "Initializator");
             MethodInfo EntryPoint = Initializator.GetMethod("EntryPoint");
-            if(EntryPoint == null)
+            if (EntryPoint == null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Вход в модуль невозможен(Проблемы с точкой входа)");
@@ -127,7 +128,7 @@ namespace MiniDebugger
 
             /*Запуск "скриптов" отладки*/
             Debug_PartitionMon(EntryPoint);
-            
+
 
             return Task.Delay(-1);
         }
@@ -135,13 +136,14 @@ namespace MiniDebugger
 
         static void OnClose(object sender, ConsoleCancelEventArgs e)
         {
-            foreach (int id in IDs) 
-                try { 
-                    Process.GetProcessById(id).Kill(); 
-                } 
-                 catch 
-                { 
-                    Console.WriteLine("Процесс {0} уже был завершен, пропуск", id); 
+            foreach (int id in IDs)
+                try
+                {
+                    Process.GetProcessById(id).Kill();
+                }
+                catch
+                {
+                    Console.WriteLine("Процесс {0} уже был завершен, пропуск", id);
                 }
 
             Console.WriteLine("End debug, press any key....");
@@ -210,15 +212,15 @@ namespace MiniDebugger
             while (true)
             {
                 string msg = reader.ReadLine();
-                
-                if(msg.Length > 0)
+
+                if (msg.Length > 0)
                     Console.WriteLine($"[{PipeName}] " + msg);
                 else
                     if (!server.IsConnected)
-                    {
-                        Console.WriteLine("DISCONNECT!!! Wait for connection....");
-                        server.WaitForConnection();
-                    }
+                {
+                    Console.WriteLine("DISCONNECT!!! Wait for connection....");
+                    server.WaitForConnection();
+                }
             }
         }
 
@@ -269,7 +271,7 @@ namespace MiniDebugger
                             Console.Write("Введите сообщение: ");
                             string message = Console.ReadLine();
 
-                            if(PipeConnections.Count > 1)
+                            if (PipeConnections.Count > 1)
                                 foreach (NamedPipeClientStream client in PipeConnections) Console.WriteLine(client);
                             else
                             {
@@ -281,7 +283,7 @@ namespace MiniDebugger
 
                     case "conn":
                         {
-                            PipeConnections.Append(new NamedPipeClientStream(command.Substring(command.IndexOf(' ')+1)));
+                            PipeConnections.Append(new NamedPipeClientStream(command.Substring(command.IndexOf(' ') + 1)));
                             Console.Write("Проба подключения к " + command.Substring(command.IndexOf(' ') + 1) + "...");
 
                             try
@@ -309,13 +311,21 @@ namespace MiniDebugger
         {
             //Создание процесса(отдельного окна) на чтение трубы FileNamePipe
             IDs.Add(Process.Start("MiniDebugger.exe", "r PartitionMon_FilePaths").Id);
+            //Создание процесса для записи в трубу PartitionMon_Command 
             IDs.Add(Process.Start("MiniDebugger.exe", "w PartitionMon_Command").Id);
 
             Thread.Sleep(2000);
+            //Вход в модуль(Запуск)
             EntryPoint.Invoke(null, new object[] { });
 
-            //Конец скрипта, Создаем командную строку отладчика в новом окне
-            IDs.Add(Process.Start("MiniDebugger.exe", "c").Id);            
+            //Создаем командную строку отладчика в новом окне
+            IDs.Add(Process.Start("MiniDebugger.exe", "c").Id);
+        }
+
+
+        static void Debug_Scanner(MethodInfo EntryPoint)
+        {
+
         }
     }
 }
