@@ -43,8 +43,8 @@ namespace Core
 
         public class Module
         {
-            public string ModuleName;
-            public Assembly ModuleAssembly;
+            public readonly string ModuleName;
+            public readonly Assembly ModuleAssembly;
             private bool Running;
             public bool IsRunning { get { return this.Running; } }
 
@@ -103,6 +103,8 @@ namespace Core
     {
         static void Main(string[] args)
         {
+            Console.CancelKeyPress += Console_CancelKeyPress;
+
             //Точка входа в антивирус
 
             {
@@ -118,6 +120,11 @@ namespace Core
                     Console.WriteLine($"Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
                 }
             }
+        }
+
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("cancel");
         }
     }
 }

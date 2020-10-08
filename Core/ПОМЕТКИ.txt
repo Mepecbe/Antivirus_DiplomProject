@@ -24,3 +24,10 @@ RESERVE NEW FILE DETECTOR
 
 Решения по алгоритму поиска сигнатуры
 	https://www.intuit.ru/studies/courses/10554/1092/lecture/27087?page=4
+	
+ 		1 2 3 4 1 2 4 A B C C 5 8 1 A A E F E B B C D A 
+				
+		A A A C A E 3 4 2 5 5
+		A C D D F 1 5 0   
+		B A B A C E E F 5 A
+		B D 4 5 7 A C C C A B B D E F A A 1 A F F F F

@@ -211,7 +211,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         }
 
         /// <summary>
-        /// Disable all threads and FIleSys watchers
+        /// Disable all threads and FileSys watchers
         /// </summary>
         public static void StopAll()
         {
@@ -237,6 +237,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         public static void Stop()
         {
             PartitionMonitor.StopAll();
+            System.GC.Collect();
         }
     }
 }
