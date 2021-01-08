@@ -73,9 +73,29 @@ namespace Core.Kernel_MODULES.ScanModule
             while(true)
             {
                 string commandBuffer = Reader.ReadLine();
+
+                Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] ->" + commandBuffer);
+               
+                switch (commandBuffer[0])
+                {
+                    case '1': 
+                        {
 #if DEBUG
-                Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Read new file -> " + commandBuffer);
+                            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Created file -> " + commandBuffer);
 #endif
+                            break; 
+                        }
+
+                    case '4': 
+                        {
+#if DEBUG
+                            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Changed file -> " + commandBuffer);
+#endif
+                            break; 
+                        }
+                }
+
+                commandBuffer = string.Empty;
             }
         });
 

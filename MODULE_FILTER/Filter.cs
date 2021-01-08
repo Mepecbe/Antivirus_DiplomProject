@@ -12,6 +12,13 @@ namespace MODULE_FILTER
 {
     public static class Filter
     {
+        const string API_MON_PIPE = "API_MON_FILTER";
+        const string DRIVER_MON_PIPE = "DRIVER_MON_FILTER";
+        const string OUTPUT_PIPE_NAME = "FILE_QUEUE";
+
+
+
+
         private static List<string> UncheckedExtentions = new List<string>();
         private static List<string> UncheckedPatches    = new List<string>();
 
@@ -20,6 +27,7 @@ namespace MODULE_FILTER
             throw new NotImplementedException();
         }
     }
+
 
     public static class Initializator
     {

@@ -13,6 +13,9 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 {
     public static class PartitionMonitor
     {
+        const string FilterPipeName = "API_MON_FILTER";
+
+
         private static Thread CommandExecuter = new Thread(CommandThread);
 
         private static FileSystemWatcher[] FileSystemWatchers = new FileSystemWatcher[0];
@@ -85,45 +88,26 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 if (buffer.Length > 0)
                 {
                     //Парсинг операндов
-                    string op1 = string.Empty,
-                           op2 = string.Empty;
-
-                    try
-                    {
-                        op1 = buffer.Substring(buffer.IndexOf('*') + 1, buffer.IndexOf('&') - 2);
-                        op2 = buffer.Substring(buffer.IndexOf('&') + 1);
-                    }
-                    catch
-                    {
-#if DEBUG
-                        Console.WriteLine($"[FileDetector] [CommandThread] Parameter parsing error(receive command ->{buffer}<-)");
-#endif
-                        continue;
-                    }
-#if DEBUG
-                    Console.WriteLine($"[FileDetector] [CommandThread] ({buffer}) parsed =>>> op1 and op2 = \"{op1}\" and \"{op2}\" ");
-#endif
-
-                    switch (buffer[0])
+                    string[] args = buffer.Substring(buffer.IndexOf('*')+1).Split('&');
+                    
+                    switch (buffer[buffer.IndexOf('*') - 1])
                     {
                         //command id 0 - Create Partition Monitor
                         case '0':
                             {
-                                if (op2.Length <= 1) op2 = "*.*";
-#if DEBUG
-                                Console.WriteLine($"[FileDetector] Create Partition monitor for \"{op1}\", used filter \"{op2}\"");
-#endif
-                                CreatePartitionMon(op1, op2);
+                                if (args[1].Length == 0)
+                                {
+                                    args[1] = "*.*";
+                                }
+
+                                CreatePartitionMon(args[0], args[1]);                                
                                 break;
                             }
 
                         //command id 1 - Disable partition monitor 
                         case '1':
                             {
-#if DEBUG
-                                Console.WriteLine($"[FileDetector] Create Partition monitor for \"{op1}\", used filter \"{op2}\"");
-#endif
-                                DisablePartitionMon(op1);
+                                DisablePartitionMon(args[0]);
                                 break;
                             }
 
@@ -168,6 +152,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 #if DEBUG
             Console.WriteLine( $"[FileDetector] [CommandThread] (DisablePartitionMon) Remove monitor for \"{PartitionPath}\"");
 #endif
+
             lock (locker)
             {
                 for (int index = 0; index < FileSystemWatchers.Length; index++)

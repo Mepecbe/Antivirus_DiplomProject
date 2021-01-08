@@ -94,6 +94,18 @@ namespace Core
                 //PartitionMon_CommandPipe.Write(commandd, 11, commandd.Length);
                 Console.WriteLine("(TASK) END");
             }).Start();
+
+            new Task(() =>
+            {
+                Thread.Sleep(10000);
+                var command = @"1*C:\&*";
+                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
+                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+
+                Console.WriteLine($"(TASK) SEND '{command}'");
+                cmd.WriteLine(command);
+                Console.WriteLine($"(TASK) END");
+            }).Start();
         }
 
 
