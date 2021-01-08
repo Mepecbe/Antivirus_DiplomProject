@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Kernel.cs" />
+    <Compile Include="Kernel_MODULES\Configuration.cs" />
+    <Compile Include="Kernel_MODULES\ModuleManager.cs" />
+    <Compile Include="Kernel_MODULES\ScanQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

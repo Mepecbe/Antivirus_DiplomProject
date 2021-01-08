@@ -48,7 +48,6 @@ namespace MODULE_SCAN
     {
         public static byte EntryPoint()
         {
-            
             return 0;
         }
 

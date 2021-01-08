@@ -20,111 +20,108 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+using Core.Kernel_MODULES.ModuleLoader;
+using Core.Kernel_MODULES.ScanModule;
+using Core.Kernel_MODULES.Configuration;
+
 namespace Core
 {
-    /// <summary>
-    /// Класс, который реализует очереди сканирования
-    /// Служит промежутком между сервисом сканирования файлов и модулем связи с драйверами и модулем диспетчера съемных носителей  
-    /// </summary>
-    static class ScanQueue
-    {
-        //По этой трубе происходит приём имен файлов от модуля связи с драйвером / резервным модулем отслеживания
-        public static NamedPipeServerStream serverStream = new NamedPipeServerStream("FileNamePipe");
-
-        public static Thread receiveThread = new Thread(() =>
-        {
-            serverStream.WaitForConnection();
-        });
-    }
-
-    static class Loader
-    {
-        public static List<Module> Modules = new List<Module>();
-
-        public class Module
-        {
-            public readonly string ModuleName;
-            public readonly Assembly ModuleAssembly;
-            private bool Running;
-            public bool IsRunning { get { return this.Running; } }
-
-            public Module(string ModuleFileName)
-            {
-                this.Running = false;
-                this.ModuleName = ModuleFileName;
-                this.ModuleAssembly = Assembly.LoadFrom("Modules\\" + ModuleFileName);
-
-                {
-                    //Проверка существования класса инициализатора
-                    bool found = false;
-                    foreach (Type type in this.ModuleAssembly.GetTypes())
-                    {
-                        if (type.Name == "Initializator")
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        //Не найден класс инициализатора
-                        return;
-                    }
-                }
-
-                //Вход в модуль
-                Type InitializatorType = this.ModuleAssembly.GetType(ModuleFileName.Substring(0, ModuleFileName.Length - 3) + "Initializator", true, true);
-                MethodInfo EntryPoint = InitializatorType.GetMethod("EntryPoint");
-
-                if (EntryPoint == null)
-                {
-                    return;
-                }
-                else
-                {
-                    object result = EntryPoint.Invoke(null, new object[] { });
-
-                    if ((byte)result == 0)
-                    {
-                        this.Running = true;
-                    }
-                }
-            }
-        }
-
-        public static void LoadModule(string ModuleFileName)
-        {
-            Modules.Add(new Module(ModuleFileName));
-        }
-    }
-
     static class Initialization
     {
-        static void Main(string[] args)
+        static NamedPipeClientStream PartitionMon_CommandPipe = new NamedPipeClientStream("PartitionMon_Command");
+
+        /// <summary>
+        /// Инициализация подключений к модулям/компонентам
+        /// </summary>
+        static void initConnectModules()
+        {
+#if DEBUG
+            Console.WriteLine("[Kernel] Connect to PartitionMon_Command...");
+#endif
+            PartitionMon_CommandPipe.Connect();
+
+
+
+            new Task(() =>
+            {
+                Thread.Sleep(2000);
+                Console.WriteLine("(TASK) SEND");
+                var command = @"0*C:\&*.*";
+                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
+
+                PartitionMon_CommandPipe.Write(commandd, 11, commandd.Length);
+                Console.WriteLine("(TASK) END");
+            }).Start();
+
+        }
+
+        /// <summary>
+        /// Инициализация внутренних компонентов ядра
+        /// </summary>
+        static void initKernelComponents()
+        {
+            FileQueue.RunAPIMonitorPipe();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Точка входа в ядро
+        /// </summary>
+        /// <param name="args"></param>
+        static async Task Main(string[] args)
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
 
-            //Точка входа в антивирус
+            ModuleManager.Loader.LoadModule("MODULE_SCAN.dll");
 
+            
             {
                 //Запуск модулей
                 foreach (string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
                 {
-                    Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
+#if DEBUG
+                    Console.WriteLine("Загрузка модуля -> " + FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
+#endif
+                    ModuleManager.Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
                 }
 
+#if DEBUG
                 Console.WriteLine("Проверка таблицы сервисов");
-                foreach (Loader.Module m in Loader.Modules)
+                foreach (ModuleManager.Module m in ModuleManager.Modules)
                 {
                     Console.WriteLine($"Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
                 }
+#endif
             }
+
+            initKernelComponents();
+            initConnectModules();
+
+            await Task.Delay(-1);
         }
 
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
-            Console.WriteLine("cancel");
+            Console.WriteLine("Shutdown");
         }
     }
 }
