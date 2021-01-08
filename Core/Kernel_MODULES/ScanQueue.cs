@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Pipes;
 using System.Linq;
 using System.Text;
@@ -57,7 +58,7 @@ namespace Core.Kernel_MODULES.ScanModule
 #endif
         });
 
-        private static readonly Thread APIMonitorPipe = new Thread(() =>
+        private static readonly Thread APIMonitor = new Thread(() =>
         {
 #if DEBUG
             Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Wait connection... ");
@@ -66,17 +67,16 @@ namespace Core.Kernel_MODULES.ScanModule
 #if DEBUG
             Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] CONNECTED ");
 #endif
-            byte[] buffer = new byte[256];
-            while(reserveFileMon.Read(buffer,0, buffer.Length) > 0)
+
+            var Reader = new StreamReader(reserveFileMon, Configuration.Configuration.NamedPipeEncoding);
+
+            while(true)
             {
+                string commandBuffer = Reader.ReadLine();
 #if DEBUG
-                Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Read command");
+                Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Read new file -> " + commandBuffer);
 #endif
             }
-
-#if DEBUG
-            Console.WriteLine("END");
-#endif
         });
 
 
@@ -87,7 +87,7 @@ namespace Core.Kernel_MODULES.ScanModule
 
         public static void RunAPIMonitorPipe()
         {
-            APIMonitorPipe.Start();
+            APIMonitor.Start();
         }
     }
 }

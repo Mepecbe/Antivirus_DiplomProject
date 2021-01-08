@@ -58,13 +58,13 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
             {
 #if DEBUG
-                Console.WriteLine($"[FileDetector] Wait connect to PartitionMon_FilePaths");
+                Console.WriteLine($"[FileDetector] [Task.Runner] Wait connect to PartitionMon_FilePaths");
 #endif
                 ClientStream.Connect();
                 Writer = new StreamWriter(ClientStream, NamedPipeEncoding) { AutoFlush = true };
 
 #if DEBUG
-                Console.WriteLine($"[FileDetector] Connected to PartitionMon_FilePaths");
+                Console.WriteLine($"[FileDetector] [Task.Runner] Connected to PartitionMon_FilePaths");
 #endif
             }
 
