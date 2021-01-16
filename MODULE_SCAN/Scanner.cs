@@ -6,6 +6,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.MemoryMappedFiles;
+using System.IO.IsolatedStorage;
+using System.IO.Compression;
+using System.IO.Pipes;
+using System.IO.Ports;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +41,7 @@ namespace MODULE_SCAN
 
         public static byte ScanFile(Stream FileStream)
         {
+            /**/
             throw new NotImplementedException();
         }
 

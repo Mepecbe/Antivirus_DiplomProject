@@ -22,13 +22,9 @@ namespace MODULE_FILTER
     {
         public static class Connector
         {
-            const string API_MON_PIPE = "API_MON_FILTER";        /* Труба для приёма данных от монитора разделов по API */
-            const string DRIVER_MON_PIPE = "DRIVER_MON_FILTER";  /* Труба для приёма данных от монитора разделов использующего драйвер*/
-            const string OUTPUT_PIPE_NAME = "FILE_QUEUE";        /* Выходная труба (соединяющая с ядром)*/
-
-            public static NamedPipeServerStream DriverMonitor = new NamedPipeServerStream(DRIVER_MON_PIPE);
-            public static NamedPipeServerStream ApiMonitor    = new NamedPipeServerStream(DRIVER_MON_PIPE);
-            public static NamedPipeClientStream Kernel        = new NamedPipeClientStream(OUTPUT_PIPE_NAME);
+            public static NamedPipeServerStream DriverMonitor = new NamedPipeServerStream("DRIVER_MON_FILTER"); /* Труба для приёма данных от монитора разделов использующего драйвер*/
+            public static NamedPipeServerStream ApiMonitor    = new NamedPipeServerStream("API_MON_FILTER");    /* Труба для приёма данных от монитора разделов по API */
+            public static NamedPipeClientStream Kernel        = new NamedPipeClientStream("FILE_QUEUE");        /* Выходная труба (соединяющая с ядром)*/
         }
 
         public static class ProcessingFlows
@@ -38,6 +34,15 @@ namespace MODULE_FILTER
             /// </summary>
             public static Thread Handler1 = new Thread(() =>
             {
+#warning "Необходимо определять тип операции, создание или изменение"
+#if DEBUG
+                Console.WriteLine("[Filter.Thr.Handler1] Active! Wait connection");
+#endif
+                Connector.DriverMonitor.WaitForConnection();
+#if DEBUG
+                Console.WriteLine("[Filter.Thr.Handler1] Connected");
+#endif
+
 
             });
 
@@ -46,39 +51,143 @@ namespace MODULE_FILTER
             /// </summary>
             public static Thread Handler2 = new Thread(() =>
             {
+#if DEBUG
+                Console.WriteLine("[Filter.Thr.Handler2] Active! Wait connection");
+#endif
+                Connector.ApiMonitor.WaitForConnection();
+                StreamReader Reader = new StreamReader(Connector.ApiMonitor, Encoding.Unicode);
+                StreamWriter Writer = new StreamWriter(Connector.Kernel, Encoding.Unicode);
+#if DEBUG
+                Console.WriteLine("[Filter.Thr.Handler2] Connected");
+#endif
 
+                while (true)
+                {
+                    string buffer = Reader.ReadLine();
+                    //Console.WriteLine("[Filter.Thr.Handler2] Read ->" + buffer);
+
+                    if (!FiltrationRules.ApplyFilter(buffer))
+                    {
+                        Writer.WriteLine(buffer);
+                    }
+
+                }
             });
         }
 
         /// <summary>
-        /// Правила фильтрации, если входная строка(а это путь к файлу)
+        /// Правила фильтрации, если входная строка(а это путь к файлу) попадает под хотя бы одно правило, файл не отправляется на проверку
         /// </summary>
         public static class FiltrationRules
         {
             /// <summary>
             /// Остальные правила
             /// </summary>
-            public static Regex[] OtherRules = new Regex[0];
+            public static List<Regex> OtherRules = new List<Regex>();
 
             /// <summary>
             /// Фильтруемые расширения
             /// </summary>
-            public static Regex[] Extentions = new Regex[0];
+            public static List<Regex> Extentions = new List<Regex>();
 
             /// <summary>
             /// Фильтруемые пути к файлам
             /// </summary>
-            public static Regex[] Paths = new Regex[0];
+            public static List<Regex> Paths = new List<Regex>();
 
+            public static bool ApplyFilter(string input)
+            {
+                if (Step1(input) || Step2(input) || Step3(input))
+                {
+                    return true;
+                }
 
+                return false;
+            }
+
+            /// <summary>
+            /// Шаг 1 - фильтрация расширений
+            /// </summary>
+            /// <param name="input"></param>
+            /// <returns></returns>
+            public static bool Step1(string input)
+            {
+                foreach (Regex rg in Extentions)
+                {
+                    if (rg.IsMatch(input))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            /// <summary>
+            /// Шаг 2 - фильтрация путей
+            /// </summary>
+            /// <param name="input"></param>
+            /// <returns></returns>
+            public static bool Step2(string input)
+            {
+                foreach (Regex rg in Paths)
+                {
+                    if (rg.IsMatch(input))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            /// <summary>
+            /// Шаг 3 - прочие правила фильтрации
+            /// </summary>
+            /// <param name="input"></param>
+            /// <returns></returns>
+            public static bool Step3(string input)
+            {
+                foreach (Regex rg in OtherRules)
+                {
+                    if (rg.IsMatch(input))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            /// <summary>
+            /// Инициализация стандартных правил
+            /// </summary>
+            public static void InitRules()
+            {
+
+            }
+
+            public static void AddOtherRule(Regex rule)
+            {
+                OtherRules.Add(rule);
+            }
         }
     }
+
 
 
     public static class Initializator
     {
         public static byte EntryPoint()
         {
+            // Необходимо сначала подключить модуль к ядру
+            Filter.Connector.Kernel.Connect();
+
+            Filter.ProcessingFlows.Handler1.Start();
+            Filter.ProcessingFlows.Handler2.Start();
+
+               
+
             return 0;
         }
     }

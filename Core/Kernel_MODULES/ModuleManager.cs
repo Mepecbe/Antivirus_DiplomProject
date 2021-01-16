@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Kernel_MODULES.ModuleLoader
+namespace Core.Kernel.ModuleLoader
 {
     public static class ModuleManager
     {

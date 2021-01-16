@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Kernel_MODULES.Configuration
+namespace Core.Kernel.Configuration
 {
     public static class Configuration
     {

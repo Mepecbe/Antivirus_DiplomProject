@@ -7,11 +7,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Core.Kernel_MODULES.ScanModule
+namespace Core.Kernel.ScanModule
 {
     /// <summary>
     /// Класс, который реализует очереди сканирования
-    /// Служит промежутком между сервисом сканирования файлов и модулем связи с драйверами и модулем диспетчера съемных носителей  
     /// </summary>
     static class ScanQueue
     {
@@ -26,62 +25,34 @@ namespace Core.Kernel_MODULES.ScanModule
     static class FileQueue
     {
         /// <summary>
-        /// По этой трубе происходит приём имен файлов от модуля отслеживания файлов через драйвер
+        /// По этой трубе происходит приём имен файлов от модуля фильтра
         /// </summary>
-        private static NamedPipeServerStream driverFileMon = new NamedPipeServerStream("FileNamePipe");
+        private static NamedPipeServerStream FilterPipe = new NamedPipeServerStream("FILE_QUEUE");
 
-        /// <summary>
-        /// По этой трубе происходит приём имен файлов от модуля отслеживания файлов по API
-        /// </summary>
-        private static NamedPipeServerStream reserveFileMon = new NamedPipeServerStream("PartitionMon_FilePaths");
-
-        private static readonly Thread DriverMonitorPipe = new Thread(() =>
+        private static readonly Thread Monitor = new Thread(() =>
         {
 #if DEBUG
-            Console.WriteLine("[FileQueue] [Thr.DriverMonitorPipe] Wait connection... ");
+            Console.WriteLine("[FileQueue] [Thr.Monitor] Wait connection... ");
 #endif
-            driverFileMon.WaitForConnection();
+            FilterPipe.WaitForConnection();
 #if DEBUG
-            Console.WriteLine("[FileQueue] [Thr.DriverMonitorPipe] CONNECTED ");
+            Console.WriteLine("[FileQueue] [Thr.Monitor] CONNECTED ");
 #endif
 
-            byte[] buffer = new byte[256];
-            while (driverFileMon.Read(buffer, 0, buffer.Length) > 0)
-            {
-#if DEBUG
-                Console.WriteLine("[FileQueue] [Thr.DriverMonitorPipe] Read command");
-#endif
-            }
-
-#if DEBUG
-            Console.WriteLine("END");
-#endif
-        });
-
-        private static readonly Thread APIMonitor = new Thread(() =>
-        {
-#if DEBUG
-            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Wait connection... ");
-#endif
-            reserveFileMon.WaitForConnection();
-#if DEBUG
-            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] CONNECTED ");
-#endif
-
-            var Reader = new StreamReader(reserveFileMon, Configuration.Configuration.NamedPipeEncoding);
+            var Reader = new StreamReader(FilterPipe, Configuration.Configuration.NamedPipeEncoding);
 
             while(true)
             {
                 string commandBuffer = Reader.ReadLine();
 
-                Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] ->" + commandBuffer);
+                Console.WriteLine("[FileQueue] [Thr.Monitor] ->" + commandBuffer);
                
                 switch (commandBuffer[0])
                 {
                     case '1': 
                         {
 #if DEBUG
-                            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Created file -> " + commandBuffer);
+                            Console.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
 #endif
                             break; 
                         }
@@ -89,7 +60,7 @@ namespace Core.Kernel_MODULES.ScanModule
                     case '4': 
                         {
 #if DEBUG
-                            Console.WriteLine("[FileQueue] [Thr.APIMonitorPipe] Changed file -> " + commandBuffer);
+                            Console.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
 #endif
                             break; 
                         }
@@ -100,14 +71,9 @@ namespace Core.Kernel_MODULES.ScanModule
         });
 
 
-        public static void RunDriverMonitorPipe()
+        public static void Run()
         {
-            DriverMonitorPipe.Start();
-        }
-
-        public static void RunAPIMonitorPipe()
-        {
-            APIMonitor.Start();
+            Monitor.Start();
         }
     }
 }

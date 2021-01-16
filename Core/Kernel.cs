@@ -20,9 +20,10 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-using Core.Kernel_MODULES.ModuleLoader;
-using Core.Kernel_MODULES.ScanModule;
-using Core.Kernel_MODULES.Configuration;
+using Core.Kernel.ModuleLoader;
+using Core.Kernel.ScanModule;
+using Core.Kernel.Configuration;
+using Core.Kernel.Quarantine;
 
 namespace Core
 {
@@ -44,8 +45,7 @@ namespace Core
         /// </summary>
         static void initKernelComponents()
         {
-            //FileQueue.RunDriverMonitorPipe();
-            FileQueue.RunAPIMonitorPipe();
+            FileQueue.Run();
         }
                
         /// <summary>
@@ -79,45 +79,7 @@ namespace Core
             Console.WriteLine("[Kernel.initConnectModules] Connect to PartitionMon_Command...");
 #endif
             PartitionMon_CommandPipe.Connect();
-
-            new Task(() =>
-            {
-                Thread.Sleep(2000);
-                var command = @"0*C:\&*.*";
-                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
-
-                Console.WriteLine($"(TASK) SEND '{command}'");
-                cmd.WriteLine(command);
-                //cmd.WriteLine("123");
-                //cmd.WriteLine("123");
-                //PartitionMon_CommandPipe.Write(commandd, 11, commandd.Length);
-                Console.WriteLine("(TASK) END");
-            }).Start();
-
-            new Task(() =>
-            {
-                Thread.Sleep(10000);
-                var command = @"1*C:\&*";
-                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
-
-                Console.WriteLine($"(TASK) SEND '{command}'");
-                cmd.WriteLine(command);
-                Console.WriteLine($"(TASK) END");
-            }).Start();
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -130,12 +92,16 @@ namespace Core
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
 
+            /*
             initKernelConfiguration();
             initKernelComponents();
 
             initModules();
             initConnectModules();
+            */
 
+            testMethods();
+            
 
 
             await Task.Delay(-1);
@@ -144,6 +110,42 @@ namespace Core
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("Shutdown");
+        }
+
+
+
+
+        private static void testMethods()
+        {
+            /*Quarantine.InitStorage();
+            Console.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
+            */
+
+
+            /*
+            new Task(() =>
+            {
+                Thread.Sleep(7000);
+                var command = @"0*C:\&*.*";
+                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
+                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+
+                Console.WriteLine($"(TASK) SEND '{command}'");
+                cmd.WriteLine(command);
+                Console.WriteLine("(TASK) END");
+            }).Start();
+
+            new Task(() =>
+            {
+                Thread.Sleep(12000);
+                var command = @"1*C:\&*";
+                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
+                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+
+                Console.WriteLine($"(TASK) SEND '{command}'");
+                cmd.WriteLine(command);
+                Console.WriteLine($"(TASK) END");
+            }).Start();*/
         }
     }
 }

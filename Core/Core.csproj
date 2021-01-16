@@ -60,16 +60,21 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Vlingo.UUID, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlingo.UUID.0.9.8\lib\netstandard2.0\Vlingo.UUID.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Kernel.cs" />
     <Compile Include="Kernel_MODULES\Configuration.cs" />
     <Compile Include="Kernel_MODULES\ModuleManager.cs" />
+    <Compile Include="Kernel_MODULES\Quarantine.cs" />
     <Compile Include="Kernel_MODULES\ScanQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

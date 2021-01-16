@@ -23,9 +23,9 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         private static object locker = new object();
 
         /// <summary>
-        /// Для отправки путей к файлам, которые были обнаружены
+        /// Для отправки путей к файлам в модуль фильтра, которые были обнаружены
         /// </summary>
-        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream("PartitionMon_FilePaths");
+        private static NamedPipeClientStream ClientStream = new NamedPipeClientStream("API_MON_FILTER");
 
         /// <summary>
         /// Для приёма команд
@@ -61,16 +61,20 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
             {
 #if DEBUG
-                Console.WriteLine($"[FileDetector] [Task.Runner] Wait connect to PartitionMon_FilePaths");
+                Console.WriteLine($"[FileDetector] [Task.Runner] Wait connect to API_MON_FILTER");
 #endif
                 ClientStream.Connect();
+
+#if DEBUG
+                Console.WriteLine($"[FileDetector] [Task.Runner] SET WRITER ====================");
+#endif
+                
                 Writer = new StreamWriter(ClientStream, NamedPipeEncoding) { AutoFlush = true };
 
 #if DEBUG
-                Console.WriteLine($"[FileDetector] [Task.Runner] Connected to PartitionMon_FilePaths");
+                Console.WriteLine($"[FileDetector] [Task.Runner] Connected to API_MON_FILTER");
 #endif
             }
-
         });
 
         public static void CommandThread()
