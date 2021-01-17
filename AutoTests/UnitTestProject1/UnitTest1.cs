@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Filter = MODULE_FILTER.Filter;
 using System.Text.RegularExpressions;
 using System.IO;
 
@@ -26,7 +25,7 @@ namespace UnitTestProject1
 
             };
 
-
+            /*
             Console.WriteLine(Directory.GetCurrentDirectory());
 
             Filter.FiltrationRules.AddOtherRule(new Regex(@"C:/"));
@@ -35,7 +34,7 @@ namespace UnitTestProject1
             {
                 Console.WriteLine($"Test string {str}");
                 Assert.AreEqual(Filter.FiltrationRules.Step3(str), true);
-            }
+            }*/
         }
     }
 }

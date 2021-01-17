@@ -16,7 +16,7 @@ using System.IO.Pipes;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MODULE_FILTER
+namespace MODULE__FILTER
 {
     public static class Filter
     {

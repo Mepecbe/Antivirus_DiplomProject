@@ -7,8 +7,8 @@
     <ProjectGuid>{0E8FECC9-58C3-4059-8ED2-997AE3290643}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MODULE_FILTER</RootNamespace>
-    <AssemblyName>MODULE_FILTER</AssemblyName>
+    <RootNamespace>MODULE__FILTER</RootNamespace>
+    <AssemblyName>MODULE__FILTER</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

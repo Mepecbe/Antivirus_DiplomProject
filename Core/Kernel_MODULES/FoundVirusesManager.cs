@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1
+namespace Core.Kernel.VirusesManager
 {
-    public class Class1
+    static class FoundVirusesManager
     {
+
     }
 }

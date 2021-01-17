@@ -16,8 +16,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MODULE_SCAN
+namespace MODULE__SCAN
 {
+    public static class Connector
+    {
+        public static NamedPipeServerStream inputPipe = new NamedPipeServerStream("ScannerService.input");
+        public static NamedPipeServerStream outputPipe = new NamedPipeServerStream("ScannerService.output");
+
+    }
+
+
     public static class ScannerService
     {
         #region structures

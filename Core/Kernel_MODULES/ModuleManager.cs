@@ -31,6 +31,7 @@ namespace Core.Kernel.ModuleLoader
             {
                 this.IsRunning = false;
                 this.ModuleName = ModuleFileName;
+
                 this.ModuleAssembly = Assembly.LoadFrom("Modules\\" + ModuleFileName);
 
                 {
@@ -56,21 +57,22 @@ namespace Core.Kernel.ModuleLoader
                 }
 
                 //Вход в модуль
-                Type InitializatorType = this.ModuleAssembly.GetType(ModuleFileName.Substring(0, ModuleFileName.Length - 3) + "Initializator", true, true);
-                MethodInfo EntryPoint = InitializatorType.GetMethod("EntryPoint");
-
-                if (EntryPoint == null)
                 {
-                    return;
-                }
-                else
-                {
-                    //Вход в модуль
-                    object result = EntryPoint.Invoke(null, new object[] { });
+                    Type InitializatorType = this.ModuleAssembly.GetType(ModuleFileName.Substring(0, ModuleFileName.Length - 3) + "Initializator", true, true);
+                    MethodInfo EntryPoint = InitializatorType.GetMethod("EntryPoint");
 
-                    if ((byte)result == 0)
+                    if (EntryPoint == null)
                     {
-                        this.IsRunning = true;
+                        return;
+                    }
+                    else
+                    {
+                        object result = EntryPoint.Invoke(null, new object[] { });
+
+                        if ((byte)result == 0)
+                        {
+                            this.IsRunning = true;
+                        }
                     }
                 }
             }

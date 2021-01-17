@@ -55,10 +55,11 @@ namespace Core
         {
             foreach (string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
             {
+                string File = FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1);
 #if DEBUG
-                Console.WriteLine("[Kernel.initModules] Загрузка модуля -> " + FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
+                Console.WriteLine("[Kernel.initModules] Загрузка модуля -> " + File);
 #endif
-                ModuleManager.Loader.LoadModule(FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1));
+                ModuleManager.Loader.LoadModule(File);
             }
 
 #if DEBUG
@@ -91,19 +92,13 @@ namespace Core
         static async Task Main(string[] args)
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
-
-            /*
+                        
             initKernelConfiguration();
             initKernelComponents();
 
             initModules();
             initConnectModules();
-            */
-
-            testMethods();
             
-
-
             await Task.Delay(-1);
         }
 
