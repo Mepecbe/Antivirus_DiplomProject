@@ -61,6 +61,9 @@ namespace MODULE__VIRUSES_DB
     public static class Db
     {
         static IsolatedStorageFile DbStorage;
+        static DbRecord[] DbTable = new DbRecord[] { };
+        static Mutex DbSync = new Mutex();
+
 
         public static void InitDb()
         {
@@ -72,19 +75,124 @@ namespace MODULE__VIRUSES_DB
 
             if (!DbStorage.DirectoryExists("VirusesDb"))
             {
-                Console.WriteLine("[InitDB] ");
-                return;
+                DbStorage.CreateDirectory("VirusesDb");
+#if DEBUG
+                Console.WriteLine("[InitDB] Created Directory VirusesDb in Isolated Storage");
+#endif
             }
 
+            LoadToIsolatedStorage("DatabaseFiles\\");
+
+
+            string[] files = DbStorage.GetFileNames("VirusesDb\\*.db");
+
+            if (files.Length > 0)
+            {
+                foreach (string file in files)
+                {
 #if DEBUG
-            Console.WriteLine("Load DB File");
+                    Console.WriteLine("[InitDb] Load Db ->" + file);
+#endif
+                    LoadDbFromFile("VirusesDb\\" + file);
+                }
+
+#if DEBUG
+                Console.WriteLine($"[InitDb] End init, loaded {DbTable.Length} viruses");
+#endif
+            }
+            else
+            {
+#if DEBUG
+                Console.WriteLine("[InitDB] DB files in isolated storage not found");
+#endif
+            }
+        }
+
+        /// <summary>
+        /// Загрузить файлы БД из локального хранилища в изолированное
+        /// </summary>
+        /// <param name="localDir"></param>
+        private static void LoadToIsolatedStorage(string localDir)
+        {
+#if DEBUG
+            Console.WriteLine("[LoadToIsolatedStorage] Load DBs File from local storage to isolated storage");
+#endif
+            string[] Files = Directory.GetFiles(localDir, "*.db");
+
+            foreach(string file in Files)
+            {
+#if DEBUG
+                Console.WriteLine($"[LoadToIsolatedStorage] Load file from >{file}<");
+                Console.WriteLine($"[LoadToIsolatedStorage] Load file to >VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}<");
 #endif
 
-            string[] dirs = DbStorage.GetDirectoryNames();
+                var isolatedStorageFile = DbStorage.CreateFile($"VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}");
+                var localStorageFile = File.Open(file, FileMode.Open);
 
-            foreach(string dir in dirs)
+
+                byte[] buffer = new byte[256];
+                while(localStorageFile.Read(buffer, 0, buffer.Length) > 0)
+                {
+                    isolatedStorageFile.Write(buffer, 0, buffer.Length);
+                }
+
+                Console.WriteLine($"[LoadToIsolatedStorage] Load success");
+                isolatedStorageFile.Close();
+                localStorageFile.Close();
+            }
+        }
+
+        /// <summary>
+        /// Загрузить БД из файла
+        /// </summary>
+        /// <param name="PathToFile"></param>
+        private static void LoadDbFromFile(string PathToFile)
+        {
+            IsolatedStorageFileStream DbFile = DbStorage.OpenFile(PathToFile, FileMode.Open);
+            BinaryReader reader = new BinaryReader(DbFile);
+
+            byte[] signature;
+            string name;
+
+            int signatureLen = 0;
+            VirusTypes type = 0;
+
+
+            while ( (type = (VirusTypes)DbFile.ReadByte()) > 0)
             {
-                Console.WriteLine(dir);
+                {
+                    signatureLen =  reader.ReadByte();
+
+                    if (signatureLen == -1)
+                    {
+                        break;
+                    }
+                }
+
+                {
+                    signature = new byte[signatureLen];
+                    DbFile.Read(signature, 0, signatureLen);
+                }
+
+                {
+                    name = reader.ReadString();
+                }
+
+                DbSync.WaitOne();
+                {
+                    Array.Resize(ref DbTable, DbTable.Length + 1);
+                    DbTable[DbTable.Length - 1] =
+                        new DbRecord(
+                            name,
+                            signature,
+                            type
+                        );
+
+#if DEBUG
+                    Console.WriteLine($"[DbLoaderFromFile] load virus -> {name}, type {type}, signature len {signatureLen}");
+#endif
+                }
+                DbSync.ReleaseMutex();
             }
         }
 
@@ -93,10 +201,18 @@ namespace MODULE__VIRUSES_DB
             public string Name;
             public byte[] Signature;
             public VirusTypes Type;
+
+            public DbRecord(string name, byte[] signature, VirusTypes type = VirusTypes.Trojan)
+            {
+                this.Name = name;
+                this.Signature = signature;
+                this.Type = type;
+            }
         }
 
         public enum VirusTypes
         {
+            Unknown,
             Trojan,
             Worm,
             Cryptor
