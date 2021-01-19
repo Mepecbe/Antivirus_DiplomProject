@@ -18,7 +18,11 @@ RESERVE NEW FILE DETECTOR
 
 
 
-
+Труба сигнатур,  сервис скана <--> база сигнатур
+	id,len,signature
+	id - int16
+	len - int16
+	signature - byte[len]
 
 	 
 

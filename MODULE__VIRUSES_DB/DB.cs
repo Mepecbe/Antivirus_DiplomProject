@@ -13,38 +13,67 @@ namespace MODULE__VIRUSES_DB
 {
     public static class Connectors
     {
-        public static NamedPipeServerStream CommandPipe = new NamedPipeServerStream("VirusesDb_CommandPipe");
-        public static NamedPipeServerStream DataPipe = new NamedPipeServerStream("VirusesDb_DataPipe");
+        public static NamedPipeServerStream VirusesDb_CommandPipe = new NamedPipeServerStream("VirusesDb.CommandPipe");
+        public static NamedPipeClientStream ScannerService_signatures = new NamedPipeClientStream("ScannerService.signatures");
 
         public static Thread CommandThread = new Thread(commandHandler);
-        public static Thread DataThread    = new Thread(dataHandler);
 
         private static void commandHandler()
         {
 #if DEBUG
             Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Wait connect");
 #endif
-            CommandPipe.WaitForConnection();
-
-            while (true)
-            {
-
-            }
-        }
-
-        private static void dataHandler()
-        {
+            VirusesDb_CommandPipe.WaitForConnection();
 #if DEBUG
-            Console.WriteLine($"[ModuleVirusesDb.Connectors.dataPipe] Wait connect");
+            Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Connected");
 #endif
-            DataPipe.WaitForConnection();
+
+            StreamReader pipeReader = new StreamReader(VirusesDb_CommandPipe, Encoding.Unicode);
+            BinaryWriter writer = new BinaryWriter(ScannerService_signatures);
 
             while (true)
             {
+#if DEBUG
+                Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] WAIT COMMAND");
+#endif
+                string command = pipeReader.ReadLine();
 
+#if DEBUG
+                Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] READ LINE");
+#endif
+
+                switch (command)
+                {
+                    case "/reinit_db":
+                        {
+#if DEBUG
+                            Console.WriteLine("[ModuleVirusesDb] reinit_db");
+#endif
+                            break;
+                        }
+
+                    case "/upload_to_scanner":
+                        {
+#if DEBUG
+                            Console.WriteLine("[ModuleVirusesDb] UPLOAD TO SCANNER ALL SIGNATURES");
+#endif
+
+                            for(int index = 0; index < Db.DbTable.Length; index++)
+                            {
+                                writer.Write(Convert.ToInt16(index));
+                                writer.Write(Convert.ToInt16(Db.DbTable[index].Signature.Length));
+                                
+                                writer.Write(Db.DbTable[index].Signature);                                
+
+                                writer.Flush();
+                            }
+
+                            break;
+                        }
+                }
             }
-
         }
+
 
         /// <summary>
         /// Запуск коннектора
@@ -52,16 +81,26 @@ namespace MODULE__VIRUSES_DB
         public static void RunConnector()
         {
             CommandThread.Start();
-            DataThread.Start();
+
+#if DEBUG
+            Console.WriteLine($"[ModuleViruses.Connectors.RunConnector] Wait connect to ScannerService.signatures");
+#endif
+
+            ScannerService_signatures.Connect();
         }
     }
 
 
 
+
+
+    /// <summary>
+    /// База сигнатур
+    /// </summary>
     public static class Db
     {
         static IsolatedStorageFile DbStorage;
-        static DbRecord[] DbTable = new DbRecord[] { };
+        public static DbRecord[] DbTable = new DbRecord[] { };
         static Mutex DbSync = new Mutex();
 
 
@@ -69,6 +108,7 @@ namespace MODULE__VIRUSES_DB
         {
 #if DEBUG
             Console.WriteLine("[InitDB] Init Isolated Storage!");
+
 #endif
 
             DbStorage = IsolatedStorageFile.GetUserStoreForDomain();
@@ -80,6 +120,7 @@ namespace MODULE__VIRUSES_DB
                 Console.WriteLine("[InitDB] Created Directory VirusesDb in Isolated Storage");
 #endif
             }
+
 
             LoadToIsolatedStorage("DatabaseFiles\\");
 
@@ -122,8 +163,7 @@ namespace MODULE__VIRUSES_DB
             foreach(string file in Files)
             {
 #if DEBUG
-                Console.WriteLine($"[LoadToIsolatedStorage] Load file from >{file}<");
-                Console.WriteLine($"[LoadToIsolatedStorage] Load file to >VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}<");
+                Console.WriteLine($"[LoadToIsolatedStorage] Load file from >{file}< >VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}<");
 #endif
 
                 var isolatedStorageFile = DbStorage.CreateFile($"VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}");
@@ -194,12 +234,15 @@ namespace MODULE__VIRUSES_DB
                 }
                 DbSync.ReleaseMutex();
             }
+
+            DbFile.Close();
         }
 
         public struct DbRecord
         {
             public string Name;
             public byte[] Signature;
+            public int Summ;
             public VirusTypes Type;
 
             public DbRecord(string name, byte[] signature, VirusTypes type = VirusTypes.Trojan)
@@ -207,6 +250,12 @@ namespace MODULE__VIRUSES_DB
                 this.Name = name;
                 this.Signature = signature;
                 this.Type = type;
+                this.Summ = 0;
+
+                foreach(byte i in signature)
+                {
+                    this.Summ += i;
+                }
             }
         }
 
@@ -227,8 +276,8 @@ namespace MODULE__VIRUSES_DB
     {
         public static byte EntryPoint()
         {
-            Connectors.RunConnector();
             Db.InitDb();
+            Connectors.RunConnector();
 
             return 0;
         }

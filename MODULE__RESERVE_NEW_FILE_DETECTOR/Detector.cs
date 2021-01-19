@@ -30,7 +30,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         /// <summary>
         /// Для приёма команд
         /// </summary>
-        private static NamedPipeServerStream CommandStream = new NamedPipeServerStream("PartitionMon_Command");
+        private static NamedPipeServerStream CommandStream = new NamedPipeServerStream("PartitionMon.Command");
 
         /// <summary>
         /// Для чтения команд
@@ -46,7 +46,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         {
             {
 #if DEBUG
-                Console.WriteLine("[PartitionMonitor] [Task.Runner] Wait for connection PartitionMon_Command...");
+                Console.WriteLine("[PartitionMonitor] [Task.Runner] Wait for connection PartitionMon.Command...");
 #endif
 
                 CommandStream.WaitForConnection();
@@ -64,10 +64,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 Console.WriteLine($"[FileDetector] [Task.Runner] Wait connect to API_MON_FILTER");
 #endif
                 ClientStream.Connect();
-
-#if DEBUG
-                Console.WriteLine($"[FileDetector] [Task.Runner] SET WRITER ====================");
-#endif
                 
                 Writer = new StreamWriter(ClientStream, NamedPipeEncoding) { AutoFlush = true };
 

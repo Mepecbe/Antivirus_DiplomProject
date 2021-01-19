@@ -60,14 +60,6 @@ namespace Core.Kernel.Quarantine
         }
 
 
-
-
-
-
-
-
-
-
         static public bool InitStorage()
         {
             try
@@ -75,7 +67,11 @@ namespace Core.Kernel.Quarantine
                 UUID_Generator = new NameBasedGenerator();
 
                 VirusStorage = IsolatedStorageFile.GetUserStoreForDomain();
-                VirusStorage.CreateDirectory("viruses");
+
+                if (!VirusStorage.FileExists("VirusFiles"))
+                {
+                    VirusStorage.CreateDirectory("VirusFiles");
+                }
 
                 return true;
             }

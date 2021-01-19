@@ -20,17 +20,18 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+using System.IO.IsolatedStorage;
+
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
 using Core.Kernel.Configuration;
 using Core.Kernel.Quarantine;
+using Core.Kernel.Connectors;
 
 namespace Core
 {
     static class Initialization
     {
-        static NamedPipeClientStream PartitionMon_CommandPipe = new NamedPipeClientStream("PartitionMon_Command");
-
         /// <summary>
         /// Инициализация конфигурации ядра
         /// </summary>
@@ -46,6 +47,7 @@ namespace Core
         static void initKernelComponents()
         {
             FileQueue.Run();
+            Quarantine.InitStorage();
         }
                
         /// <summary>
@@ -71,18 +73,6 @@ namespace Core
 #endif
         }
 
-        /// <summary>
-        /// Инициализация подключений к модулям/компонентам
-        /// </summary>
-        static void initConnectModules()
-        {
-#if DEBUG
-            Console.WriteLine("[Kernel.initConnectModules] Connect to PartitionMon_Command...");
-#endif
-            PartitionMon_CommandPipe.Connect();
-        }
-
-
 
 
         /// <summary>
@@ -92,13 +82,35 @@ namespace Core
         static async Task Main(string[] args)
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
-                        
+                     
+            //Инициализация конфигурации ядра
             initKernelConfiguration();
+
+            //Инициализация компонентов ядра
             initKernelComponents();
 
+            //Инициализация входящих подключений
+            Connectors.InitInputConnections();
+
+            //Инициализация исходящих подключений
+            Connectors.InitOutputConnections();
+
+            //Инициализация DLL модулей
             initModules();
-            initConnectModules();
-            
+
+#if DEBUG
+            {
+                Thread.Sleep(5000);
+                Console.WriteLine("Состояние подключения трубы команд вирусной БД " + Connectors.VirusesDb_CommandPipe.IsConnected);
+                Console.WriteLine("Состояние подключения трубы команд монитора разделов(API) " + Connectors.PartitionMon_CommandPipe.IsConnected);
+
+                Console.WriteLine("Состояние подключения фильтра " + Connectors.Filter_Input.IsConnected);
+
+                Console.WriteLine("Состояние подключения входной трубы сканнера " + Connectors.ScannerService_Input.IsConnected);
+                Console.WriteLine("Состояние подключения выходной трубы сканнера " + Connectors.ScannerService_Output.IsConnected);
+            }
+#endif
+
             await Task.Delay(-1);
         }
 
