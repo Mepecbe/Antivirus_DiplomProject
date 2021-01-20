@@ -23,9 +23,21 @@ namespace Core.Kernel.ScanModule
         {
             Console.WriteLine("[InputHandler] Started");
             Connectors.KernelConnectors.ScannerService_Input_Sync.WaitOne();
-            var reader = new StreamReader(Connector);
 
-            Connectors.KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
+            var reader = new BinaryReader(Connector);
+
+            while (true)
+            {
+                Console.WriteLine("[InputHandler] WAIT RESPONSE FROM SCANNER");
+
+                int id = reader.ReadInt32();
+                byte result = reader.ReadByte();
+                int virusId = reader.ReadInt32();
+
+                Console.WriteLine($"[KERNEL.SCANQUEUE] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
+            }
+
+            KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
         }
 
         public static void Init()
@@ -99,6 +111,7 @@ namespace Core.Kernel.ScanModule
 
         public static void Run()
         {
+            FilterConnector = KernelConnectors.Filter_Input;
             FilterMonitor.Start();
         }
     }
@@ -109,26 +122,50 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     public static class ScanTasks
     {
+        public static NamedPipeClientStream Scanner_Output;
+        public static BinaryWriter ScannerBinaryWriter;
+
         public static List<ScanTask> tasks = new List<ScanTask>();
         public static Mutex tasks_sync = new Mutex();
+
+        /// <summary>
+        /// Если сканнер обнаружил сигнатуру вируса в файле
+        /// </summary>
+        public delegate void ScanResult(string file, bool found, int virusId);
+
+        public static event ScanResult onScanCompleted;
+
 
         public static ScanTask Add(string file)
         {
             tasks_sync.WaitOne();
-            
+
+                Console.WriteLine("[Add] Create");
                 var task = new ScanTask(file, tasks.Count);
                 tasks.Add(task);
-            
+
+                Console.WriteLine($"[Add] SEND DATA, new task id {task.TaskId}, file {task.File}");
+                ScannerBinaryWriter.Write(task.TaskId);
+                ScannerBinaryWriter.Write(file);
+                ScannerBinaryWriter.Flush();
+
+
             tasks_sync.ReleaseMutex();
 
             return task;
         }
 
+        /// <summary>
+        /// Удалить задачу по айди
+        /// </summary>
         public static void RemoveById(int id)
         {
             tasks.RemoveAt(id);
         }
 
+        /// <summary>
+        /// Удалить по полному пути к файлу
+        /// </summary>
         public static void RemoveByFileName(string file)
         {
             tasks_sync.WaitOne();
@@ -142,33 +179,26 @@ namespace Core.Kernel.ScanModule
             }
             tasks_sync.ReleaseMutex();
         }
-    }
 
 
 
+        public static void ScanEnded(int id, bool found, int virusId)
+        {
+            Console.WriteLine("[SCANQUEUE.ScanEnded] ");
+        }
 
 
-
-    public static class ScanManager
-    {
-        /// <summary>
-        /// Если сканнер обнаружил сигнатуру вируса в файле
-        /// </summary>
-        public delegate void ScanFound(string file, bool found, int virusId);
-
-        /// <summary>
-        /// Если сканнер не обнаружил сигнатуру вируса в файле
-        /// </summary>
-        public delegate void ScanNotFound(string file, bool found, int virusId);
-
-        public static event ScanFound onScanFound;
-        public static event ScanNotFound onScanNotFound;
 
         public static void Init()
         {
+            Scanner_Output = KernelConnectors.ScannerService_Output;
 
+            ScannerBinaryWriter = new BinaryWriter(Scanner_Output);
         }
     }
+
+
+
 
 
 

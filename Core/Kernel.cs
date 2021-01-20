@@ -46,7 +46,10 @@ namespace Core
         /// </summary>
         static void initKernelComponents()
         {
-            ScanManager.Run();
+            ScannerResponseHandler.Init();
+            FilterHandler.Run();
+            ScanTasks.Init();
+
             Quarantine.InitStorage();
         }
                
@@ -150,8 +153,12 @@ namespace Core
             new Task(() =>
             {
                 Thread.Sleep(10000);
-                var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
-                wrt.WriteLine("D:\\office.pdf");
+                Console.WriteLine("ScanTasks add D:\\office.pdf");
+                ScanTasks.Add("D:\\office1.pdf");
+
+                /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
+                wrt.WriteLine("D:\\office.pdf");*/
+
             }).Start();
 
             /*
