@@ -17,6 +17,8 @@ RESERVE NEW FILE DETECTOR
 
 
 
+ответ от сервиса скана с результатами сканирования
+	result id 
 
 Труба сигнатур,  сервис скана <--> база сигнатур
 	id,len,signature
@@ -27,6 +29,7 @@ RESERVE NEW FILE DETECTOR
 	 
 
 Решения по алгоритму поиска сигнатуры
+	алгоритм Бойера-Мура
 	https://www.intuit.ru/studies/courses/10554/1092/lecture/27087?page=4
 	
  		1 2 3 4 1 2 4 A B C C 5 8 1 A A E F E B B C D A 

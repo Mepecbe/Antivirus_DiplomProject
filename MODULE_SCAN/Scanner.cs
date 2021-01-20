@@ -48,11 +48,11 @@ namespace MODULE__SCAN
         private static StreamReader signatureReader;
 
         /// <summary>
-        /// Записать данные в выходящую трубу
+        /// Записать данные о скане в выходящую трубу
         /// </summary>
         public static async Task ToOutput(string file, ScanResult result)
         {
-            await outputWriter.WriteLineAsync(file);
+            await outputWriter.WriteLineAsync(result.VirusID.ToString() + file);
         }
 
         public static void inputThread()
@@ -62,7 +62,7 @@ namespace MODULE__SCAN
 #endif
 
             inputPipe.WaitForConnection();
-            inputReader = new StreamReader(inputPipe);
+            inputReader = new StreamReader(inputPipe, Encoding.Unicode);
 
 #if DEBUG
             Console.WriteLine("[Scanner.inputThread] ScannerService.input connected");
@@ -72,7 +72,8 @@ namespace MODULE__SCAN
             {
                 string file = inputReader.ReadLine();
 
-                //new Task.Start(ScannerService.ScanFile(file))
+                Console.WriteLine($"[Scanner.inputThread] Call add to scan task");
+                ScanTasks.Add(file);
             }
         }
 
@@ -190,9 +191,11 @@ namespace MODULE__SCAN
             if (FileStream.Length <= Configuration.MAX_FAST_SCAN_FILE)
             {
                 byte[] FileBuffer = new byte[Configuration.MAX_FAST_SCAN_FILE];
-                FileStream.Read(FileBuffer, 0, FileBuffer.Length);
+                int readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
 
-                ScanResult Result = new ScanResult(0, result.Virus);
+                Array.Resize(ref FileBuffer, readed);
+
+                ScanResult Result = new ScanResult(0, result.NotVirus);
 
                 Parallel.For(0, Signatures.Length, (int sigIndex, ParallelLoopState state) =>
                 {
@@ -204,15 +207,33 @@ namespace MODULE__SCAN
                         bufferSumm += FileBuffer[initPos];
                     }
 
-                    for (int bufferPosition = backOffset; sigIndex < Signatures.Length; sigIndex++)
+                    for (int bufferPosition = backOffset; bufferPosition < FileBuffer.Length; bufferPosition++)
                     {
                         bufferSumm -= FileBuffer[bufferPosition - backOffset];
                         bufferSumm += FileBuffer[bufferPosition];
 
+                        //Если сумма совпала, проверяем этот участок
                         if (bufferSumm == Signatures[sigIndex].Summ)
                         {
-                            Result = new ScanResult(sigIndex, result.Virus);
-                            state.Break();
+                            bool found = true;
+
+                            for(
+                                int filePos = 1 + bufferPosition - backOffset, signaturePos = 0; 
+                                filePos < bufferPosition && signaturePos < Signatures[sigIndex].SignatureBytes.Length; 
+                                filePos++, signaturePos++)
+                            {
+                                if (FileBuffer[filePos] != Signatures[sigIndex].SignatureBytes[signaturePos])
+                                {
+                                    found = false;
+                                    break;
+                                }
+                            }
+
+                            if (found)
+                            {
+                                Result = new ScanResult(sigIndex, result.Virus);
+                                state.Break();
+                            }
                         }
                     }
                 });
@@ -237,7 +258,7 @@ namespace MODULE__SCAN
         /// <summary>
         /// Количество активных задач сканирования
         /// </summary>
-        public static byte ActiveScanTasks = new byte();
+        public static byte ActiveScanTasks = 0;
         public static Mutex ActiveScanTasks_Sync = new Mutex();
 
         private static Random Generator = new Random();
@@ -246,11 +267,6 @@ namespace MODULE__SCAN
         public static event ScanComplete OnScanCompleted;
 
 
-        private static int getId()
-        {
-            return 0;
-        }
-
         /// <summary>
         /// Запустить сколько возможно новых задач сканирования (всё упирается в лимит установленный конфигурацией)
         /// </summary>
@@ -258,7 +274,7 @@ namespace MODULE__SCAN
         {
             ActiveScanTasks_Sync.WaitOne();
 
-            for (int index = 0; index < AwaitedScanTasks.Count; index++)
+            for (int index = 0; index < AwaitedScanTasks.Count && ActiveScanTasks < Configuration.MAX_SCAN_TASKS; index++)
             {
                 AwaitedScanTasks[index].Start();
                 AwaitedScanTasks.RemoveAt(index);
@@ -276,9 +292,10 @@ namespace MODULE__SCAN
             {
                 if (File.Exists(file))
                 {
-#if DEBUG
+#if DEBUG       
                     Console.WriteLine($"[ScanFile] START SCAN FILE {file}");
 #endif
+                    ActiveScanTasks++;
                     var FileStrm = File.Open(file, FileMode.Open);
                     var result = Scanner.ScanFile(FileStrm);
                     FileStrm.Close();
@@ -293,8 +310,15 @@ namespace MODULE__SCAN
         /// </summary>
         private static void ScanCompleted(string filename, ScanResult result)
         {
-            Console.WriteLine($"[SCAN COMPLETE EVENT] {filename}");
+            Console.WriteLine($"[SCAN COMPLETE EVENT] {filename}, result {result.Result.ToString()}");
+            ActiveScanTasks--;
             UpdateActiveTasks();
+
+            if(result.Result != MODULE__SCAN.result.NotVirus)
+            {
+
+                Connector.outputPipe.w
+            }
         }
 
         /// <summary>
@@ -303,23 +327,38 @@ namespace MODULE__SCAN
         /// <param name="pathToFile"></param>
         public static void Add(string pathToFile)
         {
+#if DEBUG
+            Console.WriteLine($"[ScanTasks] Add to scan");
+#endif
             if (ActiveScanTasks < Configuration.MAX_SCAN_TASKS)
             {
                 ActiveScanTasks_Sync.WaitOne();
-                int id = getId();
-
-                var newTask = CreateTask(pathToFile);
-                newTask.Start();
+                {
+#if DEBUG
+                    Console.WriteLine($"[ScanTasks]      to active scan task");
+#endif
+                    var newTask = CreateTask(pathToFile);
+                    newTask.Start();
+                }
+                ActiveScanTasks_Sync.ReleaseMutex();
             }
             else
             {
                 AwaitedScanTasks_Sync.WaitOne();
-                var newTask = CreateTask(pathToFile);
-                AwaitedScanTasks.Add(newTask);
+                {
+#if DEBUG
+                    Console.WriteLine($"[ScanTasks]      to awaited scan task");
+#endif
+                    var newTask = CreateTask(pathToFile);
+                    AwaitedScanTasks.Add(newTask);
+                }
+                AwaitedScanTasks_Sync.ReleaseMutex();
             }
         }
 
-
+        /// <summary>
+        /// Инициализация сервиса
+        /// </summary>
         public static void Init()
         {
             OnScanCompleted += ScanCompleted;

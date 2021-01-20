@@ -24,7 +24,7 @@ namespace MODULE__FILTER
         {
             public static NamedPipeServerStream DriverMonitor = new NamedPipeServerStream("DRIVER_MON_FILTER"); /* Труба для приёма данных от монитора разделов использующего драйвер*/
             public static NamedPipeServerStream ApiMonitor    = new NamedPipeServerStream("API_MON_FILTER");    /* Труба для приёма данных от монитора разделов по API */
-            public static NamedPipeClientStream Kernel        = new NamedPipeClientStream("Filter.Output");        /* Выходная труба (соединяющая с ядром)*/
+            public static NamedPipeClientStream Kernel        = new NamedPipeClientStream("Filter.Output");        /* Выходная труба (соединяющая с коннектором ядра)*/
         }
 
         public static class ProcessingFlows
@@ -56,7 +56,7 @@ namespace MODULE__FILTER
 #endif
                 Connector.ApiMonitor.WaitForConnection();
                 StreamReader Reader = new StreamReader(Connector.ApiMonitor, Encoding.Unicode);
-                StreamWriter Writer = new StreamWriter(Connector.Kernel, Encoding.Unicode);
+                StreamWriter Writer = new StreamWriter(Connector.Kernel, Encoding.Unicode) { AutoFlush = true };
 #if DEBUG
                 Console.WriteLine("[Filter.Thr.Handler2] Connected");
 #endif
@@ -64,7 +64,6 @@ namespace MODULE__FILTER
                 while (true)
                 {
                     string buffer = Reader.ReadLine();
-                    //Console.WriteLine("[Filter.Thr.Handler2] Read ->" + buffer);
 
                     if (!FiltrationRules.ApplyFilter(buffer))
                     {

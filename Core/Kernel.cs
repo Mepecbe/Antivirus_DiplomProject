@@ -46,7 +46,7 @@ namespace Core
         /// </summary>
         static void initKernelComponents()
         {
-            FileQueue.Run();
+            ScanManager.Run();
             Quarantine.InitStorage();
         }
                
@@ -82,35 +82,39 @@ namespace Core
         static async Task Main(string[] args)
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
-                     
+
             //Инициализация конфигурации ядра
             initKernelConfiguration();
+
+            //Инициализация DLL модулей (ввод их в состояние готовности подключится к ядру)
+            initModules();
+
+            //Инициализация входящих подключений
+            KernelConnectors.InitInputConnections();
+
+            //Инициализация исходящих подключений
+            KernelConnectors.InitOutputConnections();
 
             //Инициализация компонентов ядра
             initKernelComponents();
 
-            //Инициализация входящих подключений
-            Connectors.InitInputConnections();
 
-            //Инициализация исходящих подключений
-            Connectors.InitOutputConnections();
 
-            //Инициализация DLL модулей
-            initModules();
 
 #if DEBUG
             {
                 Thread.Sleep(5000);
-                Console.WriteLine("Состояние подключения трубы команд вирусной БД " + Connectors.VirusesDb_CommandPipe.IsConnected);
-                Console.WriteLine("Состояние подключения трубы команд монитора разделов(API) " + Connectors.PartitionMon_CommandPipe.IsConnected);
+                Console.WriteLine("Состояние подключения трубы команд вирусной БД " + KernelConnectors.VirusesDb_CommandPipe.IsConnected);
+                Console.WriteLine("Состояние подключения трубы команд монитора разделов(API) " + KernelConnectors.PartitionMon_CommandPipe.IsConnected);
 
-                Console.WriteLine("Состояние подключения фильтра " + Connectors.Filter_Input.IsConnected);
+                Console.WriteLine("Состояние подключения фильтра " + KernelConnectors.Filter_Input.IsConnected);
 
-                Console.WriteLine("Состояние подключения входной трубы сканнера " + Connectors.ScannerService_Input.IsConnected);
-                Console.WriteLine("Состояние подключения выходной трубы сканнера " + Connectors.ScannerService_Output.IsConnected);
+                Console.WriteLine("Состояние подключения входной трубы сканнера " + KernelConnectors.ScannerService_Input.IsConnected);
+                Console.WriteLine("Состояние подключения выходной трубы сканнера " + KernelConnectors.ScannerService_Output.IsConnected);
             }
 #endif
 
+            testMethods();
             await Task.Delay(-1);
         }
 
@@ -129,19 +133,28 @@ namespace Core
             */
 
 
-            /*
+            
             new Task(() =>
             {
                 Thread.Sleep(7000);
-                var command = @"0*C:\&*.*";
+                var command = @"0*D:\&*.*";
                 byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+                var cmd = new StreamWriter(KernelConnectors.PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
 
                 Console.WriteLine($"(TASK) SEND '{command}'");
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
             }).Start();
 
+
+            new Task(() =>
+            {
+                Thread.Sleep(10000);
+                var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
+                wrt.WriteLine("D:\\office.pdf");
+            }).Start();
+
+            /*
             new Task(() =>
             {
                 Thread.Sleep(12000);

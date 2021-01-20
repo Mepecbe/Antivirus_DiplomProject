@@ -40,7 +40,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         /// <summary>
         /// Для записи путей обнаруженных файлов
         /// </summary>
-        private static StreamWriter Writer;
+        public static StreamWriter Writer;
 
         public static Task Runner = new Task(() =>
         {
@@ -175,7 +175,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         static void CreateFileEvent(object sender, FileSystemEventArgs e)
         {
 #if DEBUG
-            Writer.WriteLine($"[FileDetector] [CreateFileEvent] Detected create file {e.Name}");
+            //Writer.WriteLine($"[FileDetector] [CreateFileEvent] Detected create file {e.Name}");
 #endif
             Writer.WriteLine((int)e.ChangeType + e.FullPath);
         }
@@ -183,7 +183,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         static void ChangedFileEvent(object sender, FileSystemEventArgs e)
         {
 #if DEBUG
-            Console.WriteLine($"[FileDetector] [ChangedFileEvent] Detected changed file {e.Name}");
+            //Console.WriteLine($"[FileDetector] [ChangedFileEvent] Detected changed file {e.Name}");
 #endif
             Writer.WriteLine((int)e.ChangeType + e.FullPath);
         }
@@ -213,6 +213,9 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
     {
         public static byte EntryPoint()
         {
+            //new Task(() => { Thread.Sleep(10000); Console.WriteLine("WRITEEEE");  PartitionMonitor.Writer.WriteLine("1D:\\123.pdf"); }).Start();
+
+
             PartitionMonitor.Runner.Start();
             return 0;
         }
