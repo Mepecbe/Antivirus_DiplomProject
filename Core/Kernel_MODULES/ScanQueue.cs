@@ -21,23 +21,28 @@ namespace Core.Kernel.ScanModule
 
         private static void InputHandler()
         {
-            Console.WriteLine("[InputHandler] Started");
-            Connectors.KernelConnectors.ScannerService_Input_Sync.WaitOne();
+            Console.WriteLine("[ScannerResponseHandler.InputHandler] Started");
 
             var reader = new BinaryReader(Connector);
 
             while (true)
             {
-                Console.WriteLine("[InputHandler] WAIT RESPONSE FROM SCANNER");
+                Connectors.KernelConnectors.ScannerService_Input_Sync.WaitOne();
+                {
+                    int id = reader.ReadInt32();
+                    byte result = reader.ReadByte();
+                    int virusId = reader.ReadInt32();
 
-                int id = reader.ReadInt32();
-                byte result = reader.ReadByte();
-                int virusId = reader.ReadInt32();
+                    Console.WriteLine($"[ScannerResponseHandler.InputHandler] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
 
-                Console.WriteLine($"[KERNEL.SCANQUEUE] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
+                    ScanTasks.ScanEnded(
+                        id, 
+                        result != 0, 
+                        virusId
+                    );
+                }
+                KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
             }
-
-            KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
         }
 
         public static void Init()
@@ -128,23 +133,15 @@ namespace Core.Kernel.ScanModule
         public static List<ScanTask> tasks = new List<ScanTask>();
         public static Mutex tasks_sync = new Mutex();
 
-        /// <summary>
-        /// Если сканнер обнаружил сигнатуру вируса в файле
-        /// </summary>
-        public delegate void ScanResult(string file, bool found, int virusId);
-
-        public static event ScanResult onScanCompleted;
-
 
         public static ScanTask Add(string file)
         {
             tasks_sync.WaitOne();
 
-                Console.WriteLine("[Add] Create");
                 var task = new ScanTask(file, tasks.Count);
                 tasks.Add(task);
 
-                Console.WriteLine($"[Add] SEND DATA, new task id {task.TaskId}, file {task.File}");
+                Console.WriteLine($"[Add] Created task, id {task.TaskId}, file {task.File}");
                 ScannerBinaryWriter.Write(task.TaskId);
                 ScannerBinaryWriter.Write(file);
                 ScannerBinaryWriter.Flush();
@@ -160,7 +157,21 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void RemoveById(int id)
         {
-            tasks.RemoveAt(id);
+            Console.WriteLine($"RemoveTaskId {id}");
+            Console.WriteLine($"Count tasks {tasks.Count}");
+
+            tasks_sync.WaitOne();
+            {
+                for (int taskIndex = 0; taskIndex < tasks.Count; taskIndex++)
+                {
+                    if (tasks[taskIndex].TaskId == id)
+                    {
+                        tasks.RemoveAt(taskIndex);
+                        break;
+                    }
+                }
+            }
+            tasks_sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -180,11 +191,86 @@ namespace Core.Kernel.ScanModule
             tasks_sync.ReleaseMutex();
         }
 
+        /// <summary>
+        /// Получить экземпляр задачи
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static ScanTask getTaskById(int id)
+        {
+            tasks_sync.WaitOne();
+            for (int index = 0; index < tasks.Count; index++)
+            {
+                if (tasks[index].TaskId == id)
+                {
+                    var task = tasks[index];
+
+                    tasks_sync.ReleaseMutex();
+
+                    return task;
+                }
+            }
+            tasks_sync.ReleaseMutex();
+
+            return null;
+        }
+
+        /// <summary>
+        /// Извлечь задачу и удалить из листа задач
+        /// </summary>
+        public static ScanTask getTaskAndRemove(int id)
+        {
+            tasks_sync.WaitOne();
+            for (int index = 0; index < tasks.Count; index++)
+            {
+                if (tasks[index].TaskId == id)
+                {
+                    var task = tasks[index];
+
+                    tasks.RemoveAt(index);
+                    tasks_sync.ReleaseMutex();
+
+                    return task;
+                }
+            }
+            tasks_sync.ReleaseMutex();
+
+            return null;
+        }
+
 
 
         public static void ScanEnded(int id, bool found, int virusId)
         {
-            Console.WriteLine("[SCANQUEUE.ScanEnded] ");
+            Console.WriteLine("[SCANQUEUE.ScanEnded]");
+
+            if (found)
+            {
+                Console.WriteLine("VIRUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                var task = getTaskAndRemove(id);
+
+                if (task != null)
+                {
+                    FoundVirusesManager.AddNewVirus(
+                        new VirusInfo(
+                            id,
+                            task.File,
+                            virusId
+                        )
+                    );
+                }
+                else
+                {
+                    Console.WriteLine("TASK NOT FOUND!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("NOT VIRUSS!!!!!!!!!");
+            }
+
+            Console.WriteLine("CALL REMOVE BY ID");
+            RemoveById(id);
         }
 
 
@@ -192,7 +278,6 @@ namespace Core.Kernel.ScanModule
         public static void Init()
         {
             Scanner_Output = KernelConnectors.ScannerService_Output;
-
             ScannerBinaryWriter = new BinaryWriter(Scanner_Output);
         }
     }
@@ -200,8 +285,30 @@ namespace Core.Kernel.ScanModule
 
 
 
+    /// <summary>
+    /// Класс отвечающий за найденные вирусы
+    /// </summary>
+    public static class FoundVirusesManager
+    {
+        public static List<VirusInfo> VirusesTable = new List<VirusInfo>();
 
+        /// <summary>
+        /// Добавить новый вирус в таблицу
+        /// </summary>
+        /// <param name="info"></param>
+        public static void AddNewVirus(VirusInfo info)
+        {
+            VirusesTable.Add(info);
+        }
 
+        /// <summary>
+        /// Инициализация компонента
+        /// </summary>
+        public static void Init()
+        {
+
+        }
+    }
 
 
 
@@ -222,6 +329,20 @@ namespace Core.Kernel.ScanModule
         {
             this.File = file;
             this.TaskId = id;
+        }
+    }
+
+    public class VirusInfo
+    {
+        public int id;
+        public string file;
+        public int VirusId;
+
+        public VirusInfo(int id, string file, int VirusId)
+        {
+            this.id = id;
+            this.file = file;
+            this.VirusId = VirusId;
         }
     }
 }

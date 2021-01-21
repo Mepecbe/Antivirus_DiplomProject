@@ -49,6 +49,7 @@ namespace Core
             ScannerResponseHandler.Init();
             FilterHandler.Run();
             ScanTasks.Init();
+            FoundVirusesManager.Init();
 
             Quarantine.InitStorage();
         }
@@ -106,7 +107,7 @@ namespace Core
 
 #if DEBUG
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
                 Console.WriteLine("Состояние подключения трубы команд вирусной БД " + KernelConnectors.VirusesDb_CommandPipe.IsConnected);
                 Console.WriteLine("Состояние подключения трубы команд монитора разделов(API) " + KernelConnectors.PartitionMon_CommandPipe.IsConnected);
 
@@ -136,10 +137,10 @@ namespace Core
             */
 
 
-            
+            /*
             new Task(() =>
             {
-                Thread.Sleep(7000);
+                Thread.Sleep(3000);
                 var command = @"0*D:\&*.*";
                 byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
                 var cmd = new StreamWriter(KernelConnectors.PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
@@ -147,14 +148,36 @@ namespace Core
                 Console.WriteLine($"(TASK) SEND '{command}'");
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
-            }).Start();
+            }).Start();*/
 
 
             new Task(() =>
             {
-                Thread.Sleep(10000);
-                Console.WriteLine("ScanTasks add D:\\office.pdf");
-                ScanTasks.Add("D:\\office1.pdf");
+                Thread.Sleep(3000);
+                Console.WriteLine("ScanTasks add");
+                //ScanTasks.Add("D:\\office1.pdf");
+
+                foreach(string file in Directory.GetFiles("D:\\testFiles"))
+                {
+                    Console.WriteLine($"ADD {file}");
+                    ScanTasks.Add(file);
+                }
+
+                /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
+                wrt.WriteLine("D:\\office.pdf");*/
+
+            }).Start();
+
+            new Task(() =>
+            {
+                Thread.Sleep(7000);
+                Console.WriteLine("\n\nFOUND VIRUSES RECORDS");
+                //ScanTasks.Add("D:\\office1.pdf");
+
+                foreach (VirusInfo virus in FoundVirusesManager.VirusesTable)
+                {
+                    Console.WriteLine($"VIRUS {virus.id}, {virus.file}");
+                }
 
                 /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
                 wrt.WriteLine("D:\\office.pdf");*/

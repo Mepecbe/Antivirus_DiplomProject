@@ -51,13 +51,9 @@ namespace MODULE__SCAN
         /// </summary>
         public static void ToOutput(int id, ScanResult result)
         {
-            Console.WriteLine("[ToOut] Write id");
             outputWriter.Write(id);
-            Console.WriteLine("[ToOut] write result");
             outputWriter.Write((byte)result.Result);
-            Console.WriteLine("[ToOut] write virus id");
             outputWriter.Write(result.VirusID);
-            Console.WriteLine("[ToOut] FLUSH");
             outputWriter.Flush();
         }
 
