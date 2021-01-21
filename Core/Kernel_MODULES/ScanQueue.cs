@@ -33,7 +33,7 @@ namespace Core.Kernel.ScanModule
                     byte result = reader.ReadByte();
                     int virusId = reader.ReadInt32();
 
-                    Console.WriteLine($"[ScannerResponseHandler.InputHandler] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
+                    //Console.WriteLine($"[ScannerResponseHandler.InputHandler] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
 
                     ScanTasks.ScanEnded(
                         id, 
@@ -141,7 +141,7 @@ namespace Core.Kernel.ScanModule
                 var task = new ScanTask(file, tasks.Count);
                 tasks.Add(task);
 
-                Console.WriteLine($"[Add] Created task, id {task.TaskId}, file {task.File}");
+                //Console.WriteLine($"[Add] Created task, id {task.TaskId}, file {task.File}");
                 ScannerBinaryWriter.Write(task.TaskId);
                 ScannerBinaryWriter.Write(file);
                 ScannerBinaryWriter.Flush();
@@ -157,8 +157,8 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void RemoveById(int id)
         {
-            Console.WriteLine($"RemoveTaskId {id}");
-            Console.WriteLine($"Count tasks {tasks.Count}");
+            //Console.WriteLine($"RemoveTaskId {id}");
+            //Console.WriteLine($"Count tasks {tasks.Count}");
 
             tasks_sync.WaitOne();
             {
@@ -242,11 +242,8 @@ namespace Core.Kernel.ScanModule
 
         public static void ScanEnded(int id, bool found, int virusId)
         {
-            Console.WriteLine("[SCANQUEUE.ScanEnded]");
-
             if (found)
             {
-                Console.WriteLine("VIRUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 var task = getTaskAndRemove(id);
 
                 if (task != null)
@@ -258,23 +255,26 @@ namespace Core.Kernel.ScanModule
                             virusId
                         )
                     );
+
+                    Console.WriteLine("[ScanQueue] Virus found!");
                 }
                 else
                 {
-                    Console.WriteLine("TASK NOT FOUND!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    Console.WriteLine("[ScanQueue] ERROR, TASK NOT FOUND!");
                 }
             }
             else
             {
-                Console.WriteLine("NOT VIRUSS!!!!!!!!!");
+                Console.WriteLine($"[ScanQueue] Not virus {id}!");
             }
 
-            Console.WriteLine("CALL REMOVE BY ID");
             RemoveById(id);
         }
 
 
-
+        /// <summary>
+        /// Инициализация менеджера задач сканирования
+        /// </summary>
         public static void Init()
         {
             Scanner_Output = KernelConnectors.ScannerService_Output;
@@ -291,6 +291,7 @@ namespace Core.Kernel.ScanModule
     public static class FoundVirusesManager
     {
         public static List<VirusInfo> VirusesTable = new List<VirusInfo>();
+        public static Mutex VirusesTable_sync = new Mutex();
 
         /// <summary>
         /// Добавить новый вирус в таблицу
@@ -298,7 +299,11 @@ namespace Core.Kernel.ScanModule
         /// <param name="info"></param>
         public static void AddNewVirus(VirusInfo info)
         {
-            VirusesTable.Add(info);
+            VirusesTable_sync.WaitOne();
+            {
+                VirusesTable.Add(info);
+            }
+            VirusesTable_sync.ReleaseMutex();
         }
 
         /// <summary>

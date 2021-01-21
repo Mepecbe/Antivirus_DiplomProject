@@ -155,22 +155,16 @@ namespace Core
             {
                 Thread.Sleep(3000);
                 Console.WriteLine("ScanTasks add");
-                //ScanTasks.Add("D:\\office1.pdf");
 
                 foreach(string file in Directory.GetFiles("D:\\testFiles"))
                 {
-                    Console.WriteLine($"ADD {file}");
                     ScanTasks.Add(file);
                 }
-
-                /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
-                wrt.WriteLine("D:\\office.pdf");*/
-
             }).Start();
 
             new Task(() =>
             {
-                Thread.Sleep(7000);
+                Thread.Sleep(8000);
                 Console.WriteLine("\n\nFOUND VIRUSES RECORDS");
                 //ScanTasks.Add("D:\\office1.pdf");
 
@@ -178,6 +172,10 @@ namespace Core
                 {
                     Console.WriteLine($"VIRUS {virus.id}, {virus.file}");
                 }
+
+                Console.WriteLine("Count tasks");
+
+                Console.WriteLine(ScanTasks.tasks.Count);
 
                 /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
                 wrt.WriteLine("D:\\office.pdf");*/
