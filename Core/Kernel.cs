@@ -22,11 +22,13 @@ using System.Runtime.CompilerServices;
 
 using System.IO.IsolatedStorage;
 
+using Core;
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
 using Core.Kernel.Configuration;
 using Core.Kernel.Quarantine;
 using Core.Kernel.Connectors;
+using Core.Kernel.API;
 
 namespace Core
 {
@@ -35,7 +37,7 @@ namespace Core
         /// <summary>
         /// Инициализация конфигурации ядра
         /// </summary>
-        static void initKernelConfiguration()
+        static void InitKernelConfiguration()
         {
 #warning "сделать подгрузку из файла"
             Configuration.NamedPipeEncoding = Encoding.Unicode;
@@ -44,20 +46,21 @@ namespace Core
         /// <summary>
         /// Инициализация внутренних компонентов ядра
         /// </summary>
-        static void initKernelComponents()
+        static void InitKernelComponents()
         {
             ScannerResponseHandler.Init();
             FilterHandler.Run();
             ScanTasks.Init();
             FoundVirusesManager.Init();
-
             Quarantine.InitStorage();
+
+            API.Init();
         }
                
         /// <summary>
         /// Инициализация подключаемых(DLL) модулей
         /// </summary>
-        static void initModules()
+        static void InitModules()
         {
             foreach (string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
             {
@@ -88,10 +91,10 @@ namespace Core
             Console.CancelKeyPress += Console_CancelKeyPress;
 
             //Инициализация конфигурации ядра
-            initKernelConfiguration();
+            InitKernelConfiguration();
 
             //Инициализация DLL модулей (ввод их в состояние готовности подключится к ядру)
-            initModules();
+            InitModules();
 
             //Инициализация входящих подключений
             KernelConnectors.InitInputConnections();
@@ -100,7 +103,7 @@ namespace Core
             KernelConnectors.InitOutputConnections();
 
             //Инициализация компонентов ядра
-            initKernelComponents();
+            InitKernelComponents();
 
 
 
@@ -137,7 +140,7 @@ namespace Core
             */
 
 
-            /*
+            
             new Task(() =>
             {
                 Thread.Sleep(3000);
@@ -148,9 +151,9 @@ namespace Core
                 Console.WriteLine($"(TASK) SEND '{command}'");
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
-            }).Start();*/
+            }).Start();
 
-
+            /*
             new Task(() =>
             {
                 Thread.Sleep(3000);
@@ -162,38 +165,64 @@ namespace Core
                 }
             }).Start();
 
+
+
             new Task(() =>
             {
                 Thread.Sleep(8000);
-                Console.WriteLine("\n\nFOUND VIRUSES RECORDS");
-                //ScanTasks.Add("D:\\office1.pdf");
-
-                foreach (VirusInfo virus in FoundVirusesManager.VirusesTable)
                 {
-                    Console.WriteLine($"VIRUS {virus.id}, {virus.file}");
+                    Console.WriteLine("\n\nFOUND VIRUSES RECORDS");
+                    //ScanTasks.Add("D:\\office1.pdf");
+
+                    foreach (VirusInfo virus in FoundVirusesManager.VirusesTable)
+                    {
+                        Console.WriteLine($"VIRUS {virus.id}, {virus.file}");
+                        Console.WriteLine("move to quarantine");
+                        var result = Quarantine.AddFileToStorage(virus.file);
+
+                        if (result.is_success)
+                        {
+                            Console.WriteLine("  success");
+                        }
+                    }
+
+                    Console.WriteLine("Count tasks");
+                    Console.WriteLine(ScanTasks.tasks.Count);
+
+                    if (Quarantine.AddFileToStorage("D:\\testFiles\\office1.pdf").is_success)
+                    {
+                        Console.WriteLine("MOVED TO QUARANTINE");
+                    }
                 }
-
-                Console.WriteLine("Count tasks");
-
-                Console.WriteLine(ScanTasks.tasks.Count);
-
-                /*var wrt = new StreamWriter(KernelConnectors.ScannerService_Output, Encoding.Unicode) { AutoFlush = true };
-                wrt.WriteLine("D:\\office.pdf");*/
-
             }).Start();
 
-            /*
+
             new Task(() =>
             {
-                Thread.Sleep(12000);
-                var command = @"1*C:\&*";
-                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+                Thread.Sleep(10000);
+                {
+                    string[] files = Quarantine.GetAllFiles();
 
-                Console.WriteLine($"(TASK) SEND '{command}'");
-                cmd.WriteLine(command);
-                Console.WriteLine($"(TASK) END");
+                    Console.WriteLine("ALL FILES IN QUARANTINE");
+                    foreach(string file in files)
+                    {
+                        Console.WriteLine(file);
+                    }
+                }
             }).Start();*/
-        }
+
+                /*
+                new Task(() =>
+                {
+                    Thread.Sleep(12000);
+                    var command = @"1*C:\&*";
+                    byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
+                    var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
+
+                    Console.WriteLine($"(TASK) SEND '{command}'");
+                    cmd.WriteLine(command);
+                    Console.WriteLine($"(TASK) END");
+                }).Start();*/
+            }
     }
 }

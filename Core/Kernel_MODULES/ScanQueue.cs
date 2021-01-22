@@ -16,6 +16,10 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     static class ScannerResponseHandler
     {
+        public delegate void ScanCompletedEvent(int id, bool found, int virusId, string file);
+        public static event ScanCompletedEvent onScanCompleted;
+
+
         private static NamedPipeServerStream Connector = Connectors.KernelConnectors.Filter_Input;
         public static Thread InputThreadHandler = new Thread(InputHandler);
 
@@ -32,14 +36,9 @@ namespace Core.Kernel.ScanModule
                     int id = reader.ReadInt32();
                     byte result = reader.ReadByte();
                     int virusId = reader.ReadInt32();
+                    var task = ScanTasks.getTaskById(id);
 
-                    //Console.WriteLine($"[ScannerResponseHandler.InputHandler] READ RESULT FROM SCANNER, id {id}, result {result}, virus {virusId}");
-
-                    ScanTasks.ScanEnded(
-                        id, 
-                        result != 0, 
-                        virusId
-                    );
+                    onScanCompleted.Invoke(id, result != 0, virusId, task.File);
                 }
                 KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
             }
@@ -137,7 +136,6 @@ namespace Core.Kernel.ScanModule
         public static ScanTask Add(string file)
         {
             tasks_sync.WaitOne();
-
                 var task = new ScanTask(file, tasks.Count);
                 tasks.Add(task);
 
@@ -239,8 +237,7 @@ namespace Core.Kernel.ScanModule
         }
 
 
-
-        public static void ScanEnded(int id, bool found, int virusId)
+        public static void ScanCompleted(int id, bool found, int virusId, string file)
         {
             if (found)
             {
@@ -277,6 +274,8 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void Init()
         {
+            ScannerResponseHandler.onScanCompleted += ScanCompleted;
+
             Scanner_Output = KernelConnectors.ScannerService_Output;
             ScannerBinaryWriter = new BinaryWriter(Scanner_Output);
         }

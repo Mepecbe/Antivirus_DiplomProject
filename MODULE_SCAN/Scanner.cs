@@ -242,13 +242,17 @@ namespace MODULE__SCAN
 
             if (FileStream.Length <= Configuration.MAX_FAST_SCAN_FILE)
             {
+                ScanResult Result = new ScanResult(0, result.NotVirus);
+
                 byte[] FileBuffer = new byte[Configuration.MAX_FAST_SCAN_FILE];
                 int readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
 
+                if(readed == 0)
+                {
+                    return Result;
+                }
+
                 Array.Resize(ref FileBuffer, readed);
-
-                ScanResult Result = new ScanResult(0, result.NotVirus);
-
 
                 Parallel.For(0, Signatures.Length, (int sigIndex, ParallelLoopState state) =>
                 {
@@ -285,7 +289,7 @@ namespace MODULE__SCAN
                             if (found)
                             {
                                 Result = new ScanResult(sigIndex, result.Virus);
-                                break;  //state.Break();
+                                state.Break();
                             }
                         }
                     }

@@ -14,13 +14,15 @@ namespace Core.Kernel.Quarantine
 {
     static class Utils
     {
+        /// <summary>
+        /// Не найденные файлы
+        /// </summary>
         public static List<string> NotExistsFiles = new List<string>();
     }
 
 
     static class Quarantine
     {
-        public static Vlingo.UUID.NameBasedGenerator UUID_Generator;
         public static IsolatedStorageFile VirusStorage;
 
         static public AddToStorageResult AddFileToStorage(string pathToFile)
@@ -31,14 +33,15 @@ namespace Core.Kernel.Quarantine
                 return new AddToStorageResult(false, "Target file not exists");
             }
 
-            string FileName = UUID_Generator.GenerateGuid(pathToFile).ToString() + pathToFile.Substring(pathToFile.LastIndexOf('.'));
+            string FileName = pathToFile.Substring(pathToFile.LastIndexOf('\\')+1);
+            Console.WriteLine("create in isolated storage " + FileName);
 
             IsolatedStorageFileStream storageFile;
             FileStream targetFile;
 
             try
             {
-                storageFile = VirusStorage.CreateFile($"viruses\\{FileName}");
+                storageFile = VirusStorage.CreateFile($"VirusFiles\\{FileName}");
                 targetFile = File.Open(pathToFile, FileMode.Open);
             }
             catch (Exception ex)
@@ -56,7 +59,39 @@ namespace Core.Kernel.Quarantine
             storageFile.Close();
             targetFile.Close();
 
+            Console.WriteLine("Delete file >" + pathToFile);
+            File.Delete(pathToFile);
+
             return new AddToStorageResult(true, FileName);
+        }
+
+        /// <summary>
+        /// Восстановить файл из карантина
+        /// </summary>
+        /// <param name="pathToRecoveredFile">Куда сохранить файл, с каким именем и расширением</param>
+        /// <param name="targetFileName">Имя(вместе с расширением) восстанавливаемого файла</param>
+        static public void Restore(string pathToRecoveredFile, string targetFileName)
+        {
+            Console.WriteLine("RESTORE " + targetFileName + " in " + pathToRecoveredFile);
+
+            var CreatedFileStream = File.Create(pathToRecoveredFile);
+            var targetFileStream = VirusStorage.OpenFile($"VirusFiles\\{targetFileName}", FileMode.Open);
+
+            byte[] buffer = new byte[2048];
+
+            while (targetFileStream.Read(buffer, 0, buffer.Length) > 0)
+            {
+                CreatedFileStream.Write(buffer, 0, buffer.Length);
+            }
+
+            CreatedFileStream.Close();
+            targetFileStream.Close();
+        }
+
+
+        static public string[] GetAllFiles()
+        {
+            return VirusStorage.GetFileNames("VirusFiles\\");
         }
 
 
@@ -64,11 +99,9 @@ namespace Core.Kernel.Quarantine
         {
             try
             {
-                UUID_Generator = new NameBasedGenerator();
-
                 VirusStorage = IsolatedStorageFile.GetUserStoreForDomain();
 
-                if (!VirusStorage.FileExists("VirusFiles"))
+                if (!VirusStorage.DirectoryExists("VirusFiles"))
                 {
                     VirusStorage.CreateDirectory("VirusFiles");
                 }

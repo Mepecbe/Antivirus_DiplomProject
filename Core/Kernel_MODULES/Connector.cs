@@ -12,7 +12,7 @@ namespace Core.Kernel.Connectors
 {
     static class KernelConnectors
     {
-        /* OUTPUT CONNECTIONS */
+        /* OUTPUT CONNECTORS */
         public static NamedPipeClientStream PartitionMon_CommandPipe = new NamedPipeClientStream("PartitionMon.Command");
         public static Mutex PartitionMon_CommandPipe_Sync = new Mutex();
 
@@ -24,12 +24,20 @@ namespace Core.Kernel.Connectors
 
 
 
-        /* OUTPUT CONNECTIONS */
+        /* INPUT CONNECTORS */
         public static NamedPipeServerStream Filter_Input = new NamedPipeServerStream("Filter.Output");
         public static Mutex Filter_Input_Sync = new Mutex();
 
         public static NamedPipeServerStream ScannerService_Input = new NamedPipeServerStream("ScannerService.Output");
         public static Mutex ScannerService_Input_Sync = new Mutex();
+
+        /*For API*/
+        public static NamedPipeServerStream Api_In = new NamedPipeServerStream("API.Core");
+        public static NamedPipeClientStream Api_Out = new NamedPipeClientStream("API.User");
+
+        public static Mutex Api_In_Sync = new Mutex();
+        public static Mutex Api_Out_Sync = new Mutex();
+
 
 
         public static void InitInputConnections()
@@ -49,6 +57,13 @@ namespace Core.Kernel.Connectors
                 ScannerService_Input_Sync.WaitOne();
                 ScannerService_Input.WaitForConnection();
                 ScannerService_Input_Sync.ReleaseMutex();
+            });
+
+            Task.Run(() =>
+            {
+                Api_In_Sync.WaitOne();
+                Api_In.WaitForConnection();
+                Api_In_Sync.ReleaseMutex();
             });
         }
 
@@ -79,8 +94,15 @@ namespace Core.Kernel.Connectors
 
                 StreamWriter writer = new StreamWriter(VirusesDb_CommandPipe, Encoding.Unicode) { AutoFlush = true };
 
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 writer.WriteLine("/upload_to_scanner");
+            });
+
+            Task.Run(() =>
+            {
+                Api_Out_Sync.WaitOne();
+                Api_Out.Connect();
+                Api_Out_Sync.ReleaseMutex();
             });
         }
 
