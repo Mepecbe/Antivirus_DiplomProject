@@ -128,8 +128,10 @@ namespace API_Client_Library
         {
             Console.WriteLine("[api] connect");
             OutputConnector.Connect();
+
             Console.WriteLine("[api] wait for connection");
             InputConnector.WaitForConnection();
+
             Console.WriteLine("[api] Input handler start");
             InputHandler.Start();
         }

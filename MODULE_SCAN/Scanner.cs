@@ -249,6 +249,7 @@ namespace MODULE__SCAN
 
                 if(readed == 0)
                 {
+                    ScanTasks.ScanMutex.ReleaseMutex();
                     return Result;
                 }
 
