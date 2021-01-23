@@ -25,6 +25,11 @@ namespace Core.Kernel.Quarantine
     {
         public static IsolatedStorageFile VirusStorage;
 
+        /// <summary>
+        /// Поместить файл в карантин(защищенное хранилище)
+        /// </summary>
+        /// <param name="pathToFile"></param>
+        /// <returns></returns>
         static public AddToStorageResult AddFileToStorage(string pathToFile)
         {                       
             if (!File.Exists(pathToFile))
@@ -62,20 +67,21 @@ namespace Core.Kernel.Quarantine
             Console.WriteLine("Delete file >" + pathToFile);
             File.Delete(pathToFile);
 
-            return new AddToStorageResult(true, FileName);
+            return new AddToStorageResult(true, $"VirusFiles\\{FileName}");
         }
 
         /// <summary>
         /// Восстановить файл из карантина
         /// </summary>
-        /// <param name="pathToRecoveredFile">Куда сохранить файл, с каким именем и расширением</param>
-        /// <param name="targetFileName">Имя(вместе с расширением) восстанавливаемого файла</param>
-        static public void Restore(string pathToRecoveredFile, string targetFileName)
+        /// <param name="id"></param>
+        static public void Restore(int id)
         {
-            Console.WriteLine("RESTORE " + targetFileName + " in " + pathToRecoveredFile);
+            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
 
-            var CreatedFileStream = File.Create(pathToRecoveredFile);
-            var targetFileStream = VirusStorage.OpenFile($"VirusFiles\\{targetFileName}", FileMode.Open);
+            Console.WriteLine("RESTORE from " + virusInfo.fileInQuarantine + " in " + virusInfo.file);
+
+            var CreatedFileStream = File.Create(virusInfo.file);
+            var targetFileStream = VirusStorage.OpenFile(virusInfo.fileInQuarantine, FileMode.Open);
 
             byte[] buffer = new byte[2048];
 
@@ -94,6 +100,36 @@ namespace Core.Kernel.Quarantine
             return VirusStorage.GetFileNames("VirusFiles\\");
         }
 
+        /// <summary>
+        /// Переместить вирус в карантин по его id
+        /// </summary>
+        static public void MoveVirusToQuarantine(int id)
+        {
+            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+
+            if (virusInfo != null && virusInfo.inQuarantine == false) {
+                var result = AddFileToStorage(virusInfo.file);
+
+                if (result.is_success)
+                {
+                    virusInfo.inQuarantine = true;
+                    virusInfo.fileInQuarantine = result.fileName;
+
+                    Console.WriteLine("MOVE TO QUARANTINE SUCCESS");
+                    Console.WriteLine("id" + virusInfo.id);
+                    Console.WriteLine("in quarantine " + virusInfo.inQuarantine);
+                    Console.WriteLine("virus id" + virusInfo.VirusId);
+                    Console.WriteLine("file " + virusInfo.file);
+                    Console.WriteLine("in quarantine " + virusInfo.fileInQuarantine);
+                }
+                else
+                {
+#if DEBUG
+                    Console.WriteLine("[Quarantine.MoveVirusToQuarantine] Error add file to quarantine");
+#endif
+                }
+            }
+        }
 
         static public bool InitStorage()
         {

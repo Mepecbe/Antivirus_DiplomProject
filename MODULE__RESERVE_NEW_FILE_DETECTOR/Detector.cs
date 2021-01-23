@@ -135,7 +135,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             {
                 Array.Resize(ref FileSystemWatchers, FileSystemWatchers.Length + 1);
                 FileSystemWatchers[FileSystemWatchers.Length - 1] = new FileSystemWatcher(PartitionPath, Filter);
-
+                FileSystemWatchers[FileSystemWatchers.Length - 1].NotifyFilter = NotifyFilters.Size;
                 FileSystemWatchers[FileSystemWatchers.Length - 1].Created += CreateFileEvent;
                 FileSystemWatchers[FileSystemWatchers.Length - 1].Changed += ChangedFileEvent;
                 FileSystemWatchers[FileSystemWatchers.Length - 1].IncludeSubdirectories = true;

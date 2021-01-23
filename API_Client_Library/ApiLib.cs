@@ -56,42 +56,7 @@ namespace API_Client_Library
         /// </summary>
         private static Thread InputHandler = new Thread(Handler);
 
-
-
-        /*=== ОБРАБОТЧИКИ ===*/
-
-        private static void ScanCompleted(BinaryReader dataReader)
-        {
-            var kernelId = dataReader.ReadInt32();
-            var isVirus = dataReader.ReadBoolean();
-            var virusId = dataReader.ReadInt32();
-            var file = dataReader.ReadString();
-
-            if (isVirus)
-            {
-                onScanFound.Invoke(new VirusFileInfo(kernelId, virusId, file));
-            }
-            else
-            {
-                onScanCompleted.Invoke(new ScannedFileInfo(file));
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private static BinaryWriter OutputWriter = new BinaryWriter(OutputConnector);
 
         /// <summary>
         /// Код потока обработчика событий
@@ -112,7 +77,10 @@ namespace API_Client_Library
                             break;
                         }
 
-
+                    case 1:
+                        {
+                            break;
+                        }
 
 
                     default:
@@ -123,6 +91,42 @@ namespace API_Client_Library
             }
         }
 
+        /*=== ОБРАБОТЧИКИ ===*/
+        private static void ScanCompleted(BinaryReader dataReader)
+        {
+            var kernelId = dataReader.ReadInt32();
+            var isVirus = dataReader.ReadBoolean();
+            var virusId = dataReader.ReadInt32();
+            var file = dataReader.ReadString();
+
+            if (isVirus)
+            {
+                onScanFound.Invoke(new VirusFileInfo(kernelId, virusId, file));
+            }
+            else
+            {
+                onScanCompleted.Invoke(new ScannedFileInfo(file));
+            }
+        }
+
+        /*=== Функционал ===*/
+
+        public static void ToQuarantine(int id)
+        {
+            OutputWriter.Write((byte)1);
+            OutputWriter.Write(id);
+            OutputWriter.Flush();
+        }
+
+        public static void RestoreFile(int id)
+        {
+            OutputWriter.Write((byte)2);
+            OutputWriter.Write(id);
+            OutputWriter.Flush();
+        }
+
+
+        /*=== Остальное ===*/
 
         public static void Init()
         {

@@ -92,6 +92,11 @@ namespace Core.Kernel.ScanModule
 #if DEBUG
                             Console.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
 #endif
+                            if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
+                            {
+                                //Если файл уже числится у нас как вирус
+                                continue;
+                            }
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
@@ -102,6 +107,11 @@ namespace Core.Kernel.ScanModule
 #if DEBUG
                             Console.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
 #endif
+                            if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
+                            {
+                                //Если файл уже числится у нас как вирус
+                                continue;
+                            }
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
@@ -155,9 +165,6 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void RemoveById(int id)
         {
-            //Console.WriteLine($"RemoveTaskId {id}");
-            //Console.WriteLine($"Count tasks {tasks.Count}");
-
             tasks_sync.WaitOne();
             {
                 for (int taskIndex = 0; taskIndex < tasks.Count; taskIndex++)
@@ -289,7 +296,7 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     public static class FoundVirusesManager
     {
-        public static List<VirusInfo> VirusesTable = new List<VirusInfo>();
+        private static List<VirusInfo> VirusesTable = new List<VirusInfo>();
         public static Mutex VirusesTable_sync = new Mutex();
 
         /// <summary>
@@ -303,6 +310,53 @@ namespace Core.Kernel.ScanModule
                 VirusesTable.Add(info);
             }
             VirusesTable_sync.ReleaseMutex();
+        }
+
+        public static VirusInfo getInfo(int id)
+        {
+            VirusInfo result = null;
+
+            VirusesTable_sync.WaitOne();
+            {
+                for(int index = 0; index < VirusesTable.Count; index++)
+                {
+                    if (VirusesTable[index].id == id)
+                    {
+                        result = VirusesTable[index];
+                        break;
+                    }
+                }
+            }
+            VirusesTable_sync.ReleaseMutex();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Проверка существования такого файла в таблице обнаруженных вирусов
+        /// </summary>
+        public static bool Exists(string file)
+        {
+            bool result = false;
+            VirusesTable_sync.WaitOne();
+            {
+                for (int index = 0; index < VirusesTable.Count; index++)
+                {
+                    if (VirusesTable[index].file == file)
+                    {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            VirusesTable_sync.ReleaseMutex();
+
+            return result;
+        }
+
+        public static VirusInfo[] getAllViruses()
+        {
+            return VirusesTable.ToArray();
         }
 
         /// <summary>
@@ -339,7 +393,9 @@ namespace Core.Kernel.ScanModule
     public class VirusInfo
     {
         public int id;
-        public string file;
+        public bool inQuarantine;       // Находится ли файл в карантине
+        public string fileInQuarantine; // Путь к файлу в карантине
+        public string file;             // Путь к файлу
         public int VirusId;
 
         public VirusInfo(int id, string file, int VirusId)
@@ -347,6 +403,7 @@ namespace Core.Kernel.ScanModule
             this.id = id;
             this.file = file;
             this.VirusId = VirusId;
+            this.inQuarantine = false;
         }
     }
 }

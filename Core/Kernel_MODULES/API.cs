@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Core.Kernel.Connectors;
 using Core.Kernel.ScanModule;
+using Core.Kernel.Quarantine;
 
 namespace Core.Kernel.API
 {
@@ -60,6 +61,7 @@ namespace Core.Kernel.API
                         case 1:
                             {
                                 var id = binaryReader.ReadInt32();
+                                ToQuarantine(id);
 
                                 break;
                             }
@@ -68,30 +70,40 @@ namespace Core.Kernel.API
                         case 2:
                             {
                                 var id = binaryReader.ReadInt32();
-                                var file = stringReader.ReadLine();
-
-                                break;
-                            }
-
-                        //Запрос на удаление файла
-                        case 3:
-                            {
-                                var file = stringReader.ReadLine();
+                                Restore(id);
 
                                 break;
                             }
 
                         //Запрос на удаление файла из карантина
+                        case 3:
+                            {
+                                var id = binaryReader.ReadInt32();
+                                Delete(id);
+
+                                break;
+                            }
+
+                        //Запрос информации о вирусе
                         case 4:
                             {
                                 var id = binaryReader.ReadInt32();
+                                getVirusInfo(id);
+
+                                break;
+                            }
+
+                        //Запрос информации о всех вирусах
+                        case 5:
+                            {
+                                getAllVirusesInfo();
                                 break;
                             }
 
                         default:
                             {
 #if DEBUG
-                                Console.WriteLine("Unknown request");
+                                Console.WriteLine("[API] Unknown request");
 #endif
                                 break;
                             }
@@ -117,6 +129,73 @@ namespace Core.Kernel.API
             }
             API_Out_sync.ReleaseMutex();
         }
+
+        /// <summary>
+        /// Переместить файл в карантин
+        /// </summary>
+        /// <param name="id"></param>
+        private static void ToQuarantine(int id)
+        {
+            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+            Quarantine.Quarantine.MoveVirusToQuarantine(id);
+        }
+
+        /// <summary>
+        /// Восстановить файл
+        /// </summary>
+        /// <param name="id"></param>
+        private static void Restore(int id)
+        {
+            Quarantine.Quarantine.Restore(id);
+        }
+
+        /// <summary>
+        /// Удалить файл, где бы он не находился(в карантине/на диске)
+        /// </summary>
+        /// <param name="id"></param>
+        private static void Delete(int id)
+        {
+#warning Реализовать!
+        }
+
+        private static void getVirusInfo(int id)
+        {
+            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+
+            if(virusInfo == null)
+            {
+                return;
+            }
+
+            API_Out_sync.WaitOne();
+            {
+                Out_writer.Write((byte)1);
+                Out_writer.Write(virusInfo.file);
+                Out_writer.Write(virusInfo.VirusId);
+                Out_writer.Write(virusInfo.inQuarantine);
+                Out_writer.Write(virusInfo.fileInQuarantine);
+                Out_writer.Flush();
+            }
+            API_Out_sync.ReleaseMutex();
+        }
+
+        private static void getAllVirusesInfo()
+        {
+            API_Out_sync.WaitOne();
+            {
+                foreach(VirusInfo virusInfo in FoundVirusesManager.getAllViruses())
+                {
+                    Out_writer.Write((byte)1);
+                    Out_writer.Write(virusInfo.file);
+                    Out_writer.Write(virusInfo.VirusId);
+                    Out_writer.Write(virusInfo.inQuarantine);
+                    Out_writer.Write(virusInfo.fileInQuarantine);
+                    Out_writer.Flush();
+                }
+            }
+            API_Out_sync.ReleaseMutex();
+        }
+
 
         public static void Init()
         {

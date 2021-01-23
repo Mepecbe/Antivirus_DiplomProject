@@ -135,8 +135,9 @@ namespace Core
 
         private static void testMethods()
         {
-            /*Quarantine.InitStorage();
-            Console.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
+            /*
+                Quarantine.InitStorage();
+                Console.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
             */
 
 
@@ -152,6 +153,7 @@ namespace Core
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
             }).Start();
+
 
             /*
             new Task(() =>
