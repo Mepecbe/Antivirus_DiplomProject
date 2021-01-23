@@ -79,6 +79,9 @@ namespace MODULE__FILTER
         /// </summary>
         public static class FiltrationRules
         {
+            public delegate bool handler(string input);
+
+
             /// <summary>
             /// Остальные правила
             /// </summary>
@@ -86,6 +89,7 @@ namespace MODULE__FILTER
 
             /// <summary>
             /// Фильтруемые расширения
+            /// ([^\s]+(?=\.(jpg|gif|png))\.\w)
             /// </summary>
             public static List<Regex> Extentions = new List<Regex>();
 
@@ -94,11 +98,25 @@ namespace MODULE__FILTER
             /// </summary>
             public static List<Regex> Paths = new List<Regex>();
 
+            public static List<handler> OtherHandlers = new List<handler>();
+
+
             public static bool ApplyFilter(string input)
             {
                 if (Step1(input) || Step2(input) || Step3(input))
                 {
                     return true;
+                }
+                else
+                {
+                    for(byte index = 0; index < OtherHandlers.Count; index++)
+                    {
+                        if (OtherHandlers[index].Invoke(input))
+                        {
+                            Console.WriteLine("OTHER HANDLER FILTERED ->" + input);
+                            return true;
+                        }
+                    }
                 }
 
                 return false;
@@ -161,9 +179,17 @@ namespace MODULE__FILTER
             /// <summary>
             /// Инициализация стандартных правил
             /// </summary>
-            public static void InitRules()
+            public static void InitDefaultRules()
             {
+                {
+                    OtherHandlers.Add((string path) =>
+                    {
+                        if (path.LastIndexOf('.') < path.LastIndexOf('\\'))
+                            return true;
 
+                        return false;
+                    });
+                }
             }
 
             public static void AddOtherRule(Regex rule)
@@ -179,6 +205,8 @@ namespace MODULE__FILTER
     {
         public static byte EntryPoint()
         {
+            Filter.FiltrationRules.InitDefaultRules();
+
             // Необходимо сначала подключить модуль к ядру
             Filter.Connector.Kernel.Connect();
 
