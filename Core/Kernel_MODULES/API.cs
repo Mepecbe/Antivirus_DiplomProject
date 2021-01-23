@@ -17,12 +17,19 @@ namespace Core.Kernel.API
         private static Thread RequestHandler = new Thread(Handler);
 
         private static NamedPipeClientStream UserOutputConnector;
+        private static Mutex API_Out_sync;
+
         private static NamedPipeServerStream UserInputConnector;
+        private static Mutex API_In_sync;
+
+        private static BinaryWriter Out_writer;
+
 
         private static void Handler()
         {
             var binaryReader = new BinaryReader(UserInputConnector);
             var stringReader = new StreamReader(UserInputConnector);
+            Out_writer = new BinaryWriter(UserOutputConnector);
 
 #if DEBUG
             Console.WriteLine("[API] Init success");
@@ -97,13 +104,27 @@ namespace Core.Kernel.API
 
         private static void ScanCompleted(int id, bool found, int virusId, string file)
         {
+            API_Out_sync.WaitOne();
+            {
+                //Идентификатор 
+                Out_writer.Write((byte)0);
 
+                Out_writer.Write(id);
+                Out_writer.Write(found);
+                Out_writer.Write(virusId);
+                Out_writer.Write(file);
+                Out_writer.Flush();
+            }
+            API_Out_sync.ReleaseMutex();
         }
 
         public static void Init()
         {
             UserOutputConnector = KernelConnectors.Api_Out;
             UserInputConnector = KernelConnectors.Api_In;
+
+            API_In_sync = KernelConnectors.Api_In_Sync;
+            API_Out_sync = KernelConnectors.Api_Out_Sync;
 
             ScannerResponseHandler.onScanCompleted += ScanCompleted;
 
