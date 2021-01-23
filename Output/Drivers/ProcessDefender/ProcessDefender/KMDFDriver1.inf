@@ -8,7 +8,7 @@ Class=Sample ; TODO: edit Class
 ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
 Provider=%ManufacturerName%
 CatalogFile=KMDFDriver1.cat
-DriverVer = 01/23/2021,22.40.35.818
+DriverVer = 01/23/2021,23.1.53.73
 
 [DestinationDirs]
 DefaultDestDir = 12
@@ -35,9 +35,9 @@ WdfCoInstaller01009.dll=1 ; make sure the number matches with SourceDisksNames
 ;*****************************************
 
 [Manufacturer]
-%ManufacturerName%=Standard,NTx86
+%ManufacturerName%=Standard,NTamd64
 
-[Standard.NTx86]
+[Standard.NTamd64]
 %KMDFDriver1.DeviceDesc%=KMDFDriver1_Device, Root\KMDFDriver1 ; TODO: edit hw-id
 
 [KMDFDriver1_Device.NT]
