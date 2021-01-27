@@ -100,6 +100,14 @@ namespace Core.Kernel.API
                                 break;
                             }
 
+                        //Просканировать файл
+                        case 6:
+                            {
+                                string file = binaryReader.ReadString();
+                                ScanTasks.Add(file);
+                                break;
+                            }
+
                         default:
                             {
 #if DEBUG

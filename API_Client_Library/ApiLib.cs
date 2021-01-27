@@ -111,6 +111,9 @@ namespace API_Client_Library
 
         /*=== Функционал ===*/
 
+        /// <summary>
+        /// Поместить вирус в карантин
+        /// </summary>
         public static void ToQuarantine(int id)
         {
             OutputWriter.Write((byte)1);
@@ -118,6 +121,9 @@ namespace API_Client_Library
             OutputWriter.Flush();
         }
 
+        /// <summary>
+        /// Восстановить файл из карантина
+        /// </summary>
         public static void RestoreFile(int id)
         {
             OutputWriter.Write((byte)2);
@@ -125,6 +131,28 @@ namespace API_Client_Library
             OutputWriter.Flush();
         }
 
+        /// <summary>
+        /// Получить информацию о вирусе
+        /// </summary>
+        public static void GetVirusInfo(int virusId)
+        {
+
+        }
+
+        /// <summary>
+        /// Очистить очередь сканирования файлов
+        /// </summary>
+        public static void ClearScanQueue()
+        {
+
+        }
+
+        public static void AddToScan(string file)
+        {
+            OutputWriter.Write((byte)6);
+            OutputWriter.Write(file);
+            OutputWriter.Flush();
+        }
 
         /*=== Остальное ===*/
 
