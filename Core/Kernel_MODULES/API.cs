@@ -35,13 +35,32 @@ namespace Core.Kernel.API
 #if DEBUG
             Console.WriteLine("[API] Init success");
 #endif
+            byte code = 255;
 
             while (true)
             {
                 KernelConnectors.Api_In_Sync.WaitOne();
 
                 {
-                    var code = binaryReader.ReadByte();
+                    try
+                    {
+                        code = binaryReader.ReadByte();
+                    }
+                    catch
+                    {
+#if DEBUG
+                        Console.WriteLine("[API] READ ERROR");
+#endif
+                        if (!UserInputConnector.IsConnected)
+                        {
+#if DEBUG
+                            Console.WriteLine("[API] Reconnect");
+#endif
+                            UserInputConnector.WaitForConnection();
+
+                            KernelConnectors.Api_In_Sync.ReleaseMutex();
+                        }
+                    }
 
 #if DEBUG
                     Console.WriteLine($"[API] Request, code {code}");
@@ -122,8 +141,13 @@ namespace Core.Kernel.API
             }
         }
 
-        private static void ScanCompleted(int id, bool found, int virusId, string file)
+        private static void API_ScanCompleted(int id, bool found, int virusId, string file)
         {
+            if (!UserOutputConnector.IsConnected)
+            {
+                return;
+            }
+
             API_Out_sync.WaitOne();
             {
                 //Идентификатор 
@@ -213,7 +237,7 @@ namespace Core.Kernel.API
             API_In_sync = KernelConnectors.Api_In_Sync;
             API_Out_sync = KernelConnectors.Api_Out_Sync;
 
-            ScannerResponseHandler.onScanCompleted += ScanCompleted;
+            ScannerResponseHandler.onScanCompleted += API_ScanCompleted;
 
             RequestHandler.Start();
         }

@@ -36,7 +36,7 @@ namespace API_Client_Library
 
 
     /// <summary>
-    /// 
+    /// API ядра антивируса
     /// </summary>
     public static class API
     {
@@ -48,15 +48,19 @@ namespace API_Client_Library
         public static event scanFoundVirusEvent onScanFound;
 
         /*=== Connectors ===*/
-        private static NamedPipeServerStream InputConnector = new NamedPipeServerStream("API.User");
-        private static NamedPipeClientStream OutputConnector = new NamedPipeClientStream("API.Core");
+        private static readonly NamedPipeServerStream InputConnector = new NamedPipeServerStream("API.User");
+        private static readonly NamedPipeClientStream OutputConnector = new NamedPipeClientStream("API.Core");
 
         /// <summary>
         /// Поток обработки событий
         /// </summary>
-        private static Thread InputHandler = new Thread(Handler);
+        private static readonly Thread InputHandler = new Thread(Handler);
 
-        private static BinaryWriter OutputWriter = new BinaryWriter(OutputConnector);
+        private static readonly BinaryWriter OutputWriter = new BinaryWriter(OutputConnector);
+        public static Mutex Writer_sync = new Mutex();
+
+        public static FileStream strm = File.Create("API_LIB_LOG_RECEIVE.txt");
+        public static StreamWriter writer = new StreamWriter(strm) { AutoFlush = true };
 
         /// <summary>
         /// Код потока обработчика событий
@@ -91,6 +95,8 @@ namespace API_Client_Library
             }
         }
 
+        public static int countt = 0;
+
         /*=== ОБРАБОТЧИКИ ===*/
         private static void ScanCompleted(BinaryReader dataReader)
         {
@@ -98,6 +104,9 @@ namespace API_Client_Library
             var isVirus = dataReader.ReadBoolean();
             var virusId = dataReader.ReadInt32();
             var file = dataReader.ReadString();
+
+            countt++;
+            writer.WriteLine($"{countt} completed {file}");
 
             if (isVirus)
             {
@@ -116,9 +125,13 @@ namespace API_Client_Library
         /// </summary>
         public static void ToQuarantine(int id)
         {
-            OutputWriter.Write((byte)1);
-            OutputWriter.Write(id);
-            OutputWriter.Flush();
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)1);
+                OutputWriter.Write(id);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -126,9 +139,13 @@ namespace API_Client_Library
         /// </summary>
         public static void RestoreFile(int id)
         {
-            OutputWriter.Write((byte)2);
-            OutputWriter.Write(id);
-            OutputWriter.Flush();
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)2);
+                OutputWriter.Write(id);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -147,11 +164,18 @@ namespace API_Client_Library
 
         }
 
+        /// <summary>
+        /// Добавить в очередь сканирования
+        /// </summary>
         public static void AddToScan(string file)
         {
-            OutputWriter.Write((byte)6);
-            OutputWriter.Write(file);
-            OutputWriter.Flush();
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)6);
+                OutputWriter.Write(file);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
         }
 
         /*=== Остальное ===*/
@@ -166,6 +190,11 @@ namespace API_Client_Library
 
             Console.WriteLine("[api] Input handler start");
             InputHandler.Start();
+        }
+
+        public static void ApiStop()
+        {
+            InputHandler.Abort();
         }
     }
 }

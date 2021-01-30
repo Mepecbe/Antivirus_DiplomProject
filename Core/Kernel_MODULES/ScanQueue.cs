@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Core.Kernel.Connectors;
 
@@ -20,8 +21,9 @@ namespace Core.Kernel.ScanModule
         public static event ScanCompletedEvent onScanCompleted;
 
 
-        private static NamedPipeServerStream Connector = Connectors.KernelConnectors.Filter_Input;
+        private static NamedPipeServerStream Connector = Connectors.KernelConnectors.ScannerService_Input;
         public static Thread InputThreadHandler = new Thread(InputHandler);
+
 
         private static void InputHandler()
         {
@@ -38,6 +40,11 @@ namespace Core.Kernel.ScanModule
                     int virusId = reader.ReadInt32();
                     var task = ScanTasks.getTaskById(id);
 
+                    if (task is null)
+                    {
+                        Debug.Assert(false, $"Task {id} not found, critical error");
+                    }
+
                     onScanCompleted.Invoke(id, result != 0, virusId, task.File);
                 }
                 KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
@@ -46,7 +53,6 @@ namespace Core.Kernel.ScanModule
 
         public static void Init()
         {
-            Connector = Connectors.KernelConnectors.ScannerService_Input;
             InputThreadHandler.Start();
         }
     }
@@ -136,25 +142,27 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     public static class ScanTasks
     {
+        public static int id = 0;
+
         public static NamedPipeClientStream Scanner_Output;
         public static BinaryWriter ScannerBinaryWriter;
 
         public static List<ScanTask> tasks = new List<ScanTask>();
         public static Mutex tasks_sync = new Mutex();
 
-
         public static ScanTask Add(string file)
         {
+            ScanTask task = null;
+
             tasks_sync.WaitOne();
-                var task = new ScanTask(file, tasks.Count);
+            {
+                task = new ScanTask(file, id);
                 tasks.Add(task);
 
-                //Console.WriteLine($"[Add] Created task, id {task.TaskId}, file {task.File}");
-                ScannerBinaryWriter.Write(task.TaskId);
+                ScannerBinaryWriter.Write(id++);
                 ScannerBinaryWriter.Write(file);
                 ScannerBinaryWriter.Flush();
-
-
+            }
             tasks_sync.ReleaseMutex();
 
             return task;
@@ -226,16 +234,18 @@ namespace Core.Kernel.ScanModule
         public static ScanTask getTaskAndRemove(int id)
         {
             tasks_sync.WaitOne();
-            for (int index = 0; index < tasks.Count; index++)
             {
-                if (tasks[index].TaskId == id)
+                for (int index = 0; index < tasks.Count; index++)
                 {
-                    var task = tasks[index];
+                    if (tasks[index].TaskId == id)
+                    {
+                        var task = tasks[index];
 
-                    tasks.RemoveAt(index);
-                    tasks_sync.ReleaseMutex();
+                        tasks.RemoveAt(index);
+                        tasks_sync.ReleaseMutex();
 
-                    return task;
+                        return task;
+                    }
                 }
             }
             tasks_sync.ReleaseMutex();
@@ -272,6 +282,7 @@ namespace Core.Kernel.ScanModule
                 Console.WriteLine($"[ScanQueue] Not virus {id}!");
             }
 
+            
             RemoveById(id);
         }
 

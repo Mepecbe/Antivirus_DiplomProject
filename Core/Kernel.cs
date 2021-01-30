@@ -48,13 +48,13 @@ namespace Core
         /// </summary>
         static void InitKernelComponents()
         {
+            API.Init();
+
             ScannerResponseHandler.Init();
             FilterHandler.Run();
             ScanTasks.Init();
             FoundVirusesManager.Init();
             Quarantine.InitStorage();
-
-            API.Init();
         }
                
         /// <summary>
@@ -141,7 +141,7 @@ namespace Core
             */
 
 
-            
+            /*
             new Task(() =>
             {
                 Thread.Sleep(3000);
@@ -152,7 +152,18 @@ namespace Core
                 Console.WriteLine($"(TASK) SEND '{command}'");
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
-            }).Start();
+            }).Start();*/
+
+            new Task(() =>
+            {
+                Thread.Sleep(5000);
+
+                foreach (string file in Directory.GetFiles(@"C:\Users\Cisco\Desktop\karise\dist", "*.*", SearchOption.AllDirectories))
+                {
+                    ScanTasks.Add(file);
+                }
+
+            });//.Start();
 
 
             /*

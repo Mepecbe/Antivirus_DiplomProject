@@ -22,6 +22,8 @@ namespace MODULE__FILTER
     {
         public static class Connector
         {
+#warning Реализовать командный поток
+            public static NamedPipeServerStream CommandPipe   = new NamedPipeServerStream("Filter.CommandPipe"); 
             public static NamedPipeServerStream DriverMonitor = new NamedPipeServerStream("DRIVER_MON_FILTER"); /* Труба для приёма данных от монитора разделов использующего драйвер*/
             public static NamedPipeServerStream ApiMonitor    = new NamedPipeServerStream("API_MON_FILTER");    /* Труба для приёма данных от монитора разделов по API */
             public static NamedPipeClientStream Kernel        = new NamedPipeClientStream("Filter.Output");        /* Выходная труба (соединяющая с коннектором ядра)*/
