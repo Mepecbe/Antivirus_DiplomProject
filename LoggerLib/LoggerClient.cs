@@ -24,6 +24,8 @@ namespace LoggerLib
         public string Name { get; private set; }
         public string PipeName { get; private set; }
 
+        public Mutex WriteSync = new Mutex();
+
         public LoggerClient(string pipeName, string loggerName)
         {
             this.Name = loggerName;
@@ -45,11 +47,15 @@ namespace LoggerLib
         public void WriteLine(string message, LogLevel level = LogLevel.INFO)
         {
 #if DEBUG
-            if (outputPipe.IsConnected)
+            WriteSync.WaitOne();
             {
-                this.writer.Write($"{(byte)level} {message}");
-                outputPipe.WaitForPipeDrain();
+                if (outputPipe.IsConnected)
+                {
+                    this.writer.Write($"{(byte)level} {message}");
+                    this.writer.Flush();
+                }
             }
+            WriteSync.ReleaseMutex();
 #endif
         }
 

@@ -42,7 +42,17 @@ namespace Logger
             while (true)
             {
                 var msg = reader.ReadString();
-                var logLevel = byte.Parse(msg[0].ToString());
+
+                byte logLevel = 0;
+
+                try
+                {
+                    logLevel = byte.Parse(msg[0].ToString());
+                }
+                catch
+                {
+                    //pass
+                }
 
                 Conf.GlobalSync.WaitOne();
                 {
@@ -83,7 +93,7 @@ namespace Logger
             this.Name = loggerName;
             this.PipeName = pipeName;
 
-            inputPipe = new NamedPipeServerStream(pipeName, PipeDirection.In, Conf.MAX_PIPES);
+            inputPipe = new NamedPipeServerStream(pipeName);
             HandlerThread = new Thread(Handler);
             HandlerThread.Start();
         }
