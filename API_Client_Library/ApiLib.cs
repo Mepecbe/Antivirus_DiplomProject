@@ -59,8 +59,6 @@ namespace API_Client_Library
         private static readonly BinaryWriter OutputWriter = new BinaryWriter(OutputConnector);
         public static Mutex Writer_sync = new Mutex();
 
-        public static FileStream strm = File.Create("API_LIB_LOG_RECEIVE.txt");
-        public static StreamWriter writer = new StreamWriter(strm) { AutoFlush = true };
 
         /// <summary>
         /// Код потока обработчика событий
@@ -106,7 +104,6 @@ namespace API_Client_Library
             var file = dataReader.ReadString();
 
             countt++;
-            writer.WriteLine($"{countt} completed {file}");
 
             if (isVirus)
             {

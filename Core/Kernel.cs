@@ -22,6 +22,8 @@ using System.Runtime.CompilerServices;
 
 using System.IO.IsolatedStorage;
 
+using System.Diagnostics;
+
 using Core;
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
@@ -34,6 +36,10 @@ namespace Core
 {
     static class Initialization
     {
+#if DEBUG
+        private static Process LoggerProc;
+#endif
+
         /// <summary>
         /// Инициализация конфигурации ядра
         /// </summary>
@@ -48,6 +54,10 @@ namespace Core
         /// </summary>
         static void InitKernelComponents()
         {
+#if DEBUG
+            LoggerProc = Process.Start("Loggers\\Logger.exe");
+#endif
+
             API.Init();
 
             ScannerResponseHandler.Init();
@@ -128,6 +138,13 @@ namespace Core
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("Shutdown");
+
+#if DEBUG
+            if (!LoggerProc.HasExited)
+            {
+                LoggerProc.Kill();
+            }
+#endif
         }
 
 
@@ -153,6 +170,7 @@ namespace Core
                 cmd.WriteLine(command);
                 Console.WriteLine("(TASK) END");
             }).Start();*/
+
 
             new Task(() =>
             {

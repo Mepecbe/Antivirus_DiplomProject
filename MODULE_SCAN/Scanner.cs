@@ -17,6 +17,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+using LoggerLib;
+
 namespace MODULE__SCAN
 {
     public static class Configuration
@@ -48,6 +50,10 @@ namespace MODULE__SCAN
         private static BinaryWriter outputWriter;
         private static StreamReader inputReader;
 
+#if DEBUG
+        public static LoggerClient Logger = new LoggerClient("Logger.Scanner", "Log");
+#endif
+
         /// <summary>
         /// Записать данные о скане в выходящую трубу
         /// </summary>
@@ -65,7 +71,7 @@ namespace MODULE__SCAN
         public static void inputThread()
         {
 #if DEBUG
-            Console.WriteLine("[Scanner.inputThread] ScannerService.input wait connect");
+            Connector.Logger.WriteLine("[Scanner.inputThread] ScannerService.input wait connect");
 #endif
 
             inputPipe.WaitForConnection();
@@ -73,7 +79,7 @@ namespace MODULE__SCAN
             var binaryReader = new BinaryReader(inputPipe);
 
 #if DEBUG
-            Console.WriteLine("[Scanner.inputThread] ScannerService.input connected");
+            Connector.Logger.WriteLine("[Scanner.inputThread] ScannerService.input connected");
 #endif
 
             while (true)
@@ -81,7 +87,7 @@ namespace MODULE__SCAN
                 int id = binaryReader.ReadInt32();
                 string file = binaryReader.ReadString();
 
-                Console.WriteLine($"[Scanner.inputThread] Add to scan, task id {id}, path -> {file}");
+                Connector.Logger.WriteLine($"[Scanner.inputThread] Add to scan, task id {id}, path -> {file}");
                 ScanTasks.Add(id, file);
             }
         }
@@ -89,14 +95,14 @@ namespace MODULE__SCAN
         public static void signatureThread()
         {
 #if DEBUG
-            Console.WriteLine("[Scanner.signatureThread] Wait connect");
+            Connector.Logger.WriteLine("[Scanner.signatureThread] Wait connect");
 #endif
 
             signaturesPipe.WaitForConnection();
             var binaryReader = new BinaryReader(signaturesPipe);
 
 #if DEBUG
-            Console.WriteLine("[Scanner.signatureThread] ScannerService.signatures connected");
+            Connector.Logger.WriteLine("[Scanner.signatureThread] ScannerService.signatures connected");
 #endif
 
             while (true)
@@ -107,7 +113,7 @@ namespace MODULE__SCAN
                 if (ID >= Scanner.Signatures.Length)
                 {
 #if DEBUG
-                    Console.WriteLine("[Scanner.signatureThread] Write new signature to local buffer");
+                    Connector.Logger.WriteLine("[Scanner.signatureThread] Write new signature to local buffer");
 #endif
 
                     Array.Resize(ref Scanner.Signatures, Scanner.Signatures.Length + 1);
@@ -116,7 +122,7 @@ namespace MODULE__SCAN
                 else
                 {
 #if DEBUG
-                    Console.WriteLine("[Scanner.signatureThread] update signature on local buffer");
+                    Connector.Logger.WriteLine("[Scanner.signatureThread] update signature on local buffer");
 #endif
 
                     Scanner.Signatures[ID] = new Signature(Signature);
@@ -129,19 +135,19 @@ namespace MODULE__SCAN
         /// </summary>
         public static void Init()
         {
+#if DEBUG
+            Logger.Init();
+#endif
+
             inputHandler.Start();
             signatureHandler.Start();
 
-#if DEBUG
-            Console.WriteLine("[Scanner.Init] Wait outputPipe connect");
-#endif
+            Logger.WriteLine("[Scanner.Init] Wait outputPipe connect", LogLevel.WARN);
 
             outputPipe.Connect();
             outputWriter = new BinaryWriter(outputPipe);
 
-#if DEBUG
-            Console.WriteLine("[Scanner.Init] outputPipe connected");
-#endif
+            Logger.WriteLine("[Scanner.Init] outputPipe connected");
         }
     }
 
@@ -270,7 +276,7 @@ namespace MODULE__SCAN
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[Scanner] error {ex.Message}");
+                    Connector.Logger.WriteLine($"[Scanner] error {ex.Message}");
                 }
 
                 //ScanTasks.ScanMutex.ReleaseMutex();
@@ -316,7 +322,7 @@ namespace MODULE__SCAN
             ActiveScanTasks_Sync.WaitOne();
             {
                 ActiveScanTasks++;
-                Console.WriteLine($"SCAN STARTED, active tasks {ActiveScanTasks}");
+                Connector.Logger.WriteLine($"SCAN STARTED, active tasks {ActiveScanTasks}");
             }
             ActiveScanTasks_Sync.ReleaseMutex();
         }
@@ -326,7 +332,7 @@ namespace MODULE__SCAN
         /// </summary>
         private static void ScanCompleted(ScanTask task, ScanResult result)
         {
-            Console.WriteLine($"\n\n[SCAN COMPLETE EVENT] {task.file}, result {result.Result}");
+            Connector.Logger.WriteLine($"\n\n[SCAN COMPLETE EVENT] {task.file}, result {result.Result}");
 
             ActiveScanTasks_Sync.WaitOne();
             {
@@ -369,24 +375,24 @@ namespace MODULE__SCAN
                             }
                             catch (Exception ex)
                             {
-                                Console.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}");
+                                Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}");
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
                                 continue;
                             }
 #if DEBUG
-                            Console.WriteLine($"Thread {Thread.CurrentThread.Name} scan");
+                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan");
 #endif
 
                             var result = Scanner.ScanFile(stream);
 
 #if DEBUG
-                            Console.WriteLine($"Thread {Thread.CurrentThread.Name} scan success");
+                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan success");
 #endif
-                            Console.WriteLine("call scan completed");
+                            Connector.Logger.WriteLine("call scan completed");
                             ScanCompleted(task, result);
                         }
 
-                        Console.WriteLine("continue");
+                        Connector.Logger.WriteLine("continue");
                         continue;
                     }
                 }
@@ -415,7 +421,8 @@ namespace MODULE__SCAN
         {
             ScanTasks.Init();
 
-            new Task(() => Connector.Init()).Start();
+            Connector.Logger.WriteLine("RUN THREAD");
+            new Thread(() => Connector.Init()).Start();
             return 0;
         }
 

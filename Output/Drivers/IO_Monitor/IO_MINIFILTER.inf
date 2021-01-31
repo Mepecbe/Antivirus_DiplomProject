@@ -10,7 +10,7 @@ Signature   = "$Windows NT$"
 Class = "ActivityMonitor"
 ClassGuid = {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
 Provider    = %ManufacturerName%
-DriverVer = 01/27/2021,23.30.31.376
+DriverVer = 01/31/2021,3.36.44.864
 CatalogFile = FsFilter1.cat
 
 [DestinationDirs]
