@@ -21,7 +21,8 @@ namespace Logger
         public const ConsoleColor DEFAULT_COLOR = ConsoleColor.Black;
 
         public static Dictionary<string, string> Loggers = new Dictionary<string, string>() {
-            { "Logger.Scanner", "Service Scanner logger" }
+            { "Logger.Modules.Scanner", "Service Scanner logger" },
+            { "Logger.Kernel", "Service Scanner logger" }
         };
     }
 
@@ -49,9 +50,10 @@ namespace Logger
                 {
                     logLevel = byte.Parse(msg[0].ToString());
                 }
-                catch
+                catch(Exception ex)
                 {
-                    //pass
+                    Console.WriteLine($"[Logger] unknown error {ex.Message}");
+                    continue;
                 }
 
                 Conf.GlobalSync.WaitOne();

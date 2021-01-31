@@ -32,6 +32,9 @@ using Core.Kernel.Quarantine;
 using Core.Kernel.Connectors;
 using Core.Kernel.API;
 
+using LoggerLib;
+using System.Windows;
+
 namespace Core
 {
     static class Initialization
@@ -39,6 +42,7 @@ namespace Core
 #if DEBUG
         private static Process LoggerProc;
 #endif
+
 
         /// <summary>
         /// Инициализация конфигурации ядра
@@ -54,10 +58,6 @@ namespace Core
         /// </summary>
         static void InitKernelComponents()
         {
-#if DEBUG
-            LoggerProc = Process.Start("Loggers\\Logger.exe");
-#endif
-
             API.Init();
 
             ScannerResponseHandler.Init();
@@ -76,16 +76,16 @@ namespace Core
             {
                 string File = FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1);
 #if DEBUG
-                Console.WriteLine("[Kernel.initModules] Загрузка модуля -> " + File);
+                KernelConnectors.Logger.WriteLine("[Kernel.initModules] Загрузка модуля -> " + File);
 #endif
                 ModuleManager.Loader.LoadModule(File);
             }
 
 #if DEBUG
-            Console.WriteLine("[Kernel.initModules] Проверка таблицы сервисов");
+            KernelConnectors.Logger.WriteLine("[Kernel.initModules] Проверка таблицы сервисов");
             foreach (ModuleManager.Module m in ModuleManager.Modules)
             {
-                Console.WriteLine($"[Kernel.initModules] Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
+                KernelConnectors.Logger.WriteLine($"[Kernel.initModules] Модуль {m.ModuleName}, статус модуля {m.IsRunning}");
             }
 #endif
         }
@@ -98,7 +98,13 @@ namespace Core
         /// <param name="args"></param>
         static async Task Main(string[] args)
         {
-            Console.CancelKeyPress += Console_CancelKeyPress;
+            //Console.CancelKeyPress += Console_CancelKeyPress;
+            AppDomain.CurrentDomain.ProcessExit += OnCloseProcess;
+
+#if DEBUG
+            LoggerProc = Process.Start("Loggers\\Logger.exe");
+            KernelConnectors.Logger.Init();
+#endif
 
             //Инициализация конфигурации ядра
             InitKernelConfiguration();
@@ -115,29 +121,26 @@ namespace Core
             //Инициализация компонентов ядра
             InitKernelComponents();
 
-
-
-
-#if DEBUG
-            {
-                Thread.Sleep(2000);
-                Console.WriteLine("Состояние подключения трубы команд вирусной БД " + KernelConnectors.VirusesDb_CommandPipe.IsConnected);
-                Console.WriteLine("Состояние подключения трубы команд монитора разделов(API) " + KernelConnectors.PartitionMon_CommandPipe.IsConnected);
-
-                Console.WriteLine("Состояние подключения фильтра " + KernelConnectors.Filter_Input.IsConnected);
-
-                Console.WriteLine("Состояние подключения входной трубы сканнера " + KernelConnectors.ScannerService_Input.IsConnected);
-                Console.WriteLine("Состояние подключения выходной трубы сканнера " + KernelConnectors.ScannerService_Output.IsConnected);
-            }
-#endif
-
             testMethods();
             await Task.Delay(-1);
         }
 
+        private static void OnCloseProcess(object sender, EventArgs e)
+        {
+            Console.WriteLine("CLOSEEEE");
+            KernelConnectors.Logger.WriteLine("Shutdown");
+
+#if DEBUG
+            if (!LoggerProc.HasExited)
+            {
+                LoggerProc.Kill();
+            }
+#endif
+        }
+
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
-            Console.WriteLine("Shutdown");
+            KernelConnectors.Logger.WriteLine("Shutdown");
 
 #if DEBUG
             if (!LoggerProc.HasExited)
@@ -154,7 +157,7 @@ namespace Core
         {
             /*
                 Quarantine.InitStorage();
-                Console.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
+                KernelConnectors.Logger.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
             */
 
 
@@ -166,9 +169,9 @@ namespace Core
                 byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
                 var cmd = new StreamWriter(KernelConnectors.PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
 
-                Console.WriteLine($"(TASK) SEND '{command}'");
+                KernelConnectors.Logger.WriteLine($"(TASK) SEND '{command}'");
                 cmd.WriteLine(command);
-                Console.WriteLine("(TASK) END");
+                KernelConnectors.Logger.WriteLine("(TASK) END");
             }).Start();*/
 
 
@@ -188,7 +191,7 @@ namespace Core
             new Task(() =>
             {
                 Thread.Sleep(3000);
-                Console.WriteLine("ScanTasks add");
+                KernelConnectors.Logger.WriteLine("ScanTasks add");
 
                 foreach(string file in Directory.GetFiles("D:\\testFiles"))
                 {
@@ -202,27 +205,27 @@ namespace Core
             {
                 Thread.Sleep(8000);
                 {
-                    Console.WriteLine("\n\nFOUND VIRUSES RECORDS");
+                    KernelConnectors.Logger.WriteLine("\n\nFOUND VIRUSES RECORDS");
                     //ScanTasks.Add("D:\\office1.pdf");
 
                     foreach (VirusInfo virus in FoundVirusesManager.VirusesTable)
                     {
-                        Console.WriteLine($"VIRUS {virus.id}, {virus.file}");
-                        Console.WriteLine("move to quarantine");
+                        KernelConnectors.Logger.WriteLine($"VIRUS {virus.id}, {virus.file}");
+                        KernelConnectors.Logger.WriteLine("move to quarantine");
                         var result = Quarantine.AddFileToStorage(virus.file);
 
                         if (result.is_success)
                         {
-                            Console.WriteLine("  success");
+                            KernelConnectors.Logger.WriteLine("  success");
                         }
                     }
 
-                    Console.WriteLine("Count tasks");
-                    Console.WriteLine(ScanTasks.tasks.Count);
+                    KernelConnectors.Logger.WriteLine("Count tasks");
+                    KernelConnectors.Logger.WriteLine(ScanTasks.tasks.Count);
 
                     if (Quarantine.AddFileToStorage("D:\\testFiles\\office1.pdf").is_success)
                     {
-                        Console.WriteLine("MOVED TO QUARANTINE");
+                        KernelConnectors.Logger.WriteLine("MOVED TO QUARANTINE");
                     }
                 }
             }).Start();
@@ -234,10 +237,10 @@ namespace Core
                 {
                     string[] files = Quarantine.GetAllFiles();
 
-                    Console.WriteLine("ALL FILES IN QUARANTINE");
+                    KernelConnectors.Logger.WriteLine("ALL FILES IN QUARANTINE");
                     foreach(string file in files)
                     {
-                        Console.WriteLine(file);
+                        KernelConnectors.Logger.WriteLine(file);
                     }
                 }
             }).Start();*/
@@ -250,9 +253,9 @@ namespace Core
                     byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
                     var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
 
-                    Console.WriteLine($"(TASK) SEND '{command}'");
+                    KernelConnectors.Logger.WriteLine($"(TASK) SEND '{command}'");
                     cmd.WriteLine(command);
-                    Console.WriteLine($"(TASK) END");
+                    KernelConnectors.Logger.WriteLine($"(TASK) END");
                 }).Start();*/
             }
     }

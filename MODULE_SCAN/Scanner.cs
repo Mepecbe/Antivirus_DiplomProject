@@ -51,7 +51,7 @@ namespace MODULE__SCAN
         private static StreamReader inputReader;
 
 #if DEBUG
-        public static LoggerClient Logger = new LoggerClient("Logger.Scanner", "Log");
+        public static LoggerClient Logger = new LoggerClient("Logger.Modules.Scanner", "Log");
 #endif
 
         /// <summary>

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
+
 using Core.Kernel.Connectors;
 
 namespace Core.Kernel.ScanModule

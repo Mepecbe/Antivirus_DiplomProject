@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Pipes;
 
+using LoggerLib;
+
 namespace Core.Kernel.Connectors
 {
     static class KernelConnectors
@@ -38,6 +40,8 @@ namespace Core.Kernel.Connectors
         public static Mutex Api_In_Sync = new Mutex();
         public static Mutex Api_Out_Sync = new Mutex();
 
+        /*For logs*/
+        public static LoggerClient Logger = new LoggerClient("Logger.Kernel", "Kernel log");
 
 
         public static void InitInputConnections()
@@ -69,9 +73,8 @@ namespace Core.Kernel.Connectors
 
         public static void InitOutputConnections()
         {
-#if DEBUG
-            Console.WriteLine($"[Kernel.Connectors.InitOutputConnections] Wait output connections");
-#endif
+            Logger.WriteLine($"[Kernel.Connectors.InitOutputConnections] Wait output connections");
+
             Task.Run(() =>
             {
                 PartitionMon_CommandPipe_Sync.WaitOne();
