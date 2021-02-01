@@ -10,6 +10,9 @@ using System.Diagnostics;
 
 
 using Core.Kernel.Connectors;
+using Core.Kernel.Configurations;
+
+#warning Необходим отдельный класс, который будет управлять задачами сканирования, которые завершились с ошибкой
 
 namespace Core.Kernel.ScanModule
 {
@@ -28,25 +31,46 @@ namespace Core.Kernel.ScanModule
 
         private static void InputHandler()
         {
-            Console.WriteLine("[ScannerResponseHandler.InputHandler] Started");
-
-            var reader = new BinaryReader(Connector);
+            KernelConnectors.Logger.WriteLine("[ScannerResponseHandler.InputHandler] Started");
 
             while (true)
             {
                 Connectors.KernelConnectors.ScannerService_Input_Sync.WaitOne();
                 {
-                    int id = reader.ReadInt32();
-                    byte result = reader.ReadByte();
-                    int virusId = reader.ReadInt32();
+                    int id = KernelConnectors.ScannerService_Reader.ReadInt32();
+                    byte result = KernelConnectors.ScannerService_Reader.ReadByte();
+                    int virusId = KernelConnectors.ScannerService_Reader.ReadInt32();
                     var task = ScanTasks.getTaskById(id);
 
                     if (task is null)
                     {
-                        Debug.Assert(false, $"Task {id} not found, critical error");
+                        KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не найдена", LoggerLib.LogLevel.ERROR);
+                        continue;
                     }
 
-                    onScanCompleted.Invoke(id, result != 0, virusId, task.File);
+                    if (result == 2)
+                    {
+                        KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена, новая попытка {task.ProbesCount}", LoggerLib.LogLevel.ERROR);
+
+                        if (task.ProbesCount >= 5)
+                        {
+                            KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена спустя 5 попыток", LoggerLib.LogLevel.ERROR);
+                            onScanCompleted.Invoke(id, false, 0, task.File);
+                        }
+                        else
+                        {
+                            task.ProbesCount++;
+                            new Task(() =>
+                            {
+                                Thread.Sleep(TimeSpan.FromSeconds(2));
+                                ScanTasks.RestartScan(id);
+                            }).Start();
+                        }
+
+                        continue;
+                    }
+
+                    onScanCompleted.Invoke(id, result == 1, virusId, task.File);
                 }
                 KernelConnectors.ScannerService_Input_Sync.ReleaseMutex();
             }
@@ -70,35 +94,27 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         private static readonly Thread FilterMonitor = new Thread(() =>
         {
-#if DEBUG
-            Console.WriteLine("[FileQueue] [Thr.Monitor] Started, wait sync mutex... ");
-#endif
+            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Started, wait sync mutex... ");
+
             Connectors.KernelConnectors.Filter_Input_Sync.WaitOne();
-            if (Connectors.KernelConnectors.Filter_Input.IsConnected)
             {
-#if DEBUG
-                Console.WriteLine("[FileQueue] [Thr.Monitor] CONNECTED ");
-#endif
-                Connectors.KernelConnectors.Filter_Input_Sync.ReleaseMutex();
+                if (Connectors.KernelConnectors.Filter_Input.IsConnected)
+                {
+                    KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] CONNECTED ");
+                }
             }
+            Connectors.KernelConnectors.Filter_Input_Sync.ReleaseMutex();
 
-            var Reader = new StreamReader(FilterConnector, Configuration.Configuration.NamedPipeEncoding);
-
-            while(true)
+            while (true)
             {
-                string commandBuffer = Reader.ReadLine();
-
-#if DEBUG
-                //Console.WriteLine("[FileQueue] [Thr.Monitor] ->" + commandBuffer);
-#endif
+                string commandBuffer = KernelConnectors.Filter_Reader.ReadString();
 
                 switch (commandBuffer[0])
                 {
                     case '1': 
                         {
-#if DEBUG
-                            Console.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
-#endif
+                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
+
                             if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
                             {
                                 //Если файл уже числится у нас как вирус
@@ -111,9 +127,8 @@ namespace Core.Kernel.ScanModule
 
                     case '4': 
                         {
-#if DEBUG
-                            Console.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
-#endif
+                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
+
                             if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
                             {
                                 //Если файл уже числится у нас как вирус
@@ -167,6 +182,19 @@ namespace Core.Kernel.ScanModule
             tasks_sync.ReleaseMutex();
 
             return task;
+        }
+
+        public static void RestartScan(int taskId)
+        {
+            var task = getTaskById(taskId);
+
+            tasks_sync.WaitOne();
+            {
+                ScannerBinaryWriter.Write(taskId);
+                ScannerBinaryWriter.Write(task.File);
+                ScannerBinaryWriter.Flush();
+            }
+            tasks_sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -271,16 +299,16 @@ namespace Core.Kernel.ScanModule
                         )
                     );
 
-                    Console.WriteLine("[ScanQueue] Virus found!");
+                    KernelConnectors.Logger.WriteLine("[ScanQueue] Virus found!");
                 }
                 else
                 {
-                    Console.WriteLine("[ScanQueue] ERROR, TASK NOT FOUND!");
+                    KernelConnectors.Logger.WriteLine("[ScanQueue] ERROR, TASK NOT FOUND!");
                 }
             }
             else
             {
-                Console.WriteLine($"[ScanQueue] Not virus {id}!");
+                KernelConnectors.Logger.WriteLine($"[ScanQueue] Not virus {id}!");
             }
 
             
@@ -394,11 +422,18 @@ namespace Core.Kernel.ScanModule
     {
         public string File;
         public int TaskId;
+
+        /// <summary>
+        /// Количество попыток сканирования
+        /// </summary>
+        public byte ProbesCount;
+
     
         public ScanTask(string file, int id)
         {
             this.File = file;
             this.TaskId = id;
+            ProbesCount = 0;
         }
     }
 

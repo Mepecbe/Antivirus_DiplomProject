@@ -22,7 +22,9 @@ namespace Logger
 
         public static Dictionary<string, string> Loggers = new Dictionary<string, string>() {
             { "Logger.Modules.Scanner", "Service Scanner logger" },
-            { "Logger.Kernel", "Service Scanner logger" }
+            { "Logger.Kernel", "Service Scanner logger" },
+            { "Logger.Filter", "Service Filter logger" },
+            { "Logger.ApiMonitor", "Service FileSysApiMon logger" }
         };
     }
 

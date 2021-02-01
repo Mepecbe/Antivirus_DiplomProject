@@ -214,8 +214,6 @@ namespace MODULE__SCAN
 
         public static ScanResult ScanFile(Stream FileStream)
         {
-            //ScanTasks.ScanMutex.WaitOne();
-
             if (FileStream.Length <= Configuration.MAX_FAST_SCAN_FILE)
             {
                 ScanResult Result = new ScanResult(0, result.NotVirus);
@@ -225,7 +223,6 @@ namespace MODULE__SCAN
 
                 if(readed == 0)
                 {
-                    //ScanTasks.ScanMutex.ReleaseMutex();
                     return Result;
                 }
 
@@ -279,12 +276,10 @@ namespace MODULE__SCAN
                     Connector.Logger.WriteLine($"[Scanner] error {ex.Message}");
                 }
 
-                //ScanTasks.ScanMutex.ReleaseMutex();
                 return Result;
             }
             else
             {
-                //ScanTasks.ScanMutex.ReleaseMutex();
                 return new ScanResult(0, result.NotVirus);
             }
         }
@@ -292,7 +287,7 @@ namespace MODULE__SCAN
 
     public static class ScanTasks
     {
-        public static Thread[] ScanThreads = new Thread[12];
+        public static Thread[] ScanThreads = new Thread[24];
 
         /// <summary>
         /// Очередь задач сканирования
@@ -375,24 +370,21 @@ namespace MODULE__SCAN
                             }
                             catch (Exception ex)
                             {
-                                Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}");
+                                Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}", LogLevel.ERROR);
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
                                 continue;
                             }
-#if DEBUG
-                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan");
-#endif
+
+                            Connector.Logger.WriteLine($"Thread start scan {Thread.CurrentThread.Name}", LogLevel.WARN);
 
                             var result = Scanner.ScanFile(stream);
 
-#if DEBUG
-                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan success");
-#endif
-                            Connector.Logger.WriteLine("call scan completed");
+                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan completed");
+
+                            stream.Close();
                             ScanCompleted(task, result);
                         }
 
-                        Connector.Logger.WriteLine("continue");
                         continue;
                     }
                 }
@@ -420,9 +412,8 @@ namespace MODULE__SCAN
         public static byte EntryPoint()
         {
             ScanTasks.Init();
-
-            Connector.Logger.WriteLine("RUN THREAD");
             new Thread(() => Connector.Init()).Start();
+
             return 0;
         }
 

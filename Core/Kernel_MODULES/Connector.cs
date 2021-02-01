@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Pipes;
 
+using Core.Kernel.Configurations;
 using LoggerLib;
 
 namespace Core.Kernel.Connectors
@@ -16,21 +17,26 @@ namespace Core.Kernel.Connectors
     {
         /* OUTPUT CONNECTORS */
         public static NamedPipeClientStream PartitionMon_CommandPipe = new NamedPipeClientStream("PartitionMon.Command");
+        public static BinaryWriter PartitionMon_CommandWriter;
         public static Mutex PartitionMon_CommandPipe_Sync = new Mutex();
 
         public static NamedPipeClientStream VirusesDb_CommandPipe = new NamedPipeClientStream("VirusesDb.CommandPipe");
+        public static BinaryWriter VirusesDb_CommandWriter;
         public static Mutex VirusesDb_CommandPipe_Sync = new Mutex();
 
         public static NamedPipeClientStream ScannerService_Output = new NamedPipeClientStream("ScannerService.Input");
+        public static BinaryWriter ScannerService_Writer;
         public static Mutex ScannerService_Output_Sync = new Mutex();
 
 
 
         /* INPUT CONNECTORS */
         public static NamedPipeServerStream Filter_Input = new NamedPipeServerStream("Filter.Output");
+        public static BinaryReader Filter_Reader;
         public static Mutex Filter_Input_Sync = new Mutex();
 
         public static NamedPipeServerStream ScannerService_Input = new NamedPipeServerStream("ScannerService.Output");
+        public static BinaryReader ScannerService_Reader;
         public static Mutex ScannerService_Input_Sync = new Mutex();
 
         /*For API*/
@@ -52,21 +58,29 @@ namespace Core.Kernel.Connectors
             Task.Run(() =>
             {
                 Filter_Input_Sync.WaitOne();
-                Filter_Input.WaitForConnection();
+                {
+                    Filter_Input.WaitForConnection();
+                    Filter_Reader = new BinaryReader(Filter_Input, Configuration.NamedPipeEncoding);
+                }
                 Filter_Input_Sync.ReleaseMutex();
             });
 
             Task.Run(() =>
             {
                 ScannerService_Input_Sync.WaitOne();
-                ScannerService_Input.WaitForConnection();
+                {
+                    ScannerService_Input.WaitForConnection();
+                    ScannerService_Reader = new BinaryReader(ScannerService_Input, Configuration.NamedPipeEncoding);
+                }
                 ScannerService_Input_Sync.ReleaseMutex();
             });
 
             Task.Run(() =>
             {
                 Api_In_Sync.WaitOne();
-                Api_In.WaitForConnection();
+                {
+                    Api_In.WaitForConnection();
+                }
                 Api_In_Sync.ReleaseMutex();
             });
         }
@@ -78,33 +92,44 @@ namespace Core.Kernel.Connectors
             Task.Run(() =>
             {
                 PartitionMon_CommandPipe_Sync.WaitOne();
-                PartitionMon_CommandPipe.Connect();
+                {
+                    PartitionMon_CommandPipe.Connect();
+                    PartitionMon_CommandWriter = new BinaryWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding);
+                }
                 PartitionMon_CommandPipe_Sync.ReleaseMutex();
             });
 
             Task.Run(() =>
             {
                 ScannerService_Output_Sync.WaitOne();
-                ScannerService_Output.Connect();
+                {
+                    ScannerService_Output.Connect();
+                    ScannerService_Writer = new BinaryWriter(ScannerService_Output, Configuration.NamedPipeEncoding);
+                }
                 ScannerService_Output_Sync.ReleaseMutex();
             });
 
             Task.Run(() =>
             {
                 VirusesDb_CommandPipe_Sync.WaitOne();
-                VirusesDb_CommandPipe.Connect();
+                {
+                    VirusesDb_CommandPipe.Connect();
+                    VirusesDb_CommandWriter = new BinaryWriter(VirusesDb_CommandPipe, Configuration.NamedPipeEncoding);
+                }
                 VirusesDb_CommandPipe_Sync.ReleaseMutex();
 
-                StreamWriter writer = new StreamWriter(VirusesDb_CommandPipe, Encoding.Unicode) { AutoFlush = true };
-
                 Thread.Sleep(100);
-                writer.WriteLine("/upload_to_scanner");
+
+                VirusesDb_CommandWriter.Write("/upload_to_scanner");
+                VirusesDb_CommandWriter.Flush();
             });
 
             Task.Run(() =>
             {
                 Api_Out_Sync.WaitOne();
-                Api_Out.Connect();
+                {
+                    Api_Out.Connect();
+                }
                 Api_Out_Sync.ReleaseMutex();
             });
         }

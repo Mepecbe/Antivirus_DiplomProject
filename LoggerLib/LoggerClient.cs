@@ -36,27 +36,26 @@ namespace LoggerLib
 
         public void ToOutput(string message, LogLevel level)
         {
-#if DEBUG
             if (outputPipe.IsConnected)
             {
                 this.writer.Write($"{(byte)level} {message}");
             }
-#endif
         }
 
         public void WriteLine(string message, LogLevel level = LogLevel.INFO)
         {
-#if DEBUG
-            WriteSync.WaitOne();
+            if (outputPipe.IsConnected)
             {
-                if (outputPipe.IsConnected)
+                WriteSync.WaitOne();
                 {
-                    this.writer.Write($"{(byte)level} {message}");
-                    this.writer.Flush();
+                    if (outputPipe.IsConnected)
+                    {
+                        this.writer.Write($"{(byte)level} {message}");
+                        this.writer.Flush();
+                    }
                 }
+                WriteSync.ReleaseMutex();
             }
-            WriteSync.ReleaseMutex();
-#endif
         }
 
 
@@ -66,8 +65,10 @@ namespace LoggerLib
         public void Init()
         {
             Console.WriteLine($"[LoggerLib] Wait connect to {PipeName}");
-            outputPipe.Connect();
-            writer = new BinaryWriter(outputPipe);
+            {
+                outputPipe.Connect();
+                writer = new BinaryWriter(outputPipe);
+            }
             Console.WriteLine($"[LoggerLib] Connected to {PipeName}");
         }
     }

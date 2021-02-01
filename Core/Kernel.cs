@@ -1,39 +1,24 @@
 ﻿/*
-    Наименование модуля: Core(Ядро)
+    Наименование модуля: Core
     Описание модуля
         С этого модуля начинается работа всего средства, модуль запускает остальные модули
-        и служит связующим звеном для всех модулей. Содержит в себе потоки 
+        и служит связующим звеном для всех модулей.
  */
 
 using System;
 
 using System.IO;
-using System.IO.Pipes;
-
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
-using System.Collections.Generic;
-using System.Security.Cryptography;
-
-using System.Reflection;
-using System.Runtime.CompilerServices;
-
-using System.IO.IsolatedStorage;
-
-using System.Diagnostics;
-
-using Core;
+using Core.Kernel.Configurations;
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
-using Core.Kernel.Configuration;
 using Core.Kernel.Quarantine;
 using Core.Kernel.Connectors;
 using Core.Kernel.API;
-
-using LoggerLib;
-using System.Windows;
 
 namespace Core
 {
@@ -127,9 +112,6 @@ namespace Core
 
         private static void OnCloseProcess(object sender, EventArgs e)
         {
-            Console.WriteLine("CLOSEEEE");
-            KernelConnectors.Logger.WriteLine("Shutdown");
-
 #if DEBUG
             if (!LoggerProc.HasExited)
             {
@@ -140,8 +122,6 @@ namespace Core
 
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
-            KernelConnectors.Logger.WriteLine("Shutdown");
-
 #if DEBUG
             if (!LoggerProc.HasExited)
             {
@@ -161,20 +141,19 @@ namespace Core
             */
 
 
-            /*
+            
             new Task(() =>
             {
                 Thread.Sleep(3000);
                 var command = @"0*D:\&*.*";
-                byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                var cmd = new StreamWriter(KernelConnectors.PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
 
                 KernelConnectors.Logger.WriteLine($"(TASK) SEND '{command}'");
-                cmd.WriteLine(command);
+                KernelConnectors.PartitionMon_CommandWriter.Write(command);
+                KernelConnectors.PartitionMon_CommandWriter.Flush();
                 KernelConnectors.Logger.WriteLine("(TASK) END");
-            }).Start();*/
+            }).Start();
 
-
+            /*
             new Task(() =>
             {
                 Thread.Sleep(5000);
@@ -184,7 +163,7 @@ namespace Core
                     ScanTasks.Add(file);
                 }
 
-            });//.Start();
+            });//.Start();*/
 
 
             /*
