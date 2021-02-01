@@ -87,8 +87,6 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     static class FilterHandler
     {
-        private static NamedPipeServerStream FilterConnector;
-
         /// <summary>
         /// Обработчик обнаруженных файлов от фильтра
         /// </summary>
@@ -96,30 +94,30 @@ namespace Core.Kernel.ScanModule
         {
             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Started, wait sync mutex... ");
 
-            Connectors.KernelConnectors.Filter_Input_Sync.WaitOne();
+            KernelConnectors.Filter_Input_Sync.WaitOne();
             {
-                if (Connectors.KernelConnectors.Filter_Input.IsConnected)
+                if (KernelConnectors.Filter_Input.IsConnected)
                 {
                     KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] CONNECTED ");
                 }
             }
-            Connectors.KernelConnectors.Filter_Input_Sync.ReleaseMutex();
+            KernelConnectors.Filter_Input_Sync.ReleaseMutex();
 
             while (true)
             {
                 string commandBuffer = KernelConnectors.Filter_Reader.ReadString();
+
+                if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
+                {
+                    //Если файл уже числится у нас как вирус
+                    continue;
+                }
 
                 switch (commandBuffer[0])
                 {
                     case '1': 
                         {
                             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
-
-                            if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
-                            {
-                                //Если файл уже числится у нас как вирус
-                                continue;
-                            }
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
@@ -128,12 +126,6 @@ namespace Core.Kernel.ScanModule
                     case '4': 
                         {
                             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
-
-                            if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
-                            {
-                                //Если файл уже числится у нас как вирус
-                                continue;
-                            }
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
@@ -147,7 +139,6 @@ namespace Core.Kernel.ScanModule
 
         public static void Run()
         {
-            FilterConnector = KernelConnectors.Filter_Input;
             FilterMonitor.Start();
         }
     }
@@ -175,9 +166,11 @@ namespace Core.Kernel.ScanModule
                 task = new ScanTask(file, id);
                 tasks.Add(task);
 
-                ScannerBinaryWriter.Write(id++);
+                ScannerBinaryWriter.Write(id);
                 ScannerBinaryWriter.Write(file);
                 ScannerBinaryWriter.Flush();
+
+                id++;
             }
             tasks_sync.ReleaseMutex();
 

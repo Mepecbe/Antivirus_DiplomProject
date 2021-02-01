@@ -51,7 +51,7 @@ namespace Core
             FoundVirusesManager.Init();
             Quarantine.InitStorage();
         }
-               
+
         /// <summary>
         /// Инициализация подключаемых(DLL) модулей
         /// </summary>
@@ -75,6 +75,37 @@ namespace Core
 #endif
         }
 
+
+        /// <summary>
+        /// Применить базовые настройки модулей
+        /// </summary>
+        private static void ApplyingBasicSettings()
+        {
+            new Task(() =>
+            {
+                var drives = DriveInfo.GetDrives();
+                var SystemDrive = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
+
+                for (byte index = 0; index < drives.Length; index++)
+                {
+                    KernelConnectors.Logger.WriteLine($"[Kernel.ApplyingBasicSettings] Found drive {drives[index].Name}");
+
+                    if (drives[index].DriveType == DriveType.Removable || 
+                        drives[index].DriveType == DriveType.CDRom ||
+                        drives[index].DriveType == DriveType.Network ||
+                        drives[index].DriveType == DriveType.Unknown ||
+                        drives[index].Name == SystemDrive)
+                    {
+                        //Если диск не подходит
+                        continue;
+                    }
+
+                    KernelConnectors.Logger.WriteLine($"[Kernel.ApplyingBasicSettings] Create api mon for {drives[index].Name}");
+                    KernelConnectors.PartitionMon_CommandWriter.Write($"0*{drives[index].Name}&*.*");
+                    KernelConnectors.PartitionMon_CommandWriter.Flush();
+                }
+            }).Start();
+        }
 
 
         /// <summary>
@@ -106,7 +137,9 @@ namespace Core
             //Инициализация компонентов ядра
             InitKernelComponents();
 
-            testMethods();
+            //Базовая настройка модулей
+            ApplyingBasicSettings();
+
             await Task.Delay(-1);
         }
 
@@ -132,110 +165,5 @@ namespace Core
 
 
 
-
-        private static void testMethods()
-        {
-            /*
-                Quarantine.InitStorage();
-                KernelConnectors.Logger.WriteLine(Quarantine.AddFileToStorage(@"D:\123.txt").fileName);
-            */
-
-
-            
-            new Task(() =>
-            {
-                Thread.Sleep(3000);
-                var command = @"0*D:\&*.*";
-
-                KernelConnectors.Logger.WriteLine($"(TASK) SEND '{command}'");
-                KernelConnectors.PartitionMon_CommandWriter.Write(command);
-                KernelConnectors.PartitionMon_CommandWriter.Flush();
-                KernelConnectors.Logger.WriteLine("(TASK) END");
-            }).Start();
-
-            /*
-            new Task(() =>
-            {
-                Thread.Sleep(5000);
-
-                foreach (string file in Directory.GetFiles(@"C:\Users\Cisco\Desktop\karise\dist", "*.*", SearchOption.AllDirectories))
-                {
-                    ScanTasks.Add(file);
-                }
-
-            });//.Start();*/
-
-
-            /*
-            new Task(() =>
-            {
-                Thread.Sleep(3000);
-                KernelConnectors.Logger.WriteLine("ScanTasks add");
-
-                foreach(string file in Directory.GetFiles("D:\\testFiles"))
-                {
-                    ScanTasks.Add(file);
-                }
-            }).Start();
-
-
-
-            new Task(() =>
-            {
-                Thread.Sleep(8000);
-                {
-                    KernelConnectors.Logger.WriteLine("\n\nFOUND VIRUSES RECORDS");
-                    //ScanTasks.Add("D:\\office1.pdf");
-
-                    foreach (VirusInfo virus in FoundVirusesManager.VirusesTable)
-                    {
-                        KernelConnectors.Logger.WriteLine($"VIRUS {virus.id}, {virus.file}");
-                        KernelConnectors.Logger.WriteLine("move to quarantine");
-                        var result = Quarantine.AddFileToStorage(virus.file);
-
-                        if (result.is_success)
-                        {
-                            KernelConnectors.Logger.WriteLine("  success");
-                        }
-                    }
-
-                    KernelConnectors.Logger.WriteLine("Count tasks");
-                    KernelConnectors.Logger.WriteLine(ScanTasks.tasks.Count);
-
-                    if (Quarantine.AddFileToStorage("D:\\testFiles\\office1.pdf").is_success)
-                    {
-                        KernelConnectors.Logger.WriteLine("MOVED TO QUARANTINE");
-                    }
-                }
-            }).Start();
-
-
-            new Task(() =>
-            {
-                Thread.Sleep(10000);
-                {
-                    string[] files = Quarantine.GetAllFiles();
-
-                    KernelConnectors.Logger.WriteLine("ALL FILES IN QUARANTINE");
-                    foreach(string file in files)
-                    {
-                        KernelConnectors.Logger.WriteLine(file);
-                    }
-                }
-            }).Start();*/
-
-                /*
-                new Task(() =>
-                {
-                    Thread.Sleep(12000);
-                    var command = @"1*C:\&*";
-                    byte[] commandd = Configuration.NamedPipeEncoding.GetBytes(command);
-                    var cmd = new StreamWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding) { AutoFlush = true };
-
-                    KernelConnectors.Logger.WriteLine($"(TASK) SEND '{command}'");
-                    cmd.WriteLine(command);
-                    KernelConnectors.Logger.WriteLine($"(TASK) END");
-                }).Start();*/
-            }
     }
 }
