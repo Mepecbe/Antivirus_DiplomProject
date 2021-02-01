@@ -81,6 +81,7 @@ namespace Core
         /// </summary>
         private static void ApplyingBasicSettings()
         {
+            //Partition monitor
             new Task(() =>
             {
                 var drives = DriveInfo.GetDrives();
@@ -104,6 +105,15 @@ namespace Core
                     KernelConnectors.PartitionMon_CommandWriter.Write($"0*{drives[index].Name}&*.*");
                     KernelConnectors.PartitionMon_CommandWriter.Flush();
                 }
+            }).Start();
+
+
+            //VirusesDb 
+            new Task(() =>
+            {
+                //Выгрузить все сигнатуры в менеджер сканера
+                KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
+                KernelConnectors.VirusesDb_CommandWriter.Flush();
             }).Start();
         }
 

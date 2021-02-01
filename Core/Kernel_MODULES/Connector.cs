@@ -119,9 +119,6 @@ namespace Core.Kernel.Connectors
                 VirusesDb_CommandPipe_Sync.ReleaseMutex();
 
                 Thread.Sleep(100);
-
-                VirusesDb_CommandWriter.Write("/upload_to_scanner");
-                VirusesDb_CommandWriter.Flush();
             });
 
             Task.Run(() =>

@@ -18,6 +18,7 @@ namespace Logger
         public const ConsoleColor WARN_COLOR = ConsoleColor.Yellow;
         public const ConsoleColor INFO_COLOR = ConsoleColor.White;
         public const ConsoleColor ERROR_COLOR = ConsoleColor.Red;
+        public const ConsoleColor OK_COLOR = ConsoleColor.Green;
         public const ConsoleColor DEFAULT_COLOR = ConsoleColor.Black;
 
         public static Dictionary<string, string> Loggers = new Dictionary<string, string>() {
@@ -80,6 +81,13 @@ namespace Logger
                         case 2:
                             {
                                 Console.ForegroundColor = Conf.ERROR_COLOR;
+                                break;
+                            }
+
+                        //OK
+                        case 3:
+                            {
+                                Console.ForegroundColor = Conf.OK_COLOR;
                                 break;
                             }
                     }

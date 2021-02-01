@@ -88,7 +88,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 Connector.CommandPipe.WaitForConnection();
                 Connector.CommandReader = new BinaryReader(Connector.CommandPipe, Configuration.NamedPipeEncoding);
             }
-            Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Connected");
+            Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Connected", LogLevel.OK);
 
 
             while (true)
@@ -128,7 +128,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 #if DEBUG
                         default:
                             {
-                                Console.WriteLine("[FileSysApiMon.CommandThread] Command not found");
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Command not found", LogLevel.WARN);
                                 break;
                             }
 #endif
@@ -161,7 +161,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             }
             FileSystemWatchers_sync.ReleaseMutex();
 
-            Connector.Logger.WriteLine($"[FileSysApiMon.CreatePartition] Created api monitor for {PartitionPath}", LogLevel.WARN);
+            Connector.Logger.WriteLine($"[FileSysApiMon.CreatePartition] Created api monitor for {PartitionPath}", LogLevel.OK);
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
         static void CreateFileEvent(object sender, FileSystemEventArgs e)
         {
-            Connector.Logger.WriteLine($"[FileSysApiMon.CreateFileEvent] CREATE EVENT", LogLevel.WARN);
+            //Connector.Logger.WriteLine($"[FileSysApiMon.CreateFileEvent] CREATE EVENT {e.FullPath}", LogLevel.WARN);
 
             Connector.Writer_Sync.WaitOne();
             {
@@ -207,7 +207,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
         static void ChangedFileEvent(object sender, FileSystemEventArgs e)
         {
-            Connector.Logger.WriteLine($"[FileSysApiMon.ChangedFileEvent] EDIT EVENT", LogLevel.WARN);
+            //Connector.Logger.WriteLine($"[FileSysApiMon.ChangedFileEvent] EDIT EVENT {e.FullPath}", LogLevel.WARN);
 
             Connector.Writer_Sync.WaitOne();
             {
@@ -215,8 +215,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 {
                     if (Exists(e.FullPath))
                     {
-                        Connector.Logger.WriteLine($"[FileSysApiMon.ChangedFileEvent] EDIT, EXISTS {e.FullPath}", LogLevel.WARN);
-
                         CreatedFilesBuffer_sync.ReleaseMutex();
                         return;
                     }

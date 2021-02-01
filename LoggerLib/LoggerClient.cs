@@ -14,7 +14,8 @@ namespace LoggerLib
     {
         WARN,
         INFO,
-        ERROR
+        ERROR,
+        OK
     }
 
     public class LoggerClient

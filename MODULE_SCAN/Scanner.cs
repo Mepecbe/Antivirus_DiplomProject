@@ -147,7 +147,7 @@ namespace MODULE__SCAN
             outputPipe.Connect();
             outputWriter = new BinaryWriter(outputPipe);
 
-            Logger.WriteLine("[Scanner.Init] outputPipe connected");
+            Logger.WriteLine("[Scanner.Init] outputPipe connected", LogLevel.OK);
         }
     }
 
@@ -273,7 +273,7 @@ namespace MODULE__SCAN
                 }
                 catch (Exception ex)
                 {
-                    Connector.Logger.WriteLine($"[Scanner] error {ex.Message}");
+                    Connector.Logger.WriteLine($"[Scanner] error {ex.Message}", LogLevel.ERROR);
                 }
 
                 return Result;
@@ -317,7 +317,6 @@ namespace MODULE__SCAN
             ActiveScanTasks_Sync.WaitOne();
             {
                 ActiveScanTasks++;
-                Connector.Logger.WriteLine($"SCAN STARTED, active tasks {ActiveScanTasks}");
             }
             ActiveScanTasks_Sync.ReleaseMutex();
         }
