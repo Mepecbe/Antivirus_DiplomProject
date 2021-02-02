@@ -9,63 +9,68 @@ using System.IO;
 using System.IO.Pipes;
 using System.IO.IsolatedStorage;
 
+using LoggerLib;
+
 namespace MODULE__VIRUSES_DB
 {
+    public static class Configurations
+    {
+        public static Encoding NamedPipeEncoding = Encoding.Unicode;
+    }
+
+
     public static class Connectors
     {
         public static NamedPipeServerStream VirusesDb_CommandPipe = new NamedPipeServerStream("VirusesDb.CommandPipe");
+        public static BinaryReader VirusesDb_CommandPipe_Reader;
+
         public static NamedPipeClientStream ScannerService_signatures = new NamedPipeClientStream("ScannerService.signatures");
+        public static BinaryWriter ScannerService_signatures_Writer;
 
         public static Thread CommandThread = new Thread(commandHandler);
 
+        public static LoggerClient Logger = new LoggerClient("Logger.VirusesDB", "Viruses DB");
+
         private static void commandHandler()
         {
-#if DEBUG
-            Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Wait connect");
-#endif
-            VirusesDb_CommandPipe.WaitForConnection();
-#if DEBUG
-            Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Connected");
-#endif
+            Logger.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Wait connect", LogLevel.WARN);
 
-            StreamReader pipeReader = new StreamReader(VirusesDb_CommandPipe, Encoding.Unicode);
-            BinaryWriter writer = new BinaryWriter(ScannerService_signatures);
+            VirusesDb_CommandPipe.WaitForConnection();
+
+            Logger.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] Connected", LogLevel.OK);
+
+
+            VirusesDb_CommandPipe_Reader = new BinaryReader(VirusesDb_CommandPipe, Encoding.Unicode);
+            ScannerService_signatures_Writer = new BinaryWriter(ScannerService_signatures);
 
             while (true)
             {
-#if DEBUG
-                Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] WAIT COMMAND");
-#endif
-                string command = pipeReader.ReadLine();
+                Logger.WriteLine($"[ModuleVirusesDb.commandThread] WAIT COMMAND");
 
-#if DEBUG
-                Console.WriteLine($"[ModuleVirusesDb.Connectors.commandThread] READ LINE");
-#endif
+                string command = VirusesDb_CommandPipe_Reader.ReadString();
+
+                Logger.WriteLine($"[ModuleVirusesDb.commandThread] READ COMMAND {command}");
 
                 switch (command)
                 {
                     case "/reinit_db":
                         {
-#if DEBUG
-                            Console.WriteLine("[ModuleVirusesDb] reinit_db");
-#endif
+                            Logger.WriteLine("[ModuleVirusesDb] reinit_db");
+
                             break;
                         }
 
                     case "/upload_to_scanner":
                         {
-#if DEBUG
-                            Console.WriteLine("[ModuleVirusesDb] UPLOAD TO SCANNER ALL SIGNATURES");
-#endif
+                            Logger.WriteLine("[ModuleVirusesDb] UPLOAD TO SCANNER ALL SIGNATURES", LogLevel.WARN);
 
                             for(int index = 0; index < Db.DbTable.Length; index++)
                             {
-                                writer.Write(Convert.ToInt16(index));
-                                writer.Write(Convert.ToInt16(Db.DbTable[index].Signature.Length));
-                                
-                                writer.Write(Db.DbTable[index].Signature);                                
+                                ScannerService_signatures_Writer.Write(Convert.ToInt16(index));
+                                ScannerService_signatures_Writer.Write(Convert.ToInt16(Db.DbTable[index].Signature.Length));
+                                ScannerService_signatures_Writer.Write(Db.DbTable[index].Signature);
 
-                                writer.Flush();
+                                ScannerService_signatures_Writer.Flush();
                             }
 
                             break;
@@ -82,10 +87,7 @@ namespace MODULE__VIRUSES_DB
         {
             CommandThread.Start();
 
-#if DEBUG
-            Console.WriteLine($"[ModuleViruses.Connectors.RunConnector] Wait connect to ScannerService.signatures");
-#endif
-
+            //Подключение к сервису сканирования
             ScannerService_signatures.Connect();
         }
     }
@@ -106,24 +108,16 @@ namespace MODULE__VIRUSES_DB
 
         public static void InitDb()
         {
-#if DEBUG
-            Console.WriteLine("[InitDB] Init Isolated Storage!");
-
-#endif
+            Connectors.Logger.WriteLine("[InitDB] Init Isolated Storage!");
 
             DbStorage = IsolatedStorageFile.GetUserStoreForDomain();
 
             if (!DbStorage.DirectoryExists("VirusesDb"))
             {
                 DbStorage.CreateDirectory("VirusesDb");
-#if DEBUG
-                Console.WriteLine("[InitDB] Created Directory VirusesDb in Isolated Storage");
-#endif
             }
 
-
             LoadToIsolatedStorage("DatabaseFiles\\");
-
 
             string[] files = DbStorage.GetFileNames("VirusesDb\\*.db");
 
@@ -131,21 +125,15 @@ namespace MODULE__VIRUSES_DB
             {
                 foreach (string file in files)
                 {
-#if DEBUG
-                    Console.WriteLine("[InitDb] Load Db ->" + file);
-#endif
+                    Connectors.Logger.WriteLine("[InitDb] Load Db ->" + file, LogLevel.WARN);
                     LoadDbFromFile("VirusesDb\\" + file);
                 }
 
-#if DEBUG
-                Console.WriteLine($"[InitDb] End init, loaded {DbTable.Length} viruses");
-#endif
+                Connectors.Logger.WriteLine($"[InitDb] End init, loaded {DbTable.Length} viruses", LogLevel.OK);
             }
             else
             {
-#if DEBUG
-                Console.WriteLine("[InitDB] DB files in isolated storage not found");
-#endif
+                Connectors.Logger.WriteLine("[InitDB] DB files in isolated storage not found", LogLevel.ERROR);
             }
         }
 
@@ -155,16 +143,14 @@ namespace MODULE__VIRUSES_DB
         /// <param name="localDir"></param>
         private static void LoadToIsolatedStorage(string localDir)
         {
-#if DEBUG
-            Console.WriteLine("[LoadToIsolatedStorage] Load DBs File from local storage to isolated storage");
-#endif
+
+            Connectors.Logger.WriteLine("[LoadToIsolatedStorage] Load DBs File from local storage to isolated storage");
+
             string[] Files = Directory.GetFiles(localDir, "*.db");
 
             foreach(string file in Files)
             {
-#if DEBUG
-                Console.WriteLine($"[LoadToIsolatedStorage] Load file from >{file}< >VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}<");
-#endif
+                Connectors.Logger.WriteLine($"[LoadToIsolatedStorage] Load file from >{file}< to >VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}<");
 
                 var isolatedStorageFile = DbStorage.CreateFile($"VirusesDb\\{file.Substring(file.LastIndexOf('\\') + 1)}");
                 var localStorageFile = File.Open(file, FileMode.Open);
@@ -176,7 +162,7 @@ namespace MODULE__VIRUSES_DB
                     isolatedStorageFile.Write(buffer, 0, buffer.Length);
                 }
 
-                Console.WriteLine($"[LoadToIsolatedStorage] Load success");
+                Connectors.Logger.WriteLine($"[LoadToIsolatedStorage] Load to isolated storage success", LogLevel.OK);
                 isolatedStorageFile.Close();
                 localStorageFile.Close();
             }
@@ -228,9 +214,7 @@ namespace MODULE__VIRUSES_DB
                             type
                         );
 
-#if DEBUG
-                    Console.WriteLine($"[DbLoaderFromFile] load virus -> {name}, type {type}, signature len {signatureLen}");
-#endif
+                    Connectors.Logger.WriteLine($"[DbLoaderFromFile] loaded virus from local DB -> {name}, type {type}, signature len {signatureLen}", LogLevel.OK);
                 }
                 DbSync.ReleaseMutex();
             }
@@ -272,10 +256,17 @@ namespace MODULE__VIRUSES_DB
 
 
 
+
+
+
     public static class Initializator
     {
         public static byte EntryPoint()
         {
+#if DEBUG
+            Connectors.Logger.Init();
+#endif
+
             Db.InitDb();
             Connectors.RunConnector();
 

@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+using Core.Kernel.Connectors;
+
 namespace Core.Kernel.ModuleLoader
 {
     public static class ModuleManager
@@ -48,9 +50,8 @@ namespace Core.Kernel.ModuleLoader
 
                     if (!found)
                     {
-#if DEBUG
-                        Console.WriteLine("Инициализатор библиотеки не найден");
-#endif
+                        KernelConnectors.Logger.WriteLine($"[Kernel.ModuleLoader] {ModuleFileName} Инициализатор не найден", LoggerLib.LogLevel.ERROR);
+
                         //Не найден класс инициализатора
                         return;
                     }
@@ -63,6 +64,7 @@ namespace Core.Kernel.ModuleLoader
 
                     if (EntryPoint == null)
                     {
+                        KernelConnectors.Logger.WriteLine($"[Kernel.ModuleLoader] {ModuleFileName} точка входа в модуль не найдена", LoggerLib.LogLevel.ERROR);
                         return;
                     }
                     else

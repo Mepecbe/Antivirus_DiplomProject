@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Core.Kernel.Configurations;
+using Core.Kernel.VirusesManager;
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
 using Core.Kernel.Quarantine;

@@ -8,11 +8,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-
 using Core.Kernel.Connectors;
 using Core.Kernel.Configurations;
-
-#warning Необходим отдельный класс, который будет управлять задачами сканирования, которые завершились с ошибкой
+using Core.Kernel.VirusesManager;
+using Core.Kernel.ErrorTasks;
 
 namespace Core.Kernel.ScanModule
 {
@@ -55,6 +54,7 @@ namespace Core.Kernel.ScanModule
                         if (task.ProbesCount >= 5)
                         {
                             KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена спустя 5 попыток", LoggerLib.LogLevel.ERROR);
+                            ErrorTasks.ErrorScanTasksManager.ErrorScanTasks.Add(new ErrorScanTask(1, "Message", task));
                             onScanCompleted.Invoke(id, false, 0, task.File);
                         }
                         else
@@ -321,85 +321,7 @@ namespace Core.Kernel.ScanModule
         }
     }
 
-
-
-
-    /// <summary>
-    /// Класс отвечающий за найденные вирусы
-    /// </summary>
-    public static class FoundVirusesManager
-    {
-        private static List<VirusInfo> VirusesTable = new List<VirusInfo>();
-        public static Mutex VirusesTable_sync = new Mutex();
-
-        /// <summary>
-        /// Добавить новый вирус в таблицу
-        /// </summary>
-        /// <param name="info"></param>
-        public static void AddNewVirus(VirusInfo info)
-        {
-            VirusesTable_sync.WaitOne();
-            {
-                VirusesTable.Add(info);
-            }
-            VirusesTable_sync.ReleaseMutex();
-        }
-
-        public static VirusInfo getInfo(int id)
-        {
-            VirusInfo result = null;
-
-            VirusesTable_sync.WaitOne();
-            {
-                for(int index = 0; index < VirusesTable.Count; index++)
-                {
-                    if (VirusesTable[index].id == id)
-                    {
-                        result = VirusesTable[index];
-                        break;
-                    }
-                }
-            }
-            VirusesTable_sync.ReleaseMutex();
-
-            return result;
-        }
-
-        /// <summary>
-        /// Проверка существования такого файла в таблице обнаруженных вирусов
-        /// </summary>
-        public static bool Exists(string file)
-        {
-            bool result = false;
-            VirusesTable_sync.WaitOne();
-            {
-                for (int index = 0; index < VirusesTable.Count; index++)
-                {
-                    if (VirusesTable[index].file == file)
-                    {
-                        result = true;
-                        break;
-                    }
-                }
-            }
-            VirusesTable_sync.ReleaseMutex();
-
-            return result;
-        }
-
-        public static VirusInfo[] getAllViruses()
-        {
-            return VirusesTable.ToArray();
-        }
-
-        /// <summary>
-        /// Инициализация компонента
-        /// </summary>
-        public static void Init()
-        {
-
-        }
-    }
+       
 
 
 
@@ -427,23 +349,6 @@ namespace Core.Kernel.ScanModule
             this.File = file;
             this.TaskId = id;
             ProbesCount = 0;
-        }
-    }
-
-    public class VirusInfo
-    {
-        public int id;
-        public bool inQuarantine;       // Находится ли файл в карантине
-        public string fileInQuarantine; // Путь к файлу в карантине
-        public string file;             // Путь к файлу
-        public int VirusId;
-
-        public VirusInfo(int id, string file, int VirusId)
-        {
-            this.id = id;
-            this.file = file;
-            this.VirusId = VirusId;
-            this.inQuarantine = false;
         }
     }
 }

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Core.Kernel.Connectors;
 using Core.Kernel.ScanModule;
 using Core.Kernel.Quarantine;
+using Core.Kernel.VirusesManager;
+using Core.Kernel.ErrorTasks;
 
 namespace Core.Kernel.API
 {
@@ -168,7 +170,7 @@ namespace Core.Kernel.API
         /// <param name="id"></param>
         private static void ToQuarantine(int id)
         {
-            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+            var virusInfo = FoundVirusesManager.getInfo(id);
             Quarantine.Quarantine.MoveVirusToQuarantine(id);
         }
 
@@ -192,7 +194,7 @@ namespace Core.Kernel.API
 
         private static void getVirusInfo(int id)
         {
-            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+            var virusInfo = FoundVirusesManager.getInfo(id);
 
             if(virusInfo == null)
             {
