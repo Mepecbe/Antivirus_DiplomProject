@@ -23,6 +23,8 @@ namespace MODULE__SCAN
 {
     public static class Configuration
     {
+        public static Encoding PipeEncoding = Encoding.Unicode;
+
         /// <summary>
         /// Максимальное количество задач сканирования
         /// </summary>
@@ -48,7 +50,6 @@ namespace MODULE__SCAN
         private static Thread signatureHandler = new Thread(signatureThread);
 
         private static BinaryWriter outputWriter;
-        private static StreamReader inputReader;
 
 #if DEBUG
         public static LoggerClient Logger = new LoggerClient("Logger.Modules.Scanner", "Log");
@@ -75,8 +76,7 @@ namespace MODULE__SCAN
 #endif
 
             inputPipe.WaitForConnection();
-            inputReader = new StreamReader(inputPipe, Encoding.Unicode);
-            var binaryReader = new BinaryReader(inputPipe);
+            var binaryReader = new BinaryReader(inputPipe, Configuration.PipeEncoding);
 
 #if DEBUG
             Connector.Logger.WriteLine("[Scanner.inputThread] ScannerService.input connected");

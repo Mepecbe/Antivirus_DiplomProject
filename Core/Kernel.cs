@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 using Core.Kernel.Configurations;
 using Core.Kernel.VirusesManager;
+using Core.Kernel.Cryptographer;
 using Core.Kernel.ModuleLoader;
 using Core.Kernel.ScanModule;
 using Core.Kernel.Quarantine;
@@ -47,7 +48,6 @@ namespace Core
             API.Init();
 
             ScannerResponseHandler.Init();
-            FilterHandler.Run();
             ScanTasks.Init();
             FoundVirusesManager.Init();
             Quarantine.InitStorage();
@@ -125,7 +125,7 @@ namespace Core
         /// <param name="args"></param>
         static async Task Main(string[] args)
         {
-            //Console.CancelKeyPress += Console_CancelKeyPress;
+            Console.CancelKeyPress += Console_CancelKeyPress;
             AppDomain.CurrentDomain.ProcessExit += OnCloseProcess;
 
 #if DEBUG

@@ -8,7 +8,10 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.IO.Compression;
 using System.IO.MemoryMappedFiles;
+using Core.Kernel.VirusesManager;
 using Vlingo.UUID;
+
+using Core.Kernel.Connectors;
 
 namespace Core.Kernel.Quarantine
 {
@@ -39,7 +42,7 @@ namespace Core.Kernel.Quarantine
             }
 
             string FileName = pathToFile.Substring(pathToFile.LastIndexOf('\\')+1);
-            Console.WriteLine("create in isolated storage " + FileName);
+            KernelConnectors.Logger.WriteLine("create in isolated storage " + FileName);
 
             IsolatedStorageFileStream storageFile;
             FileStream targetFile;
@@ -64,7 +67,7 @@ namespace Core.Kernel.Quarantine
             storageFile.Close();
             targetFile.Close();
 
-            Console.WriteLine("Delete file >" + pathToFile);
+            KernelConnectors.Logger.WriteLine("Delete file >" + pathToFile);
             File.Delete(pathToFile);
 
             return new AddToStorageResult(true, $"VirusFiles\\{FileName}");
@@ -76,9 +79,9 @@ namespace Core.Kernel.Quarantine
         /// <param name="id"></param>
         static public void Restore(int id)
         {
-            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+            var virusInfo = FoundVirusesManager.getInfo(id);
 
-            Console.WriteLine("RESTORE from " + virusInfo.fileInQuarantine + " in " + virusInfo.file);
+            KernelConnectors.Logger.WriteLine("RESTORE from " + virusInfo.fileInQuarantine + " in " + virusInfo.file);
 
             var CreatedFileStream = File.Create(virusInfo.file);
             var targetFileStream = VirusStorage.OpenFile(virusInfo.fileInQuarantine, FileMode.Open);
@@ -105,7 +108,7 @@ namespace Core.Kernel.Quarantine
         /// </summary>
         static public void MoveVirusToQuarantine(int id)
         {
-            var virusInfo = ScanModule.FoundVirusesManager.getInfo(id);
+            var virusInfo = FoundVirusesManager.getInfo(id);
 
             if (virusInfo != null && virusInfo.inQuarantine == false) {
                 var result = AddFileToStorage(virusInfo.file);
@@ -114,19 +117,16 @@ namespace Core.Kernel.Quarantine
                 {
                     virusInfo.inQuarantine = true;
                     virusInfo.fileInQuarantine = result.fileName;
-
-                    Console.WriteLine("MOVE TO QUARANTINE SUCCESS");
-                    Console.WriteLine("id" + virusInfo.id);
-                    Console.WriteLine("in quarantine " + virusInfo.inQuarantine);
-                    Console.WriteLine("virus id" + virusInfo.VirusId);
-                    Console.WriteLine("file " + virusInfo.file);
-                    Console.WriteLine("in quarantine " + virusInfo.fileInQuarantine);
+                    
+                    KernelConnectors.Logger.WriteLine("ПЕРЕМЕЩЕНИЕ В КАРАНТИН УСПЕШНО", LoggerLib.LogLevel.OK);
+                    KernelConnectors.Logger.WriteLine("   Идентификатор задачи" + virusInfo.id);
+                    KernelConnectors.Logger.WriteLine("   Идентификатор вируса" + virusInfo.VirusId);
+                    KernelConnectors.Logger.WriteLine("   Файл " + virusInfo.file);
+                    KernelConnectors.Logger.WriteLine("   Путь к файлу в карантине " + virusInfo.fileInQuarantine);
                 }
                 else
                 {
-#if DEBUG
-                    Console.WriteLine("[Quarantine.MoveVirusToQuarantine] Error add file to quarantine");
-#endif
+                    KernelConnectors.Logger.WriteLine("[Quarantine.MoveVirusToQuarantine] Ошибка добавления файла в карантин");
                 }
             }
         }
@@ -151,26 +151,9 @@ namespace Core.Kernel.Quarantine
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public class TableRecord
-        {
-            string fileName;
-        }
-
-
+        /// <summary>
+        /// Результат добавления в изолированное хранилище
+        /// </summary>
         public class AddToStorageResult
         {
             public bool is_success;

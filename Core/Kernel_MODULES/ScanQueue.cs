@@ -54,7 +54,8 @@ namespace Core.Kernel.ScanModule
                         if (task.ProbesCount >= 5)
                         {
                             KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена спустя 5 попыток", LoggerLib.LogLevel.ERROR);
-                            ErrorTasks.ErrorScanTasksManager.ErrorScanTasks.Add(new ErrorScanTask(1, "Message", task));
+                            ErrorScanTasksManager.Add(1, "Message", task);
+
                             onScanCompleted.Invoke(id, false, 0, task.File);
                         }
                         else
@@ -314,6 +315,8 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void Init()
         {
+            FilterHandler.Run();
+
             ScannerResponseHandler.onScanCompleted += ScanCompleted;
 
             Scanner_Output = KernelConnectors.ScannerService_Output;

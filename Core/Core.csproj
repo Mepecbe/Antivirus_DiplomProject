@@ -69,6 +69,7 @@
     <Compile Include="Kernel_MODULES\API.cs" />
     <Compile Include="Kernel_MODULES\Configuration.cs" />
     <Compile Include="Kernel_MODULES\Connector.cs" />
+    <Compile Include="Kernel_MODULES\Cryptographer.cs" />
     <Compile Include="Kernel_MODULES\ErrorScanTasks.cs" />
     <Compile Include="Kernel_MODULES\FoundVirusesManager.cs" />
     <Compile Include="Kernel_MODULES\ModuleManager.cs" />

@@ -70,9 +70,9 @@ namespace MODULE__FILTER
             public static Thread Handler1 = new Thread(() =>
             {
 #warning "Необходимо определять тип операции, создание или изменение"
-                Connector.Logger.WriteLine("[Filter.DriverHandler] Active! Wait connection");
+                Connector.Logger.WriteLine("[Filter.DriverHandler] Ожидаю подключения драйвер коннектора");
                 Connector.DriverMonitor.WaitForConnection();
-                Connector.Logger.WriteLine("[Filter.DriverHandler] Connected");
+                Connector.Logger.WriteLine("[Filter.DriverHandler] Драйвер коннектор подключен", LogLevel.OK);
             });
 
             /// <summary>
@@ -80,18 +80,18 @@ namespace MODULE__FILTER
             /// </summary>
             public static Thread Handler2 = new Thread(() =>
             {
-                Connector.Logger.WriteLine("[Filter.ApiMonHandler] Active! Wait connection");
+                Connector.Logger.WriteLine("[Filter.ApiMonHandler] Ожидаю подключения API монитора");
 
                 Connector.ApiMonitor.WaitForConnection();
 
-                Connector.Logger.WriteLine("[Filter.ApiMonHandler] Connected");
+                Connector.Logger.WriteLine("[Filter.ApiMonHandler] API монитор подключен", LogLevel.OK);
 
 
                 while (true)
                 {
                     string buffer = Connector.ApiMonitorReader.ReadString();
 
-                    Connector.Logger.WriteLine($"[Filter.ApiMonHandler] READED {buffer}");
+                    Connector.Logger.WriteLine($"[Filter.ApiMonHandler] ПРОЧИТАНО {buffer}");
 
                     if (!FiltrationRules.ApplyFilter(buffer))
                     {
@@ -100,7 +100,7 @@ namespace MODULE__FILTER
                     }
                     else
                     {
-                        Connector.Logger.WriteLine("[Filter.ApiMonHandler] OTHER HANDLER FILTERED ->" + buffer, LogLevel.WARN);
+                        Connector.Logger.WriteLine("[Filter.ApiMonHandler] ПУТЬ ОТФИЛЬТРОВАН ->" + buffer, LogLevel.WARN);
                     }
                 }
             });
@@ -170,6 +170,9 @@ namespace MODULE__FILTER
             /// </summary>
             public static List<Regex> Paths = new List<Regex>();
 
+            /// <summary>
+            /// Прочие обработчики 
+            /// </summary>
             public static List<handler> OtherHandlers = new List<handler>();
 
 

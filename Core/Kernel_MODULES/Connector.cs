@@ -52,15 +52,16 @@ namespace Core.Kernel.Connectors
 
         public static void InitInputConnections()
         {
-#if DEBUG
-            Console.WriteLine($"[Kernel.Connectors.InitInputConnections] Wait input connections");
-#endif
+            Logger.WriteLine($"[Kernel.Connectors] Wait input connections", LogLevel.WARN);
+
             Task.Run(() =>
             {
                 Filter_Input_Sync.WaitOne();
                 {
                     Filter_Input.WaitForConnection();
                     Filter_Reader = new BinaryReader(Filter_Input, Configuration.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] Filter connected", LogLevel.OK);
                 }
                 Filter_Input_Sync.ReleaseMutex();
             });
@@ -71,6 +72,8 @@ namespace Core.Kernel.Connectors
                 {
                     ScannerService_Input.WaitForConnection();
                     ScannerService_Reader = new BinaryReader(ScannerService_Input, Configuration.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] Scanner INPUT connected", LogLevel.OK);
                 }
                 ScannerService_Input_Sync.ReleaseMutex();
             });
@@ -80,6 +83,8 @@ namespace Core.Kernel.Connectors
                 Api_In_Sync.WaitOne();
                 {
                     Api_In.WaitForConnection();
+
+                    Logger.WriteLine($"[Kernel.Connectors] API INPUT connected", LogLevel.OK);
                 }
                 Api_In_Sync.ReleaseMutex();
             });
@@ -95,6 +100,8 @@ namespace Core.Kernel.Connectors
                 {
                     PartitionMon_CommandPipe.Connect();
                     PartitionMon_CommandWriter = new BinaryWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] Partition monitor connected", LogLevel.OK);
                 }
                 PartitionMon_CommandPipe_Sync.ReleaseMutex();
             });
@@ -105,6 +112,8 @@ namespace Core.Kernel.Connectors
                 {
                     ScannerService_Output.Connect();
                     ScannerService_Writer = new BinaryWriter(ScannerService_Output, Configuration.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] Scanner OUTPUT connected", LogLevel.OK);
                 }
                 ScannerService_Output_Sync.ReleaseMutex();
             });
@@ -115,6 +124,8 @@ namespace Core.Kernel.Connectors
                 {
                     VirusesDb_CommandPipe.Connect();
                     VirusesDb_CommandWriter = new BinaryWriter(VirusesDb_CommandPipe, Configuration.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] VirusesDB connected", LogLevel.OK);
                 }
                 VirusesDb_CommandPipe_Sync.ReleaseMutex();
 
@@ -126,6 +137,8 @@ namespace Core.Kernel.Connectors
                 Api_Out_Sync.WaitOne();
                 {
                     Api_Out.Connect();
+
+                    Logger.WriteLine($"[Kernel.Connectors] API OUT connected", LogLevel.OK);
                 }
                 Api_Out_Sync.ReleaseMutex();
             });

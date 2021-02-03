@@ -31,7 +31,6 @@ namespace Core.Kernel.API
         private static void Handler()
         {
             var binaryReader = new BinaryReader(UserInputConnector);
-            var stringReader = new StreamReader(UserInputConnector);
             Out_writer = new BinaryWriter(UserOutputConnector);
 
 #if DEBUG
@@ -73,7 +72,7 @@ namespace Core.Kernel.API
                         //Запрос на проверку файла
                         case 0:
                             {
-                                var file = stringReader.ReadLine();
+                                var file = binaryReader.ReadString();
 
                                 break;
                             }
