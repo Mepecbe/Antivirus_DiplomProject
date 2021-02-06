@@ -28,13 +28,15 @@ namespace DB_Editor
         {
             var form = new AddNewSignatureForm();
 
-            form.metroTextBox_ID.Text = SignaturesDB.genId().ToString();
             form.ShowDialog();
 
             if (form.Add)
             {
+                var type = VirusType.Unknown;
+                Enum.TryParse<VirusType>(form.TypeComboBox.Text, out type);
+
                 SignaturesDB.Add(
-                    byte.Parse(form.metroTextBox_ID.Text),
+                    type,
                     form.metroTextBox_NAME.Text,
                     form.signature
                     );
@@ -70,7 +72,7 @@ namespace DB_Editor
 
             var item = this.metroListView1.SelectedItems[0];
 
-            SignaturesDB.Delete(byte.Parse(item.SubItems[0].Text));
+            SignaturesDB.Delete((VirusInfo)item.SubItems[0].Tag);
             SignaturesDB.UpdateList(this.metroListView1);
 
             btn_ApplyChanges.Visible = true;

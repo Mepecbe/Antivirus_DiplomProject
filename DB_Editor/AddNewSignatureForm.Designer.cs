@@ -32,11 +32,11 @@ namespace DB_Editor
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox_ID = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox_NAME = new MetroFramework.Controls.MetroTextBox();
             this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.TypeComboBox = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -45,9 +45,9 @@ namespace DB_Editor
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.Location = new System.Drawing.Point(40, 64);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(136, 25);
+            this.metroLabel1.Size = new System.Drawing.Size(41, 25);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Идентификатор";
+            this.metroLabel1.Text = "Тип";
             // 
             // metroLabel2
             // 
@@ -68,37 +68,6 @@ namespace DB_Editor
             this.metroLabel3.Size = new System.Drawing.Size(93, 25);
             this.metroLabel3.TabIndex = 2;
             this.metroLabel3.Text = "Сигнатура";
-            // 
-            // metroTextBox_ID
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox_ID.CustomButton.Image = null;
-            this.metroTextBox_ID.CustomButton.Location = new System.Drawing.Point(164, 1);
-            this.metroTextBox_ID.CustomButton.Name = "";
-            this.metroTextBox_ID.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox_ID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox_ID.CustomButton.TabIndex = 1;
-            this.metroTextBox_ID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox_ID.CustomButton.UseSelectable = true;
-            this.metroTextBox_ID.CustomButton.Visible = false;
-            this.metroTextBox_ID.Lines = new string[0];
-            this.metroTextBox_ID.Location = new System.Drawing.Point(182, 66);
-            this.metroTextBox_ID.MaxLength = 32767;
-            this.metroTextBox_ID.Name = "metroTextBox_ID";
-            this.metroTextBox_ID.PasswordChar = '\0';
-            this.metroTextBox_ID.ReadOnly = true;
-            this.metroTextBox_ID.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox_ID.SelectedText = "";
-            this.metroTextBox_ID.SelectionLength = 0;
-            this.metroTextBox_ID.SelectionStart = 0;
-            this.metroTextBox_ID.ShortcutsEnabled = true;
-            this.metroTextBox_ID.Size = new System.Drawing.Size(186, 23);
-            this.metroTextBox_ID.TabIndex = 3;
-            this.metroTextBox_ID.UseSelectable = true;
-            this.metroTextBox_ID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox_ID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroTextBox_NAME
             // 
@@ -181,16 +150,26 @@ namespace DB_Editor
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // TypeComboBox
+            // 
+            this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.ItemHeight = 23;
+            this.TypeComboBox.Location = new System.Drawing.Point(182, 64);
+            this.TypeComboBox.Name = "TypeComboBox";
+            this.TypeComboBox.Size = new System.Drawing.Size(186, 29);
+            this.TypeComboBox.TabIndex = 8;
+            this.TypeComboBox.UseSelectable = true;
+            // 
             // AddNewSignatureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 353);
+            this.Controls.Add(this.TypeComboBox);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox3);
             this.Controls.Add(this.metroTextBox_NAME);
-            this.Controls.Add(this.metroTextBox_ID);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
@@ -209,8 +188,8 @@ namespace DB_Editor
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
-        public MetroFramework.Controls.MetroTextBox metroTextBox_ID;
         public MetroFramework.Controls.MetroTextBox metroTextBox_NAME;
         public MetroFramework.Controls.MetroTextBox metroTextBox3;
+        public MetroFramework.Controls.MetroComboBox TypeComboBox;
     }
 }

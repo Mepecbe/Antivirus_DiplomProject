@@ -3,6 +3,7 @@
     Описание модуля
         Служит для проверки файлов
  */
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,7 +40,6 @@ namespace MODULE__SCAN
 
     public static class Connector
     {
-#warning Реализовать командный поток
         public static NamedPipeServerStream commandPipe = new NamedPipeServerStream("Scanner.CommandPipe");
         public static NamedPipeServerStream inputPipe = new NamedPipeServerStream("ScannerService.input");
         public static NamedPipeServerStream signaturesPipe = new NamedPipeServerStream("ScannerService.signatures");
@@ -159,7 +159,7 @@ namespace MODULE__SCAN
         public ScanTask(int id, string file, ScanTasks.ScanStart onStart, ScanTasks.ScanComplete onCompleted, Task task = null)
         {
             this.id = id;
-            this.file = file;            
+            this.file = file;
         }
     }
 
@@ -221,7 +221,7 @@ namespace MODULE__SCAN
                 byte[] FileBuffer = new byte[FileStream.Length];
                 int readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
 
-                if(readed == 0)
+                if (readed == 0)
                 {
                     return Result;
                 }
@@ -235,7 +235,7 @@ namespace MODULE__SCAN
                         int bufferSumm = 0;
                         int backOffset = Signatures[sigIndex].SignatureBytes.Length; //Задний оффсет, на каждой итерации делаем summ -= fileBuffer[bufPos - backOffset]
 
-                    for (int initPos = 0; initPos < Signatures[sigIndex].SignatureBytes.Length; initPos++)
+                        for (int initPos = 0; initPos < Signatures[sigIndex].SignatureBytes.Length; initPos++)
                         {
                             bufferSumm += FileBuffer[initPos];
                         }
@@ -245,8 +245,8 @@ namespace MODULE__SCAN
                             bufferSumm -= FileBuffer[bufferPosition - backOffset];
                             bufferSumm += FileBuffer[bufferPosition];
 
-                        //Если сумма совпала, проверяем этот участок
-                        if (bufferSumm == Signatures[sigIndex].Summ)
+                            //Если сумма совпала, проверяем этот участок
+                            if (bufferSumm == Signatures[sigIndex].Summ)
                             {
                                 bool found = true;
 
@@ -341,12 +341,12 @@ namespace MODULE__SCAN
         /// </summary>
         /// <param name="pathToFile"></param>
         public static void Add(int id, string pathToFile)
-        {            
+        {
             TaskQueue_Sync.WaitOne();
             {
                 TaskQueue.Enqueue(new ScanTask(id, pathToFile, ScanStarted, ScanCompleted));
             }
-            TaskQueue_Sync.ReleaseMutex();            
+            TaskQueue_Sync.ReleaseMutex();
         }
 
         public static void ScanThread()
@@ -378,8 +378,6 @@ namespace MODULE__SCAN
 
                             var result = Scanner.ScanFile(stream);
 
-                            Connector.Logger.WriteLine($"Thread {Thread.CurrentThread.Name} scan completed");
-
                             stream.Close();
                             ScanCompleted(task, result);
                         }
@@ -398,7 +396,7 @@ namespace MODULE__SCAN
         /// </summary>
         public static void Init()
         {
-            for(int index = 0; index < ScanThreads.Length; index++)
+            for (int index = 0; index < ScanThreads.Length; index++)
             {
                 ScanThreads[index] = new Thread(ScanThread) { Name = index.ToString() };
                 ScanThreads[index].Start();

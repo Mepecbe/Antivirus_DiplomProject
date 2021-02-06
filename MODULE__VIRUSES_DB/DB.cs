@@ -245,10 +245,10 @@ namespace MODULE__VIRUSES_DB
 
         public enum VirusTypes
         {
-            Unknown,
             Trojan,
             Worm,
-            Cryptor
+            Cryptor,
+            Unknown
         }
     }
 

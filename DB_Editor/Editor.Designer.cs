@@ -36,9 +36,9 @@ namespace DB_Editor
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_ApplyChanges = new MetroFramework.Controls.MetroButton();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroContextMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,8 +75,8 @@ namespace DB_Editor
             // 
             this.metroListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader2});
             this.metroListView1.ContextMenuStrip = this.metroContextMenu1;
             this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.metroListView1.FullRowSelect = true;
@@ -91,19 +91,13 @@ namespace DB_Editor
             // 
             // columnHeader1
             // 
-            this.columnHeader1.DisplayIndex = 1;
             this.columnHeader1.Text = "Имя";
-            this.columnHeader1.Width = 340;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.DisplayIndex = 0;
-            this.columnHeader2.Text = "ID";
+            this.columnHeader1.Width = 380;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Сигнатура";
-            this.columnHeader3.Width = 349;
+            this.columnHeader3.Width = 270;
             // 
             // btn_ApplyChanges
             // 
@@ -115,6 +109,11 @@ namespace DB_Editor
             this.btn_ApplyChanges.UseSelectable = true;
             this.btn_ApplyChanges.Visible = false;
             this.btn_ApplyChanges.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Тип";
+            this.columnHeader2.Width = 100;
             // 
             // Editor
             // 
@@ -139,8 +138,8 @@ namespace DB_Editor
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private MetroFramework.Controls.MetroListView metroListView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private MetroFramework.Controls.MetroButton btn_ApplyChanges;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

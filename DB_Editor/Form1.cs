@@ -72,25 +72,12 @@ namespace DB_Editor
 
             while(DBFile.Position < DBFile.Length)
             {
-                byte id = reader.ReadByte();
+                VirusType type = (VirusType)reader.ReadByte();
                 byte[] signature = reader.ReadBytes(reader.ReadByte());
                 string name = reader.ReadString();
 
-                Signatures.Add(new VirusInfo(id, signature, name));
+                Signatures.Add(new VirusInfo(type, signature, name));
             }
-        }
-
-        public static VirusInfo getById(byte id)
-        {
-            for(int index = 0; index < Signatures.Count; index++)
-            {
-                if(Signatures[index].ID == id)
-                {
-                    return Signatures[index];
-                }
-            }
-
-            return null;
         }
 
         public static byte genId()
@@ -104,8 +91,7 @@ namespace DB_Editor
 
             foreach (VirusInfo info in SignaturesDB.Signatures)
             {
-                var item = list.Items.Add(info.ID.ToString());
-                item.SubItems.Add(baseNameText + info.Name);
+                var item = list.Items.Add(info.Name);
 
                 string signature = string.Empty;
                 foreach (byte b in info.Signature)
@@ -114,20 +100,29 @@ namespace DB_Editor
                 }
 
                 item.SubItems.Add(signature);
+                item.SubItems.Add(info.Type.ToString());
+                item.Tag = info;
             }
         }
 
-        public static void Update(byte id, string name, byte[] signature)
+        /// <summary>
+        /// Обновить информацию о вирусе
+        /// </summary>
+        public static void Update(VirusInfo old, VirusInfo New)
         {
-            var sig = getById(id);
-            sig.Name = name;
-            sig.Signature = signature;
+            old.Name = New.Name;
+            old.Signature = New.Signature;
+            old.Type = New.Type;
         }
 
-        public static void Add(byte id, string name, byte[] signature)
+        /// <summary>
+        /// Добавить новый вирус в базу сигнатур
+        /// </summary>
+        public static void Add(VirusType type, string name, byte[] signature)
         {
-            Signatures.Add(new VirusInfo(id, signature, name));            
+            Signatures.Add(new VirusInfo(type, signature, name));            
         }
+
 
         public static int GetDBSize()
         {
@@ -135,7 +130,7 @@ namespace DB_Editor
 
             foreach(VirusInfo info in Signatures)
             {
-                //ID, Длина сигнатуры, сигнатура, длина имени, имя
+                //ID типа вируса, Длина сигнатуры, сигнатура, длина имени, имя
                 size += 1 + 1 + info.Signature.Length + 1 + info.Name.Length;
             }
 
@@ -153,7 +148,7 @@ namespace DB_Editor
 
             foreach(VirusInfo info in Signatures)
             {
-                Writer.Write(info.ID);
+                Writer.Write((byte)info.Type);
 
                 Writer.Write(Convert.ToByte(info.Signature.Length));
                 Writer.Write(info.Signature);
@@ -164,16 +159,9 @@ namespace DB_Editor
             }
         }
 
-        public static void Delete(byte id)
+        public static void Delete(VirusInfo info)
         {
-            for (int index = 0; index < Signatures.Count; index++)
-            {
-                if (Signatures[index].ID == id)
-                {
-                    Signatures.RemoveAt(index);
-                    break;
-                }
-            }
+            Signatures.Remove(info);
         }
 
         public static void Close()
@@ -185,15 +173,23 @@ namespace DB_Editor
 
     public class VirusInfo
     {
-        public byte ID;
+        public VirusType Type;
         public byte[] Signature;
         public string Name;
 
-        public VirusInfo(byte id, byte[] signatures, string name)
+        public VirusInfo(VirusType type, byte[] signatures, string name)
         {
-            this.ID = id;
+            this.Type = type;
             this.Signature = signatures;
             this.Name = name;
         }
+    }
+
+    public enum VirusType
+    {
+        Trojan,
+        Worm,
+        Cryptor,
+        Unknown,
     }
 }

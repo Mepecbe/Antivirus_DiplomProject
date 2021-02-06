@@ -20,10 +20,22 @@ namespace DB_Editor
         public AddNewSignatureForm()
         {
             InitializeComponent();
+
+            //Добавление типов вирусов в комбоБокс
+            for(byte type = (byte)VirusType.Trojan; type < (byte)VirusType.Unknown; type++)
+            {
+                this.TypeComboBox.Items.Add(((VirusType)type).ToString());
+            }
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            if(TypeComboBox.Text.Length < 3)
+            {
+                MetroMessageBox.Show(this, "Выберите тип вируса!");
+                return;
+            }
+
             if(this.metroTextBox_NAME.Text.Length < 3)
             {
                 MetroMessageBox.Show(this, "Слишком короткое название!");
