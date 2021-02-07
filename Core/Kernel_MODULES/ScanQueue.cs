@@ -169,6 +169,9 @@ namespace Core.Kernel.ScanModule
 
                 ScannerBinaryWriter.Write(id);
                 ScannerBinaryWriter.Write(file);
+
+                KernelConnectors.Logger.WriteLine("write", LoggerLib.LogLevel.WARN);
+
                 ScannerBinaryWriter.Flush();
 
                 id++;
@@ -320,7 +323,7 @@ namespace Core.Kernel.ScanModule
             ScannerResponseHandler.onScanCompleted += ScanCompleted;
 
             Scanner_Output = KernelConnectors.ScannerService_Output;
-            ScannerBinaryWriter = new BinaryWriter(Scanner_Output);
+            ScannerBinaryWriter = new BinaryWriter(Scanner_Output, KernelInitializator.Config.NamedPipeEncoding);
         }
     }
 

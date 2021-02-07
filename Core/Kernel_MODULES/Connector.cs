@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Pipes;
 
+using Core.Kernel;
 using Core.Kernel.Configurations;
 using LoggerLib;
 
@@ -59,7 +60,7 @@ namespace Core.Kernel.Connectors
                 Filter_Input_Sync.WaitOne();
                 {
                     Filter_Input.WaitForConnection();
-                    Filter_Reader = new BinaryReader(Filter_Input, Configuration.NamedPipeEncoding);
+                    Filter_Reader = new BinaryReader(Filter_Input, KernelInitializator.Config.NamedPipeEncoding);
 
                     Logger.WriteLine($"[Kernel.Connectors] Filter connected", LogLevel.OK);
                 }
@@ -71,7 +72,7 @@ namespace Core.Kernel.Connectors
                 ScannerService_Input_Sync.WaitOne();
                 {
                     ScannerService_Input.WaitForConnection();
-                    ScannerService_Reader = new BinaryReader(ScannerService_Input, Configuration.NamedPipeEncoding);
+                    ScannerService_Reader = new BinaryReader(ScannerService_Input, KernelInitializator.Config.NamedPipeEncoding);
 
                     Logger.WriteLine($"[Kernel.Connectors] Scanner INPUT connected", LogLevel.OK);
                 }
@@ -99,7 +100,7 @@ namespace Core.Kernel.Connectors
                 PartitionMon_CommandPipe_Sync.WaitOne();
                 {
                     PartitionMon_CommandPipe.Connect();
-                    PartitionMon_CommandWriter = new BinaryWriter(PartitionMon_CommandPipe, Configuration.NamedPipeEncoding);
+                    PartitionMon_CommandWriter = new BinaryWriter(PartitionMon_CommandPipe, KernelInitializator.Config.NamedPipeEncoding);
 
                     Logger.WriteLine($"[Kernel.Connectors] Partition monitor connected", LogLevel.OK);
                 }
@@ -111,7 +112,7 @@ namespace Core.Kernel.Connectors
                 ScannerService_Output_Sync.WaitOne();
                 {
                     ScannerService_Output.Connect();
-                    ScannerService_Writer = new BinaryWriter(ScannerService_Output, Configuration.NamedPipeEncoding);
+                    ScannerService_Writer = new BinaryWriter(ScannerService_Output, KernelInitializator.Config.NamedPipeEncoding);
 
                     Logger.WriteLine($"[Kernel.Connectors] Scanner OUTPUT connected", LogLevel.OK);
                 }
@@ -123,7 +124,7 @@ namespace Core.Kernel.Connectors
                 VirusesDb_CommandPipe_Sync.WaitOne();
                 {
                     VirusesDb_CommandPipe.Connect();
-                    VirusesDb_CommandWriter = new BinaryWriter(VirusesDb_CommandPipe, Configuration.NamedPipeEncoding);
+                    VirusesDb_CommandWriter = new BinaryWriter(VirusesDb_CommandPipe, KernelInitializator.Config.NamedPipeEncoding);
 
                     Logger.WriteLine($"[Kernel.Connectors] VirusesDB connected", LogLevel.OK);
                 }

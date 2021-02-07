@@ -42,7 +42,7 @@ namespace Core.Kernel.Quarantine
             }
 
             string FileName = pathToFile.Substring(pathToFile.LastIndexOf('\\')+1);
-            KernelConnectors.Logger.WriteLine("create in isolated storage " + FileName);
+            KernelConnectors.Logger.WriteLine($"[Quarantine] Create file({FileName}) in isolated storage ", LoggerLib.LogLevel.WARN);
 
             IsolatedStorageFileStream storageFile;
             FileStream targetFile;
@@ -67,7 +67,7 @@ namespace Core.Kernel.Quarantine
             storageFile.Close();
             targetFile.Close();
 
-            KernelConnectors.Logger.WriteLine("Delete file >" + pathToFile);
+            KernelConnectors.Logger.WriteLine("[Quarantine] Delete original file >" + pathToFile, LoggerLib.LogLevel.WARN);
             File.Delete(pathToFile);
 
             return new AddToStorageResult(true, $"VirusFiles\\{FileName}");
@@ -81,7 +81,7 @@ namespace Core.Kernel.Quarantine
         {
             var virusInfo = FoundVirusesManager.getInfo(id);
 
-            KernelConnectors.Logger.WriteLine("RESTORE from " + virusInfo.fileInQuarantine + " in " + virusInfo.file);
+            KernelConnectors.Logger.WriteLine("[Quarantine] Восстановление файла из " + virusInfo.fileInQuarantine + " в " + virusInfo.file);
 
             var CreatedFileStream = File.Create(virusInfo.file);
             var targetFileStream = VirusStorage.OpenFile(virusInfo.fileInQuarantine, FileMode.Open);
@@ -97,7 +97,9 @@ namespace Core.Kernel.Quarantine
             targetFileStream.Close();
         }
 
-
+        /// <summary>
+        /// Получить пути ко всем файлам в карантине
+        /// </summary>
         static public string[] GetAllFiles()
         {
             return VirusStorage.GetFileNames("VirusFiles\\");
@@ -117,20 +119,25 @@ namespace Core.Kernel.Quarantine
                 {
                     virusInfo.inQuarantine = true;
                     virusInfo.fileInQuarantine = result.fileName;
-                    
+
+                    KernelConnectors.Logger.WriteLine("=== [Quarantine] ===");
                     KernelConnectors.Logger.WriteLine("ПЕРЕМЕЩЕНИЕ В КАРАНТИН УСПЕШНО", LoggerLib.LogLevel.OK);
                     KernelConnectors.Logger.WriteLine("   Идентификатор задачи" + virusInfo.id);
                     KernelConnectors.Logger.WriteLine("   Идентификатор вируса" + virusInfo.VirusId);
                     KernelConnectors.Logger.WriteLine("   Файл " + virusInfo.file);
                     KernelConnectors.Logger.WriteLine("   Путь к файлу в карантине " + virusInfo.fileInQuarantine);
+                    KernelConnectors.Logger.WriteLine("=== [Quarantine] ===");
                 }
                 else
                 {
-                    KernelConnectors.Logger.WriteLine("[Quarantine.MoveVirusToQuarantine] Ошибка добавления файла в карантин");
+                    KernelConnectors.Logger.WriteLine("[Quarantine] Ошибка добавления файла в карантин");
                 }
             }
         }
 
+        /// <summary>
+        /// Инициализация хранилища
+        /// </summary>
         static public bool InitStorage()
         {
             try
@@ -139,6 +146,7 @@ namespace Core.Kernel.Quarantine
 
                 if (!VirusStorage.DirectoryExists("VirusFiles"))
                 {
+                    KernelConnectors.Logger.WriteLine("[Quarantine] Создана директория в изолированном хранилище");
                     VirusStorage.CreateDirectory("VirusFiles");
                 }
 

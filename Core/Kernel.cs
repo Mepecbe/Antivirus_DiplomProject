@@ -24,11 +24,13 @@ using Core.Kernel.API;
 
 namespace Core
 {
-    static class Initialization
+    static class KernelInitializator
     {
 #if DEBUG
         private static Process LoggerProc;
 #endif
+
+        public static Configuration Config;
 
 
         /// <summary>
@@ -36,8 +38,7 @@ namespace Core
         /// </summary>
         static void InitKernelConfiguration()
         {
-#warning "сделать подгрузку из файла"
-            Configuration.NamedPipeEncoding = Encoding.Unicode;
+            Config = new Configuration("SystemConf.xml", "UserConf.xml");
         }
 
         /// <summary>
@@ -105,6 +106,7 @@ namespace Core
                     KernelConnectors.Logger.WriteLine($"[Kernel.ApplyingBasicSettings] Create api mon for {drives[index].Name}");
                     KernelConnectors.PartitionMon_CommandWriter.Write($"0*{drives[index].Name}&*.*");
                     KernelConnectors.PartitionMon_CommandWriter.Flush();
+                    KernelConnectors.Logger.WriteLine($"[Kernel.ApplyingBasicSettings] Create api mon WRITED");
                 }
             }).Start();
 
@@ -113,8 +115,8 @@ namespace Core
             new Task(() =>
             {
                 //Выгрузить все сигнатуры в менеджер сканера
-                KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
-                KernelConnectors.VirusesDb_CommandWriter.Flush();
+                //KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
+                //KernelConnectors.VirusesDb_CommandWriter.Flush();
             }).Start();
         }
 

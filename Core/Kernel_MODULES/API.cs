@@ -188,7 +188,16 @@ namespace Core.Kernel.API
         /// <param name="id"></param>
         private static void Delete(int id)
         {
-#warning Реализовать!
+            var virusInfo = FoundVirusesManager.getInfo(id);
+
+            if (virusInfo.inQuarantine)
+            {
+                File.Delete(virusInfo.fileInQuarantine);
+            }
+            else
+            {
+                File.Delete(virusInfo.file);
+            }
         }
 
         private static void getVirusInfo(int id)
