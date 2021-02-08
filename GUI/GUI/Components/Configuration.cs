@@ -24,6 +24,16 @@ namespace GUI.Components.Configurations
         }
 
 
+        /// <summary>
+        /// Уведомления при обнаружении вируса
+        /// </summary>
+        public static bool AutoScanRemovableDevices
+        {
+            get { return bool.Parse(getElementValueByName("Notify_FoundVirus").InnerText); }
+            set { getElementValueByName("Notify_FoundVirus").InnerText = value.ToString(); }
+        }
+
+
 
 
         static Configuration()

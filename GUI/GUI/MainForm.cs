@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using MetroFramework.Forms;
 using Tulpep.NotificationWindow;
@@ -28,6 +29,7 @@ namespace GUI
 
         public static System.Windows.Forms.Timer Updater = new System.Windows.Forms.Timer();
         public static bool ScanEnabled = false;
+        private static int CountShown = 0;
 
         public MainForm()
         {
@@ -72,31 +74,34 @@ namespace GUI
                 {
                     var fileInfo = files.Dequeue();
 
-                    /*
+
                     var popup = new PopupNotifier()
                     {
                         ContentText = $"Сканирование завершено\n{fileInfo.file}",
-                        TitleText = "Antivirus"
+                        TitleText = "Antivirus"                        
                     };
 
-                    popup.Popup();*/
+                    popup.Popup();
                 }
                 files_sync.ReleaseMutex();
             }
 
-            if(viruses.Count > 0)
+
+            if (viruses.Count > 0 && CountShown < viruses.Count)
             {
                 viruses_sync.WaitOne();
                 {
-                    var fileInfo = viruses.Dequeue();
+                    var fileInfo = viruses.Peek();
 
                     var popup = new PopupNotifier()
                     {
-                        ContentText = $"Обнаружен вирус\n{fileInfo.file}",
+                        ContentText = $"Обнаружена угроза\n{fileInfo.file}",
                         TitleText = "Antivirus"
                     };
 
                     popup.Popup();
+
+                    CountShown++;
                 }
                 viruses_sync.ReleaseMutex();
             }
@@ -278,24 +283,12 @@ namespace GUI
         {
             if (ScanManager.State == ScanState.Active)
             {
-                //Если антивирус просто обнаружил вирус
-
-                if (Configuration.Notify_FoundVirus)
-                {
-                    using(PopupNotifier notify = new PopupNotifier())
-                    {
-                        notify.ContentText = "Обнаружена угроза\n" + info.file;
-                        notify.TitleText = "Antivirus";
-
-                        notify.Popup();
-                    }
-                }
-
+                //Если антивирус во время сканирования просканировал файл
                 return;
             }
             else
             {
-                //Если при сканировании обнаружен вирус
+                //Если просто обнаружен вирус
                 MainForm.files.Enqueue(info);
             }
         }
@@ -304,6 +297,7 @@ namespace GUI
         {
             if (ScanManager.State == ScanState.Active)
             {
+                //Если антивирус во время сканирования обнаружил вирус
                 return;
             }
 

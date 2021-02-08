@@ -44,7 +44,7 @@ namespace GUI.Components.ScanManager
         /// <summary>
         /// Текущее состояние сканирования
         /// </summary>
-        public static ScanState State;
+        public static ScanState State = ScanState.Completed;
 
         /// <summary>
         /// Cтарт сканирования

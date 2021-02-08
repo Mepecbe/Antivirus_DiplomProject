@@ -116,8 +116,8 @@ namespace Core
             new Task(() =>
             {
                 //Выгрузить все сигнатуры в менеджер сканера
-                //KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
-                //KernelConnectors.VirusesDb_CommandWriter.Flush();
+                KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
+                KernelConnectors.VirusesDb_CommandWriter.Flush(); 
             }).Start();
         }
 

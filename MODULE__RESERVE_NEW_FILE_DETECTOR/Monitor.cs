@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Management;
 
 using LoggerLib;
 
@@ -18,6 +19,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
     {
         public static string API_MON_PIPE_NAME = "API_MON_FILTER";
         public static string COMMAND_PIPE_NAME = "PartitionMon.Command";
+        public static bool RemovableAutoScan = false;
 
         public static Encoding NamedPipeEncoding = Encoding.Unicode;
     }
@@ -55,6 +57,341 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 #endif
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// <summary>
+    /// Таблица носителей
+    /// </summary>
+    static class HardDrives
+    {
+        static public List<Drive> DriveTable = new List<Drive>(); //Таблица подключенных устройств
+        static public List<string> WhiteSerialList = new List<string>(); //Белый лист USB накопителей, тут их сериальные номера, подгружаются с файла
+        static public byte countConnectedRemovableDevices = 0; //Будет помогать определять, отключение/подключение устройств
+
+        //Запись(строчка) в таблице
+        public struct Drive
+        {
+            DriveInfo DriveInf;
+            public string VolumeLabel;
+            public string SerialNumber;
+            public long TotalSize;
+            public long TotalFreeSpace;
+            public string FileSystem;
+            public bool IsConnected;
+            public string RootDir;
+
+            public Drive(DriveInfo drive)
+            {
+                this.DriveInf = drive;
+                this.TotalSize = drive.TotalSize;
+                this.TotalFreeSpace = drive.TotalFreeSpace;
+                this.VolumeLabel = drive.VolumeLabel;
+                this.FileSystem = drive.DriveFormat;
+                this.RootDir = drive.RootDirectory.FullName;
+                this.IsConnected = true;
+                this.SerialNumber = null;
+            }
+
+            /// <summary>
+            /// Проверка подключены ли эти устройства
+            /// </summary>
+            public bool CheckConnect(string[] SerialNumbers)
+            {
+                //Определить подключение, через WMI
+                foreach (string serial in SerialNumbers)
+                    if (serial == this.SerialNumber)
+                    {
+                        this.IsConnected = true;
+                        return true;
+                    }
+
+                this.IsConnected = false;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Добавить в таблицу информацию о новом устройстве
+        /// </summary>
+        /// <returns>Количество устройств в таблице</returns>
+        static public byte AddNewDrive(DriveInfo newDrive, string serialNumber)
+        {
+            Drive drive = new Drive(newDrive);
+            drive.SerialNumber = serialNumber;
+
+            DriveTable.Add(drive);
+            return (byte)DriveTable.Count;
+        }
+
+        /// <summary>
+        /// Есть ли устройство с таким серийником в таблице 
+        /// </summary>
+        static public bool CheckSerial(string serialNumber)
+        {
+            foreach (Drive mDrive in DriveTable)
+            {
+                if (serialNumber == mDrive.SerialNumber) return true;
+            }
+
+            return false;
+        }
+
+        static public bool CheckDrive(DriveInfo drive)
+        {
+            //Проверяет, есть ли устройство с такими данными в таблице
+            foreach (Drive drive1 in DriveTable)
+            {
+                if (drive1.VolumeLabel == drive.VolumeLabel &&
+                   drive1.TotalSize == drive.TotalSize &&
+                   drive1.FileSystem == drive.DriveFormat)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        static public Drive getDriveBySerial(string serialNumber)
+        {
+            foreach (Drive drive in DriveTable)
+            {
+                if (drive.SerialNumber == serialNumber)
+                {
+                    return drive;
+                }
+            }
+
+            return DriveTable[0];
+        }
+
+        /// <summary>
+        /// Проверить, принадлежит ли этому носителю такой сериал номер
+        /// </summary>
+        /// <returns>true, если сериал номер равен этому накопителю</returns>
+        static public bool checkDriveSerial(DriveInfo drive, string serial)
+        {
+            foreach (Drive myDrive in DriveTable)
+            {
+                if (myDrive.FileSystem == drive.DriveFormat &&
+                    myDrive.TotalSize == drive.TotalSize)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Обновление таблицы подключенных устройств
+        /// </summary>
+        static public void RefreshConnectedDevices(string[] serialNumbers)
+        {
+            //Всем ставить false (все устройства помечены как отключенные)
+            for (int index = 0; index < DriveTable.Count; index++)
+            {
+                Drive newStruct = DriveTable[index];
+                newStruct.IsConnected = false;
+                DriveTable[index] = newStruct;
+            }
+
+            //А теперь проверка, какие из устройств в нашей таблице подключены
+            for (int index = 0; index < DriveTable.Count; index++)
+            {
+                foreach (string serial in serialNumbers)
+                {
+                    //Проверка, есть ли устройство с таким серийником в нашей таблице
+                    if (DriveTable[index].SerialNumber == serial)
+                    {
+                        //Если устройство с таким серийным номером есть в нашей таблице, то выставляем ему флаг CONNECTED
+                        Drive newStruct = DriveTable[index];
+                        newStruct.IsConnected = true;
+                        DriveTable[index] = newStruct;
+
+                        Connector.Logger.WriteLine($"[RemovableDevicesMon] Обновление таблицы, устройство SER:{serial} было подключено", LogLevel.OK);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+    static public class RemovableDeviceMonitor
+    {
+        static private Thread ThreadMonitor;
+
+        static public void AddRemovableDeviceToScan(string pathToDrive)
+        {
+            FileInfo[] files = new DirectoryInfo(pathToDrive).GetFiles("*.*");
+            foreach (FileInfo file in files)
+            {
+                Connector.Writer_Sync.WaitOne();
+                {
+                    Connector.FilterPipeWriter.Write("1" + file.FullName);
+                    Connector.FilterPipeWriter.Flush();
+                }
+                Connector.Writer_Sync.ReleaseMutex();
+            }
+
+            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Файлы({files.Length}) добавлены в очередь сканирования", LogLevel.INFO);
+        }
+
+        static private void Worker()
+        {
+            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Сервис мониторинга внешних носителей активен", LogLevel.OK);
+
+            while (true)
+            {
+                ManagementObjectCollection collection = new ManagementObjectSearcher("SELECT * FROM Win32_usbhub WHERE Caption=\"Запоминающее устройство для USB\"").Get();
+                string[] SerialNumbers = new string[collection.Count]; byte index = 0;
+                foreach (ManagementObject obj in collection)
+                {
+                    //Выделение серийных номеров подключенных USB устройств
+                    SerialNumbers[index] = obj["DeviceID"].ToString().Trim();
+                    SerialNumbers[index] = SerialNumbers[index].Substring(SerialNumbers[index].LastIndexOf(@"\") + 1, (SerialNumbers[index].Length - SerialNumbers[index].LastIndexOf("\\")) - 1);
+                }
+
+                {
+                    if (collection.Count != HardDrives.countConnectedRemovableDevices)
+                    {
+                        //Если в подключенных устройствах что то изменилось
+
+                        if (collection.Count > HardDrives.countConnectedRemovableDevices)
+                        {
+                            //Новое ПОДКЛЮЧЕННОЕ устройство
+                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Обнаруженно подключение съемного устройства", LogLevel.WARN);
+
+                            foreach (string serialNumber in SerialNumbers)
+                            {
+                                if (!HardDrives.CheckSerial(serialNumber))
+                                {
+                                    //Если устройство с таким серийным номером отсутствует в таблице
+                                    Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство ранее не подключалось SER:{serialNumber}, ожидание 2000ms", LogLevel.WARN);
+                                    Thread.Sleep(2000); //Даем винде время подумать
+                                    DriveInfo[] ConnectedDrives = DriveInfo.GetDrives();
+
+                                    //Выделение этого носителя, среди массива DriveInfo
+                                    foreach (DriveInfo drive in ConnectedDrives)
+                                    {
+                                        if (!drive.IsReady || drive.DriveType != DriveType.Removable)
+                                        {
+                                            continue;
+                                        }
+
+                                        if (!HardDrives.CheckDrive(drive))
+                                        {
+                                            //Если устройство с такими данными(серийник не проверяется) не существует в таблице
+                                            byte countDevices = HardDrives.AddNewDrive(drive, serialNumber);
+                                            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство добавлено в таблицу SER:{serialNumber} TOTAL_SIZE:{drive.TotalSize} FILESYS:{drive.DriveFormat}, колво устройств в таблицe {countDevices}", LogLevel.WARN);
+                                            AddRemovableDeviceToScan(drive.Name);
+                                        }
+                                        else
+                                        {
+                                            //Если устройство с таким серийником отсутствует в таблице, но существует с такими данными
+                                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Устройство с таким серийником отсутствует в таблице, но существует с такими данными, необработанная ситуация", LogLevel.ERROR);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    //Если в таблице есть устройство с таким серийником, то сравниваем сейчас его новые данные с теми, которые есть у нас в таблице
+                                    Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство с таким серийным номером SER:{serialNumber}, ранее уже подключалось", LogLevel.INFO);
+                                    HardDrives.Drive DriveInfoFromTable = HardDrives.getDriveBySerial(serialNumber);
+                                    Thread.Sleep(2000); //Хз почему, но винде нужно дать время подумать
+                                    DriveInfo[] ConnectedDrives = DriveInfo.GetDrives();
+
+                                    foreach (DriveInfo drive in ConnectedDrives)
+                                    {
+                                        //Выделение этого носителя, среди массива DriveInfo
+                                        if (drive.IsReady && !HardDrives.checkDriveSerial(drive, serialNumber)) continue;
+
+                                        //while (true) if (!drive.IsReady) continue; else break;
+
+                                        //Connector.Logger.WriteLine($"{DriveInfoFromTable.TotalFreeSpace}  {drive.TotalFreeSpace}", LogLevel.WARN);
+
+                                        if (drive.IsReady && DriveInfoFromTable.TotalFreeSpace != drive.TotalFreeSpace)
+                                        {
+                                            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] {drive.Name} Съемное устройство было изменено на другом устройстве, требуется перепроверка файлов", LogLevel.WARN);
+                                            try
+                                            {
+                                                if (Configuration.RemovableAutoScan) AddRemovableDeviceToScan(drive.Name);
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Connector.Logger.WriteLine(ex.Message, LogLevel.ERROR);
+                                            }
+                                            //Если свободное место во время предыдущего подключения
+                                            // не совпадает с свободным местом при текущем подключении, значит там что то изменилось
+                                            //А значит, нужно перепроверить флешку
+                                        }
+                                        else
+                                        {
+                                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Эта флешка не изменялась на других устройствах", LogLevel.WARN);
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                        if (collection.Count < HardDrives.countConnectedRemovableDevices)
+                        {
+                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Обнаруженно отключение съемного устройства", LogLevel.WARN);
+                            HardDrives.RefreshConnectedDevices(SerialNumbers);
+                        }
+
+                        HardDrives.countConnectedRemovableDevices = (byte)collection.Count;
+                    }
+
+                }
+
+
+                Thread.Sleep(500);
+            }
+        }
+
+        static public void Init()
+        {
+            ThreadMonitor = new Thread(Worker)
+            {
+                Priority = ThreadPriority.Lowest,
+                Name = "RemovableDeviceMonitor"
+            };
+
+            ThreadMonitor.Start();
+            Thread.Sleep(100);
+        }
+
+        static public void StopService()
+        {
+            ThreadMonitor.Abort();
+        }
+    }
+
+
+    /*========*/
+
+
+
+
+
+
+
+
 
     public static class PartitionMonitor
     {
@@ -122,6 +459,20 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                         case '1':
                             {
                                 DisablePartitionMon(args[0]);
+                                break;
+                            }
+
+                        //Включить авто проверку съемных носителей
+                        case '2':
+                            {
+                                Configuration.RemovableAutoScan = true;
+                                break;
+                            }
+
+                        //Выключить авто проверку съемных носителей
+                        case '3':
+                            {
+                                Configuration.RemovableAutoScan = false;
                                 break;
                             }
 
@@ -271,6 +622,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             {
                 Connector.Init();
                 PartitionMonitor.Init();
+                RemovableDeviceMonitor.Init();
             }).Start();
             return 0;
         }
