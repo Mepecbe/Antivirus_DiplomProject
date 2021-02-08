@@ -50,6 +50,7 @@ namespace GUI
 
                 API.onScanCompleted += APIHandlers.OnScannedFile;
                 API.onScanFound += APIHandlers.OnFoundVirus;
+                API.onVirusInfo += APIHandlers.virusInfo;
             }
 
             {
@@ -251,9 +252,24 @@ namespace GUI
                 this.scanProgressSpinner.Value = ScanManager.CountAllScannedFiles;
             }
 
+            {
+                this.label_scanned_file.Text = ScanManager.LastScanned;
+            }
+
             if (ScanManager.CountAllFiles == ScanManager.CountAllScannedFiles)
             {
                 this.TabControl.SelectedIndex = 7;
+                page_scan_result_all_scanned.Text = ScanManager.CountAllScannedFiles.ToString();
+
+                int number = 0;
+
+                foreach(VirusFileInfo info in ScanManager.foundViruses)
+                {
+                    var item = metroListView4.Items.Add(number.ToString());
+                    item.SubItems.Add(info.file);
+                    item.SubItems.Add("Trojan");
+                    item.Tag = info;
+                }
             }
         }
 
@@ -270,6 +286,9 @@ namespace GUI
         private void metroButton3_Click(object sender, EventArgs e)
         {
             //pass
+            ScanManager.Abort();
+
+            ScanManager.CountAllFiles = ScanManager.CountAllScannedFiles;
         }
 
         /// <summary>
@@ -334,6 +353,11 @@ namespace GUI
             }
 
             MainForm.viruses.Enqueue(info);
+        }
+
+        public static void virusInfo(VirusInfo info)
+        {
+            Debug.WriteLine("Virus info!\n" + info.path);
         }
     }
 

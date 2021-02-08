@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 using API_Client_Library;
+using System.Diagnostics;
 
 namespace GUI.Components.ScanManager
 {
@@ -16,7 +17,7 @@ namespace GUI.Components.ScanManager
         const int MAX_SCAN_TASKS = 10;
 
         private static MainForm MForm;
-        private static Thread Thread1 = new Thread(Handler) { Name = "ScanManager" };
+        private static Thread Thread1 = new Thread(ScanFilesLoader) { Name = "ScanFilesLoader" };
 
         /// <summary>
         /// Очередь файлов ожидающих сканирование
@@ -38,6 +39,11 @@ namespace GUI.Components.ScanManager
         /// Активно сканируются
         /// </summary>
         public static int InScanProcess = 0;
+
+        /// <summary>
+        /// Последний отсканированный файл
+        /// </summary>
+        public static string LastScanned { get; private set; }
 
         public static List<VirusFileInfo> foundViruses = new List<VirusFileInfo>();
 
@@ -104,23 +110,29 @@ namespace GUI.Components.ScanManager
         /// <summary>
         /// Поток который загружает файлы для сканирования в ядро
         /// </summary>
-        private static void Handler()
+        private static void ScanFilesLoader()
         {
             while (true)
             {
                 if (FileQueue.Count > 0 && InScanProcess <= MAX_SCAN_TASKS)
                 {
-                    var file = FileQueue.Dequeue();
+                    FileQueue_sync.WaitOne();
+                    {
+                        var file = FileQueue.Dequeue();
 
-                    if (file != null)
-                    {
-                        API.AddToScan(file);
+                        if (file != null)
+                        {
+                            API.AddToScan(file);
+                        }
+                        else
+                        {
+                            CountAllScannedFiles++;
+                        }
                     }
-                    else
-                    {
-                        CountAllScannedFiles++;
-                    }
+                    FileQueue_sync.ReleaseMutex();
                 }
+
+                Thread.Sleep(50);
             }
         }
 
@@ -145,7 +157,12 @@ namespace GUI.Components.ScanManager
         /// </summary>
         public static void Abort()
         {
-
+            FileQueue_sync.WaitOne();
+            {
+                FileQueue.Clear();
+                API.ClearScanQueue();
+            }
+            FileQueue_sync.ReleaseMutex();
         }
 
         public static void Init(MainForm Form)
@@ -154,6 +171,7 @@ namespace GUI.Components.ScanManager
 
             API.onScanCompleted += API_onScanCompleted;
             API.onScanFound += API_onScanFound;
+
             Thread1.Start();
         }
 
@@ -162,10 +180,12 @@ namespace GUI.Components.ScanManager
             Thread1.Abort();
         }
 
+
         private static void API_onScanFound(VirusFileInfo File)
         {
             CountAllScannedFiles++;
             foundViruses.Add(File);
+            Debug.WriteLine("FOUND VIRUS " + File.file);
         }
 
         private static void API_onScanCompleted(ScannedFileInfo File)

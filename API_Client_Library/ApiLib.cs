@@ -43,9 +43,11 @@ namespace API_Client_Library
         /*=== events ===*/
         public delegate void scanCompetedEvent(ScannedFileInfo File);
         public delegate void scanFoundVirusEvent(VirusFileInfo File);
+        public delegate void virusInfo(VirusInfo info);
 
         public static event scanCompetedEvent onScanCompleted;
         public static event scanFoundVirusEvent onScanFound;
+        public static event virusInfo onVirusInfo;
 
         /*=== Connectors ===*/
         private static readonly NamedPipeServerStream InputConnector = new NamedPipeServerStream("API.User");
@@ -91,6 +93,18 @@ namespace API_Client_Library
 
                     case 1:
                         {
+                            var pathToFile = reader.ReadString();
+                            var virusId = reader.ReadInt32();
+                            var inQuarantine = reader.ReadBoolean();
+                            var pathInQuarantine = reader.ReadString();
+
+                            onVirusInfo.Invoke(new VirusInfo(
+                                pathToFile,
+                                virusId,
+                                inQuarantine,
+                                pathInQuarantine
+                            ));
+
                             break;
                         }
 
@@ -222,6 +236,27 @@ namespace API_Client_Library
         {
             OutputConnector.Close();
             InputHandler.Abort();
+        }
+    }
+
+    public class VirusInfo
+    {
+        public string path;
+        public int id;
+        public bool inQuarantine;
+        public string pathInQuarantine;
+
+        public VirusInfo(
+            string path,
+            int id,
+            bool quarantine,
+            string inQuarantine
+            )
+        {
+            this.path = path;
+            this.id = id;
+            this.inQuarantine = quarantine;
+            this.pathInQuarantine = inQuarantine;
         }
     }
 }

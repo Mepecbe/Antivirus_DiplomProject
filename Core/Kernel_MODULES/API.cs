@@ -50,12 +50,12 @@ namespace Core.Kernel.API
                     catch
                     {
 #if DEBUG
-                        Console.WriteLine("[API] READ ERROR");
+                        Console.WriteLine("[API] Чтение завершилось ошибкой");
 #endif
                         if (!UserInputConnector.IsConnected)
                         {
 #if DEBUG
-                            Console.WriteLine("[API] Reconnect");
+                            Console.WriteLine("[API] Переподключение");
 #endif
                             UserInputConnector.WaitForConnection();
 
@@ -64,7 +64,7 @@ namespace Core.Kernel.API
                     }
 
 #if DEBUG
-                    Console.WriteLine($"[API] Request, code {code}");
+                    Console.WriteLine($"[API] Запрос, код {code}");
 #endif
 
                     switch (code)
@@ -108,7 +108,6 @@ namespace Core.Kernel.API
                             {
                                 var id = binaryReader.ReadInt32();
                                 getVirusInfo(id);
-#warning Реализовать
                                 break;
                             }
 
@@ -116,7 +115,6 @@ namespace Core.Kernel.API
                         case 5:
                             {
                                 getAllVirusesInfo();
-#warning Реализовать
                                 break;
                             }
 
@@ -128,12 +126,18 @@ namespace Core.Kernel.API
                                 break;
                             }
 
+                        //Очистить очередь сканирования
                         case 7:
                             {
-                                ScanTasks.ClearQueue();
+                                KernelConnectors.ScannerService_Command_Sync.WaitOne();
+                                {
+                                    ScanTasks.ClearQueue();
+                                }
+                                KernelConnectors.ScannerService_Command_Sync.ReleaseMutex();
                                 break;
                             }
 
+                        //Включение/выключение автоматической проверки съемных носителей
                         case 8:
                             {
                                 var flag = binaryReader.ReadBoolean();

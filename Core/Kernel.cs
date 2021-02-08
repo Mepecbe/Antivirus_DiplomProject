@@ -157,10 +157,15 @@ namespace Core
 
             if (Config.GUI_Autostart)
             {
-                KernelConnectors.Logger.WriteLine("[Kernel] Запуск GUI");
-
-                if(File.Exists("GUI\\GUI.exe"))
+                if (File.Exists("GUI\\GUI.exe"))
+                {
+                    KernelConnectors.Logger.WriteLine("[Kernel] Запуск GUI");
                     GUI_Proc = Process.Start("GUI\\GUI.exe");
+                }
+                else
+                {
+                    KernelConnectors.Logger.WriteLine("[Kernel] Файл GUI не найден");
+                }
             }
 
             await Task.Delay(-1);
@@ -184,6 +189,11 @@ namespace Core
                 LoggerProc.Kill();
             }
 #endif
+
+            if (!GUI_Proc.HasExited)
+            {
+                GUI_Proc.Kill();
+            }
         }
 
 

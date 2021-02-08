@@ -48,8 +48,10 @@ namespace MODULE__SCAN
 
         private static Thread inputHandler = new Thread(inputThread);
         private static Thread signatureHandler = new Thread(signatureThread);
+        private static Thread commandHandler = new Thread(commandThread);
 
         private static BinaryWriter outputWriter;
+        private static BinaryReader commandReader;
 
 #if DEBUG
         public static LoggerClient Logger = new LoggerClient("Logger.Modules.Scanner", "Log");
@@ -95,14 +97,14 @@ namespace MODULE__SCAN
         public static void signatureThread()
         {
 #if DEBUG
-            Connector.Logger.WriteLine("[Scanner.signatureThread] Wait connect");
+            Connector.Logger.WriteLine("[Scanner.signatureThread] Ожидание подключения");
 #endif
 
             signaturesPipe.WaitForConnection();
             var binaryReader = new BinaryReader(signaturesPipe);
 
 #if DEBUG
-            Connector.Logger.WriteLine("[Scanner.signatureThread] ScannerService.signatures connected");
+            Connector.Logger.WriteLine("[Scanner.signatureThread] ScannerService.signatures подключен", LogLevel.OK);
 #endif
 
             while (true)
@@ -113,7 +115,7 @@ namespace MODULE__SCAN
                 if (ID >= Scanner.Signatures.Length)
                 {
 #if DEBUG
-                    Connector.Logger.WriteLine("[Scanner.signatureThread] Write new signature to local buffer");
+                    Connector.Logger.WriteLine("[Scanner.signatureThread] Записываю сигнатуру в локальный буфер");
 #endif
 
                     Array.Resize(ref Scanner.Signatures, Scanner.Signatures.Length + 1);
@@ -130,6 +132,35 @@ namespace MODULE__SCAN
             }
         }
 
+        public static void commandThread()
+        {
+            Logger.WriteLine("[Scanner.commandThread] Ожидание подключения", LogLevel.WARN);
+            commandPipe.WaitForConnection();
+            commandReader = new BinaryReader(commandPipe, Configuration.PipeEncoding);
+            Logger.WriteLine("[Scanner.commandThread] Подключено", LogLevel.OK);
+
+            while (true) 
+            {
+                var code = commandReader.ReadByte();
+
+                switch (code)
+                {
+                    case 0:
+                        {
+                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.OK);
+
+                            ScanTasks.TaskQueue_Sync.WaitOne();
+                            {
+                                ScanTasks.TaskQueue.Clear();
+                                ScanTasks.ActiveScanTasks = 0;
+                            }
+
+                            break;
+                        }
+                }
+            }
+        }
+
         /// <summary>
         /// Инициализация коннектора
         /// </summary>
@@ -142,12 +173,14 @@ namespace MODULE__SCAN
             inputHandler.Start();
             signatureHandler.Start();
 
-            Logger.WriteLine("[Scanner.Init] Wait outputPipe connect", LogLevel.WARN);
+            Logger.WriteLine("[Scanner.Init] Ожидание подключения к outputPipe", LogLevel.WARN);
 
             outputPipe.Connect();
             outputWriter = new BinaryWriter(outputPipe);
 
-            Logger.WriteLine("[Scanner.Init] outputPipe connected", LogLevel.OK);
+            Logger.WriteLine("[Scanner.Init] outputPipe подключен", LogLevel.OK);
+
+            commandHandler.Start();
         }
     }
 

@@ -29,6 +29,10 @@ namespace Core.Kernel.Connectors
         public static BinaryWriter ScannerService_Writer;
         public static Mutex ScannerService_Output_Sync = new Mutex();
 
+        public static NamedPipeClientStream ScannerService_Command = new NamedPipeClientStream("Scanner.CommandPipe");
+        public static BinaryWriter ScannerService_CommandWriter;
+        public static Mutex ScannerService_Command_Sync = new Mutex();
+
 
 
         /* INPUT CONNECTORS */
@@ -102,7 +106,7 @@ namespace Core.Kernel.Connectors
                     PartitionMon_CommandPipe.Connect();
                     PartitionMon_CommandWriter = new BinaryWriter(PartitionMon_CommandPipe, KernelInitializator.Config.NamedPipeEncoding);
 
-                    Logger.WriteLine($"[Kernel.Connectors] Partition monitor connected", LogLevel.OK);
+                    Logger.WriteLine($"[Kernel.Connectors] Монитор разделов подключен", LogLevel.OK);
                 }
                 PartitionMon_CommandPipe_Sync.ReleaseMutex();
             });
@@ -114,9 +118,18 @@ namespace Core.Kernel.Connectors
                     ScannerService_Output.Connect();
                     ScannerService_Writer = new BinaryWriter(ScannerService_Output, KernelInitializator.Config.NamedPipeEncoding);
 
-                    Logger.WriteLine($"[Kernel.Connectors] Scanner OUTPUT connected", LogLevel.OK);
+                    Logger.WriteLine($"[Kernel.Connectors] Сканнер подключен(на вход сканнера)", LogLevel.OK);
                 }
                 ScannerService_Output_Sync.ReleaseMutex();
+
+                ScannerService_Command_Sync.WaitOne();
+                {
+                    ScannerService_Command.Connect();
+                    ScannerService_CommandWriter = new BinaryWriter(ScannerService_Command, KernelInitializator.Config.NamedPipeEncoding);
+
+                    Logger.WriteLine($"[Kernel.Connectors] Канал команд сканера подключен", LogLevel.OK);
+                }
+                ScannerService_Command_Sync.ReleaseMutex();
             });
 
             Task.Run(() =>
@@ -126,7 +139,7 @@ namespace Core.Kernel.Connectors
                     VirusesDb_CommandPipe.Connect();
                     VirusesDb_CommandWriter = new BinaryWriter(VirusesDb_CommandPipe, KernelInitializator.Config.NamedPipeEncoding);
 
-                    Logger.WriteLine($"[Kernel.Connectors] VirusesDB connected", LogLevel.OK);
+                    Logger.WriteLine($"[Kernel.Connectors] База вирусов подключена", LogLevel.OK);
                 }
                 VirusesDb_CommandPipe_Sync.ReleaseMutex();
 

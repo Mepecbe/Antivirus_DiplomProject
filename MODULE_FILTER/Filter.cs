@@ -29,7 +29,6 @@ namespace MODULE__FILTER
     {
         public static class Connector
         {
-#warning Реализовать командный поток
             public static NamedPipeServerStream CommandPipe   = new NamedPipeServerStream("Filter.CommandPipe");
             public static BinaryReader CommandPipeReader = new BinaryReader(CommandPipe, Configuration.NamedPipeEncoding);
 
@@ -69,7 +68,6 @@ namespace MODULE__FILTER
             /// </summary>
             public static Thread Handler1 = new Thread(() =>
             {
-#warning "Необходимо определять тип операции, создание или изменение"
                 Connector.Logger.WriteLine("[Filter.DriverHandler] Ожидаю подключения драйвер коннектора");
                 Connector.DriverMonitor.WaitForConnection();
                 Connector.Logger.WriteLine("[Filter.DriverHandler] Драйвер коннектор подключен", LogLevel.OK);
@@ -110,27 +108,47 @@ namespace MODULE__FILTER
             /// </summary>
             public static Thread CommandHandler = new Thread(() =>
             {
-                Connector.Logger.WriteLine("[Filter.CommandHandler] Active! Wait connection");
+                Connector.Logger.WriteLine("[Filter.CommandHandler] Активен! Ожидание подключения");
 
                 Connector.CommandPipe.WaitForConnection();
                 var Reader = new BinaryReader(Connector.CommandPipe, Encoding.Unicode);
 
-                Connector.Logger.WriteLine("[Filter.CommandHandler] Connected");
+                Connector.Logger.WriteLine("[Filter.CommandHandler] Подключен", LogLevel.OK);
 
                 while (true)
                 {
-                    string buffer = Reader.ReadString();
-                    byte code = byte.Parse(buffer[0].ToString());
+                    Connector.Logger.WriteLine("[Filter.CommandHandler] Ожидаю команду");
+                    var code = Reader.ReadByte();
 
                     switch (code)
                     {
+                        //Добавить правило фильтрации(расширение)
                         case 0:
                             {
+                                var rule = Reader.ReadString();
+                                FiltrationRules.Extentions.Add(new Regex(rule)); 
+                                
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Добавлено правило фильтрации расширения ->" + rule, LogLevel.OK);
                                 break;
                             }
 
+                        //Добавить правило фильтрации(путь)
                         case 1:
                             {
+                                var rule = Reader.ReadString();
+                                FiltrationRules.Paths.Add(new Regex(rule));
+
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Добавлено правило фильтрации путя ->" + rule, LogLevel.OK);
+                                break;
+                            }
+
+                        //Добавить правило фильтрации(другое)
+                        case 2:
+                            {
+                                var rule = Reader.ReadString();
+                                FiltrationRules.OtherRules.Add(new Regex(rule));
+
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Добавлено правило фильтрации ->" + rule, LogLevel.OK);
                                 break;
                             }
                     }

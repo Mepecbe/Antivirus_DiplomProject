@@ -120,6 +120,7 @@ namespace GUI
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
+            this.label_scanned_file = new MetroFramework.Controls.MetroLabel();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -744,6 +745,7 @@ namespace GUI
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage7.Controls.Add(this.label_scanned_file);
             this.tabPage7.Controls.Add(this.scanProgressSpinner);
             this.tabPage7.Controls.Add(this.foundVirusesCount);
             this.tabPage7.Controls.Add(this.metroLabel17);
@@ -983,6 +985,15 @@ namespace GUI
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
+            // label_scanned_file
+            // 
+            this.label_scanned_file.AutoSize = true;
+            this.label_scanned_file.Location = new System.Drawing.Point(52, 109);
+            this.label_scanned_file.Name = "label_scanned_file";
+            this.label_scanned_file.Size = new System.Drawing.Size(13, 19);
+            this.label_scanned_file.TabIndex = 16;
+            this.label_scanned_file.Text = " ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1105,6 +1116,7 @@ namespace GUI
         private MetroFramework.Controls.MetroLabel metroLabel18;
         private MetroFramework.Controls.MetroProgressSpinner scanProgressSpinner;
         private MetroFramework.Controls.MetroButton metroButton12;
+        private MetroFramework.Controls.MetroLabel label_scanned_file;
     }
 
 

@@ -185,10 +185,16 @@ namespace Core.Kernel.ScanModule
         /// <param name="taskId"></param>
         public static void RestartScan(int taskId)
         {
-            var task = getTaskById(taskId);
-
             tasks_sync.WaitOne();
             {
+                var task = getTaskById(taskId);
+
+                if(task is null)
+                {
+                    tasks_sync.ReleaseMutex();
+                    return;
+                }
+
                 ScannerBinaryWriter.Write(taskId);
                 ScannerBinaryWriter.Write(task.File);
                 ScannerBinaryWriter.Flush();
@@ -281,11 +287,19 @@ namespace Core.Kernel.ScanModule
             return null;
         }
 
+        /// <summary>
+        /// Очистить локальные задачи и задачи в сервисе сканирования
+        /// </summary>
         public static void ClearQueue()
         {
             tasks_sync.WaitOne();
             {
                 tasks.Clear();
+
+                {
+                    KernelConnectors.ScannerService_CommandWriter.Write(0);
+                    KernelConnectors.ScannerService_CommandWriter.Flush();
+                }
             }
             tasks_sync.ReleaseMutex();
         }
