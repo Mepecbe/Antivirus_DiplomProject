@@ -26,7 +26,7 @@ namespace Core.Kernel.Quarantine
 
     static class Quarantine
     {
-        public static IsolatedStorageFile VirusStorage;
+        private static IsolatedStorageFile VirusStorage;
 
         /// <summary>
         /// Поместить файл в карантин(защищенное хранилище)
@@ -95,6 +95,18 @@ namespace Core.Kernel.Quarantine
 
             CreatedFileStream.Close();
             targetFileStream.Close();
+        }
+
+        /// <summary>
+        /// Удалить файл в защищенном хранилище
+        /// </summary>
+        /// <param name="path">Путь к файлу в хранилище</param>
+        static public void Delete(string path)
+        {
+            if (VirusStorage.FileExists(path))
+            {
+                VirusStorage.DeleteFile(path);
+            }
         }
 
         /// <summary>

@@ -125,15 +125,15 @@ namespace MODULE__VIRUSES_DB
             {
                 foreach (string file in files)
                 {
-                    Connectors.Logger.WriteLine("[InitDb] Load Db ->" + file, LogLevel.WARN);
+                    Connectors.Logger.WriteLine("[InitDb] Загрузка базы ->" + file, LogLevel.WARN);
                     LoadDbFromFile("VirusesDb\\" + file);
                 }
 
-                Connectors.Logger.WriteLine($"[InitDb] End init, loaded {DbTable.Length} viruses", LogLevel.OK);
+                Connectors.Logger.WriteLine($"[InitDb] Инициализация успешна, загружено {DbTable.Length} вирусов", LogLevel.OK);
             }
             else
             {
-                Connectors.Logger.WriteLine("[InitDB] DB files in isolated storage not found", LogLevel.ERROR);
+                Connectors.Logger.WriteLine("[InitDB] Файлы баз данных не найдены в изолированном хранилище", LogLevel.ERROR);
             }
         }
 
@@ -143,8 +143,13 @@ namespace MODULE__VIRUSES_DB
         /// <param name="localDir"></param>
         private static void LoadToIsolatedStorage(string localDir)
         {
+            foreach(string file in DbStorage.GetFileNames("VirusesDb\\*.db"))
+            {
+                Connectors.Logger.WriteLine($"[LoadToIsolatedStorage] Удаление базы в изолированном хранилище {file}");
+                DbStorage.DeleteFile("VirusesDb\\" + file);
+            }
 
-            Connectors.Logger.WriteLine("[LoadToIsolatedStorage] Load DBs File from local storage to isolated storage");
+            Connectors.Logger.WriteLine("[LoadToIsolatedStorage] Загрузка файлов БД из локального в изолированное хранилище");
 
             string[] Files = Directory.GetFiles(localDir, "*.db");
 
@@ -184,12 +189,13 @@ namespace MODULE__VIRUSES_DB
             VirusTypes type = 0;
 
 
-            while ( (type = (VirusTypes)DbFile.ReadByte()) > 0)
+            while (reader.BaseStream.Position < reader.BaseStream.Length)
             {
                 {
-                    signatureLen =  reader.ReadByte();
+                    type = (VirusTypes)DbFile.ReadByte();
+                    signatureLen = reader.ReadByte();
 
-                    if (signatureLen == -1)
+                    if (signatureLen == -1 || signatureLen == 0)
                     {
                         break;
                     }
@@ -214,7 +220,7 @@ namespace MODULE__VIRUSES_DB
                             type
                         );
 
-                    Connectors.Logger.WriteLine($"[DbLoaderFromFile] loaded virus from local DB -> {name}, type {type}, signature len {signatureLen}", LogLevel.OK);
+                    Connectors.Logger.WriteLine($"[DbLoaderFromFile] Загружен вирус -> {name}, тип {type}, длина сигнатуры {signatureLen}", LogLevel.OK);
                 }
                 DbSync.ReleaseMutex();
             }

@@ -5,6 +5,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+using System.IO;
+using System.IO.IsolatedStorage;
+using System.Xml;
+using System.Xml.Serialization;
+
+using Core.Kernel.Connectors;
+
+
 namespace Core.Kernel.VirusesManager
 {
     /// <summary>
@@ -14,6 +22,9 @@ namespace Core.Kernel.VirusesManager
     {
         private static List<VirusInfo> VirusesTable = new List<VirusInfo>();
         public static Mutex VirusesTable_sync = new Mutex();
+
+        private static IsolatedStorageFile Storage;
+        private static XmlSerializer Serializer;
 
         /// <summary>
         /// Добавить новый вирус в таблицу
@@ -75,18 +86,45 @@ namespace Core.Kernel.VirusesManager
             return VirusesTable.ToArray();
         }
 
+        public static int getLastId()
+        {
+            return VirusesTable.Count > 0 ? VirusesTable[VirusesTable.Count - 1].id : 0;
+        }
+
         /// <summary>
         /// Инициализация компонента
         /// </summary>
         public static void Init()
         {
+            KernelConnectors.Logger.WriteLine("[FoundVirusesManager] Загрузка данных из изолированного хранилища");
 
+            Storage = IsolatedStorageFile.GetUserStoreForDomain();
+            var file = Storage.OpenFile("viruses.xml", FileMode.OpenOrCreate);
+
+            if(file.Length < 5)
+            {
+                KernelConnectors.Logger.WriteLine($"[FoundVirusesManager] Файл данных о вирусах пуст");
+                file.Close();
+                return;
+            }
+
+            Serializer = new XmlSerializer(typeof(VirusInfo[]));
+            VirusInfo[] viruses = (VirusInfo[])Serializer.Deserialize(file);
+
+            foreach(VirusInfo info in viruses)
+            {
+                VirusesTable.Add(info);
+            }
+
+            file.Close();
+
+            KernelConnectors.Logger.WriteLine($"[FoundVirusesManager] Загружено {viruses.Length} записей");
         }
     }
 
 
 
-
+    [Serializable]
     public class VirusInfo
     {
         public int id;
@@ -94,6 +132,11 @@ namespace Core.Kernel.VirusesManager
         public string fileInQuarantine; // Путь к файлу в карантине
         public string file;             // Путь к файлу
         public int VirusId;
+
+        public VirusInfo()
+        {
+
+        }
 
         public VirusInfo(int id, string file, int VirusId)
         {

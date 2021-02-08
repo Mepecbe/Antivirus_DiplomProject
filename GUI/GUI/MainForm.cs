@@ -14,6 +14,7 @@ using Tulpep.NotificationWindow;
 using API_Client_Library;
 
 using GUI.Components.ScanManager;
+using GUI.Components.Configurations;
 
 namespace GUI
 {
@@ -277,10 +278,26 @@ namespace GUI
         {
             if (ScanManager.State == ScanState.Active)
             {
+                //Если антивирус просто обнаружил вирус
+
+                if (Configuration.Notify_FoundVirus)
+                {
+                    using(PopupNotifier notify = new PopupNotifier())
+                    {
+                        notify.ContentText = "Обнаружена угроза\n" + info.file;
+                        notify.TitleText = "Antivirus";
+
+                        notify.Popup();
+                    }
+                }
+
                 return;
             }
-
-            MainForm.files.Enqueue(info);
+            else
+            {
+                //Если при сканировании обнаружен вирус
+                MainForm.files.Enqueue(info);
+            }
         }
 
         public static void OnFoundVirus(VirusFileInfo info)

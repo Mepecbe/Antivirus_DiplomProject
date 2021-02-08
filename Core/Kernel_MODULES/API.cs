@@ -69,10 +69,9 @@ namespace Core.Kernel.API
 
                     switch (code)
                     {
-                        //Запрос на проверку файла
+                        //Запрос на
                         case 0:
                             {
-                                var file = binaryReader.ReadString();
 
                                 break;
                             }
@@ -109,7 +108,7 @@ namespace Core.Kernel.API
                             {
                                 var id = binaryReader.ReadInt32();
                                 getVirusInfo(id);
-
+#warning Реализовать
                                 break;
                             }
 
@@ -117,6 +116,7 @@ namespace Core.Kernel.API
                         case 5:
                             {
                                 getAllVirusesInfo();
+#warning Реализовать
                                 break;
                             }
 
@@ -125,6 +125,12 @@ namespace Core.Kernel.API
                             {
                                 string file = binaryReader.ReadString();
                                 ScanTasks.Add(file);
+                                break;
+                            }
+
+                        case 7:
+                            {
+                                ScanTasks.ClearQueue();
                                 break;
                             }
 

@@ -37,8 +37,8 @@ namespace DB_Editor
             this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_ApplyChanges = new MetroFramework.Controls.MetroButton();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_ApplyChanges = new MetroFramework.Controls.MetroButton();
             this.metroContextMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,25 +49,26 @@ namespace DB_Editor
             this.редактироватьToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.metroContextMenu1.Name = "metroContextMenu1";
-            this.metroContextMenu1.Size = new System.Drawing.Size(155, 70);
+            this.metroContextMenu1.Size = new System.Drawing.Size(181, 92);
             // 
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
@@ -99,6 +100,11 @@ namespace DB_Editor
             this.columnHeader3.Text = "Сигнатура";
             this.columnHeader3.Width = 270;
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Тип";
+            this.columnHeader2.Width = 100;
+            // 
             // btn_ApplyChanges
             // 
             this.btn_ApplyChanges.Location = new System.Drawing.Point(604, 34);
@@ -109,11 +115,6 @@ namespace DB_Editor
             this.btn_ApplyChanges.UseSelectable = true;
             this.btn_ApplyChanges.Visible = false;
             this.btn_ApplyChanges.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Тип";
-            this.columnHeader2.Width = 100;
             // 
             // Editor
             // 

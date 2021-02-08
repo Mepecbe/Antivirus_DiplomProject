@@ -72,7 +72,7 @@ namespace DB_Editor
 
             var item = this.metroListView1.SelectedItems[0];
 
-            SignaturesDB.Delete((VirusInfo)item.SubItems[0].Tag);
+            SignaturesDB.Delete((VirusInfo)item.Tag);
             SignaturesDB.UpdateList(this.metroListView1);
 
             btn_ApplyChanges.Visible = true;
@@ -81,6 +81,11 @@ namespace DB_Editor
         private void Editor_FormClosing(object sender, FormClosingEventArgs e)
         {
             SignaturesDB.Close();
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

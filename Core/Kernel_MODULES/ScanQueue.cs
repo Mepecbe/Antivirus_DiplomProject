@@ -155,7 +155,7 @@ namespace Core.Kernel.ScanModule
         public static NamedPipeClientStream Scanner_Output;
         public static BinaryWriter ScannerBinaryWriter;
 
-        public static List<ScanTask> tasks = new List<ScanTask>();
+        private static List<ScanTask> tasks = new List<ScanTask>();
         public static Mutex tasks_sync = new Mutex();
 
         public static ScanTask Add(string file)
@@ -170,8 +170,6 @@ namespace Core.Kernel.ScanModule
                 ScannerBinaryWriter.Write(id);
                 ScannerBinaryWriter.Write(file);
 
-                KernelConnectors.Logger.WriteLine("write", LoggerLib.LogLevel.WARN);
-
                 ScannerBinaryWriter.Flush();
 
                 id++;
@@ -181,6 +179,10 @@ namespace Core.Kernel.ScanModule
             return task;
         }
 
+        /// <summary>
+        /// Повторить сканирование
+        /// </summary>
+        /// <param name="taskId"></param>
         public static void RestartScan(int taskId)
         {
             var task = getTaskById(taskId);
@@ -279,6 +281,15 @@ namespace Core.Kernel.ScanModule
             return null;
         }
 
+        public static void ClearQueue()
+        {
+            tasks_sync.WaitOne();
+            {
+                tasks.Clear();
+            }
+            tasks_sync.ReleaseMutex();
+        }
+
 
         public static void ScanCompleted(int id, bool found, int virusId, string file)
         {
@@ -318,6 +329,7 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         public static void Init()
         {
+            id = FoundVirusesManager.getLastId() + 1;
             FilterHandler.Run();
 
             ScannerResponseHandler.onScanCompleted += ScanCompleted;

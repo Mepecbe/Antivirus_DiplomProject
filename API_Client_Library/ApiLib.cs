@@ -158,7 +158,12 @@ namespace API_Client_Library
         /// </summary>
         public static void ClearScanQueue()
         {
-
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)7);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
         }
 
         /// <summary>

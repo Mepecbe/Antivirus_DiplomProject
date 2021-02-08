@@ -43,14 +43,15 @@ namespace Core
 
         /// <summary>
         /// Инициализация внутренних компонентов ядра
+        /// ВАЖНО! Менеджер обнаруженных вирусов должен быть запущен раньше чем менеджер задач сканирования
         /// </summary>
         static void InitKernelComponents()
         {
             API.Init();
 
             ScannerResponseHandler.Init();
-            ScanTasks.Init();
             FoundVirusesManager.Init();
+            ScanTasks.Init();
             Quarantine.InitStorage();
         }
 
