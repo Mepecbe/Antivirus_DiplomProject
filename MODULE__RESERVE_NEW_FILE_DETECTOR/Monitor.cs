@@ -465,6 +465,8 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                         //Включить авто проверку съемных носителей
                         case '2':
                             {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Включаю автоскан съемных носителей");
+
                                 Configuration.RemovableAutoScan = true;
                                 break;
                             }
@@ -472,17 +474,17 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                         //Выключить авто проверку съемных носителей
                         case '3':
                             {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Выключаю автоскан съемных носителей");
+
                                 Configuration.RemovableAutoScan = false;
                                 break;
                             }
 
-#if DEBUG
                         default:
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Command not found", LogLevel.WARN);
                                 break;
                             }
-#endif
                     }
                 }
 

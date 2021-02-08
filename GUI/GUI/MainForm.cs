@@ -57,6 +57,16 @@ namespace GUI
                 Updater.Interval = 200;
                 Updater.Enabled = true;
             }
+
+            {
+                //Применение настроек касающихся ядра
+                API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
+            }
+
+            {
+                metroCheckBox1.Checked = Configuration.Notify_FoundVirus;
+                metroCheckBox2.Checked = Configuration.AutoScanRemovableDevices;
+            }
         }
 
 
@@ -81,7 +91,7 @@ namespace GUI
                         TitleText = "Antivirus"                        
                     };
 
-                    popup.Popup();
+                    //popup.Popup();
                 }
                 files_sync.ReleaseMutex();
             }
@@ -249,7 +259,9 @@ namespace GUI
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ScanManager.Stop();
             API.ApiStop();
+            Updater.Stop();
         }
 
         /// <summary>
@@ -274,6 +286,26 @@ namespace GUI
         private void metroButton12_Click(object sender, EventArgs e)
         {
             this.TabControl.SelectedIndex = 0;
+        }
+
+        private void metroCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
+            API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            this.TabControl.SelectedIndex = 0;
+            Configuration.Save();
+
+            var popup = new PopupNotifier()
+            {
+                ContentText = "Настройки сохранены",
+                TitleText = "Antivirus"
+            };
+
+            popup.Popup();
         }
     }
 

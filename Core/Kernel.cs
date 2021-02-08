@@ -28,6 +28,7 @@ namespace Core
     {
 #if DEBUG
         private static Process LoggerProc;
+        private static Process GUI_Proc;
 #endif
 
         public static Configuration Config;
@@ -153,6 +154,14 @@ namespace Core
 
             //Базовая настройка модулей
             ApplyingBasicSettings();
+
+            if (Config.GUI_Autostart)
+            {
+                KernelConnectors.Logger.WriteLine("[Kernel] Запуск GUI");
+
+                if(File.Exists("GUI\\GUI.exe"))
+                    GUI_Proc = Process.Start("GUI\\GUI.exe");
+            }
 
             await Task.Delay(-1);
         }

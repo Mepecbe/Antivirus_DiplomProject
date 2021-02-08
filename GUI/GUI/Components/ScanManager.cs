@@ -16,7 +16,7 @@ namespace GUI.Components.ScanManager
         const int MAX_SCAN_TASKS = 10;
 
         private static MainForm MForm;
-        private static Thread Thread1 = new Thread(Handler);
+        private static Thread Thread1 = new Thread(Handler) { Name = "ScanManager" };
 
         /// <summary>
         /// Очередь файлов ожидающих сканирование
@@ -155,6 +155,11 @@ namespace GUI.Components.ScanManager
             API.onScanCompleted += API_onScanCompleted;
             API.onScanFound += API_onScanFound;
             Thread1.Start();
+        }
+
+        public static void Stop()
+        {
+            Thread1.Abort();
         }
 
         private static void API_onScanFound(VirusFileInfo File)

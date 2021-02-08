@@ -21,17 +21,12 @@ namespace Core.Kernel.Configurations
         public Encoding NamedPipeEncoding { get; private set; }
 
         /// <summary>
-        /// Пользовательские настройки
+        /// Автозапуск GUI
         /// </summary>
-        public UserSettings userSettings { get; private set; }
+        public bool GUI_Autostart { get; private set; }
 
         private FileStream SystemConftFile;
         private XmlDocument SystemXmlFile = new XmlDocument();
-
-        private FileStream UserConfFile;
-        private XmlDocument UserXmlFile = new XmlDocument();
-
-        private XmlSerializer UserSettingsFormatter = new XmlSerializer(typeof(UserSettings));
 
         public Configuration()
         {
@@ -53,19 +48,9 @@ namespace Core.Kernel.Configurations
                         "<?xml version=\"1.0\"?>"
                         + "<sysConf>\n" +
                         $"<PipeEncode>{defaultConf.NamedPipeEncoding}</PipeEncode>\n" +
+                        $"<guiautostart>true</guiautostart>\n" +
                         "</sysConf>\n"
                         );
-                    file.Close();
-                }
-
-                if (!File.Exists(pathToUserConf))
-                {
-                    KernelConnectors.Logger.WriteLine("[Configuration] CREATE USER CONF", LoggerLib.LogLevel.WARN);
-
-                    var file = new StreamWriter(File.Create(pathToUserConf));
-                    UserSettingsFormatter.Serialize(file, defaultConf.userSettings);
-
-                    KernelConnectors.Logger.WriteLine("[Configuration] CLOSE", LoggerLib.LogLevel.WARN);
                     file.Close();
                 }
             }
@@ -108,29 +93,27 @@ namespace Core.Kernel.Configurations
                         }
                     }
                 }
+
+                /**/
+                {
+                    var XmlEncode = getElementValueByName("guiautostart", root);
+
+                    if(XmlEncode != null)
+                    {
+                        this.GUI_Autostart = bool.Parse(XmlEncode.InnerText);
+                    }
+                }
             }
 
-            /* User settings */
-            KernelConnectors.Logger.WriteLine("[Configuration] LOAD USER CONF", LoggerLib.LogLevel.WARN);
 
-            {
-                UserConfFile = new FileStream(pathToUserConf, FileMode.OpenOrCreate);
-                this.UserSettingsFormatter = new XmlSerializer(typeof(UserSettings));
-
-                this.userSettings = (UserSettings)UserSettingsFormatter.Deserialize(this.UserConfFile);
-                this.UserConfFile.Close();
-            }
-
-            KernelConnectors.Logger.WriteLine("[Configuration] LOAD SUCCESS", LoggerLib.LogLevel.OK);
+            KernelConnectors.Logger.WriteLine("[Configuration] Конфигурация загружена", LoggerLib.LogLevel.OK);
         }
 
 
 
-
-
-
-
-
+        /// <summary>
+        /// Найти XML элемент по имени среди потомков 
+        /// </summary>
         private static XmlElement getElementValueByName(string name, XmlElement element)
         {
             foreach(XmlElement child in element.ChildNodes)
@@ -152,22 +135,8 @@ namespace Core.Kernel.Configurations
         {
             return new Configuration
             {
-                NamedPipeEncoding = Encoding.Unicode,
-
-                userSettings = new UserSettings() 
-                { 
-                    Notify_FoundVirus = true 
-                }                
+                NamedPipeEncoding = Encoding.Unicode             
             };
         }
-    }
-
-    /// <summary>
-    /// Настройки пользователя
-    /// </summary>
-    [Serializable]
-    public class UserSettings
-    {
-        public bool Notify_FoundVirus;
     }
 }

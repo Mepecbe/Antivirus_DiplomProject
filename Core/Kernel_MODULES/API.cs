@@ -134,6 +134,22 @@ namespace Core.Kernel.API
                                 break;
                             }
 
+                        case 8:
+                            {
+                                var flag = binaryReader.ReadBoolean();
+
+                                if (flag)
+                                {
+                                    KernelConnectors.PartitionMon_CommandWriter.Write("2*");
+                                }
+                                else
+                                {
+                                    KernelConnectors.PartitionMon_CommandWriter.Write("3*");
+                                }
+
+                                break;
+                            }
+
                         default:
                             {
 #if DEBUG

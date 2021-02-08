@@ -46,6 +46,8 @@ namespace GUI
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.ScanObjectsList = new MetroFramework.Controls.MetroListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addToScan = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,13 +57,8 @@ namespace GUI
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.metroButton7 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroListView3 = new MetroFramework.Controls.MetroListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,34 +94,32 @@ namespace GUI
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.scanProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.foundVirusesCount = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.page_active_scan_all_count = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.page_active_scan_scanned = new MetroFramework.Controls.MetroLabel();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.progressBar = new MetroFramework.Controls.MetroProgressBar();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.page_active_scan_scanned = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.page_active_scan_all_count = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.foundVirusesCount = new MetroFramework.Controls.MetroLabel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
+            this.metroButton12 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroListView4 = new MetroFramework.Controls.MetroListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.scanProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroButton12 = new MetroFramework.Controls.MetroButton();
+            this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -325,6 +320,17 @@ namespace GUI
             this.ScanObjectsList.UseSelectable = true;
             this.ScanObjectsList.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.DisplayIndex = 1;
+            this.columnHeader10.Text = "Файл или папка";
+            this.columnHeader10.Width = 795;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.DisplayIndex = 0;
+            this.columnHeader11.Text = "№";
+            // 
             // addToScan
             // 
             this.addToScan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -379,11 +385,8 @@ namespace GUI
             this.tabPage3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tabPage3.Controls.Add(this.metroButton8);
             this.tabPage3.Controls.Add(this.metroButton7);
-            this.tabPage3.Controls.Add(this.metroLabel13);
             this.tabPage3.Controls.Add(this.metroCheckBox2);
             this.tabPage3.Controls.Add(this.metroCheckBox1);
-            this.tabPage3.Controls.Add(this.metroLabel8);
-            this.tabPage3.Controls.Add(this.metroListView3);
             this.tabPage3.Controls.Add(this.metroLabel5);
             this.tabPage3.Location = new System.Drawing.Point(4, 14);
             this.tabPage3.Name = "tabPage3";
@@ -410,72 +413,28 @@ namespace GUI
             this.metroButton7.TabIndex = 8;
             this.metroButton7.Text = "Сохранить изменения";
             this.metroButton7.UseSelectable = true;
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel13.Location = new System.Drawing.Point(56, 237);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(159, 25);
-            this.metroLabel13.TabIndex = 7;
-            this.metroLabel13.Text = "Прочие настройки";
+            this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);
             // 
             // metroCheckBox2
             // 
             this.metroCheckBox2.AutoSize = true;
-            this.metroCheckBox2.Location = new System.Drawing.Point(90, 299);
+            this.metroCheckBox2.Location = new System.Drawing.Point(47, 72);
             this.metroCheckBox2.Name = "metroCheckBox2";
             this.metroCheckBox2.Size = new System.Drawing.Size(276, 15);
             this.metroCheckBox2.TabIndex = 6;
             this.metroCheckBox2.Text = "Автоматически проверять съемные носители";
             this.metroCheckBox2.UseSelectable = true;
+            this.metroCheckBox2.CheckedChanged += new System.EventHandler(this.metroCheckBox2_CheckedChanged);
             // 
             // metroCheckBox1
             // 
             this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(90, 278);
+            this.metroCheckBox1.Location = new System.Drawing.Point(47, 51);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(164, 15);
             this.metroCheckBox1.TabIndex = 5;
             this.metroCheckBox1.Text = "Показывать уведомления";
             this.metroCheckBox1.UseSelectable = true;
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel8.Location = new System.Drawing.Point(56, 38);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(378, 25);
-            this.metroLabel8.TabIndex = 4;
-            this.metroLabel8.Text = "Автоматически проверять файлы на разделах:";
-            // 
-            // metroListView3
-            // 
-            this.metroListView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.metroListView3.ContextMenuStrip = this.MonPartitionContextMenu;
-            this.metroListView3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView3.FullRowSelect = true;
-            this.metroListView3.Location = new System.Drawing.Point(56, 74);
-            this.metroListView3.Name = "metroListView3";
-            this.metroListView3.OwnerDraw = true;
-            this.metroListView3.Size = new System.Drawing.Size(774, 133);
-            this.metroListView3.TabIndex = 3;
-            this.metroListView3.UseCompatibleStateImageBehavior = false;
-            this.metroListView3.UseSelectable = true;
-            this.metroListView3.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "№";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Раздел";
-            this.columnHeader6.Width = 710;
             // 
             // MonPartitionContextMenu
             // 
@@ -805,6 +764,60 @@ namespace GUI
             this.tabPage7.Text = "page_active_scan";
             this.tabPage7.Enter += new System.EventHandler(this.tabPage7_Enter);
             // 
+            // scanProgressSpinner
+            // 
+            this.scanProgressSpinner.Location = new System.Drawing.Point(826, 68);
+            this.scanProgressSpinner.Maximum = 100;
+            this.scanProgressSpinner.Name = "scanProgressSpinner";
+            this.scanProgressSpinner.Size = new System.Drawing.Size(38, 38);
+            this.scanProgressSpinner.TabIndex = 15;
+            this.scanProgressSpinner.UseSelectable = true;
+            // 
+            // foundVirusesCount
+            // 
+            this.foundVirusesCount.AutoSize = true;
+            this.foundVirusesCount.Location = new System.Drawing.Point(178, 219);
+            this.foundVirusesCount.Name = "foundVirusesCount";
+            this.foundVirusesCount.Size = new System.Drawing.Size(16, 19);
+            this.foundVirusesCount.TabIndex = 14;
+            this.foundVirusesCount.Text = "0";
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.AutoSize = true;
+            this.metroLabel17.Location = new System.Drawing.Point(52, 219);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(129, 19);
+            this.metroLabel17.TabIndex = 13;
+            this.metroLabel17.Text = "Обнаружено угроз:";
+            // 
+            // page_active_scan_all_count
+            // 
+            this.page_active_scan_all_count.AutoSize = true;
+            this.page_active_scan_all_count.Location = new System.Drawing.Point(153, 164);
+            this.page_active_scan_all_count.Name = "page_active_scan_all_count";
+            this.page_active_scan_all_count.Size = new System.Drawing.Size(16, 19);
+            this.page_active_scan_all_count.TabIndex = 12;
+            this.page_active_scan_all_count.Text = "0";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(51, 164);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(96, 19);
+            this.metroLabel16.TabIndex = 11;
+            this.metroLabel16.Text = "Всего файлов:";
+            // 
+            // page_active_scan_scanned
+            // 
+            this.page_active_scan_scanned.AutoSize = true;
+            this.page_active_scan_scanned.Location = new System.Drawing.Point(210, 191);
+            this.page_active_scan_scanned.Name = "page_active_scan_scanned";
+            this.page_active_scan_scanned.Size = new System.Drawing.Size(16, 19);
+            this.page_active_scan_scanned.TabIndex = 9;
+            this.page_active_scan_scanned.Text = "0";
+            // 
             // metroButton4
             // 
             this.metroButton4.Location = new System.Drawing.Point(553, 351);
@@ -860,77 +873,6 @@ namespace GUI
             this.metroLabel9.TabIndex = 2;
             this.metroLabel9.Text = "Ход сканирования";
             // 
-            // notifyIcon
-            // 
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon";
-            this.notifyIcon.Visible = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.DisplayIndex = 1;
-            this.columnHeader10.Text = "Файл или папка";
-            this.columnHeader10.Width = 795;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.DisplayIndex = 0;
-            this.columnHeader11.Text = "№";
-            // 
-            // active_scan_updater
-            // 
-            this.active_scan_updater.Interval = 50;
-            this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
-            // 
-            // page_active_scan_scanned
-            // 
-            this.page_active_scan_scanned.AutoSize = true;
-            this.page_active_scan_scanned.Location = new System.Drawing.Point(210, 191);
-            this.page_active_scan_scanned.Name = "page_active_scan_scanned";
-            this.page_active_scan_scanned.Size = new System.Drawing.Size(16, 19);
-            this.page_active_scan_scanned.TabIndex = 9;
-            this.page_active_scan_scanned.Text = "0";
-            // 
-            // metroLabel16
-            // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(51, 164);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(96, 19);
-            this.metroLabel16.TabIndex = 11;
-            this.metroLabel16.Text = "Всего файлов:";
-            // 
-            // page_active_scan_all_count
-            // 
-            this.page_active_scan_all_count.AutoSize = true;
-            this.page_active_scan_all_count.Location = new System.Drawing.Point(153, 164);
-            this.page_active_scan_all_count.Name = "page_active_scan_all_count";
-            this.page_active_scan_all_count.Size = new System.Drawing.Size(16, 19);
-            this.page_active_scan_all_count.TabIndex = 12;
-            this.page_active_scan_all_count.Text = "0";
-            // 
-            // metroLabel17
-            // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(52, 219);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(129, 19);
-            this.metroLabel17.TabIndex = 13;
-            this.metroLabel17.Text = "Обнаружено угроз:";
-            // 
-            // foundVirusesCount
-            // 
-            this.foundVirusesCount.AutoSize = true;
-            this.foundVirusesCount.Location = new System.Drawing.Point(178, 219);
-            this.foundVirusesCount.Name = "foundVirusesCount";
-            this.foundVirusesCount.Size = new System.Drawing.Size(16, 19);
-            this.foundVirusesCount.TabIndex = 14;
-            this.foundVirusesCount.Text = "0";
-            // 
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -947,33 +889,24 @@ namespace GUI
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "page_scan_result";
             // 
-            // metroLabel12
+            // metroButton12
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel12.Location = new System.Drawing.Point(17, 9);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(214, 25);
-            this.metroLabel12.TabIndex = 3;
-            this.metroLabel12.Text = "Результаты сканирования";
+            this.metroButton12.Location = new System.Drawing.Point(741, 128);
+            this.metroButton12.Name = "metroButton12";
+            this.metroButton12.Size = new System.Drawing.Size(149, 23);
+            this.metroButton12.TabIndex = 8;
+            this.metroButton12.Text = "Выполнить действия";
+            this.metroButton12.UseSelectable = true;
+            this.metroButton12.Click += new System.EventHandler(this.metroButton12_Click);
             // 
-            // metroLabel18
+            // metroLabel19
             // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(52, 44);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(177, 19);
-            this.metroLabel18.TabIndex = 4;
-            this.metroLabel18.Text = "Всего проверенно файлов:";
-            // 
-            // page_scan_result_all_scanned
-            // 
-            this.page_scan_result_all_scanned.AutoSize = true;
-            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(235, 44);
-            this.page_scan_result_all_scanned.Name = "page_scan_result_all_scanned";
-            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(16, 19);
-            this.page_scan_result_all_scanned.TabIndex = 5;
-            this.page_scan_result_all_scanned.Text = "0";
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.Location = new System.Drawing.Point(52, 132);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(151, 19);
+            this.metroLabel19.TabIndex = 7;
+            this.metroLabel19.Text = "Обнаруженные угрозы";
             // 
             // metroListView4
             // 
@@ -1007,33 +940,48 @@ namespace GUI
             this.columnHeader14.Text = "Тип вируса";
             this.columnHeader14.Width = 249;
             // 
-            // metroLabel19
+            // page_scan_result_all_scanned
             // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(52, 132);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(151, 19);
-            this.metroLabel19.TabIndex = 7;
-            this.metroLabel19.Text = "Обнаруженные угрозы";
+            this.page_scan_result_all_scanned.AutoSize = true;
+            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(235, 44);
+            this.page_scan_result_all_scanned.Name = "page_scan_result_all_scanned";
+            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(16, 19);
+            this.page_scan_result_all_scanned.TabIndex = 5;
+            this.page_scan_result_all_scanned.Text = "0";
             // 
-            // scanProgressSpinner
+            // metroLabel18
             // 
-            this.scanProgressSpinner.Location = new System.Drawing.Point(826, 68);
-            this.scanProgressSpinner.Maximum = 100;
-            this.scanProgressSpinner.Name = "scanProgressSpinner";
-            this.scanProgressSpinner.Size = new System.Drawing.Size(38, 38);
-            this.scanProgressSpinner.TabIndex = 15;
-            this.scanProgressSpinner.UseSelectable = true;
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(52, 44);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(177, 19);
+            this.metroLabel18.TabIndex = 4;
+            this.metroLabel18.Text = "Всего проверенно файлов:";
             // 
-            // metroButton12
+            // metroLabel12
             // 
-            this.metroButton12.Location = new System.Drawing.Point(741, 128);
-            this.metroButton12.Name = "metroButton12";
-            this.metroButton12.Size = new System.Drawing.Size(149, 23);
-            this.metroButton12.TabIndex = 8;
-            this.metroButton12.Text = "Выполнить действия";
-            this.metroButton12.UseSelectable = true;
-            this.metroButton12.Click += new System.EventHandler(this.metroButton12_Click);
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.Location = new System.Drawing.Point(17, 9);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(214, 25);
+            this.metroLabel12.TabIndex = 3;
+            this.metroLabel12.Text = "Результаты сканирования";
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Visible = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // active_scan_updater
+            // 
+            this.active_scan_updater.Interval = 50;
+            this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
             // MainForm
             // 
@@ -1098,10 +1046,6 @@ namespace GUI
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroListView metroListView3;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private MetroFramework.Controls.MetroContextMenu MonPartitionContextMenu;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
@@ -1126,7 +1070,6 @@ namespace GUI
         private MetroFramework.Controls.MetroButton metroButton9;
         private MetroFramework.Controls.MetroButton metroButton8;
         private MetroFramework.Controls.MetroButton metroButton7;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
         private MetroFramework.Controls.MetroContextMenu quarantineContextMenu;

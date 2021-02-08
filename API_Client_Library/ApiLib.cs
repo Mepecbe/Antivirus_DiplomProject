@@ -54,7 +54,7 @@ namespace API_Client_Library
         /// <summary>
         /// Поток обработки событий
         /// </summary>
-        private static readonly Thread InputHandler = new Thread(Handler);
+        private static readonly Thread InputHandler = new Thread(Handler) { Name = "ApiHandler" };
 
         private static readonly BinaryWriter OutputWriter = new BinaryWriter(OutputConnector);
         public static Mutex Writer_sync = new Mutex();
@@ -67,9 +67,19 @@ namespace API_Client_Library
         {
             var reader = new BinaryReader(InputConnector);
 
+            var code = 100;
+
             while (true)
             {
-                var code = reader.ReadByte();
+                try
+                {
+                    code = reader.ReadByte();
+                }
+                catch(EndOfStreamException)
+                {
+                    //Если ядро отключилось
+                    break;
+                }
 
                 switch (code)
                 {
@@ -180,6 +190,20 @@ namespace API_Client_Library
             Writer_sync.ReleaseMutex();
         }
 
+        /// <summary>
+        /// Автосканирование съемных носителей
+        /// </summary>
+        public static void SetAutoScanRemovableDevices(bool flag)
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)8);
+                OutputWriter.Write(flag);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
         /*=== Остальное ===*/
 
         public static void Init()
@@ -196,6 +220,7 @@ namespace API_Client_Library
 
         public static void ApiStop()
         {
+            OutputConnector.Close();
             InputHandler.Abort();
         }
     }

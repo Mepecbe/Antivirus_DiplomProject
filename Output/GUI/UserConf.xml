@@ -1,2 +1,4 @@
 <?xml version="1.0"?>
-<conf> <Notify_FoundVirus>true</Notify_FoundVirus></conf>
+<conf>
+  <Notify_FoundVirus>True</Notify_FoundVirus>
+</conf>

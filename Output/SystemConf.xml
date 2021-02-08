@@ -1,1 +1,5 @@
-<?xml version="1.0"?><sysConf><PipeEncode>System.Text.UnicodeEncoding</PipeEncode></sysConf>
+<?xml version="1.0"?>
+<sysConf>
+	<PipeEncode>System.Text.UnicodeEncoding</PipeEncode>
+	<guiautostart>true</guiautostart>
+</sysConf>

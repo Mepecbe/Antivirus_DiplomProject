@@ -34,7 +34,10 @@ namespace GUI.Components.Configurations
         }
 
 
-
+        public static void Save()
+        {
+            Doc.Save("UserConf.xml");
+        }
 
         static Configuration()
         {
