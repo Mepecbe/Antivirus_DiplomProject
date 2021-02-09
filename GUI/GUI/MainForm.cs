@@ -310,9 +310,35 @@ namespace GUI
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ScanManager.Stop();
-            API.ApiStop();
-            Updater.Stop();
+            switch (e.CloseReason) 
+            {
+                case CloseReason.WindowsShutDown:
+                    {
+                        //Windows закрывает все приложения перед завершением работы
+
+                        ScanManager.Stop();
+                        API.ApiStop();
+                        Updater.Stop();
+                        break;
+                    }
+
+                case CloseReason.UserClosing:
+                    {
+                        e.Cancel = true;
+                        this.Hide();
+                        break;
+                    }
+
+                case CloseReason.TaskManagerClosing:
+                    {
+                        //TaskManager закрывает приложение
+
+                        ScanManager.Stop();
+                        API.ApiStop();
+                        Updater.Stop();
+                        break;
+                    }
+            }
         }
 
         /// <summary>
@@ -451,6 +477,11 @@ namespace GUI
 
                 quarantine_files.SelectedItems[0].Remove();
             }
+        }
+
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         /*====*/
