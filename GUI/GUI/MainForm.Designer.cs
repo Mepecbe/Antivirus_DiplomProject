@@ -127,6 +127,12 @@ namespace GUI
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.notifyIconContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activeSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
+            this.latestSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -141,6 +147,7 @@ namespace GUI
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.setAction.SuspendLayout();
+            this.notifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -690,6 +697,9 @@ namespace GUI
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage6.Controls.Add(this.metroLabel20);
+            this.tabPage6.Controls.Add(this.latestSignatureDB_ver);
+            this.tabPage6.Controls.Add(this.activeSignatureDB_ver);
             this.tabPage6.Controls.Add(this.metroLabel15);
             this.tabPage6.Controls.Add(this.metroLabel14);
             this.tabPage6.Controls.Add(this.metroButton11);
@@ -704,18 +714,20 @@ namespace GUI
             // metroLabel15
             // 
             this.metroLabel15.AutoSize = true;
+            this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel15.Location = new System.Drawing.Point(41, 97);
             this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(218, 19);
+            this.metroLabel15.Size = new System.Drawing.Size(283, 25);
             this.metroLabel15.TabIndex = 7;
             this.metroLabel15.Text = "Актуальная версия базы сигнатур:";
             // 
             // metroLabel14
             // 
             this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel14.Location = new System.Drawing.Point(41, 47);
             this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(201, 19);
+            this.metroLabel14.Size = new System.Drawing.Size(260, 25);
             this.metroLabel14.TabIndex = 6;
             this.metroLabel14.Text = "Текущая версия базы сигнатур:";
             // 
@@ -961,8 +973,9 @@ namespace GUI
             // 
             // notifyIcon
             // 
+            this.notifyIcon.ContextMenuStrip = this.notifyIconContextMenu;
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Text = "Защита активна";
             this.notifyIcon.Visible = true;
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
@@ -1068,6 +1081,58 @@ namespace GUI
             this.columnHeader13.Text = "Тип вируса";
             this.columnHeader13.Width = 196;
             // 
+            // notifyIconContextMenu
+            // 
+            this.notifyIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьToolStripMenuItem,
+            this.выходToolStripMenuItem});
+            this.notifyIconContextMenu.Name = "notifyIconContextMenu";
+            this.notifyIconContextMenu.Size = new System.Drawing.Size(122, 48);
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // activeSignatureDB_ver
+            // 
+            this.activeSignatureDB_ver.AutoSize = true;
+            this.activeSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.activeSignatureDB_ver.Location = new System.Drawing.Point(307, 47);
+            this.activeSignatureDB_ver.Name = "activeSignatureDB_ver";
+            this.activeSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
+            this.activeSignatureDB_ver.TabIndex = 8;
+            this.activeSignatureDB_ver.Text = "v2.20";
+            // 
+            // latestSignatureDB_ver
+            // 
+            this.latestSignatureDB_ver.AutoSize = true;
+            this.latestSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.latestSignatureDB_ver.Location = new System.Drawing.Point(330, 97);
+            this.latestSignatureDB_ver.Name = "latestSignatureDB_ver";
+            this.latestSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
+            this.latestSignatureDB_ver.TabIndex = 9;
+            this.latestSignatureDB_ver.Text = "v2.20";
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel20.Location = new System.Drawing.Point(41, 151);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(378, 75);
+            this.metroLabel20.TabIndex = 10;
+            this.metroLabel20.Text = "Установлена последняя версия базы сигнатур\r\nОбновление не требуется\r\n";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1099,6 +1164,7 @@ namespace GUI
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.setAction.ResumeLayout(false);
+            this.notifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1198,6 +1264,12 @@ namespace GUI
         public TabControl TabControl;
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader13;
+        private MetroFramework.Controls.MetroContextMenu notifyIconContextMenu;
+        private ToolStripMenuItem открытьToolStripMenuItem;
+        private ToolStripMenuItem выходToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel latestSignatureDB_ver;
+        private MetroFramework.Controls.MetroLabel activeSignatureDB_ver;
+        private MetroFramework.Controls.MetroLabel metroLabel20;
     }
 
 

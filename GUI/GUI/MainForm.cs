@@ -385,24 +385,23 @@ namespace GUI
         private void metroCheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             //Опция автопроверки съемных носителей
-            Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
-            API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
             this.saveSettings.Visible = true;
         }
 
         private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             //Опция показывать уведомления
-            Configuration.Notify_FoundVirus = this.metroCheckBox1.Checked;
             this.saveSettings.Visible = true;
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
-            this.saveSettings.Visible = true;
 
-            this.TabControl.SelectedIndex = 0;
+            Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
+            Configuration.Notify_FoundVirus = this.metroCheckBox1.Checked;
             Configuration.Save();
+
+            API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
 
             var popup = new PopupNotifier()
             {
@@ -411,6 +410,9 @@ namespace GUI
             };
 
             popup.Popup();
+
+            this.saveSettings.Visible = true;
+            this.TabControl.SelectedIndex = 0;
         }
 
         private void удалитьToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -484,6 +486,18 @@ namespace GUI
             this.Show();
         }
 
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScanManager.Stop();
+            API.ApiStop();
+            Updater.Stop();
+            this.Close();
+        }
         /*====*/
     }
 
