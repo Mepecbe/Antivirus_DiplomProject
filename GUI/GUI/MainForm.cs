@@ -27,9 +27,13 @@ namespace GUI
         public static Mutex viruses_sync = new Mutex();
         public static Queue<VirusFileInfo> viruses = new Queue<VirusFileInfo>();
 
+        public static List<VirusInfo> VirusesBuffer = new List<VirusInfo>();
+
         public static System.Windows.Forms.Timer Updater = new System.Windows.Forms.Timer();
         public static bool ScanEnabled = false;
         private static int CountShown = 0;
+
+        public static bool QuarantineShow { get; private set; }
 
         public MainForm()
         {
@@ -131,7 +135,28 @@ namespace GUI
 
         private void QuarantineButton_Click_1(object sender, EventArgs e)
         {
+            QuarantineShow = true;
+
+            VirusesBuffer.Clear();
+            API.getAllViruses();
+            Thread.Sleep(200);
+
+            this.quarantine_files.Items.Clear();
+
+            for(int index = 0; index < VirusesBuffer.Count; index++)
+            {
+                if (!VirusesBuffer[index].inQuarantine)
+                {
+                    return;
+                }
+
+                var Item = this.quarantine_files.Items.Add(VirusesBuffer[index].path);
+                Item.SubItems.Add("Trojan");
+                Item.Tag = VirusesBuffer[index];
+            }
+
             this.TabControl.SelectTab(3);
+            QuarantineShow = false;
         }
 
         private void ExceptionsButton_Click_1(object sender, EventArgs e)
@@ -261,15 +286,25 @@ namespace GUI
                 this.TabControl.SelectedIndex = 7;
                 page_scan_result_all_scanned.Text = ScanManager.CountAllScannedFiles.ToString();
 
-                int number = 0;
-
-                foreach(VirusFileInfo info in ScanManager.foundViruses)
+                if(ScanManager.foundViruses.Count == 0)
                 {
-                    var item = metroListView4.Items.Add(number.ToString());
-                    item.SubItems.Add(info.file);
-                    item.SubItems.Add("Trojan");
-                    item.Tag = info;
+                    page_result_text.Text = "Вирусов не обнаружено";
+                    ApplyingActions.Text = "Назад на главную";
                 }
+                else
+                {
+                    foreach (VirusFileInfo info in ScanManager.foundViruses)
+                    {
+                        var item = metroListView4.Items.Add(info.file);
+                        item.SubItems.Add("Trojan");
+                        item.SubItems.Add("Удалить");
+                        info.Action = ActionType.Delete;
+
+                        item.Tag = info;
+                    }
+                }
+
+                this.active_scan_updater.Stop();
             }
         }
 
@@ -285,7 +320,6 @@ namespace GUI
         /// </summary>
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            //pass
             ScanManager.Abort();
 
             ScanManager.CountAllFiles = ScanManager.CountAllScannedFiles;
@@ -296,7 +330,16 @@ namespace GUI
         /// </summary>
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            //pass
+            if (pauseScan.Text == "Приостановить")
+            {
+                pauseScan.Text = "Продолжить";
+                ScanManager.Pause();
+            }
+            else
+            {
+                pauseScan.Text = "Приостановить";
+                ScanManager.Resume();
+            }
         }
 
         /// <summary>
@@ -304,7 +347,13 @@ namespace GUI
         /// </summary>
         private void metroButton12_Click(object sender, EventArgs e)
         {
+            ApplyingActions.Text = "Выполнить действия";
+
+            API.ApplyingActions(ScanManager.foundViruses.ToArray());
+            this.ScanObjectsList.Items.Clear();
             this.TabControl.SelectedIndex = 0;
+
+            ScanManager.Reset();
         }
 
         private void metroCheckBox2_CheckedChanged(object sender, EventArgs e)
@@ -326,6 +375,73 @@ namespace GUI
 
             popup.Popup();
         }
+
+        private void удалитьToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if(this.ScanObjectsList.SelectedItems.Count > 0)
+            {
+                for(int index = this.ScanObjectsList.SelectedItems.Count - 1; index >= 0; index--)
+                {
+                    this.ScanObjectsList.SelectedItems[index].Remove();
+                }
+            }
+
+            for(int index = 0; index < this.ScanObjectsList.Items.Count; index++)
+            {
+                this.ScanObjectsList.Items[index].SubItems[0].Text = (index + 1).ToString();
+            }
+        }
+
+        /*При выборе действий после окончания сканирования*/
+        private void вКарантинToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(metroListView4.SelectedItems.Count > 0)
+            {
+                ((VirusFileInfo)metroListView4.SelectedItems[0].Tag).Action = ActionType.ToQuarantine;
+                metroListView4.SelectedItems[0].SubItems[2].Text = "В карантин";
+            }
+        }
+
+        private void удалитьToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (metroListView4.SelectedItems.Count > 0)
+            {
+                ((VirusFileInfo)metroListView4.SelectedItems[0].Tag).Action = ActionType.Delete;
+                metroListView4.SelectedItems[0].SubItems[2].Text = "Удалить";
+            }
+        }
+
+        private void ничегоНеДелатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (metroListView4.SelectedItems.Count > 0)
+            {
+                ((VirusFileInfo)metroListView4.SelectedItems[0].Tag).Action = ActionType.Nothing;
+                metroListView4.SelectedItems[0].SubItems[2].Text = "Ничего";
+            }
+        }
+
+        private void восстановитьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (quarantine_files.SelectedItems.Count > 0)
+            {
+                VirusInfo info = (VirusInfo)quarantine_files.SelectedItems[0].Tag;
+                API.RestoreFile(info.id); 
+
+                quarantine_files.SelectedItems[0].Remove();
+            }
+        }
+
+        private void удалитьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (quarantine_files.SelectedItems.Count > 0)
+            {
+                VirusFileInfo info = (VirusFileInfo)quarantine_files.SelectedItems[0].Tag;
+                API.DeleteFile(info.kernelId);
+
+                quarantine_files.SelectedItems[0].Remove();
+            }
+        }
+        /*====*/
     }
 
     public static class APIHandlers
@@ -357,7 +473,18 @@ namespace GUI
 
         public static void virusInfo(VirusInfo info)
         {
-            Debug.WriteLine("Virus info!\n" + info.path);
+            if (ScanManager.State == ScanState.Active)
+            {
+                //Если антивирус во время сканирования обнаружил вирус
+                return;
+            }
+
+            if (MainForm.QuarantineShow)
+            {
+                //pass
+            }
+
+            MainForm.VirusesBuffer.Add(info);
         }
     }
 

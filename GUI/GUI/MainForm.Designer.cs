@@ -66,9 +66,6 @@ namespace GUI
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.metroButton10 = new MetroFramework.Controls.MetroButton();
             this.quarantine_files = new MetroFramework.Controls.MetroListView();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quarantineContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.восстановитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,19 +97,16 @@ namespace GUI
             this.page_active_scan_all_count = new MetroFramework.Controls.MetroLabel();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.page_active_scan_scanned = new MetroFramework.Controls.MetroLabel();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.pauseScan = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.progressBar = new MetroFramework.Controls.MetroProgressBar();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.metroButton12 = new MetroFramework.Controls.MetroButton();
+            this.ApplyingActions = new MetroFramework.Controls.MetroButton();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroListView4 = new MetroFramework.Controls.MetroListView();
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -121,6 +115,18 @@ namespace GUI
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
             this.label_scanned_file = new MetroFramework.Controls.MetroLabel();
+            this.page_result_text = new MetroFramework.Controls.MetroLabel();
+            this.setAction = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.вКарантинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ничегоНеДелатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -134,6 +140,7 @@ namespace GUI
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.setAction.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -360,6 +367,7 @@ namespace GUI
             this.удалитьToolStripMenuItem2.Name = "удалитьToolStripMenuItem2";
             this.удалитьToolStripMenuItem2.Size = new System.Drawing.Size(161, 22);
             this.удалитьToolStripMenuItem2.Text = "Удалить";
+            this.удалитьToolStripMenuItem2.Click += new System.EventHandler(this.удалитьToolStripMenuItem2_Click);
             // 
             // metroButton2
             // 
@@ -493,9 +501,8 @@ namespace GUI
             // quarantine_files
             // 
             this.quarantine_files.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
+            this.columnHeader5,
+            this.columnHeader13});
             this.quarantine_files.ContextMenuStrip = this.quarantineContextMenu;
             this.quarantine_files.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.quarantine_files.FullRowSelect = true;
@@ -508,39 +515,27 @@ namespace GUI
             this.quarantine_files.UseSelectable = true;
             this.quarantine_files.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "№";
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Файл";
-            this.columnHeader8.Width = 560;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Вирус";
-            this.columnHeader9.Width = 236;
-            // 
             // quarantineContextMenu
             // 
             this.quarantineContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.восстановитьФайлToolStripMenuItem,
             this.удалитьФайлToolStripMenuItem});
             this.quarantineContextMenu.Name = "quarantineContextMenu";
-            this.quarantineContextMenu.Size = new System.Drawing.Size(182, 48);
+            this.quarantineContextMenu.Size = new System.Drawing.Size(182, 70);
             // 
             // восстановитьФайлToolStripMenuItem
             // 
             this.восстановитьФайлToolStripMenuItem.Name = "восстановитьФайлToolStripMenuItem";
             this.восстановитьФайлToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.восстановитьФайлToolStripMenuItem.Text = "Восстановить файл";
+            this.восстановитьФайлToolStripMenuItem.Click += new System.EventHandler(this.восстановитьФайлToolStripMenuItem_Click);
             // 
             // удалитьФайлToolStripMenuItem
             // 
             this.удалитьФайлToolStripMenuItem.Name = "удалитьФайлToolStripMenuItem";
             this.удалитьФайлToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.удалитьФайлToolStripMenuItem.Text = "Удалить файл";
+            this.удалитьФайлToolStripMenuItem.Click += new System.EventHandler(this.удалитьФайлToolStripMenuItem_Click);
             // 
             // metroLabel7
             // 
@@ -752,7 +747,7 @@ namespace GUI
             this.tabPage7.Controls.Add(this.page_active_scan_all_count);
             this.tabPage7.Controls.Add(this.metroLabel16);
             this.tabPage7.Controls.Add(this.page_active_scan_scanned);
-            this.tabPage7.Controls.Add(this.metroButton4);
+            this.tabPage7.Controls.Add(this.pauseScan);
             this.tabPage7.Controls.Add(this.metroButton3);
             this.tabPage7.Controls.Add(this.metroLabel11);
             this.tabPage7.Controls.Add(this.metroLabel10);
@@ -820,15 +815,15 @@ namespace GUI
             this.page_active_scan_scanned.TabIndex = 9;
             this.page_active_scan_scanned.Text = "0";
             // 
-            // metroButton4
+            // pauseScan
             // 
-            this.metroButton4.Location = new System.Drawing.Point(553, 351);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(131, 34);
-            this.metroButton4.TabIndex = 8;
-            this.metroButton4.Text = "Приостановить";
-            this.metroButton4.UseSelectable = true;
-            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            this.pauseScan.Location = new System.Drawing.Point(553, 351);
+            this.pauseScan.Name = "pauseScan";
+            this.pauseScan.Size = new System.Drawing.Size(131, 34);
+            this.pauseScan.TabIndex = 8;
+            this.pauseScan.Text = "Приостановить";
+            this.pauseScan.UseSelectable = true;
+            this.pauseScan.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // metroButton3
             // 
@@ -878,7 +873,10 @@ namespace GUI
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tabPage8.Controls.Add(this.metroButton12);
+            this.tabPage8.Controls.Add(this.metroLabel8);
+            this.tabPage8.Controls.Add(this.metroLabel13);
+            this.tabPage8.Controls.Add(this.page_result_text);
+            this.tabPage8.Controls.Add(this.ApplyingActions);
             this.tabPage8.Controls.Add(this.metroLabel19);
             this.tabPage8.Controls.Add(this.metroListView4);
             this.tabPage8.Controls.Add(this.page_scan_result_all_scanned);
@@ -891,72 +889,61 @@ namespace GUI
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "page_scan_result";
             // 
-            // metroButton12
+            // ApplyingActions
             // 
-            this.metroButton12.Location = new System.Drawing.Point(741, 128);
-            this.metroButton12.Name = "metroButton12";
-            this.metroButton12.Size = new System.Drawing.Size(149, 23);
-            this.metroButton12.TabIndex = 8;
-            this.metroButton12.Text = "Выполнить действия";
-            this.metroButton12.UseSelectable = true;
-            this.metroButton12.Click += new System.EventHandler(this.metroButton12_Click);
+            this.ApplyingActions.Location = new System.Drawing.Point(741, 128);
+            this.ApplyingActions.Name = "ApplyingActions";
+            this.ApplyingActions.Size = new System.Drawing.Size(149, 23);
+            this.ApplyingActions.TabIndex = 8;
+            this.ApplyingActions.Text = "Выполнить действия";
+            this.ApplyingActions.UseSelectable = true;
+            this.ApplyingActions.Click += new System.EventHandler(this.metroButton12_Click);
             // 
             // metroLabel19
             // 
             this.metroLabel19.AutoSize = true;
+            this.metroLabel19.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel19.Location = new System.Drawing.Point(52, 132);
             this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(151, 19);
+            this.metroLabel19.Size = new System.Drawing.Size(193, 25);
             this.metroLabel19.TabIndex = 7;
             this.metroLabel19.Text = "Обнаруженные угрозы";
             // 
             // metroListView4
             // 
             this.metroListView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
             this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14});
+            this.columnHeader15});
+            this.metroListView4.ContextMenuStrip = this.setAction;
             this.metroListView4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.metroListView4.FullRowSelect = true;
-            this.metroListView4.Location = new System.Drawing.Point(17, 157);
+            this.metroListView4.Location = new System.Drawing.Point(3, 157);
             this.metroListView4.Name = "metroListView4";
             this.metroListView4.OwnerDraw = true;
-            this.metroListView4.Size = new System.Drawing.Size(873, 252);
+            this.metroListView4.Size = new System.Drawing.Size(887, 252);
             this.metroListView4.TabIndex = 6;
             this.metroListView4.UseCompatibleStateImageBehavior = false;
             this.metroListView4.UseSelectable = true;
             this.metroListView4.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "№";
-            this.columnHeader12.Width = 40;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Файл";
-            this.columnHeader13.Width = 580;
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Тип вируса";
-            this.columnHeader14.Width = 249;
-            // 
             // page_scan_result_all_scanned
             // 
             this.page_scan_result_all_scanned.AutoSize = true;
-            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(235, 44);
+            this.page_scan_result_all_scanned.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(274, 44);
             this.page_scan_result_all_scanned.Name = "page_scan_result_all_scanned";
-            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(16, 19);
+            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(21, 25);
             this.page_scan_result_all_scanned.TabIndex = 5;
             this.page_scan_result_all_scanned.Text = "0";
             // 
             // metroLabel18
             // 
             this.metroLabel18.AutoSize = true;
+            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel18.Location = new System.Drawing.Point(52, 44);
             this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(177, 19);
+            this.metroLabel18.Size = new System.Drawing.Size(225, 25);
             this.metroLabel18.TabIndex = 4;
             this.metroLabel18.Text = "Всего проверенно файлов:";
             // 
@@ -994,6 +981,90 @@ namespace GUI
             this.label_scanned_file.TabIndex = 16;
             this.label_scanned_file.Text = " ";
             // 
+            // page_result_text
+            // 
+            this.page_result_text.AutoSize = true;
+            this.page_result_text.Location = new System.Drawing.Point(52, 67);
+            this.page_result_text.Name = "page_result_text";
+            this.page_result_text.Size = new System.Drawing.Size(13, 19);
+            this.page_result_text.TabIndex = 9;
+            this.page_result_text.Text = " ";
+            // 
+            // setAction
+            // 
+            this.setAction.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вКарантинToolStripMenuItem,
+            this.удалитьToolStripMenuItem3,
+            this.ничегоНеДелатьToolStripMenuItem});
+            this.setAction.Name = "setAction";
+            this.setAction.Size = new System.Drawing.Size(171, 70);
+            // 
+            // вКарантинToolStripMenuItem
+            // 
+            this.вКарантинToolStripMenuItem.Name = "вКарантинToolStripMenuItem";
+            this.вКарантинToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.вКарантинToolStripMenuItem.Text = "В карантин";
+            this.вКарантинToolStripMenuItem.Click += new System.EventHandler(this.вКарантинToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem3
+            // 
+            this.удалитьToolStripMenuItem3.Name = "удалитьToolStripMenuItem3";
+            this.удалитьToolStripMenuItem3.Size = new System.Drawing.Size(170, 22);
+            this.удалитьToolStripMenuItem3.Text = "Удалить";
+            this.удалитьToolStripMenuItem3.Click += new System.EventHandler(this.удалитьToolStripMenuItem3_Click);
+            // 
+            // ничегоНеДелатьToolStripMenuItem
+            // 
+            this.ничегоНеДелатьToolStripMenuItem.Name = "ничегоНеДелатьToolStripMenuItem";
+            this.ничегоНеДелатьToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.ничегоНеДелатьToolStripMenuItem.Text = "Ничего не делать";
+            this.ничегоНеДелатьToolStripMenuItem.Click += new System.EventHandler(this.ничегоНеДелатьToolStripMenuItem_Click);
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel8.Location = new System.Drawing.Point(235, 67);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(21, 25);
+            this.metroLabel8.TabIndex = 11;
+            this.metroLabel8.Text = "0";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.Location = new System.Drawing.Point(52, 67);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(186, 25);
+            this.metroLabel13.TabIndex = 10;
+            this.metroLabel13.Text = "Обнаружено вирусов:";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Файл";
+            this.columnHeader6.Width = 560;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Тип вируса";
+            this.columnHeader12.Width = 200;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Действие";
+            this.columnHeader15.Width = 123;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Файл";
+            this.columnHeader5.Width = 660;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Тип вируса";
+            this.columnHeader13.Width = 196;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1024,6 +1095,7 @@ namespace GUI
             this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.setAction.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1064,14 +1136,11 @@ namespace GUI
         private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MetroFramework.Controls.MetroListView quarantine_files;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
         private MetroFramework.Controls.MetroListView ScanObjectsList;
         private MetroFramework.Controls.MetroButton metroButton2;
         private System.Windows.Forms.TabPage tabPage7;
         private MetroFramework.Controls.MetroLabel metroLabel9;
-        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton pauseScan;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel10;
@@ -1094,7 +1163,6 @@ namespace GUI
         private System.Windows.Forms.ToolStripMenuItem добавитьПапкуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьФайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem2;
-        private TabControl TabControl;
         private FolderBrowserDialog folderBrowserDialog1;
         private OpenFileDialog openFileDialog1;
         private ColumnHeader columnHeader10;
@@ -1109,14 +1177,24 @@ namespace GUI
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private MetroFramework.Controls.MetroLabel metroLabel19;
         private MetroFramework.Controls.MetroListView metroListView4;
-        private ColumnHeader columnHeader12;
-        private ColumnHeader columnHeader13;
-        private ColumnHeader columnHeader14;
         private MetroFramework.Controls.MetroLabel page_scan_result_all_scanned;
         private MetroFramework.Controls.MetroLabel metroLabel18;
         private MetroFramework.Controls.MetroProgressSpinner scanProgressSpinner;
-        private MetroFramework.Controls.MetroButton metroButton12;
+        private MetroFramework.Controls.MetroButton ApplyingActions;
         private MetroFramework.Controls.MetroLabel label_scanned_file;
+        private MetroFramework.Controls.MetroLabel page_result_text;
+        private MetroFramework.Controls.MetroContextMenu setAction;
+        private ToolStripMenuItem вКарантинToolStripMenuItem;
+        private ToolStripMenuItem удалитьToolStripMenuItem3;
+        private ToolStripMenuItem ничегоНеДелатьToolStripMenuItem;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader12;
+        private ColumnHeader columnHeader15;
+        public TabControl TabControl;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader13;
     }
 
 

@@ -27,14 +27,18 @@ namespace MODULE__SCAN
         public static Encoding PipeEncoding = Encoding.Unicode;
 
         /// <summary>
-        /// Максимальное количество задач сканирования
-        /// </summary>
-        public const int MAX_SCAN_TASKS = 10;
-
-        /// <summary>
         /// Максимальный размер файла для быстрого сканирования (файл подходящий под такой критерий будет полностью считываться в память)
         /// </summary>
         public const int MAX_FAST_SCAN_FILE = 1_000_000_000;
+
+        public const int THREAD_COUNT = 40;
+
+        /// <summary>
+        /// Максимальное количество задач сканирования
+        /// </summary>
+        public const int MAX_SCAN_TASKS = THREAD_COUNT * 2;
+
+        public const int SCAN_THREAD_SLEEP = 100;
     }
 
 
@@ -53,9 +57,7 @@ namespace MODULE__SCAN
         private static BinaryWriter outputWriter;
         private static BinaryReader commandReader;
 
-#if DEBUG
         public static LoggerClient Logger = new LoggerClient("Logger.Modules.Scanner", "Log");
-#endif
 
         /// <summary>
         /// Записать данные о скане в выходящую трубу
@@ -73,39 +75,31 @@ namespace MODULE__SCAN
         /// </summary>
         public static void inputThread()
         {
-#if DEBUG
-            Connector.Logger.WriteLine("[Scanner.inputThread] ScannerService.input wait connect");
-#endif
+            Logger.WriteLine("[Scanner.inputThread] ScannerService.input ожидание подключения");
 
             inputPipe.WaitForConnection();
             var binaryReader = new BinaryReader(inputPipe, Configuration.PipeEncoding);
 
-#if DEBUG
-            Connector.Logger.WriteLine("[Scanner.inputThread] ScannerService.input connected");
-#endif
+            Logger.WriteLine("[Scanner.inputThread] ScannerService.input подключен");
 
             while (true)
             {
                 int id = binaryReader.ReadInt32();
                 string file = binaryReader.ReadString();
 
-                Connector.Logger.WriteLine($"[Scanner.inputThread] Add to scan, task id {id}, path -> {file}");
+                Logger.WriteLine($"[Scanner.inputThread] Добавляю задачу сканирования, айди {id}, путь -> {file}");
                 ScanTasks.Add(id, file);
             }
         }
 
         public static void signatureThread()
         {
-#if DEBUG
-            Connector.Logger.WriteLine("[Scanner.signatureThread] Ожидание подключения");
-#endif
+            Logger.WriteLine("[Scanner.signatureThread] Ожидание подключения");
 
             signaturesPipe.WaitForConnection();
             var binaryReader = new BinaryReader(signaturesPipe);
 
-#if DEBUG
-            Connector.Logger.WriteLine("[Scanner.signatureThread] ScannerService.signatures подключен", LogLevel.OK);
-#endif
+            Logger.WriteLine("[Scanner.signatureThread] ScannerService.signatures подключен", LogLevel.OK);
 
             while (true)
             {
@@ -114,18 +108,14 @@ namespace MODULE__SCAN
 
                 if (ID >= Scanner.Signatures.Length)
                 {
-#if DEBUG
-                    Connector.Logger.WriteLine("[Scanner.signatureThread] Записываю сигнатуру в локальный буфер");
-#endif
+                    Logger.WriteLine("[Scanner.signatureThread] Записываю сигнатуру в локальный буфер");
 
                     Array.Resize(ref Scanner.Signatures, Scanner.Signatures.Length + 1);
                     Scanner.Signatures[Scanner.Signatures.Length - 1] = new Signature(Signature);
                 }
                 else
                 {
-#if DEBUG
-                    Connector.Logger.WriteLine("[Scanner.signatureThread] update signature on local buffer");
-#endif
+                    Logger.WriteLine("[Scanner.signatureThread] Обновление сигнатуры в локальном буффере");
 
                     Scanner.Signatures[ID] = new Signature(Signature);
                 }
@@ -320,7 +310,7 @@ namespace MODULE__SCAN
 
     public static class ScanTasks
     {
-        public static Thread[] ScanThreads = new Thread[24];
+        public static Thread[] ScanThreads = new Thread[Configuration.THREAD_COUNT];
 
         /// <summary>
         /// Очередь задач сканирования
@@ -398,7 +388,23 @@ namespace MODULE__SCAN
 
                             try
                             {
-                                stream = File.Open(task.file, FileMode.Open);
+                                stream = File.Open(task.file, FileMode.Open, FileAccess.Read);
+                            }
+                            catch (PathTooLongException)
+                            {
+                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                            }
+                            catch (DirectoryNotFoundException)
+                            {
+                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                            }
+                            catch (FileNotFoundException)
+                            {
+                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
                             }
                             catch (Exception ex)
                             {
@@ -420,7 +426,7 @@ namespace MODULE__SCAN
                 }
                 TaskQueue_Sync.ReleaseMutex();
 
-                Thread.Sleep(500);
+                Thread.Sleep(Configuration.SCAN_THREAD_SLEEP);
             }
         }
 

@@ -94,7 +94,7 @@ namespace Core.Kernel.API
                                 break;
                             }
 
-                        //Запрос на удаление файла из карантина
+                        //Запрос на удаление файла
                         case 3:
                             {
                                 var id = binaryReader.ReadInt32();
@@ -255,7 +255,8 @@ namespace Core.Kernel.API
                 {
                     Out_writer.Write((byte)1);
                     Out_writer.Write(virusInfo.file);
-                    Out_writer.Write(virusInfo.VirusId);
+                    Out_writer.Write(virusInfo.id);
+                    Out_writer.Write(virusInfo.VirusId); 
                     Out_writer.Write(virusInfo.inQuarantine);
                     Out_writer.Write(virusInfo.fileInQuarantine);
                     Out_writer.Flush();

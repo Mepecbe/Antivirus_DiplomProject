@@ -14,7 +14,7 @@ namespace GUI.Components.ScanManager
 {
     static class ScanManager
     {
-        const int MAX_SCAN_TASKS = 10;
+        const int MAX_SCAN_TASKS = 2000;
 
         private static MainForm MForm;
         private static Thread Thread1 = new Thread(ScanFilesLoader) { Name = "ScanFilesLoader" };
@@ -40,12 +40,14 @@ namespace GUI.Components.ScanManager
         /// </summary>
         public static int InScanProcess = 0;
 
+
         /// <summary>
         /// Последний отсканированный файл
         /// </summary>
         public static string LastScanned { get; private set; }
 
         public static List<VirusFileInfo> foundViruses = new List<VirusFileInfo>();
+        public static List<VirusInfo> viruses = new List<VirusInfo>();
 
         /// <summary>
         /// Текущее состояние сканирования
@@ -165,12 +167,27 @@ namespace GUI.Components.ScanManager
             FileQueue_sync.ReleaseMutex();
         }
 
+        /// <summary>
+        /// Сброс
+        /// </summary>
+        public static void Reset()
+        {
+            FileQueue.Clear();
+
+            CountAllFiles = 0;
+            CountAllScannedFiles = 0;
+            InScanProcess = 0;
+
+            State = ScanState.Completed;
+        }
+
         public static void Init(MainForm Form)
         {
             MForm = Form;
 
             API.onScanCompleted += API_onScanCompleted;
             API.onScanFound += API_onScanFound;
+            API.onVirusInfo += API_onVirusInfo;
 
             Thread1.Start();
         }
@@ -185,12 +202,17 @@ namespace GUI.Components.ScanManager
         {
             CountAllScannedFiles++;
             foundViruses.Add(File);
-            Debug.WriteLine("FOUND VIRUS " + File.file);
         }
 
         private static void API_onScanCompleted(ScannedFileInfo File)
         {
+            LastScanned = File.file;
             CountAllScannedFiles++;
+        }
+
+        private static void API_onVirusInfo(VirusInfo File)
+        {
+            viruses.Add(File);
         }
     }
 

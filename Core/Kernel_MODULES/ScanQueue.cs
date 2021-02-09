@@ -20,12 +20,18 @@ namespace Core.Kernel.ScanModule
     /// </summary>
     static class ScannerResponseHandler
     {
+        static readonly TimeSpan ErrorScanProbeSleep = TimeSpan.FromSeconds(1);
+
         public delegate void ScanCompletedEvent(int id, bool found, int virusId, string file);
         public static event ScanCompletedEvent onScanCompleted;
 
-
         private static NamedPipeServerStream Connector = Connectors.KernelConnectors.ScannerService_Input;
         public static Thread InputThreadHandler = new Thread(InputHandler);
+
+        /// <summary>
+        /// Максимальное количество попыток для скана
+        /// </summary>
+        public const int MAX_PROBES = 3;
 
 
         private static void InputHandler()
@@ -51,9 +57,9 @@ namespace Core.Kernel.ScanModule
                     {
                         KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена, новая попытка {task.ProbesCount}", LoggerLib.LogLevel.ERROR);
 
-                        if (task.ProbesCount >= 5)
+                        if (task.ProbesCount == MAX_PROBES)
                         {
-                            KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена спустя 5 попыток", LoggerLib.LogLevel.ERROR);
+                            KernelConnectors.Logger.WriteLine($"[ScannerResponseHandler.InputHandler] Задача сканирования {id} не была выполнена спустя несколько попыток", LoggerLib.LogLevel.ERROR);
                             ErrorScanTasksManager.Add(1, "Message", task);
 
                             onScanCompleted.Invoke(id, false, 0, task.File);
@@ -63,7 +69,7 @@ namespace Core.Kernel.ScanModule
                             task.ProbesCount++;
                             new Task(() =>
                             {
-                                Thread.Sleep(TimeSpan.FromSeconds(2));
+                                Thread.Sleep(ErrorScanProbeSleep);
                                 ScanTasks.RestartScan(id);
                             }).Start();
                         }

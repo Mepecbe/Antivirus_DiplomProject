@@ -20,11 +20,19 @@ namespace API_Client_Library
         }
     }
 
+    public enum ActionType
+    {
+        Delete,
+        ToQuarantine,
+        Nothing
+    }
+
     public class VirusFileInfo
     {
         public readonly int kernelId;
         public readonly int virusId;
         public readonly string file;
+        public ActionType Action;
 
         public VirusFileInfo(int id, int virusId, string file)
         {
@@ -94,12 +102,14 @@ namespace API_Client_Library
                     case 1:
                         {
                             var pathToFile = reader.ReadString();
+                            var SystemId = reader.ReadInt32();
                             var virusId = reader.ReadInt32();
                             var inQuarantine = reader.ReadBoolean();
                             var pathInQuarantine = reader.ReadString();
 
                             onVirusInfo.Invoke(new VirusInfo(
                                 pathToFile,
+                                SystemId,
                                 virusId,
                                 inQuarantine,
                                 pathInQuarantine
@@ -178,6 +188,41 @@ namespace API_Client_Library
         }
 
         /// <summary>
+        /// Применить действия для обнаруженных вирусов
+        /// </summary>
+        /// <param name="Info"></param>
+        public static void ApplyingActions(VirusFileInfo[] Info)
+        {
+            Writer_sync.WaitOne();
+
+            foreach (VirusFileInfo info in Info)
+            {
+                switch (info.Action)
+                {
+                    case ActionType.Delete:
+                        {
+                            OutputWriter.Write((byte)3);
+                            OutputWriter.Write(info.kernelId);
+                            OutputWriter.Flush();
+
+                            break;
+                        }
+
+                    case ActionType.ToQuarantine:
+                        {
+                            OutputWriter.Write((byte)1);
+                            OutputWriter.Write(info.kernelId);
+                            OutputWriter.Flush();
+
+                            break;
+                        }
+                }
+            }
+
+            Writer_sync.ReleaseMutex();
+        }
+
+        /// <summary>
         /// Очистить очередь сканирования файлов
         /// </summary>
         public static void ClearScanQueue()
@@ -218,6 +263,27 @@ namespace API_Client_Library
             Writer_sync.ReleaseMutex();
         }
 
+        public static void getAllViruses()
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)5);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
+        public static void DeleteFile(int id)
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)3);
+                OutputWriter.Write(id);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
         /*=== Остальное ===*/
 
         public static void Init()
@@ -243,18 +309,22 @@ namespace API_Client_Library
     {
         public string path;
         public int id;
+        public int VirusId;
+
         public bool inQuarantine;
         public string pathInQuarantine;
 
         public VirusInfo(
             string path,
             int id,
+            int VirusId,
             bool quarantine,
             string inQuarantine
             )
         {
             this.path = path;
             this.id = id;
+            this.VirusId = VirusId;
             this.inQuarantine = quarantine;
             this.pathInQuarantine = inQuarantine;
         }
