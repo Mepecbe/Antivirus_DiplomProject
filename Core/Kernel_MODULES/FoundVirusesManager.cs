@@ -29,7 +29,6 @@ namespace Core.Kernel.VirusesManager
         /// <summary>
         /// Добавить новый вирус в таблицу
         /// </summary>
-        /// <param name="info"></param>
         public static void AddNewVirus(VirusInfo info)
         {
             VirusesTable_sync.WaitOne();

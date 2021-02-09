@@ -56,7 +56,7 @@ namespace GUI
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
-            this.metroButton7 = new MetroFramework.Controls.MetroButton();
+            this.saveSettings = new MetroFramework.Controls.MetroButton();
             this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
@@ -393,7 +393,7 @@ namespace GUI
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tabPage3.Controls.Add(this.metroButton8);
-            this.tabPage3.Controls.Add(this.metroButton7);
+            this.tabPage3.Controls.Add(this.saveSettings);
             this.tabPage3.Controls.Add(this.metroCheckBox2);
             this.tabPage3.Controls.Add(this.metroCheckBox1);
             this.tabPage3.Controls.Add(this.metroLabel5);
@@ -414,15 +414,16 @@ namespace GUI
             this.metroButton8.UseSelectable = true;
             this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click);
             // 
-            // metroButton7
+            // saveSettings
             // 
-            this.metroButton7.Location = new System.Drawing.Point(625, 362);
-            this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(140, 23);
-            this.metroButton7.TabIndex = 8;
-            this.metroButton7.Text = "Сохранить изменения";
-            this.metroButton7.UseSelectable = true;
-            this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);
+            this.saveSettings.Location = new System.Drawing.Point(625, 362);
+            this.saveSettings.Name = "saveSettings";
+            this.saveSettings.Size = new System.Drawing.Size(140, 23);
+            this.saveSettings.TabIndex = 8;
+            this.saveSettings.Text = "Сохранить изменения";
+            this.saveSettings.UseSelectable = true;
+            this.saveSettings.Visible = false;
+            this.saveSettings.Click += new System.EventHandler(this.metroButton7_Click);
             // 
             // metroCheckBox2
             // 
@@ -444,6 +445,7 @@ namespace GUI
             this.metroCheckBox1.TabIndex = 5;
             this.metroCheckBox1.Text = "Показывать уведомления";
             this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // MonPartitionContextMenu
             // 
@@ -521,7 +523,7 @@ namespace GUI
             this.восстановитьФайлToolStripMenuItem,
             this.удалитьФайлToolStripMenuItem});
             this.quarantineContextMenu.Name = "quarantineContextMenu";
-            this.quarantineContextMenu.Size = new System.Drawing.Size(182, 70);
+            this.quarantineContextMenu.Size = new System.Drawing.Size(182, 48);
             // 
             // восстановитьФайлToolStripMenuItem
             // 
@@ -1149,7 +1151,7 @@ namespace GUI
         private MetroFramework.Controls.MetroButton metroButton5;
         private MetroFramework.Controls.MetroButton metroButton9;
         private MetroFramework.Controls.MetroButton metroButton8;
-        private MetroFramework.Controls.MetroButton metroButton7;
+        private MetroFramework.Controls.MetroButton saveSettings;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
         private MetroFramework.Controls.MetroContextMenu quarantineContextMenu;

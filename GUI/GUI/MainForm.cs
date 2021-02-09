@@ -102,7 +102,7 @@ namespace GUI
             }
 
 
-            if (viruses.Count > 0 && CountShown < viruses.Count)
+            if (Configuration.Notify_FoundVirus && viruses.Count > 0 && CountShown < viruses.Count)
             {
                 viruses_sync.WaitOne();
                 {
@@ -358,12 +358,23 @@ namespace GUI
 
         private void metroCheckBox2_CheckedChanged(object sender, EventArgs e)
         {
+            //Опция автопроверки съемных носителей
             Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
             API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
+            this.saveSettings.Visible = true;
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //Опция показывать уведомления
+            Configuration.Notify_FoundVirus = this.metroCheckBox1.Checked;
+            this.saveSettings.Visible = true;
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
+            this.saveSettings.Visible = true;
+
             this.TabControl.SelectedIndex = 0;
             Configuration.Save();
 
@@ -441,6 +452,7 @@ namespace GUI
                 quarantine_files.SelectedItems[0].Remove();
             }
         }
+
         /*====*/
     }
 

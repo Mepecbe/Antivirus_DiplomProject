@@ -29,8 +29,8 @@ namespace GUI.Components.Configurations
         /// </summary>
         public static bool AutoScanRemovableDevices
         {
-            get { return bool.Parse(getElementValueByName("Notify_FoundVirus").InnerText); }
-            set { getElementValueByName("Notify_FoundVirus").InnerText = value.ToString(); }
+            get { return bool.Parse(getElementValueByName("RemovableDevices_AutoScan").InnerText); }
+            set { getElementValueByName("RemovableDevices_AutoScan").InnerText = value.ToString(); }
         }
 
 
@@ -48,7 +48,8 @@ namespace GUI.Components.Configurations
                 var file = new StreamWriter(File.Create("UserConf.xml"));
                 file.WriteLine($"<?xml version=\"1.0\"?>\n" +
                     $"<conf>" +
-                    $" <Notify_FoundVirus>true</Notify_FoundVirus>"
+                    $" <Notify_FoundVirus>true</Notify_FoundVirus>\n" +
+                    $" <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>\n"
                     + $"</conf>");
                 file.Close();
             }

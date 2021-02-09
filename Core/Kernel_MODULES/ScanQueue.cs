@@ -99,13 +99,13 @@ namespace Core.Kernel.ScanModule
         /// </summary>
         private static readonly Thread FilterMonitor = new Thread(() =>
         {
-            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Started, wait sync mutex... ");
+            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Запуск, ожидание мьютекса... ");
 
             KernelConnectors.Filter_Input_Sync.WaitOne();
             {
                 if (KernelConnectors.Filter_Input.IsConnected)
                 {
-                    KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] CONNECTED ");
+                    KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Подключен ");
                 }
             }
             KernelConnectors.Filter_Input_Sync.ReleaseMutex();
@@ -124,7 +124,7 @@ namespace Core.Kernel.ScanModule
                 {
                     case '1': 
                         {
-                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Created file -> " + commandBuffer);
+                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Создание файла -> " + commandBuffer);
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
@@ -132,7 +132,7 @@ namespace Core.Kernel.ScanModule
 
                     case '4': 
                         {
-                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Changed file -> " + commandBuffer);
+                            KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Изменение файла -> " + commandBuffer);
 
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
