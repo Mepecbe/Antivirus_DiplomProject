@@ -396,9 +396,8 @@ namespace GUI
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
-
-            Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
             Configuration.Notify_FoundVirus = this.metroCheckBox1.Checked;
+            Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
             Configuration.Save();
 
             API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
@@ -414,6 +413,7 @@ namespace GUI
             this.saveSettings.Visible = true;
             this.TabControl.SelectedIndex = 0;
         }
+
 
         private void удалитьToolStripMenuItem2_Click(object sender, EventArgs e)
         {

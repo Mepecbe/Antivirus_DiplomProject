@@ -60,17 +60,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     /// <summary>
     /// Таблица носителей
     /// </summary>
@@ -78,7 +67,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
     {
         static public List<Drive> DriveTable = new List<Drive>(); //Таблица подключенных устройств
         static public List<string> WhiteSerialList = new List<string>(); //Белый лист USB накопителей, тут их сериальные номера, подгружаются с файла
-        static public byte countConnectedRemovableDevices = 0; //Будет помогать определять, отключение/подключение устройств
+        static public byte countConnectedRemovableDevices { get; set; } //Будет помогать определять, отключение/подключение устройств
 
         //Запись(строчка) в таблице
         public struct Drive
@@ -148,9 +137,11 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             return false;
         }
 
+        /// <summary>
+        /// Есть ли такое устройство в таблице
+        /// </summary>
         static public bool CheckDrive(DriveInfo drive)
         {
-            //Проверяет, есть ли устройство с такими данными в таблице
             foreach (Drive drive1 in DriveTable)
             {
                 if (drive1.VolumeLabel == drive.VolumeLabel &&
@@ -164,6 +155,9 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             return false;
         }
 
+        /// <summary>
+        /// Получить информацию по сериал номеру
+        /// </summary>
         static public Drive getDriveBySerial(string serialNumber)
         {
             foreach (Drive drive in DriveTable)
@@ -297,7 +291,11 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                             //Если устройство с такими данными(серийник не проверяется) не существует в таблице
                                             byte countDevices = HardDrives.AddNewDrive(drive, serialNumber);
                                             Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство добавлено в таблицу SER:{serialNumber} TOTAL_SIZE:{drive.TotalSize} FILESYS:{drive.DriveFormat}, колво устройств в таблицe {countDevices}", LogLevel.WARN);
-                                            AddRemovableDeviceToScan(drive.Name);
+
+                                            if (Configuration.RemovableAutoScan)
+                                            {
+                                                AddRemovableDeviceToScan(drive.Name);
+                                            }
                                         }
                                         else
                                         {
@@ -318,10 +316,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                     {
                                         //Выделение этого носителя, среди массива DriveInfo
                                         if (drive.IsReady && !HardDrives.checkDriveSerial(drive, serialNumber)) continue;
-
-                                        //while (true) if (!drive.IsReady) continue; else break;
-
-                                        //Connector.Logger.WriteLine($"{DriveInfoFromTable.TotalFreeSpace}  {drive.TotalFreeSpace}", LogLevel.WARN);
 
                                         if (drive.IsReady && DriveInfoFromTable.TotalFreeSpace != drive.TotalFreeSpace)
                                         {
