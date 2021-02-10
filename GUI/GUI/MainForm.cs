@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 
 using MetroFramework.Forms;
+using MetroFramework.Controls;
+
 using Tulpep.NotificationWindow;
 using API_Client_Library;
 
@@ -37,16 +39,79 @@ namespace GUI
 
         public MainForm()
         {
+            {
+                //Накладываем белую панель на кусочек TabControl'а сверху
+                var topPanel = new Panel();
+                var leftPanel = new Panel();
+                var rightPanel = new Panel();
+                var buttomPanel = new Panel();
+
+                {
+                    {
+                        topPanel.Visible = true;
+                        topPanel.Location = new System.Drawing.Point(0, 27);
+                        topPanel.Name = "topPanel";
+                        topPanel.Size = new System.Drawing.Size(904, 25);
+                        topPanel.TabIndex = 7;
+
+                        topPanel.ForeColor = SystemColors.ControlLightLight;
+                        topPanel.BackColor = SystemColors.ControlLightLight;
+                    }
+
+                    {
+                        leftPanel.Visible = true;
+                        leftPanel.Location = new System.Drawing.Point(0, 4);
+                        leftPanel.Name = "leftPanel";
+                        leftPanel.Size = new System.Drawing.Size(6, 470);
+                        leftPanel.TabIndex = 8;
+
+                        leftPanel.ForeColor = SystemColors.ControlLightLight;
+                        leftPanel.BackColor = SystemColors.ControlLightLight;
+                    }
+
+                    {
+                        rightPanel.Visible = true;
+                        rightPanel.Location = new System.Drawing.Point(902, 6);
+                        rightPanel.Name = "rightPanel";
+                        rightPanel.Size = new System.Drawing.Size(4, 470);
+                        rightPanel.TabIndex = 9;
+
+                        rightPanel.ForeColor = SystemColors.ControlLightLight;
+                        rightPanel.BackColor = SystemColors.ControlLightLight;
+                    }
+
+                    {
+                        buttomPanel.Visible = true;
+                        buttomPanel.Location = new System.Drawing.Point(0, 452);
+                        buttomPanel.Name = "buttomPanel";
+                        buttomPanel.Size = new System.Drawing.Size(910, 8);
+                        buttomPanel.TabIndex = 9;
+
+                        buttomPanel.ForeColor = SystemColors.ControlLightLight;
+                        buttomPanel.BackColor = SystemColors.ControlLightLight;
+                    }
+                }
+
+
+                this.Controls.Add(topPanel);
+                this.Controls.Add(leftPanel);
+                this.Controls.Add(rightPanel);
+                this.Controls.Add(buttomPanel);
+            }
+
+
             InitializeComponent();
 
             ScanManager.Init(this);
 
             {
                 TabControl.Multiline = true;
-                TabControl.Appearance = TabAppearance.Buttons;
+                TabControl.Appearance = TabAppearance.Buttons; //FlatButtons
                 TabControl.ItemSize = new System.Drawing.Size(0, 1);
                 TabControl.SizeMode = TabSizeMode.Fixed;
                 TabControl.TabStop = false;
+
+                
             }
 
             {
