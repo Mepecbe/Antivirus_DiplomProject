@@ -248,13 +248,13 @@ namespace GUI
             for(int index = 0; index < paths.Length; index++)
             {
                 var item = this.exceptionPaths.Items.Add((index + 1).ToString());
-                item.SubItems.Add("    " + paths[index]);
+                item.SubItems.Add("       " + paths[index]);
             }
 
             for (int index = 0; index < files.Length; index++)
             {
                 var item = this.exceptionFiles.Items.Add((index + 1).ToString());
-                item.SubItems.Add("    " + paths[index]);
+                item.SubItems.Add("       " + paths[index]);
             }
 
             this.TabControl.SelectedIndex = 4;
@@ -614,7 +614,7 @@ namespace GUI
             if (result == DialogResult.OK)
             {
                 var item = this.exceptionPaths.Items.Add((this.exceptionPaths.Items.Count + 1).ToString());
-                item.SubItems.Add("     " + folderBrowserDialog1.SelectedPath);
+                item.SubItems.Add("       " + folderBrowserDialog1.SelectedPath);
 
                 this.saveExceptions.Visible = true;
             }
@@ -640,7 +640,7 @@ namespace GUI
             {
                 foreach (ListViewItem item in this.exceptionPaths.Items)
                 {
-                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 5);
+                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 7);
                     API.AddSimpleRule(item.SubItems[1].Text);
 
                     pathRules.Add(item.SubItems[1].Text);
@@ -650,7 +650,7 @@ namespace GUI
             {
                 foreach (ListViewItem item in this.exceptionFiles.Items)
                 {
-                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 5);
+                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 7);
                     API.AddSimpleRule(item.SubItems[1].Text);
 
                     fileRules.Add(item.SubItems[1].Text);
@@ -679,7 +679,7 @@ namespace GUI
             if (result == DialogResult.OK)
             {
                 var item = this.exceptionFiles.Items.Add((this.exceptionFiles.Items.Count + 1).ToString());
-                item.SubItems.Add("     " + openFileDialog1.FileName);
+                item.SubItems.Add("       " + openFileDialog1.FileName);
 
                 this.saveExceptions.Visible = true;
             }

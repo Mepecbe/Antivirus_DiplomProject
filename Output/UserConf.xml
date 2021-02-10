@@ -3,13 +3,7 @@
   <Notify_FoundVirus>true</Notify_FoundVirus>
   <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>
   <ExceptionPaths>
-    <path>C:\Users\Cisco\Desktop\Antivirus_Core</path>
-    <path>C:\Users\Cisco\Desktop\BSGO-Private-Server-master</path>
-    <path>:\Users\Cisco\Desktop\botsmanager</path>
-    <path>:\Users\Cisco\Desktop\Antivirus_Core</path>
-    <path>:\Users\Cisco\Desktop\BSGO-Private-Server-master</path>
   </ExceptionPaths>
   <Extentions>
-    <filepath>D:\testFiles\HAWX2.exe</filepath>
   </Extentions>
 </conf>

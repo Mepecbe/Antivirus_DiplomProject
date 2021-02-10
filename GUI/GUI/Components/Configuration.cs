@@ -49,9 +49,10 @@ namespace GUI.Components.Configurations
             set
             {
                 var element = getElementValueByName("ExceptionPaths");
-                foreach(XmlElement pathNode in element.ChildNodes)
+
+                for(int index = element.ChildNodes.Count - 1; index >= 0; index--)
                 {
-                    element.RemoveChild(pathNode);
+                    element.RemoveChild(element.ChildNodes[index]);
                 }
 
                 foreach(string path in value)
@@ -81,9 +82,10 @@ namespace GUI.Components.Configurations
             set
             {
                 var element = getElementValueByName("Extentions");
-                foreach (XmlElement pathNode in element.ChildNodes)
+
+                for (int index = element.ChildNodes.Count - 1; index >= 0; index--)
                 {
-                    element.RemoveChild(pathNode);
+                    element.RemoveChild(element.ChildNodes[index]);
                 }
 
                 foreach (string path in value)
