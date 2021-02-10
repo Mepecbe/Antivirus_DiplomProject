@@ -51,7 +51,7 @@ namespace GUI
                         topPanel.Visible = true;
                         topPanel.Location = new System.Drawing.Point(0, 27);
                         topPanel.Name = "topPanel";
-                        topPanel.Size = new System.Drawing.Size(904, 25);
+                        topPanel.Size = new System.Drawing.Size(904, 20);
                         topPanel.TabIndex = 7;
 
                         topPanel.ForeColor = SystemColors.ControlLightLight;
