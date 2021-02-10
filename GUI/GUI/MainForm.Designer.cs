@@ -611,7 +611,7 @@ namespace GUI
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.ExceptionFileContextMenu.Name = "ExceptionsContextMenu";
-            this.ExceptionFileContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.ExceptionFileContextMenu.Size = new System.Drawing.Size(127, 48);
             // 
             // toolStripMenuItem1
             // 
