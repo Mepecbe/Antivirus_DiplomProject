@@ -64,6 +64,38 @@ namespace GUI.Components.Configurations
             }
         }
 
+        public static string[] ExtentionExceptions
+        {
+            get
+            {
+                var element = getElementValueByName("Extentions");
+                List<string> paths = new List<string>();
+                foreach (XmlElement elem in element.ChildNodes)
+                {
+                    paths.Add(elem.InnerText);
+                }
+
+                return paths.ToArray();
+            }
+
+            set
+            {
+                var element = getElementValueByName("Extentions");
+                foreach (XmlElement pathNode in element.ChildNodes)
+                {
+                    element.RemoveChild(pathNode);
+                }
+
+                foreach (string path in value)
+                {
+                    var elem = Doc.CreateElement("filepath");
+                    elem.InnerText = path;
+
+                    element.AppendChild(elem);
+                }
+            }
+        }
+
 
         public static void Save()
         {
@@ -81,7 +113,8 @@ namespace GUI.Components.Configurations
                     $"<conf>" +
                     $" <Notify_FoundVirus>true</Notify_FoundVirus>\n" +
                     $" <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>\n" +
-                    $" <ExceptionPaths></ExceptionPaths>\n"
+                    $" <ExceptionPaths></ExceptionPaths>\n" +
+                    $" <Extentions></Extentions>"
                     + $"</conf>");
                 file.Close();
             }

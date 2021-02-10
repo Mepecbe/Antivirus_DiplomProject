@@ -66,6 +66,19 @@ namespace GUI
             {
                 //Применение настроек касающихся ядра
                 API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
+
+                //Добавление правил фильтрации
+                {
+                    foreach (string path in Configuration.PathExceptions)
+                    {
+                        API.AddSimpleRule(path);
+                    }
+
+                    foreach (string file in Configuration.ExtentionExceptions)
+                    {
+                        API.AddSimpleRule(file);
+                    }
+                }
             }
 
             {
@@ -165,10 +178,17 @@ namespace GUI
             this.exceptionFiles.Items.Clear();
 
             var paths = Configuration.PathExceptions;
+            var files = Configuration.ExtentionExceptions;
 
             for(int index = 0; index < paths.Length; index++)
             {
                 var item = this.exceptionPaths.Items.Add((index + 1).ToString());
+                item.SubItems.Add("    " + paths[index]);
+            }
+
+            for (int index = 0; index < files.Length; index++)
+            {
+                var item = this.exceptionFiles.Items.Add((index + 1).ToString());
                 item.SubItems.Add("    " + paths[index]);
             }
 
@@ -521,7 +541,7 @@ namespace GUI
 
             if (result == DialogResult.OK)
             {
-                var item = this.exceptionPaths.Items.Add(this.exceptionPaths.Items.Count.ToString());
+                var item = this.exceptionPaths.Items.Add((this.exceptionPaths.Items.Count + 1).ToString());
                 item.SubItems.Add("     " + folderBrowserDialog1.SelectedPath);
 
                 this.saveExceptions.Visible = true;
@@ -540,11 +560,12 @@ namespace GUI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            API.ClearSimpleRules();
+
             List<string> pathRules = new List<string>();
+            List<string> fileRules = new List<string>();
 
             {
-                API.ClearSimpleRules();
-
                 foreach (ListViewItem item in this.exceptionPaths.Items)
                 {
                     item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 5);
@@ -554,7 +575,18 @@ namespace GUI
                 }
             }
 
+            {
+                foreach (ListViewItem item in this.exceptionFiles.Items)
+                {
+                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 5);
+                    API.AddSimpleRule(item.SubItems[1].Text);
+
+                    fileRules.Add(item.SubItems[1].Text);
+                }
+            }
+
             Configuration.PathExceptions = pathRules.ToArray();
+            Configuration.ExtentionExceptions = fileRules.ToArray();
             Configuration.Save();
 
             this.TabControl.SelectedIndex = 0;
@@ -566,6 +598,29 @@ namespace GUI
             };
 
             popup.Popup();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var item = this.exceptionFiles.Items.Add((this.exceptionFiles.Items.Count + 1).ToString());
+                item.SubItems.Add("     " + openFileDialog1.FileName);
+
+                this.saveExceptions.Visible = true;
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (this.exceptionFiles.SelectedItems.Count > 0)
+            {
+                this.exceptionFiles.SelectedItems[0].Remove();
+
+                this.saveExceptions.Visible = true;
+            }
         }
 
         /*====*/

@@ -73,8 +73,6 @@ namespace GUI
             this.saveExceptions = new MetroFramework.Controls.MetroButton();
             this.page_exceptions_back_to_main = new MetroFramework.Controls.MetroButton();
             this.exceptionFiles = new MetroFramework.Controls.MetroListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ExceptionFileContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,6 +134,8 @@ namespace GUI
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -591,8 +591,8 @@ namespace GUI
             // exceptionFiles
             // 
             this.exceptionFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader1,
+            this.columnHeader2});
             this.exceptionFiles.ContextMenuStrip = this.ExceptionFileContextMenu;
             this.exceptionFiles.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.exceptionFiles.FullRowSelect = true;
@@ -605,34 +605,27 @@ namespace GUI
             this.exceptionFiles.UseSelectable = true;
             this.exceptionFiles.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "№";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Файл";
-            this.columnHeader4.Width = 667;
-            // 
             // ExceptionFileContextMenu
             // 
             this.ExceptionFileContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.ExceptionFileContextMenu.Name = "ExceptionsContextMenu";
-            this.ExceptionFileContextMenu.Size = new System.Drawing.Size(127, 48);
+            this.ExceptionFileContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Добавить";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "Удалить";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // metroLabel3
             // 
@@ -667,7 +660,7 @@ namespace GUI
             this.добавитьToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.ExceptionPathContextMenu.Name = "ExceptionsContextMenu";
-            this.ExceptionPathContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.ExceptionPathContextMenu.Size = new System.Drawing.Size(127, 48);
             // 
             // добавитьToolStripMenuItem
             // 
@@ -1163,6 +1156,17 @@ namespace GUI
             this.columnHeader8.DisplayIndex = 0;
             this.columnHeader8.Text = "№";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.DisplayIndex = 1;
+            this.columnHeader1.Text = "Файл";
+            this.columnHeader1.Width = 668;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.DisplayIndex = 0;
+            this.columnHeader2.Text = "№";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1214,8 +1218,6 @@ namespace GUI
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private MetroFramework.Controls.MetroListView exceptionFiles;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroListView exceptionPaths;
         private MetroFramework.Controls.MetroLabel metroLabel2;
@@ -1304,6 +1306,8 @@ namespace GUI
         private ToolStripMenuItem toolStripMenuItem2;
         private ColumnHeader columnHeader7;
         private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 
 

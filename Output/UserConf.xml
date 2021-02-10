@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <conf>
-  <Notify_FoundVirus>True</Notify_FoundVirus>
-  <RemovableDevices_AutoScan>True</RemovableDevices_AutoScan>
+  <Notify_FoundVirus>true</Notify_FoundVirus>
+  <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>
   <ExceptionPaths>
-    <path>C:\Users\Cisco\Desktop\AlumniDataBase</path>
-    <path>C:\Users\Cisco\Desktop\Windows10_Virtual</path>
-    <path>C:\Users\Cisco\Desktop\AlumniDataBase</path>
-    <path>C:\Users\Cisco\Desktop\VREMEN</path>
-    <path>C:\Users\Cisco\Desktop\Win_dir</path>
+    <path>C:\Users\Cisco\Desktop\botsmanager</path>
+    <path>C:\Users\Cisco\Desktop\Antivirus_Core</path>
+    <path>C:\Users\Cisco\Desktop\BSGO-Private-Server-master</path>
   </ExceptionPaths>
+  <Extentions>
+    <filepath>D:\1.jpg</filepath>
+    <filepath>D:\testFiles\HAWX2.exe</filepath>
+  </Extentions>
 </conf>
