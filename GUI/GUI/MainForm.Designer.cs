@@ -59,38 +59,42 @@ namespace GUI
             this.saveSettings = new MetroFramework.Controls.MetroButton();
             this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.metroButton10 = new MetroFramework.Controls.MetroButton();
             this.quarantine_files = new MetroFramework.Controls.MetroListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quarantineContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.восстановитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.saveExceptions = new MetroFramework.Controls.MetroButton();
             this.page_exceptions_back_to_main = new MetroFramework.Controls.MetroButton();
-            this.metroListView2 = new MetroFramework.Controls.MetroListView();
+            this.exceptionFiles = new MetroFramework.Controls.MetroListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ExceptionsContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.ExceptionFileContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.exceptionPaths = new MetroFramework.Controls.MetroListView();
+            this.ExceptionPathContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroListView1 = new MetroFramework.Controls.MetroListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.latestSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
+            this.activeSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label_scanned_file = new MetroFramework.Controls.MetroLabel();
             this.scanProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.foundVirusesCount = new MetroFramework.Controls.MetroLabel();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
@@ -104,49 +108,49 @@ namespace GUI
             this.progressBar = new MetroFramework.Controls.MetroProgressBar();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.page_result_text = new MetroFramework.Controls.MetroLabel();
             this.ApplyingActions = new MetroFramework.Controls.MetroButton();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroListView4 = new MetroFramework.Controls.MetroListView();
-            this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.label_scanned_file = new MetroFramework.Controls.MetroLabel();
-            this.page_result_text = new MetroFramework.Controls.MetroLabel();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.setAction = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.вКарантинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.ничегоНеДелатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIconContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activeSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
-            this.latestSignatureDB_ver = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.addToScan.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.MonPartitionContextMenu.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.quarantineContextMenu.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.ExceptionsContextMenu.SuspendLayout();
+            this.ExceptionFileContextMenu.SuspendLayout();
+            this.ExceptionPathContextMenu.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.setAction.SuspendLayout();
+            this.MonPartitionContextMenu.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -454,26 +458,6 @@ namespace GUI
             this.metroCheckBox1.UseSelectable = true;
             this.metroCheckBox1.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
-            // MonPartitionContextMenu
-            // 
-            this.MonPartitionContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem1,
-            this.удалитьToolStripMenuItem1});
-            this.MonPartitionContextMenu.Name = "MonPartitionContextMenu";
-            this.MonPartitionContextMenu.Size = new System.Drawing.Size(127, 48);
-            // 
-            // добавитьToolStripMenuItem1
-            // 
-            this.добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
-            this.добавитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
-            this.добавитьToolStripMenuItem1.Text = "Добавить";
-            // 
-            // удалитьToolStripMenuItem1
-            // 
-            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
-            this.удалитьToolStripMenuItem1.Text = "Удалить";
-            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
@@ -524,6 +508,16 @@ namespace GUI
             this.quarantine_files.UseSelectable = true;
             this.quarantine_files.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Файл";
+            this.columnHeader5.Width = 660;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Тип вируса";
+            this.columnHeader13.Width = 196;
+            // 
             // quarantineContextMenu
             // 
             this.quarantineContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -559,11 +553,11 @@ namespace GUI
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tabPage5.Controls.Add(this.metroButton1);
+            this.tabPage5.Controls.Add(this.saveExceptions);
             this.tabPage5.Controls.Add(this.page_exceptions_back_to_main);
-            this.tabPage5.Controls.Add(this.metroListView2);
+            this.tabPage5.Controls.Add(this.exceptionFiles);
             this.tabPage5.Controls.Add(this.metroLabel3);
-            this.tabPage5.Controls.Add(this.metroListView1);
+            this.tabPage5.Controls.Add(this.exceptionPaths);
             this.tabPage5.Controls.Add(this.metroLabel2);
             this.tabPage5.Controls.Add(this.metroLabel1);
             this.tabPage5.Location = new System.Drawing.Point(4, 14);
@@ -573,14 +567,16 @@ namespace GUI
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "page_exceptions";
             // 
-            // metroButton1
+            // saveExceptions
             // 
-            this.metroButton1.Location = new System.Drawing.Point(495, 362);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(154, 23);
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "Сохранить изменения";
-            this.metroButton1.UseSelectable = true;
+            this.saveExceptions.Location = new System.Drawing.Point(495, 362);
+            this.saveExceptions.Name = "saveExceptions";
+            this.saveExceptions.Size = new System.Drawing.Size(154, 23);
+            this.saveExceptions.TabIndex = 6;
+            this.saveExceptions.Text = "Сохранить изменения";
+            this.saveExceptions.UseSelectable = true;
+            this.saveExceptions.Visible = false;
+            this.saveExceptions.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // page_exceptions_back_to_main
             // 
@@ -592,22 +588,22 @@ namespace GUI
             this.page_exceptions_back_to_main.UseSelectable = true;
             this.page_exceptions_back_to_main.Click += new System.EventHandler(this.page_exceptions_back_to_main_Click);
             // 
-            // metroListView2
+            // exceptionFiles
             // 
-            this.metroListView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.exceptionFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.metroListView2.ContextMenuStrip = this.ExceptionsContextMenu;
-            this.metroListView2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView2.FullRowSelect = true;
-            this.metroListView2.Location = new System.Drawing.Point(66, 218);
-            this.metroListView2.Name = "metroListView2";
-            this.metroListView2.OwnerDraw = true;
-            this.metroListView2.Size = new System.Drawing.Size(732, 132);
-            this.metroListView2.TabIndex = 4;
-            this.metroListView2.UseCompatibleStateImageBehavior = false;
-            this.metroListView2.UseSelectable = true;
-            this.metroListView2.View = System.Windows.Forms.View.Details;
+            this.exceptionFiles.ContextMenuStrip = this.ExceptionFileContextMenu;
+            this.exceptionFiles.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.exceptionFiles.FullRowSelect = true;
+            this.exceptionFiles.Location = new System.Drawing.Point(66, 218);
+            this.exceptionFiles.Name = "exceptionFiles";
+            this.exceptionFiles.OwnerDraw = true;
+            this.exceptionFiles.Size = new System.Drawing.Size(732, 132);
+            this.exceptionFiles.TabIndex = 4;
+            this.exceptionFiles.UseCompatibleStateImageBehavior = false;
+            this.exceptionFiles.UseSelectable = true;
+            this.exceptionFiles.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader3
             // 
@@ -618,25 +614,25 @@ namespace GUI
             this.columnHeader4.Text = "Файл";
             this.columnHeader4.Width = 667;
             // 
-            // ExceptionsContextMenu
+            // ExceptionFileContextMenu
             // 
-            this.ExceptionsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
-            this.ExceptionsContextMenu.Name = "ExceptionsContextMenu";
-            this.ExceptionsContextMenu.Size = new System.Drawing.Size(127, 48);
+            this.ExceptionFileContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.ExceptionFileContextMenu.Name = "ExceptionsContextMenu";
+            this.ExceptionFileContextMenu.Size = new System.Drawing.Size(127, 48);
             // 
-            // добавитьToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItem1.Text = "Добавить";
             // 
-            // удалитьToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 22);
+            this.toolStripMenuItem2.Text = "Удалить";
             // 
             // metroLabel3
             // 
@@ -648,31 +644,44 @@ namespace GUI
             this.metroLabel3.TabIndex = 3;
             this.metroLabel3.Text = "Исключаемые файлы";
             // 
-            // metroListView1
+            // exceptionPaths
             // 
-            this.metroListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.metroListView1.ContextMenuStrip = this.ExceptionsContextMenu;
-            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView1.FullRowSelect = true;
-            this.metroListView1.Location = new System.Drawing.Point(66, 66);
-            this.metroListView1.Name = "metroListView1";
-            this.metroListView1.OwnerDraw = true;
-            this.metroListView1.Size = new System.Drawing.Size(732, 118);
-            this.metroListView1.TabIndex = 2;
-            this.metroListView1.UseCompatibleStateImageBehavior = false;
-            this.metroListView1.UseSelectable = true;
-            this.metroListView1.View = System.Windows.Forms.View.Details;
+            this.exceptionPaths.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8});
+            this.exceptionPaths.ContextMenuStrip = this.ExceptionPathContextMenu;
+            this.exceptionPaths.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.exceptionPaths.FullRowSelect = true;
+            this.exceptionPaths.Location = new System.Drawing.Point(66, 66);
+            this.exceptionPaths.Name = "exceptionPaths";
+            this.exceptionPaths.OwnerDraw = true;
+            this.exceptionPaths.Size = new System.Drawing.Size(732, 118);
+            this.exceptionPaths.TabIndex = 2;
+            this.exceptionPaths.UseCompatibleStateImageBehavior = false;
+            this.exceptionPaths.UseSelectable = true;
+            this.exceptionPaths.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // ExceptionPathContextMenu
             // 
-            this.columnHeader1.Text = "№";
+            this.ExceptionPathContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.ExceptionPathContextMenu.Name = "ExceptionsContextMenu";
+            this.ExceptionPathContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
-            // columnHeader2
+            // добавитьToolStripMenuItem
             // 
-            this.columnHeader2.Text = "Путь";
-            this.columnHeader2.Width = 667;
+            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // metroLabel2
             // 
@@ -710,6 +719,36 @@ namespace GUI
             this.tabPage6.Size = new System.Drawing.Size(896, 415);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "page_update";
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel20.Location = new System.Drawing.Point(41, 151);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(378, 75);
+            this.metroLabel20.TabIndex = 10;
+            this.metroLabel20.Text = "Установлена последняя версия базы сигнатур\r\nОбновление не требуется\r\n";
+            // 
+            // latestSignatureDB_ver
+            // 
+            this.latestSignatureDB_ver.AutoSize = true;
+            this.latestSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.latestSignatureDB_ver.Location = new System.Drawing.Point(330, 97);
+            this.latestSignatureDB_ver.Name = "latestSignatureDB_ver";
+            this.latestSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
+            this.latestSignatureDB_ver.TabIndex = 9;
+            this.latestSignatureDB_ver.Text = "v2.20";
+            // 
+            // activeSignatureDB_ver
+            // 
+            this.activeSignatureDB_ver.AutoSize = true;
+            this.activeSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.activeSignatureDB_ver.Location = new System.Drawing.Point(307, 47);
+            this.activeSignatureDB_ver.Name = "activeSignatureDB_ver";
+            this.activeSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
+            this.activeSignatureDB_ver.TabIndex = 8;
+            this.activeSignatureDB_ver.Text = "v2.20";
             // 
             // metroLabel15
             // 
@@ -774,6 +813,15 @@ namespace GUI
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "page_active_scan";
             this.tabPage7.Enter += new System.EventHandler(this.tabPage7_Enter);
+            // 
+            // label_scanned_file
+            // 
+            this.label_scanned_file.AutoSize = true;
+            this.label_scanned_file.Location = new System.Drawing.Point(52, 109);
+            this.label_scanned_file.Name = "label_scanned_file";
+            this.label_scanned_file.Size = new System.Drawing.Size(13, 19);
+            this.label_scanned_file.TabIndex = 16;
+            this.label_scanned_file.Text = " ";
             // 
             // scanProgressSpinner
             // 
@@ -903,6 +951,35 @@ namespace GUI
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "page_scan_result";
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel8.Location = new System.Drawing.Point(235, 67);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(21, 25);
+            this.metroLabel8.TabIndex = 11;
+            this.metroLabel8.Text = "0";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.Location = new System.Drawing.Point(52, 67);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(186, 25);
+            this.metroLabel13.TabIndex = 10;
+            this.metroLabel13.Text = "Обнаружено вирусов:";
+            // 
+            // page_result_text
+            // 
+            this.page_result_text.AutoSize = true;
+            this.page_result_text.Location = new System.Drawing.Point(52, 67);
+            this.page_result_text.Name = "page_result_text";
+            this.page_result_text.Size = new System.Drawing.Size(13, 19);
+            this.page_result_text.TabIndex = 9;
+            this.page_result_text.Text = " ";
+            // 
             // ApplyingActions
             // 
             this.ApplyingActions.Location = new System.Drawing.Point(741, 128);
@@ -941,70 +1018,20 @@ namespace GUI
             this.metroListView4.UseSelectable = true;
             this.metroListView4.View = System.Windows.Forms.View.Details;
             // 
-            // page_scan_result_all_scanned
+            // columnHeader6
             // 
-            this.page_scan_result_all_scanned.AutoSize = true;
-            this.page_scan_result_all_scanned.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(274, 44);
-            this.page_scan_result_all_scanned.Name = "page_scan_result_all_scanned";
-            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(21, 25);
-            this.page_scan_result_all_scanned.TabIndex = 5;
-            this.page_scan_result_all_scanned.Text = "0";
+            this.columnHeader6.Text = "Файл";
+            this.columnHeader6.Width = 560;
             // 
-            // metroLabel18
+            // columnHeader12
             // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel18.Location = new System.Drawing.Point(52, 44);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(225, 25);
-            this.metroLabel18.TabIndex = 4;
-            this.metroLabel18.Text = "Всего проверенно файлов:";
+            this.columnHeader12.Text = "Тип вируса";
+            this.columnHeader12.Width = 200;
             // 
-            // metroLabel12
+            // columnHeader15
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel12.Location = new System.Drawing.Point(17, 9);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(214, 25);
-            this.metroLabel12.TabIndex = 3;
-            this.metroLabel12.Text = "Результаты сканирования";
-            // 
-            // notifyIcon
-            // 
-            this.notifyIcon.ContextMenuStrip = this.notifyIconContextMenu;
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "Защита активна";
-            this.notifyIcon.Visible = true;
-            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // active_scan_updater
-            // 
-            this.active_scan_updater.Interval = 50;
-            this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
-            // 
-            // label_scanned_file
-            // 
-            this.label_scanned_file.AutoSize = true;
-            this.label_scanned_file.Location = new System.Drawing.Point(52, 109);
-            this.label_scanned_file.Name = "label_scanned_file";
-            this.label_scanned_file.Size = new System.Drawing.Size(13, 19);
-            this.label_scanned_file.TabIndex = 16;
-            this.label_scanned_file.Text = " ";
-            // 
-            // page_result_text
-            // 
-            this.page_result_text.AutoSize = true;
-            this.page_result_text.Location = new System.Drawing.Point(52, 67);
-            this.page_result_text.Name = "page_result_text";
-            this.page_result_text.Size = new System.Drawing.Size(13, 19);
-            this.page_result_text.TabIndex = 9;
-            this.page_result_text.Text = " ";
+            this.columnHeader15.Text = "Действие";
+            this.columnHeader15.Width = 123;
             // 
             // setAction
             // 
@@ -1036,50 +1063,63 @@ namespace GUI
             this.ничегоНеДелатьToolStripMenuItem.Text = "Ничего не делать";
             this.ничегоНеДелатьToolStripMenuItem.Click += new System.EventHandler(this.ничегоНеДелатьToolStripMenuItem_Click);
             // 
-            // metroLabel8
+            // page_scan_result_all_scanned
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel8.Location = new System.Drawing.Point(235, 67);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(21, 25);
-            this.metroLabel8.TabIndex = 11;
-            this.metroLabel8.Text = "0";
+            this.page_scan_result_all_scanned.AutoSize = true;
+            this.page_scan_result_all_scanned.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.page_scan_result_all_scanned.Location = new System.Drawing.Point(274, 44);
+            this.page_scan_result_all_scanned.Name = "page_scan_result_all_scanned";
+            this.page_scan_result_all_scanned.Size = new System.Drawing.Size(21, 25);
+            this.page_scan_result_all_scanned.TabIndex = 5;
+            this.page_scan_result_all_scanned.Text = "0";
             // 
-            // metroLabel13
+            // metroLabel18
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel13.Location = new System.Drawing.Point(52, 67);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(186, 25);
-            this.metroLabel13.TabIndex = 10;
-            this.metroLabel13.Text = "Обнаружено вирусов:";
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel18.Location = new System.Drawing.Point(52, 44);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(225, 25);
+            this.metroLabel18.TabIndex = 4;
+            this.metroLabel18.Text = "Всего проверенно файлов:";
             // 
-            // columnHeader6
+            // metroLabel12
             // 
-            this.columnHeader6.Text = "Файл";
-            this.columnHeader6.Width = 560;
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.Location = new System.Drawing.Point(17, 9);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(214, 25);
+            this.metroLabel12.TabIndex = 3;
+            this.metroLabel12.Text = "Результаты сканирования";
             // 
-            // columnHeader12
+            // MonPartitionContextMenu
             // 
-            this.columnHeader12.Text = "Тип вируса";
-            this.columnHeader12.Width = 200;
+            this.MonPartitionContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьToolStripMenuItem1,
+            this.удалитьToolStripMenuItem1});
+            this.MonPartitionContextMenu.Name = "MonPartitionContextMenu";
+            this.MonPartitionContextMenu.Size = new System.Drawing.Size(127, 48);
             // 
-            // columnHeader15
+            // добавитьToolStripMenuItem1
             // 
-            this.columnHeader15.Text = "Действие";
-            this.columnHeader15.Width = 123;
+            this.добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
+            this.добавитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.добавитьToolStripMenuItem1.Text = "Добавить";
             // 
-            // columnHeader5
+            // удалитьToolStripMenuItem1
             // 
-            this.columnHeader5.Text = "Файл";
-            this.columnHeader5.Width = 660;
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
             // 
-            // columnHeader13
+            // notifyIcon
             // 
-            this.columnHeader13.Text = "Тип вируса";
-            this.columnHeader13.Width = 196;
+            this.notifyIcon.ContextMenuStrip = this.notifyIconContextMenu;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Защита активна";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // notifyIconContextMenu
             // 
@@ -1103,35 +1143,25 @@ namespace GUI
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // activeSignatureDB_ver
+            // openFileDialog1
             // 
-            this.activeSignatureDB_ver.AutoSize = true;
-            this.activeSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.activeSignatureDB_ver.Location = new System.Drawing.Point(307, 47);
-            this.activeSignatureDB_ver.Name = "activeSignatureDB_ver";
-            this.activeSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
-            this.activeSignatureDB_ver.TabIndex = 8;
-            this.activeSignatureDB_ver.Text = "v2.20";
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // latestSignatureDB_ver
+            // active_scan_updater
             // 
-            this.latestSignatureDB_ver.AutoSize = true;
-            this.latestSignatureDB_ver.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.latestSignatureDB_ver.Location = new System.Drawing.Point(330, 97);
-            this.latestSignatureDB_ver.Name = "latestSignatureDB_ver";
-            this.latestSignatureDB_ver.Size = new System.Drawing.Size(51, 25);
-            this.latestSignatureDB_ver.TabIndex = 9;
-            this.latestSignatureDB_ver.Text = "v2.20";
+            this.active_scan_updater.Interval = 50;
+            this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
-            // metroLabel20
+            // columnHeader7
             // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel20.Location = new System.Drawing.Point(41, 151);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(378, 75);
-            this.metroLabel20.TabIndex = 10;
-            this.metroLabel20.Text = "Установлена последняя версия базы сигнатур\r\nОбновление не требуется\r\n";
+            this.columnHeader7.DisplayIndex = 1;
+            this.columnHeader7.Text = "Путь";
+            this.columnHeader7.Width = 668;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.DisplayIndex = 0;
+            this.columnHeader8.Text = "№";
             // 
             // MainForm
             // 
@@ -1150,13 +1180,13 @@ namespace GUI
             this.addToScan.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.MonPartitionContextMenu.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.quarantineContextMenu.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.ExceptionsContextMenu.ResumeLayout(false);
+            this.ExceptionFileContextMenu.ResumeLayout(false);
+            this.ExceptionPathContextMenu.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
@@ -1164,6 +1194,7 @@ namespace GUI
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.setAction.ResumeLayout(false);
+            this.MonPartitionContextMenu.ResumeLayout(false);
             this.notifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1182,16 +1213,14 @@ namespace GUI
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private MetroFramework.Controls.MetroListView metroListView2;
+        private MetroFramework.Controls.MetroListView exceptionFiles;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroListView metroListView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private MetroFramework.Controls.MetroListView exceptionPaths;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroContextMenu ExceptionsContextMenu;
+        private MetroFramework.Controls.MetroContextMenu ExceptionPathContextMenu;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private MetroFramework.Controls.MetroLabel metroLabel6;
@@ -1202,7 +1231,7 @@ namespace GUI
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
         private MetroFramework.Controls.MetroButton page_exceptions_back_to_main;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton saveExceptions;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MetroFramework.Controls.MetroListView quarantine_files;
         private MetroFramework.Controls.MetroListView ScanObjectsList;
@@ -1270,6 +1299,11 @@ namespace GUI
         private MetroFramework.Controls.MetroLabel latestSignatureDB_ver;
         private MetroFramework.Controls.MetroLabel activeSignatureDB_ver;
         private MetroFramework.Controls.MetroLabel metroLabel20;
+        private MetroFramework.Controls.MetroContextMenu ExceptionFileContextMenu;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
     }
 
 

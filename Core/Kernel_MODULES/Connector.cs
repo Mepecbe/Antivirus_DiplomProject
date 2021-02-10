@@ -33,7 +33,9 @@ namespace Core.Kernel.Connectors
         public static BinaryWriter ScannerService_CommandWriter;
         public static Mutex ScannerService_Command_Sync = new Mutex();
 
-
+        public static NamedPipeClientStream Filter_Command = new NamedPipeClientStream("Filter.CommandPipe");
+        public static BinaryWriter Filter_CommandWriter;
+        public static Mutex Filter_Command_Sync = new Mutex();
 
         /* INPUT CONNECTORS */
         public static NamedPipeServerStream Filter_Input = new NamedPipeServerStream("Filter.Output");
@@ -92,6 +94,16 @@ namespace Core.Kernel.Connectors
                     Logger.WriteLine($"[Kernel.Connectors] API INPUT connected", LogLevel.OK);
                 }
                 Api_In_Sync.ReleaseMutex();
+            });
+
+            Task.Run(() =>
+            {
+                Filter_Command_Sync.WaitOne();
+                {
+                    Filter_Command.Connect();
+                    Filter_CommandWriter = new BinaryWriter(Filter_Command, KernelInitializator.Config.NamedPipeEncoding);
+                }
+                Filter_Command_Sync.ReleaseMutex();
             });
         }
 

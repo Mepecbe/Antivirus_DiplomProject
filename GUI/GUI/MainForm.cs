@@ -161,6 +161,17 @@ namespace GUI
 
         private void ExceptionsButton_Click_1(object sender, EventArgs e)
         {
+            this.exceptionPaths.Items.Clear();
+            this.exceptionFiles.Items.Clear();
+
+            var paths = Configuration.PathExceptions;
+
+            for(int index = 0; index < paths.Length; index++)
+            {
+                var item = this.exceptionPaths.Items.Add((index + 1).ToString());
+                item.SubItems.Add("    " + paths[index]);
+            }
+
             this.TabControl.SelectedIndex = 4;
         }
 
@@ -400,6 +411,11 @@ namespace GUI
             Configuration.AutoScanRemovableDevices = this.metroCheckBox2.Checked;
             Configuration.Save();
 
+            if (Configuration.AutoScanRemovableDevices)
+            {
+                API.ClearConnectedDevices();
+            }
+
             API.SetAutoScanRemovableDevices(Configuration.AutoScanRemovableDevices);
 
             var popup = new PopupNotifier()
@@ -498,6 +514,60 @@ namespace GUI
             Updater.Stop();
             this.Close();
         }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var item = this.exceptionPaths.Items.Add(this.exceptionPaths.Items.Count.ToString());
+                item.SubItems.Add("     " + folderBrowserDialog1.SelectedPath);
+
+                this.saveExceptions.Visible = true;
+            }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.exceptionPaths.SelectedItems.Count > 0)
+            {
+                this.exceptionPaths.SelectedItems[0].Remove();
+
+                this.saveExceptions.Visible = true;
+            }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            List<string> pathRules = new List<string>();
+
+            {
+                API.ClearSimpleRules();
+
+                foreach (ListViewItem item in this.exceptionPaths.Items)
+                {
+                    item.SubItems[1].Text = item.SubItems[1].Text.Remove(0, 5);
+                    API.AddSimpleRule(item.SubItems[1].Text);
+
+                    pathRules.Add(item.SubItems[1].Text);
+                }
+            }
+
+            Configuration.PathExceptions = pathRules.ToArray();
+            Configuration.Save();
+
+            this.TabControl.SelectedIndex = 0;
+
+            var popup = new PopupNotifier()
+            {
+                TitleText = "Antivirus",
+                ContentText = "Настройки исключений сохранены"
+            };
+
+            popup.Popup();
+        }
+
         /*====*/
     }
 

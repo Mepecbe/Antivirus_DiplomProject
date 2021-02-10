@@ -284,6 +284,47 @@ namespace API_Client_Library
             Writer_sync.ReleaseMutex();
         }
 
+        public static void ClearConnectedDevices()
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)9);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
+        public static void AddSimpleRule(string rule)
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)10);
+                OutputWriter.Write(rule);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
+        public static void RemoveSimpleRule(string rule)
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)11);
+                OutputWriter.Write(rule);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
+        public static void ClearSimpleRules()
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)12);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
         /*=== Остальное ===*/
 
         public static void Init()

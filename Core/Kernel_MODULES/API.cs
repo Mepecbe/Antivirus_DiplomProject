@@ -151,6 +151,45 @@ namespace Core.Kernel.API
                                     KernelConnectors.PartitionMon_CommandWriter.Write("3*");
                                 }
 
+                                KernelConnectors.PartitionMon_CommandWriter.Flush();
+                                break;
+                            }
+
+                        //Очистить информацию о подключенных устройствах
+                        case 9:
+                            {
+                                KernelConnectors.PartitionMon_CommandWriter.Write("4*");
+                                KernelConnectors.PartitionMon_CommandWriter.Flush();
+                                break;
+                            }
+
+                        //Добавить простое правило фильтрации
+                        case 10:
+                            {
+                                string rule = binaryReader.ReadString();
+                                KernelConnectors.Filter_CommandWriter.Write((byte)3);
+                                KernelConnectors.Filter_CommandWriter.Write(rule);
+
+                                KernelConnectors.Filter_CommandWriter.Flush();
+                                break;
+                            }
+
+                        //Удалить простое правило фильтрации
+                        case 11:
+                            {
+                                string rule = binaryReader.ReadString();
+                                KernelConnectors.Filter_CommandWriter.Write((byte)4);
+                                KernelConnectors.Filter_CommandWriter.Write(rule);
+
+                                KernelConnectors.Filter_CommandWriter.Flush();
+                                break;
+                            }
+
+                        //Удалить все простые правила фильтрации
+                        case 12:
+                            {
+                                KernelConnectors.Filter_CommandWriter.Write((byte)5);
+                                KernelConnectors.Filter_CommandWriter.Flush();
                                 break;
                             }
 

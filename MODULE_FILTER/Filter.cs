@@ -108,7 +108,7 @@ namespace MODULE__FILTER
             /// </summary>
             public static Thread CommandHandler = new Thread(() =>
             {
-                Connector.Logger.WriteLine("[Filter.CommandHandler] Активен! Ожидание подключения");
+                Connector.Logger.WriteLine("[Filter.CommandHandler] Активен! Ожидание подключения", LogLevel.WARN);
 
                 Connector.CommandPipe.WaitForConnection();
                 var Reader = new BinaryReader(Connector.CommandPipe, Encoding.Unicode);
@@ -151,6 +151,41 @@ namespace MODULE__FILTER
                                 Connector.Logger.WriteLine("[Filter.CommandHandler] Добавлено правило фильтрации ->" + rule, LogLevel.OK);
                                 break;
                             }
+
+                        //Добавить простое правило
+                        case 3:
+                            {
+                                var rule = Reader.ReadString();
+                                FiltrationRules.SimpleRules.Add(rule);
+
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Добавлено простое правило фильтрации ->" + rule, LogLevel.OK);
+                                break;
+                            }
+
+                        //Удалить простое правило
+                        case 4:
+                            {
+                                var rule = Reader.ReadString();
+                                if (FiltrationRules.SimpleRules.Remove(rule))
+                                {
+                                    Connector.Logger.WriteLine("[Filter.CommandHandler] Удалено простое правило фильтрации ->" + rule, LogLevel.OK);
+                                } 
+                                else
+                                {
+                                    Connector.Logger.WriteLine("[Filter.CommandHandler] Простое правило для удаления не найдено");
+                                }
+
+                                break;
+                            }
+
+                        //Удалить все простые правила
+                        case 5:
+                            {
+                                FiltrationRules.SimpleRules.Clear();
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Удалены все простые правила", LogLevel.OK);
+                                
+                                break;
+                            }
                     }
                 }
             });
@@ -178,6 +213,12 @@ namespace MODULE__FILTER
             public static List<Regex> OtherRules = new List<Regex>();
 
             /// <summary>
+            /// Простые правила
+            /// Если строка существует в подстроке - фильтр сработал
+            /// </summary>
+            public static List<string> SimpleRules = new List<string>();
+
+            /// <summary>
             /// Фильтруемые расширения
             /// ([^\s]+(?=\.(jpg|gif|png))\.\w)
             /// </summary>
@@ -196,7 +237,7 @@ namespace MODULE__FILTER
 
             public static bool ApplyFilter(string input)
             {
-                if (Step1(input) || Step2(input) || Step3(input))
+                if (Step1(input) || Step2(input) || Step3(input) || CheckSimpleRules(input))
                 {
                     return true;
                 }
@@ -268,12 +309,26 @@ namespace MODULE__FILTER
                 return false;
             }
 
+            public static bool CheckSimpleRules(string input)
+            {
+                foreach(string rule in SimpleRules)
+                {
+                    if (input.Contains(rule))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
             /// <summary>
             /// Инициализация стандартных правил
             /// </summary>
             public static void InitDefaultRules()
             {
                 {
+                    //Фильтрация путей к папке
                     OtherHandlers.Add((string path) =>
                     {
                         if (path.LastIndexOf('.') < path.LastIndexOf('\\'))

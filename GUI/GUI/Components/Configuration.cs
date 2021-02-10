@@ -25,12 +25,43 @@ namespace GUI.Components.Configurations
 
 
         /// <summary>
-        /// Уведомления при обнаружении вируса
+        /// Автоскан подключаемых съемных носителей
         /// </summary>
         public static bool AutoScanRemovableDevices
         {
             get { return bool.Parse(getElementValueByName("RemovableDevices_AutoScan").InnerText); }
             set { getElementValueByName("RemovableDevices_AutoScan").InnerText = value.ToString(); }
+        }
+
+        public static string[] PathExceptions
+        {
+            get {
+                var element = getElementValueByName("ExceptionPaths");
+                List<string> paths = new List<string>();
+                foreach(XmlElement elem in element.ChildNodes)
+                {
+                    paths.Add(elem.InnerText);
+                }
+
+                return paths.ToArray();
+            }
+
+            set
+            {
+                var element = getElementValueByName("ExceptionPaths");
+                foreach(XmlElement pathNode in element.ChildNodes)
+                {
+                    element.RemoveChild(pathNode);
+                }
+
+                foreach(string path in value)
+                {
+                    var elem = Doc.CreateElement("path");
+                    elem.InnerText = path;
+
+                    element.AppendChild(elem);
+                }
+            }
         }
 
 
@@ -49,7 +80,8 @@ namespace GUI.Components.Configurations
                 file.WriteLine($"<?xml version=\"1.0\"?>\n" +
                     $"<conf>" +
                     $" <Notify_FoundVirus>true</Notify_FoundVirus>\n" +
-                    $" <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>\n"
+                    $" <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>\n" +
+                    $" <ExceptionPaths></ExceptionPaths>\n"
                     + $"</conf>");
                 file.Close();
             }

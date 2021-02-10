@@ -241,12 +241,12 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 Connector.Writer_Sync.ReleaseMutex();
             }
 
-            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Файлы({files.Length}) добавлены в очередь сканирования", LogLevel.INFO);
+            Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Файлы({files.Length}) добавлены в очередь сканирования", LogLevel.INFO);
         }
 
         static private void Worker()
         {
-            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Сервис мониторинга внешних носителей активен", LogLevel.OK);
+            Connector.Logger.WriteLine("[FileSysApiMon.RemovableDeviceMonitor] Сервис мониторинга внешних носителей активен", LogLevel.OK);
 
             while (true)
             {
@@ -267,14 +267,14 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                         if (collection.Count > HardDrives.countConnectedRemovableDevices)
                         {
                             //Новое ПОДКЛЮЧЕННОЕ устройство
-                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Обнаруженно подключение съемного устройства", LogLevel.WARN);
+                            Connector.Logger.WriteLine("[FileSysApiMon.RemovableDeviceMonitor] Обнаруженно подключение съемного устройства", LogLevel.WARN);
 
                             foreach (string serialNumber in SerialNumbers)
                             {
                                 if (!HardDrives.CheckSerial(serialNumber))
                                 {
                                     //Если устройство с таким серийным номером отсутствует в таблице
-                                    Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство ранее не подключалось SER:{serialNumber}, ожидание 2000ms", LogLevel.WARN);
+                                    Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Устройство ранее не подключалось SER:{serialNumber}, ожидание 2000ms", LogLevel.WARN);
                                     Thread.Sleep(2000); //Даем винде время подумать
                                     DriveInfo[] ConnectedDrives = DriveInfo.GetDrives();
 
@@ -290,7 +290,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                         {
                                             //Если устройство с такими данными(серийник не проверяется) не существует в таблице
                                             byte countDevices = HardDrives.AddNewDrive(drive, serialNumber);
-                                            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство добавлено в таблицу SER:{serialNumber} TOTAL_SIZE:{drive.TotalSize} FILESYS:{drive.DriveFormat}, колво устройств в таблицe {countDevices}", LogLevel.WARN);
+                                            Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Устройство добавлено в таблицу SER:{serialNumber} TOTAL_SIZE:{drive.TotalSize} FILESYS:{drive.DriveFormat}, колво устройств в таблицe {countDevices}", LogLevel.WARN);
 
                                             if (Configuration.RemovableAutoScan)
                                             {
@@ -300,14 +300,14 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                         else
                                         {
                                             //Если устройство с таким серийником отсутствует в таблице, но существует с такими данными
-                                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Устройство с таким серийником отсутствует в таблице, но существует с такими данными, необработанная ситуация", LogLevel.ERROR);
+                                            Connector.Logger.WriteLine("[FileSysApiMon.RemovableDeviceMonitor] Устройство с таким серийником отсутствует в таблице, но существует с такими данными", LogLevel.ERROR);
                                         }
                                     }
                                 }
                                 else
                                 {
                                     //Если в таблице есть устройство с таким серийником, то сравниваем сейчас его новые данные с теми, которые есть у нас в таблице
-                                    Connector.Logger.WriteLine($"[RemovableDeviceMonitor] Устройство с таким серийным номером SER:{serialNumber}, ранее уже подключалось", LogLevel.INFO);
+                                    Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Устройство с таким серийным номером SER:{serialNumber}, ранее уже подключалось", LogLevel.INFO);
                                     HardDrives.Drive DriveInfoFromTable = HardDrives.getDriveBySerial(serialNumber);
                                     Thread.Sleep(2000); //Хз почему, но винде нужно дать время подумать
                                     DriveInfo[] ConnectedDrives = DriveInfo.GetDrives();
@@ -319,7 +319,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
                                         if (drive.IsReady && DriveInfoFromTable.TotalFreeSpace != drive.TotalFreeSpace)
                                         {
-                                            Connector.Logger.WriteLine($"[RemovableDeviceMonitor] {drive.Name} Съемное устройство было изменено на другом устройстве, требуется перепроверка файлов", LogLevel.WARN);
+                                            Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] {drive.Name} Съемное устройство было изменено на другом устройстве, требуется перепроверка файлов", LogLevel.WARN);
                                             try
                                             {
                                                 if (Configuration.RemovableAutoScan) AddRemovableDeviceToScan(drive.Name);
@@ -334,7 +334,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                         }
                                         else
                                         {
-                                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Эта флешка не изменялась на других устройствах", LogLevel.WARN);
+                                            Connector.Logger.WriteLine("[FileSysApiMon.RemovableDeviceMonitor] Эта флешка не изменялась на других устройствах", LogLevel.WARN);
                                         }
                                     }
 
@@ -344,7 +344,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
                         if (collection.Count < HardDrives.countConnectedRemovableDevices)
                         {
-                            Connector.Logger.WriteLine("[RemovableDeviceMonitor] Обнаруженно отключение съемного устройства", LogLevel.WARN);
+                            Connector.Logger.WriteLine("[FileSysApiMon.RemovableDeviceMonitor] Обнаруженно отключение съемного устройства", LogLevel.WARN);
                             HardDrives.RefreshConnectedDevices(SerialNumbers);
                         }
 
@@ -356,6 +356,11 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
                 Thread.Sleep(500);
             }
+        }
+
+        static public void ClearAllDevices()
+        {
+            HardDrives.DriveTable.Clear();
         }
 
         static public void Init()
@@ -471,6 +476,15 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Выключаю автоскан съемных носителей");
 
                                 Configuration.RemovableAutoScan = false;
+                                break;
+                            }
+
+                        //Очистить информацию о подключенных устройствах
+                        case '4':
+                            {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Очищаю информацию о подключенных устройствах");
+
+                                RemovableDeviceMonitor.ClearAllDevices();
                                 break;
                             }
 

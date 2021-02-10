@@ -2,4 +2,11 @@
 <conf>
   <Notify_FoundVirus>True</Notify_FoundVirus>
   <RemovableDevices_AutoScan>True</RemovableDevices_AutoScan>
+  <ExceptionPaths>
+    <path>C:\Users\Cisco\Desktop\AlumniDataBase</path>
+    <path>C:\Users\Cisco\Desktop\Windows10_Virtual</path>
+    <path>C:\Users\Cisco\Desktop\AlumniDataBase</path>
+    <path>C:\Users\Cisco\Desktop\VREMEN</path>
+    <path>C:\Users\Cisco\Desktop\Win_dir</path>
+  </ExceptionPaths>
 </conf>
