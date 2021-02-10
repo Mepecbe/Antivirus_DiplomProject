@@ -55,29 +55,24 @@ namespace GUI.Components.ScanManager
         public static ScanState State = ScanState.Completed;
 
         /// <summary>
-        /// Cтарт сканирования
-        /// </summary>
-        /// <param name="dir"></param>
-        public static void StartScan(string dir)
-        {
-            CountAllFiles = 0;
-            CountAllScannedFiles = 0;
-
-            State = ScanState.Active;
-
-            new Task(() => AddAllFilesToScan(dir)).Start();
-        }
-
-        /// <summary>
         /// Старт сканирования
         /// </summary>
         /// <param name="dirs"></param>
-        public static void StartScan(string[] dirs)
+        public static void StartScan(string[] dirs, string[] files = null)
         {
             CountAllFiles = 0;
             CountAllScannedFiles = 0;
 
             State = ScanState.Active;
+
+            if (files != null)
+            {
+                foreach (string file in files)
+                {
+                    CountAllFiles++;
+                    FileQueue.Enqueue(file);
+                }
+            }
 
             foreach (string dir in dirs)
             {

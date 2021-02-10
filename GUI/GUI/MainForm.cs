@@ -60,7 +60,7 @@ namespace GUI
 
                     {
                         leftPanel.Visible = true;
-                        leftPanel.Location = new System.Drawing.Point(0, 4);
+                        leftPanel.Location = new System.Drawing.Point(0, 6);
                         leftPanel.Name = "leftPanel";
                         leftPanel.Size = new System.Drawing.Size(6, 470);
                         leftPanel.TabIndex = 8;
@@ -331,9 +331,9 @@ namespace GUI
 
             foreach (ListViewItem Item in ScanObjectsList.Items)
             {
-                if (Item.SubItems[0].Text.LastIndexOf('.') > Item.SubItems[0].Text.LastIndexOf('\\'))
+                if (Item.SubItems[1].Text.LastIndexOf('.') > Item.SubItems[1].Text.LastIndexOf('\\'))
                 {
-                    files.Add(Item.SubItems[0].Text);
+                    files.Add(Item.SubItems[1].Text);
                 }
                 else
                 {
@@ -341,7 +341,10 @@ namespace GUI
                 }
             }
 
-            ScanManager.StartScan(dirs.ToArray());
+            ScanManager.StartScan(dirs.ToArray(), files.ToArray());
+
+            Thread.Sleep(10); //Дадим немного времени 
+            active_scan_updater.Start();
         }
 
         /// <summary>
@@ -349,7 +352,7 @@ namespace GUI
         /// </summary>
         private void tabPage7_Enter(object sender, EventArgs e)
         {
-            this.active_scan_updater.Start();
+            //pass
         }
 
         /// <summary>
@@ -364,17 +367,21 @@ namespace GUI
             }
 
             {
-                this.progressBar.Maximum = ScanManager.CountAllFiles;
                 this.progressBar.Value = ScanManager.CountAllScannedFiles;
+                this.progressBar.Maximum = ScanManager.CountAllFiles;
             }
 
             {
-                this.scanProgressSpinner.Maximum = ScanManager.CountAllFiles;
                 this.scanProgressSpinner.Value = ScanManager.CountAllScannedFiles;
+                this.scanProgressSpinner.Maximum = ScanManager.CountAllFiles;
             }
 
             {
                 this.label_scanned_file.Text = ScanManager.LastScanned;
+            }
+
+            {
+                this.scanFoundResult.Text = ScanManager.foundViruses.Count.ToString();
             }
 
             if (ScanManager.CountAllFiles == ScanManager.CountAllScannedFiles)

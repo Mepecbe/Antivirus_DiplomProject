@@ -106,7 +106,7 @@ namespace GUI
             this.progressBar = new MetroFramework.Controls.MetroProgressBar();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.scanFoundResult = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.page_result_text = new MetroFramework.Controls.MetroLabel();
             this.ApplyingActions = new MetroFramework.Controls.MetroButton();
@@ -616,14 +616,14 @@ namespace GUI
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.toolStripMenuItem1.Text = "Добавить";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 22);
             this.toolStripMenuItem2.Text = "Удалить";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -672,7 +672,7 @@ namespace GUI
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
@@ -928,7 +928,7 @@ namespace GUI
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tabPage8.Controls.Add(this.metroLabel8);
+            this.tabPage8.Controls.Add(this.scanFoundResult);
             this.tabPage8.Controls.Add(this.metroLabel13);
             this.tabPage8.Controls.Add(this.page_result_text);
             this.tabPage8.Controls.Add(this.ApplyingActions);
@@ -944,15 +944,15 @@ namespace GUI
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "page_scan_result";
             // 
-            // metroLabel8
+            // scanFoundResult
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel8.Location = new System.Drawing.Point(235, 67);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(21, 25);
-            this.metroLabel8.TabIndex = 11;
-            this.metroLabel8.Text = "0";
+            this.scanFoundResult.AutoSize = true;
+            this.scanFoundResult.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.scanFoundResult.Location = new System.Drawing.Point(235, 67);
+            this.scanFoundResult.Name = "scanFoundResult";
+            this.scanFoundResult.Size = new System.Drawing.Size(21, 25);
+            this.scanFoundResult.TabIndex = 11;
+            this.scanFoundResult.Text = "0";
             // 
             // metroLabel13
             // 
@@ -1287,7 +1287,7 @@ namespace GUI
         private ToolStripMenuItem вКарантинToolStripMenuItem;
         private ToolStripMenuItem удалитьToolStripMenuItem3;
         private ToolStripMenuItem ничегоНеДелатьToolStripMenuItem;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel scanFoundResult;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader12;
