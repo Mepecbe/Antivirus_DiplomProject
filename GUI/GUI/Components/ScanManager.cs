@@ -104,8 +104,6 @@ namespace GUI.Components.ScanManager
                 return;
             }
 
-            Debug.WriteLine($"COUNT ADD FILES {files.Length}, dir {dir}");
-
             for (int index = 0; index < files.Length; index++)
             {
                 CountAllFiles++;

@@ -178,7 +178,6 @@ namespace Core.Kernel.ScanModule
                 return null;
             }
 
-
             ScanTask task = null;
 
             tasks_sync.WaitOne();

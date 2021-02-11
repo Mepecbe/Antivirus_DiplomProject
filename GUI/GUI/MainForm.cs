@@ -402,7 +402,7 @@ namespace GUI
 
             ScanManager.StartScan(dirs.ToArray(), files.ToArray());
 
-            Thread.Sleep(200); //Дадим немного времени 
+            Thread.Sleep(300);
             active_scan_updater.Start();
         }
 
@@ -419,7 +419,6 @@ namespace GUI
         /// </summary>
         private void active_scan_updater_Tick(object sender, EventArgs e)
         {
-
             {
                 this.page_active_scan_all_count.Text = ScanManager.CountAllFiles.ToString();
                 this.page_active_scan_scanned.Text = ScanManager.CountAllScannedFiles.ToString();
@@ -429,7 +428,7 @@ namespace GUI
             {
                 this.progressBar.Maximum = ScanManager.CountAllFiles;
                 this.progressBar.Value = ScanManager.CountAllScannedFiles;
-        }
+            }
 
             {
                 try { this.scanProgressSpinner.Maximum = ScanManager.CountAllFiles == 0 ? 1 : ScanManager.CountAllFiles; } catch { }
@@ -809,8 +808,8 @@ namespace GUI
         private void metroButton6_Click(object sender, EventArgs e)
         {
             //Полный скан
-            ScanManager.ExtentionsFilter = $"*.*";
             this.ScanObjectsList.Items.Clear();
+            ScanManager.ExtentionsFilter = $"*.*";
 
             foreach(DriveInfo drive in DriveInfo.GetDrives())
             {
