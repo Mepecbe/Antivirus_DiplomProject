@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Scanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YaraIntegration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoggerLib\LoggerLib.csproj">
@@ -53,4 +54,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo "=== Copy yara rules to output dir ==="
+MD YARA
+MD YARA\Rules
+robocopy ..\..\YARA\Rules\ YARA\Rules /E
+xcopy ..\..\YARA\yara32.exe YARA\ /Y
+echo "=== SUCCESS ==="</PostBuildEvent>
+  </PropertyGroup>
 </Project>
