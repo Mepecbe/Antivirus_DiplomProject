@@ -52,7 +52,7 @@ namespace GUI
             this.добавитьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.startScanButton = new MetroFramework.Controls.MetroButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
@@ -136,6 +136,8 @@ namespace GUI
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.settingsAutoAction = new MetroFramework.Controls.MetroComboBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -285,7 +287,7 @@ namespace GUI
             this.tabPage2.Controls.Add(this.metroButton6);
             this.tabPage2.Controls.Add(this.metroButton5);
             this.tabPage2.Controls.Add(this.ScanObjectsList);
-            this.tabPage2.Controls.Add(this.metroButton2);
+            this.tabPage2.Controls.Add(this.startScanButton);
             this.tabPage2.Controls.Add(this.metroLabel6);
             this.tabPage2.Location = new System.Drawing.Point(4, 14);
             this.tabPage2.Name = "tabPage2";
@@ -312,6 +314,7 @@ namespace GUI
             this.metroButton6.TabIndex = 6;
             this.metroButton6.Text = "Полная проверка";
             this.metroButton6.UseSelectable = true;
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
             // 
             // metroButton5
             // 
@@ -321,6 +324,7 @@ namespace GUI
             this.metroButton5.TabIndex = 5;
             this.metroButton5.Text = "Быстрая проверка";
             this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
             // ScanObjectsList
             // 
@@ -380,15 +384,15 @@ namespace GUI
             this.удалитьToolStripMenuItem2.Text = "Удалить";
             this.удалитьToolStripMenuItem2.Click += new System.EventHandler(this.удалитьToolStripMenuItem2_Click);
             // 
-            // metroButton2
+            // startScanButton
             // 
-            this.metroButton2.Location = new System.Drawing.Point(712, 362);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(165, 23);
-            this.metroButton2.TabIndex = 3;
-            this.metroButton2.Text = "Начать проверку";
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            this.startScanButton.Location = new System.Drawing.Point(712, 362);
+            this.startScanButton.Name = "startScanButton";
+            this.startScanButton.Size = new System.Drawing.Size(165, 23);
+            this.startScanButton.TabIndex = 3;
+            this.startScanButton.Text = "Начать проверку";
+            this.startScanButton.UseSelectable = true;
+            this.startScanButton.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroLabel6
             // 
@@ -403,6 +407,8 @@ namespace GUI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage3.Controls.Add(this.settingsAutoAction);
+            this.tabPage3.Controls.Add(this.metroLabel8);
             this.tabPage3.Controls.Add(this.metroButton8);
             this.tabPage3.Controls.Add(this.saveSettings);
             this.tabPage3.Controls.Add(this.metroCheckBox2);
@@ -1167,6 +1173,30 @@ namespace GUI
             this.columnHeader2.DisplayIndex = 0;
             this.columnHeader2.Text = "№";
             // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(47, 103);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(247, 19);
+            this.metroLabel8.TabIndex = 10;
+            this.metroLabel8.Text = "Действие над обнаруженным вирусом";
+            // 
+            // settingsAutoAction
+            // 
+            this.settingsAutoAction.FormattingEnabled = true;
+            this.settingsAutoAction.ItemHeight = 23;
+            this.settingsAutoAction.Items.AddRange(new object[] {
+            "Удалить",
+            "В карантин",
+            "Ничего не делать"});
+            this.settingsAutoAction.Location = new System.Drawing.Point(47, 125);
+            this.settingsAutoAction.Name = "settingsAutoAction";
+            this.settingsAutoAction.Size = new System.Drawing.Size(247, 29);
+            this.settingsAutoAction.TabIndex = 11;
+            this.settingsAutoAction.UseSelectable = true;
+            this.settingsAutoAction.SelectedIndexChanged += new System.EventHandler(this.settingsAutoAction_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1237,7 +1267,7 @@ namespace GUI
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MetroFramework.Controls.MetroListView quarantine_files;
         private MetroFramework.Controls.MetroListView ScanObjectsList;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton startScanButton;
         private System.Windows.Forms.TabPage tabPage7;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroButton pauseScan;
@@ -1308,6 +1338,8 @@ namespace GUI
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private MetroFramework.Controls.MetroComboBox settingsAutoAction;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 
 

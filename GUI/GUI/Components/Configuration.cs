@@ -8,6 +8,8 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
+using API_Client_Library;
+
 namespace GUI.Components.Configurations
 {
     static class Configuration
@@ -23,7 +25,6 @@ namespace GUI.Components.Configurations
             set { getElementValueByName("Notify_FoundVirus").InnerText = value.ToString(); }
         }
 
-
         /// <summary>
         /// Автоскан подключаемых съемных носителей
         /// </summary>
@@ -33,6 +34,16 @@ namespace GUI.Components.Configurations
             set { getElementValueByName("RemovableDevices_AutoScan").InnerText = value.ToString(); }
         }
 
+        /// <summary>
+        /// Действие осуществляемое автоматически над обнаруженным вирусом
+        /// </summary>
+        public static ActionType AutoAction
+        {
+            get { return ((ActionType)byte.Parse(getElementValueByName("Action").InnerText)); }
+            set { getElementValueByName("Action").InnerText = ((byte)value).ToString(); }
+        }
+
+
         public static string[] PathExceptions
         {
             get {
@@ -40,6 +51,7 @@ namespace GUI.Components.Configurations
                 List<string> paths = new List<string>();
                 foreach(XmlElement elem in element.ChildNodes)
                 {
+
                     paths.Add(elem.InnerText);
                 }
 
@@ -116,8 +128,9 @@ namespace GUI.Components.Configurations
                     $" <Notify_FoundVirus>true</Notify_FoundVirus>\n" +
                     $" <RemovableDevices_AutoScan>true</RemovableDevices_AutoScan>\n" +
                     $" <ExceptionPaths></ExceptionPaths>\n" +
-                    $" <Extentions></Extentions>"
-                    + $"</conf>");
+                    $" <Extentions></Extentions>\n" +
+                    $" <Action>1</Action>\n" +
+                    $"</conf>");
                 file.Close();
             }
 

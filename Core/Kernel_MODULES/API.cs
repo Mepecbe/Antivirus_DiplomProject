@@ -122,7 +122,12 @@ namespace Core.Kernel.API
                         case 6:
                             {
                                 string file = binaryReader.ReadString();
-                                ScanTasks.Add(file);
+
+                                if(ScanTasks.Add(file) is null)
+                                {
+                                    API_ScanCompleted(0, false, 0, file);
+                                } 
+
                                 break;
                             }
 
@@ -216,13 +221,20 @@ namespace Core.Kernel.API
 
             API_Out_sync.WaitOne();
             {
-                //Идентификатор 
-                Out_writer.Write((byte)0);
+                if (found)
+                {
+                    //Идентификатор 
+                    Out_writer.Write((byte)1);
+                    Out_writer.Write(id);
+                    Out_writer.Write(file);
+                    Out_writer.Write(virusId);
+                }
+                else
+                {
+                    Out_writer.Write((byte)0);
+                    Out_writer.Write(file);
+                }
 
-                Out_writer.Write(id);
-                Out_writer.Write(found);
-                Out_writer.Write(virusId);
-                Out_writer.Write(file);
                 Out_writer.Flush();
             }
             API_Out_sync.ReleaseMutex();
@@ -244,7 +256,16 @@ namespace Core.Kernel.API
         /// <param name="id"></param>
         private static void Restore(int id)
         {
-            Quarantine.Quarantine.Restore(id);
+            var virusInfo = FoundVirusesManager.getInfo(id);
+            ScanTasks.RestoredFile = virusInfo.file;
+
+
+            KernelConnectors.Logger.WriteLine("[API.Restore] Восстановление файла " + virusInfo.file, LoggerLib.LogLevel.OK); 
+            KernelConnectors.Logger.WriteLine("[API.Restore]   Удаление информации о вирусе из менеджера", LoggerLib.LogLevel.OK);
+            FoundVirusesManager.Delete(id);
+
+            KernelConnectors.Logger.WriteLine("[API.Restore]   Вызов восстановления файла у менеджера карантина", LoggerLib.LogLevel.OK);
+            Quarantine.Quarantine.Restore(virusInfo.fileInQuarantine, virusInfo.file);
         }
 
         /// <summary>
@@ -257,12 +278,18 @@ namespace Core.Kernel.API
 
             if (virusInfo.inQuarantine)
             {
-                File.Delete(virusInfo.fileInQuarantine);
+                KernelConnectors.Logger.WriteLine($"[API] Удаление файла из карантина {virusInfo.fileInQuarantine}", LoggerLib.LogLevel.OK);
+                Quarantine.Quarantine.DeleteFromStorage(id);
             }
             else
             {
+                KernelConnectors.Logger.WriteLine($"[API] Удаление файла на жестком диске {virusInfo.file}", LoggerLib.LogLevel.OK);
                 File.Delete(virusInfo.file);
             }
+
+            KernelConnectors.Logger.WriteLine($"[API] Удаление из менеджера вирусов", LoggerLib.LogLevel.OK);
+
+            FoundVirusesManager.Delete(id);
         }
 
         private static void getVirusInfo(int id)
@@ -276,11 +303,14 @@ namespace Core.Kernel.API
 
             API_Out_sync.WaitOne();
             {
-                Out_writer.Write((byte)1);
+                Out_writer.Write((byte)2);
+                Out_writer.Write(virusInfo.id);
                 Out_writer.Write(virusInfo.file);
                 Out_writer.Write(virusInfo.VirusId);
                 Out_writer.Write(virusInfo.inQuarantine);
-                Out_writer.Write(virusInfo.fileInQuarantine);
+
+#warning Странный и непонятный баг тут иногда значение каким то образом становится NULLом
+                Out_writer.Write(virusInfo.fileInQuarantine is null ? " " : virusInfo.fileInQuarantine);
                 Out_writer.Flush();
             }
             API_Out_sync.ReleaseMutex();
@@ -292,12 +322,15 @@ namespace Core.Kernel.API
             {
                 foreach(VirusInfo virusInfo in FoundVirusesManager.getAllViruses())
                 {
-                    Out_writer.Write((byte)1);
-                    Out_writer.Write(virusInfo.file);
+                    Out_writer.Write((byte)2);
                     Out_writer.Write(virusInfo.id);
-                    Out_writer.Write(virusInfo.VirusId); 
+                    Out_writer.Write(virusInfo.file);
+                    Out_writer.Write(virusInfo.VirusId);
                     Out_writer.Write(virusInfo.inQuarantine);
-                    Out_writer.Write(virusInfo.fileInQuarantine);
+
+#warning Странный и непонятный баг тут иногда появляется, значение каким то образом становится NULLом
+                    Out_writer.Write(virusInfo.fileInQuarantine is null ? " " : virusInfo.fileInQuarantine);
+
                     Out_writer.Flush();
                 }
             }

@@ -402,7 +402,11 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         public static List<string> CreatedFilesBuffer = new List<string>();
         private static readonly Mutex CreatedFilesBuffer_sync = new Mutex();
 
-        private static bool Exists(string path)
+        public static Queue<string> FileQueue = new Queue<string>();
+
+        public static Thread LoaderThread = new Thread(Loader);
+
+        private static bool RemoveIfExists(string path)
         {
             for (int index = 0; index < CreatedFilesBuffer.Count; index++)
             {
@@ -416,6 +420,40 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             return false;
         }
 
+        public static void Loader()
+        {
+            new Task(() =>
+            {
+                while (true)
+                {
+                    Connector.Logger.WriteLine($"[FileSysApiMon.AutoCleaner] Очистка буффера файлов {CreatedFilesBuffer.Count}");
+                    CreatedFilesBuffer.Clear();
+                    Thread.Sleep(TimeSpan.FromSeconds(60));
+                }
+            }).Start();
+
+
+            while (true)
+            {
+                if(FileQueue.Count > 0)
+                {
+                    var file = FileQueue.Dequeue();
+
+                    if (RemoveIfExists(file))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        CreatedFilesBuffer.Add(file);
+                    }
+
+
+                    Connector.FilterPipeWriter.Write("1" + file);
+                }
+                Thread.Sleep(10);
+            }
+        }
 
         public static void CommandThread()
         {
@@ -549,48 +587,20 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
         static void CreateFileEvent(object sender, FileSystemEventArgs e)
         {
-            //Connector.Logger.WriteLine($"[FileSysApiMon.CreateFileEvent] CREATE EVENT {e.FullPath}", LogLevel.WARN);
-
-            Connector.Writer_Sync.WaitOne();
-            {
-                CreatedFilesBuffer_sync.WaitOne();
-                {
-                    CreatedFilesBuffer.Add(e.FullPath);
-                }
-                CreatedFilesBuffer_sync.ReleaseMutex();
-
-                Connector.FilterPipeWriter.Write((int)e.ChangeType + e.FullPath);
-                Connector.FilterPipeWriter.Flush();
-            }
-            Connector.Writer_Sync.ReleaseMutex();
+            FileQueue.Enqueue(e.FullPath);
         }
-
 
         static void ChangedFileEvent(object sender, FileSystemEventArgs e)
         {
-            //Connector.Logger.WriteLine($"[FileSysApiMon.ChangedFileEvent] EDIT EVENT {e.FullPath}", LogLevel.WARN);
-
-            Connector.Writer_Sync.WaitOne();
-            {
-                CreatedFilesBuffer_sync.WaitOne();
-                {
-                    if (Exists(e.FullPath))
-                    {
-                        CreatedFilesBuffer_sync.ReleaseMutex();
-                        return;
-                    }
-                }
-                CreatedFilesBuffer_sync.ReleaseMutex();
-
-                Connector.FilterPipeWriter.Write((int)e.ChangeType + e.FullPath);
-                Connector.FilterPipeWriter.Flush();
-            }
-            Connector.Writer_Sync.ReleaseMutex();
+            FileQueue.Enqueue(e.FullPath);
         }
 
 
-        static void Error(object sender, ErrorEventArgs e){
+        static void Error(object sender, ErrorEventArgs e)
+        {
+            Connector.Logger.WriteLine($"[FileSysApiMon.Error] =============", LogLevel.ERROR);
             Connector.Logger.WriteLine($"[FileSysApiMon.Error] ERROR {e}", LogLevel.ERROR);
+            Connector.Logger.WriteLine($"[FileSysApiMon.Error] =============", LogLevel.ERROR);
         }
 
 
@@ -630,6 +640,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         {
             new Task(() =>
             {
+                PartitionMonitor.LoaderThread.Start();
                 Connector.Init();
                 PartitionMonitor.Init();
                 RemovableDeviceMonitor.Init();

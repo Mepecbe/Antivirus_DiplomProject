@@ -27,20 +27,6 @@ namespace API_Client_Library
         Nothing
     }
 
-    public class VirusFileInfo
-    {
-        public readonly int kernelId;
-        public readonly int virusId;
-        public readonly string file;
-        public ActionType Action;
-
-        public VirusFileInfo(int id, int virusId, string file)
-        {
-            this.kernelId = id;
-            this.virusId = virusId;
-            this.file = file;
-        }
-    }
 
 
     /// <summary>
@@ -49,8 +35,8 @@ namespace API_Client_Library
     public static class API
     {
         /*=== events ===*/
-        public delegate void scanCompetedEvent(ScannedFileInfo File);
-        public delegate void scanFoundVirusEvent(VirusFileInfo File);
+        public delegate void scanCompetedEvent(string File);
+        public delegate void scanFoundVirusEvent(VirusInfo File);
         public delegate void virusInfo(VirusInfo info);
 
         public static event scanCompetedEvent onScanCompleted;
@@ -95,24 +81,42 @@ namespace API_Client_Library
                 {
                     case 0:
                         {
-                            ScanCompleted(reader);
+                            var file = reader.ReadString();
+                            onScanCompleted.Invoke(file);
                             break;
                         }
 
                     case 1:
                         {
-                            var pathToFile = reader.ReadString();
                             var SystemId = reader.ReadInt32();
+                            var pathToFile = reader.ReadString();
                             var virusId = reader.ReadInt32();
-                            var inQuarantine = reader.ReadBoolean();
-                            var pathInQuarantine = reader.ReadString();
+
+                            onScanFound.Invoke(new VirusInfo(
+                                pathToFile,
+                                SystemId,
+                                virusId,
+                                false,
+                                ""
+                            ));
+
+                            break;
+                        }
+
+                    case 2:
+                        {
+                            var SystemId = reader.ReadInt32();
+                            var pathToFile = reader.ReadString();
+                            var virusId = reader.ReadInt32();
+                            var quarantine = reader.ReadBoolean();
+                            var pathToFileInQuarantine = reader.ReadString();
 
                             onVirusInfo.Invoke(new VirusInfo(
                                 pathToFile,
                                 SystemId,
                                 virusId,
-                                inQuarantine,
-                                pathInQuarantine
+                                quarantine,
+                                pathToFileInQuarantine
                             ));
 
                             break;
@@ -124,28 +128,6 @@ namespace API_Client_Library
                             break;
                         }
                 }
-            }
-        }
-
-        public static int countt = 0;
-
-        /*=== ОБРАБОТЧИКИ ===*/
-        private static void ScanCompleted(BinaryReader dataReader)
-        {
-            var kernelId = dataReader.ReadInt32();
-            var isVirus = dataReader.ReadBoolean();
-            var virusId = dataReader.ReadInt32();
-            var file = dataReader.ReadString();
-
-            countt++;
-
-            if (isVirus)
-            {
-                onScanFound.Invoke(new VirusFileInfo(kernelId, virusId, file));
-            }
-            else
-            {
-                onScanCompleted.Invoke(new ScannedFileInfo(file));
             }
         }
 
@@ -191,18 +173,18 @@ namespace API_Client_Library
         /// Применить действия для обнаруженных вирусов
         /// </summary>
         /// <param name="Info"></param>
-        public static void ApplyingActions(VirusFileInfo[] Info)
+        public static void ApplyingActions(VirusAction[] Info)
         {
             Writer_sync.WaitOne();
 
-            foreach (VirusFileInfo info in Info)
+            foreach (VirusAction info in Info)
             {
                 switch (info.Action)
                 {
                     case ActionType.Delete:
                         {
                             OutputWriter.Write((byte)3);
-                            OutputWriter.Write(info.kernelId);
+                            OutputWriter.Write(info.Info.id);
                             OutputWriter.Flush();
 
                             break;
@@ -211,7 +193,7 @@ namespace API_Client_Library
                     case ActionType.ToQuarantine:
                         {
                             OutputWriter.Write((byte)1);
-                            OutputWriter.Write(info.kernelId);
+                            OutputWriter.Write(info.Info.id);
                             OutputWriter.Flush();
 
                             break;
@@ -341,8 +323,9 @@ namespace API_Client_Library
 
         public static void ApiStop()
         {
-            OutputConnector.Close();
             InputHandler.Abort();
+            InputConnector.Close();
+            OutputConnector.Close();
         }
     }
 
@@ -368,6 +351,17 @@ namespace API_Client_Library
             this.VirusId = VirusId;
             this.inQuarantine = quarantine;
             this.pathInQuarantine = inQuarantine;
+        }
+    }
+
+    public class VirusAction
+    {
+        public readonly VirusInfo Info;
+        public ActionType Action;
+
+        public VirusAction(VirusInfo Info)
+        {
+            this.Info = Info;
         }
     }
 }

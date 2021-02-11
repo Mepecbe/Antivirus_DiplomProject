@@ -40,14 +40,15 @@ namespace GUI.Components.ScanManager
         /// </summary>
         public static int InScanProcess = 0;
 
-
         /// <summary>
         /// Последний отсканированный файл
         /// </summary>
-        public static string LastScanned { get; private set; }
+        public static string LastScanned { get; set; }
 
-        public static List<VirusFileInfo> foundViruses = new List<VirusFileInfo>();
-        public static List<VirusInfo> viruses = new List<VirusInfo>();
+        /// <summary>
+        /// Расширения файлов, которые нужно проверять
+        /// </summary>
+        public static string ExtentionsFilter = "*.*"; //Для быстрой проверки использовать *.exe .dll .bat .vba .py .xlsx .docx
 
         /// <summary>
         /// Текущее состояние сканирования
@@ -65,13 +66,10 @@ namespace GUI.Components.ScanManager
 
             State = ScanState.Active;
 
-            if (files != null)
+            foreach (string file in files)
             {
-                foreach (string file in files)
-                {
-                    CountAllFiles++;
-                    FileQueue.Enqueue(file);
-                }
+                CountAllFiles++;
+                FileQueue.Enqueue(file);
             }
 
             foreach (string dir in dirs)
@@ -95,7 +93,18 @@ namespace GUI.Components.ScanManager
                 }
             }
 
-            string[] files = Directory.GetFiles(dir);
+            string[] files = new string[] { };
+
+            try
+            {
+                files = Directory.GetFiles(dir, ExtentionsFilter, SearchOption.AllDirectories);
+            }
+            catch
+            {
+                return;
+            }
+
+            Debug.WriteLine($"COUNT ADD FILES {files.Length}, dir {dir}");
 
             for (int index = 0; index < files.Length; index++)
             {
@@ -180,34 +189,12 @@ namespace GUI.Components.ScanManager
         {
             MForm = Form;
 
-            API.onScanCompleted += API_onScanCompleted;
-            API.onScanFound += API_onScanFound;
-            API.onVirusInfo += API_onVirusInfo;
-
             Thread1.Start();
         }
 
         public static void Stop()
         {
             Thread1.Abort();
-        }
-
-
-        private static void API_onScanFound(VirusFileInfo File)
-        {
-            CountAllScannedFiles++;
-            foundViruses.Add(File);
-        }
-
-        private static void API_onScanCompleted(ScannedFileInfo File)
-        {
-            LastScanned = File.file;
-            CountAllScannedFiles++;
-        }
-
-        private static void API_onVirusInfo(VirusInfo File)
-        {
-            viruses.Add(File);
         }
     }
 

@@ -97,6 +97,24 @@ namespace Core.Kernel.Quarantine
             targetFileStream.Close();
         }
 
+        static public void Restore(string from, string to)
+        {
+            KernelConnectors.Logger.WriteLine("[Quarantine] Восстановление файла из " + from + " в " + to);
+
+            var CreatedFileStream = File.Create(to);
+            var targetFileStream = VirusStorage.OpenFile(from, FileMode.Open);
+
+            byte[] buffer = new byte[2048];
+
+            while (targetFileStream.Read(buffer, 0, buffer.Length) > 0)
+            {
+                CreatedFileStream.Write(buffer, 0, buffer.Length);
+            }
+
+            CreatedFileStream.Close();
+            targetFileStream.Close();
+        }
+
         /// <summary>
         /// Удалить файл в защищенном хранилище
         /// </summary>
@@ -145,6 +163,19 @@ namespace Core.Kernel.Quarantine
                     KernelConnectors.Logger.WriteLine("[Quarantine] Ошибка добавления файла в карантин");
                 }
             }
+        }
+
+        static public bool DeleteFromStorage(int id)
+        {
+            var info = FoundVirusesManager.getInfo(id);
+
+            if (VirusStorage.FileExists(info.fileInQuarantine))
+            {
+                VirusStorage.DeleteFile(info.fileInQuarantine);
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>

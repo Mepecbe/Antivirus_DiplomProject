@@ -125,7 +125,7 @@ namespace Core.Kernel.ScanModule
                     case '1': 
                         {
                             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Создание файла -> " + commandBuffer);
-
+                                                        
                             ScanTasks.Add(commandBuffer.Substring(1));
                             break; 
                         }
@@ -164,8 +164,21 @@ namespace Core.Kernel.ScanModule
         private static List<ScanTask> tasks = new List<ScanTask>();
         public static Mutex tasks_sync = new Mutex();
 
+        /// <summary>
+        /// Восстановленный файлы после карантина
+        /// </summary>
+        public static string RestoredFile = "*ab12*s.ts.bak.dek.dec.ts";
+
         public static ScanTask Add(string file)
         {
+            if (file.Contains(RestoredFile))
+            {
+                KernelConnectors.Logger.WriteLine($"[ScanQueue] Пропускаю добавление задачи скана файла восстановленного из карантина!", LoggerLib.LogLevel.OK);
+                RestoredFile = "*ab12*s.ts.bak.dek.dec.ts";
+                return null;
+            }
+
+
             ScanTask task = null;
 
             tasks_sync.WaitOne();
@@ -177,7 +190,6 @@ namespace Core.Kernel.ScanModule
                 ScannerBinaryWriter.Write(file);
 
                 ScannerBinaryWriter.Flush();
-
                 id++;
             }
             tasks_sync.ReleaseMutex();
@@ -327,19 +339,19 @@ namespace Core.Kernel.ScanModule
                         )
                     );
 
-                    KernelConnectors.Logger.WriteLine("[ScanQueue] Virus found!");
+                    KernelConnectors.Logger.WriteLine($"[ScanQueue] Вирус найден {id}!", LoggerLib.LogLevel.OK);
+                    KernelConnectors.Logger.WriteLine($"[ScanQueue] Restored = {RestoredFile}!", LoggerLib.LogLevel.OK);
                 }
                 else
                 {
-                    KernelConnectors.Logger.WriteLine("[ScanQueue] ERROR, TASK NOT FOUND!");
+                    KernelConnectors.Logger.WriteLine("[ScanQueue] КРИТИЧЕСКАЯ ОШИБКА, НЕ НАЙДЕНА ЗАДАЧА ОБНАРУЖЕННОГО ВИРУСА!!!", LoggerLib.LogLevel.ERROR);
                 }
             }
             else
             {
-                KernelConnectors.Logger.WriteLine($"[ScanQueue] Not virus {id}!");
+                KernelConnectors.Logger.WriteLine($"[ScanQueue] Не вирус {id}!");
             }
-
-            
+                        
             RemoveById(id);
         }
 

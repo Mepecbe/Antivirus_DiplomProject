@@ -91,6 +91,29 @@ namespace Core.Kernel.VirusesManager
         }
 
         /// <summary>
+        /// Удалить запись о вирусе
+        /// </summary>
+        /// <returns></returns>
+        public static bool Delete(int id)
+        {
+            VirusesTable_sync.WaitOne();
+            {
+                for (int index = 0; index < VirusesTable.Count; index++)
+                {
+                    if (VirusesTable[index].id == id)
+                    {
+                        VirusesTable.RemoveAt(index);
+                        VirusesTable_sync.ReleaseMutex();
+                        return true;
+                    }
+                }
+            }
+            VirusesTable_sync.ReleaseMutex();
+
+            return false;
+        }
+
+        /// <summary>
         /// Инициализация компонента
         /// </summary>
         public static void Init()
@@ -129,7 +152,7 @@ namespace Core.Kernel.VirusesManager
         public int id;
         public bool inQuarantine;       // Находится ли файл в карантине
         public string fileInQuarantine; // Путь к файлу в карантине
-        public string file;             // Путь к файлу
+        public string file;             // Путь к файлу на жестком диске
         public int VirusId;
 
         public VirusInfo()

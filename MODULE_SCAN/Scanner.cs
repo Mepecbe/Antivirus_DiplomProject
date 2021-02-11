@@ -392,18 +392,22 @@ namespace MODULE__SCAN
                             }
                             catch (PathTooLongException)
                             {
+                                Connector.Logger.WriteLine($"[SCANNER] PathTooLongException", LogLevel.ERROR);
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
                             }
                             catch (UnauthorizedAccessException)
                             {
+                                Connector.Logger.WriteLine($"[SCANNER] UnauthorizedAccessException", LogLevel.ERROR);
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
                             }
                             catch (DirectoryNotFoundException)
                             {
+                                Connector.Logger.WriteLine($"[SCANNER] DirectoryNotFoundException", LogLevel.ERROR);
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
                             }
                             catch (FileNotFoundException)
                             {
+                                Connector.Logger.WriteLine($"[SCANNER] FileNotFoundException", LogLevel.ERROR);
                                 ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
                             }
                             catch (Exception ex)
