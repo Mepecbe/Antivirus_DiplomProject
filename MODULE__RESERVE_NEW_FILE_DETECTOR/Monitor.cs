@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Management;
+using System.Linq;
 
 using LoggerLib;
 
@@ -21,7 +22,18 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         public static string COMMAND_PIPE_NAME = "PartitionMon.Command";
         public static bool RemovableAutoScan = false;
 
+        //Флаг выключенной защиты
+        public static bool Disable = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static Encoding NamedPipeEncoding = Encoding.Unicode;
+
+        /// <summary>
+        /// Какие файлы будут проверятся на флешке
+        /// </summary>
+        public static string[] RemovableDevicesFilter = new string[]{ "exe", "dll", "msi", "mp4"};
     }
 
     public static class Connector
@@ -226,11 +238,29 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
     static public class RemovableDeviceMonitor
     {
-        static private Thread ThreadMonitor;
+        static public Thread ThreadMonitor;
 
         static public void AddRemovableDeviceToScan(string pathToDrive)
         {
-            FileInfo[] files = new DirectoryInfo(pathToDrive).GetFiles("*.*");
+            Console.WriteLine(pathToDrive);
+            List<FileInfo> files = new List<FileInfo>();
+
+            foreach(FileInfo info in new DirectoryInfo(pathToDrive).GetFiles("*.exe"))
+            {
+                files.Add(info);
+            }
+
+            foreach (FileInfo info in new DirectoryInfo(pathToDrive).GetFiles("*.dll"))
+            {
+                files.Add(info);
+            }
+
+            foreach (FileInfo info in new DirectoryInfo(pathToDrive).GetFiles("*.mp4"))
+            {
+                files.Add(info);
+            }
+
+
             foreach (FileInfo file in files)
             {
                 Connector.Writer_Sync.WaitOne();
@@ -241,7 +271,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 Connector.Writer_Sync.ReleaseMutex();
             }
 
-            Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Файлы({files.Length}) добавлены в очередь сканирования", LogLevel.INFO);
+            Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Файлы({files.Count}) добавлены в очередь сканирования", LogLevel.INFO);
         }
 
         static private void Worker()
@@ -274,8 +304,8 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 if (!HardDrives.CheckSerial(serialNumber))
                                 {
                                     //Если устройство с таким серийным номером отсутствует в таблице
-                                    Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Устройство ранее не подключалось SER:{serialNumber}, ожидание 2000ms", LogLevel.WARN);
-                                    Thread.Sleep(2000); //Даем винде время подумать
+                                    Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Устройство ранее не подключалось SER:{serialNumber}, ожидание 3000ms", LogLevel.WARN);
+                                    Thread.Sleep(3000); //Даем винде время подумать
                                     DriveInfo[] ConnectedDrives = DriveInfo.GetDrives();
 
                                     //Выделение этого носителя, среди массива DriveInfo
@@ -294,7 +324,33 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
                                             if (Configuration.RemovableAutoScan)
                                             {
-                                                AddRemovableDeviceToScan(drive.Name);
+                                                new Task(() =>
+                                                {
+                                                    int probes = 0;
+
+                                                    while (probes++ < 10)
+                                                    {
+                                                        Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Проба сканировать({probes})", LogLevel.WARN);
+
+                                                        if (drive.IsReady)
+                                                        {
+                                                            Thread.Sleep(200);
+                                                            try
+                                                            {
+                                                                AddRemovableDeviceToScan(drive.Name);
+                                                            }
+                                                            catch
+                                                            {
+                                                                continue;
+                                                            }
+
+                                                            break;
+                                                        }
+
+                                                        Thread.Sleep(500);
+                                                    }
+
+                                                }).Start();
                                             }
                                         }
                                         else
@@ -317,6 +373,37 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                         //Выделение этого носителя, среди массива DriveInfo
                                         if (drive.IsReady && !HardDrives.checkDriveSerial(drive, serialNumber)) continue;
 
+                                        if (Configuration.RemovableAutoScan)
+                                        {
+                                            new Task(() =>
+                                            {
+                                                int probes = 0;
+
+                                                while (probes++ < 10)
+                                                {
+                                                    Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] Проба сканировать({probes})", LogLevel.WARN);
+
+                                                    if (drive.IsReady)
+                                                    {
+                                                        Thread.Sleep(200);
+                                                        try
+                                                        {
+                                                            AddRemovableDeviceToScan(drive.Name);
+                                                        }
+                                                        catch
+                                                        {
+                                                            continue;
+                                                        }
+
+                                                        break;
+                                                    }
+
+                                                    Thread.Sleep(500);
+                                                }
+
+                                            }).Start();
+                                        }
+
                                         if (drive.IsReady && DriveInfoFromTable.TotalFreeSpace != drive.TotalFreeSpace)
                                         {
                                             Connector.Logger.WriteLine($"[FileSysApiMon.RemovableDeviceMonitor] {drive.Name} Съемное устройство было изменено на другом устройстве, требуется перепроверка файлов", LogLevel.WARN);
@@ -330,7 +417,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                             }
                                             //Если свободное место во время предыдущего подключения
                                             // не совпадает с свободным местом при текущем подключении, значит там что то изменилось
-                                            //А значит, нужно перепроверить флешку
                                         }
                                         else
                                         {
@@ -439,6 +525,11 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                 {
                     var file = FileQueue.Dequeue();
 
+                    if (Configuration.Disable)
+                    {
+                        continue;
+                    }
+
                     if (RemoveIfExists(file))
                     {
                         continue;
@@ -523,6 +614,55 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Очищаю информацию о подключенных устройствах");
 
                                 RemovableDeviceMonitor.ClearAllDevices();
+                                break;
+                            }
+
+                        //Приостановить защиту
+                        case '5':
+                            {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Защита отключена!", LogLevel.WARN);
+
+                                Configuration.Disable = true;
+                                break;
+                            }
+
+                        //Активировать защиту
+                        case '6':
+                            {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Защита включена!", LogLevel.OK);
+
+                                Configuration.Disable = false;
+                                break;
+                            }
+
+                        //Выключить всё
+                        case '7':
+                            {
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю всё!", LogLevel.OK);
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю монитор съемных носителей!", LogLevel.OK);
+                                RemovableDeviceMonitor.ThreadMonitor.Abort();
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Поток-загрузчик!", LogLevel.OK);
+                                LoaderThread.Abort();
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Чищу все записи!", LogLevel.OK);
+                                RemovableDeviceMonitor.ClearAllDevices();
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю входную трубу!", LogLevel.OK);
+                                Connector.FilterInputPipe.Close();
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю командную трубу!", LogLevel.OK);
+                                Connector.CommandPipe.Close();
+
+                                foreach (FileSystemWatcher watcher in FileSystemWatchers)
+                                {
+                                    Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю монитор раздела!", LogLevel.OK);
+                                    watcher.Dispose();
+                                }
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю командный поток!", LogLevel.OK);
+                                CommandExecuter.Abort();
                                 break;
                             }
 

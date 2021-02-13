@@ -102,7 +102,17 @@ namespace MODULE__SCAN
 
             while (true)
             {
-                var ID = binaryReader.ReadInt16();
+                var ID = 0;
+                try
+                {
+                    ID = binaryReader.ReadInt16();
+                }
+                catch
+                {
+                    Logger.WriteLine("[Scanner.signatureThread] Отключаю поток", LogLevel.OK);
+                    break;
+                }
+
                 var Signature = binaryReader.ReadBytes(binaryReader.ReadInt16());
 
                 if (ID >= Scanner.Signatures.Length)
@@ -143,6 +153,31 @@ namespace MODULE__SCAN
                                 ScanTasks.TaskQueue.Clear();
                                 ScanTasks.ActiveScanTasks = 0;
                             }
+
+                            break;
+                        }
+
+                    case 1:
+                        {
+                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.OK);
+
+                            ScanTasks.TaskQueue_Sync.WaitOne();
+                            {
+                                ScanTasks.TaskQueue.Clear();
+                                ScanTasks.ActiveScanTasks = 0;
+                            }
+
+                            Logger.WriteLine("[Scanner.commandThread] Остановка потоков", LogLevel.OK);
+                            inputHandler.Abort();
+                            signatureHandler.Abort();
+
+                            Logger.WriteLine("[Scanner.commandThread] Закрытие труб", LogLevel.OK);
+                            commandPipe.Close();
+                            inputPipe.Close();
+                            commandPipe.Close();
+                            outputPipe.Close();
+
+                            commandHandler.Abort();
 
                             break;
                         }
@@ -485,10 +520,9 @@ namespace MODULE__SCAN
     {
         public static byte EntryPoint()
         {
-            YaraIntegration.Init();
-
-            ScanTasks.Init();
             new Thread(() => Connector.Init()).Start();
+            ScanTasks.Init();
+            YaraIntegration.Init();
 
             return 0;
         }

@@ -278,7 +278,7 @@ namespace GUI
             {
                 if (!InfoBuffer[index].inQuarantine)
                 {
-                    return;
+                    continue;
                 }
 
                 var Item = this.quarantine_files.Items.Add(InfoBuffer[index].path);
@@ -382,6 +382,7 @@ namespace GUI
                 return;
             }
 
+            VirusesBuffer.Clear();
             this.TabControl.SelectedIndex = 6;
 
             var files = new List<string>();
@@ -440,6 +441,8 @@ namespace GUI
 
             if (ScanManager.CountAllFiles == ScanManager.CountAllScannedFiles)
             {
+                API.ClearScanQueue();
+
                 this.TabControl.SelectedIndex = 7;
                 page_scan_result_all_scanned.Text = ScanManager.CountAllScannedFiles.ToString();
 
@@ -840,7 +843,7 @@ namespace GUI
         {
             //Быстрый скан
             this.ScanObjectsList.Items.Clear();
-            ScanManager.ExtentionsFilter = $"*.exe|*.dll|*.bat|*.vba|*.py|*.xlsx|*.docx";
+            ScanManager.ExtentionsFilter = $"*.exe";
 
             var root = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
 
@@ -861,6 +864,44 @@ namespace GUI
         private void settingsAutoAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.saveSettings.Visible = true;
+        }
+
+        private void progInfo_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, 
+                "Программное средство защиты от файловых вирусов\n" +
+                "Разработал учащийся группы 2218 Володько Никита Иванович\n" +
+                "НГАЭК 2021", "О программе");
+        }
+
+        private void приостановитьЗащитуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(this.notifyIconContextMenu.Items[1].Text == "Приостановить защиту")
+            {
+                var popup = new PopupNotifier()
+                {
+                    TitleText = "Antivirus",
+                    ContentText = "Защита приостановлена"
+                };
+
+                popup.Popup();
+
+                this.notifyIconContextMenu.Items[1].Text = "Активировать защиту";
+                API.SetDefenderState(true);
+            }
+            else
+            {
+                var popup = new PopupNotifier()
+                {
+                    TitleText = "Antivirus",
+                    ContentText = "Защита активна"
+                };
+
+                popup.Popup();
+
+                this.notifyIconContextMenu.Items[1].Text = "Приостановить защиту";
+                API.SetDefenderState(false);
+            }
         }
 
         /*====*/

@@ -76,6 +76,17 @@ namespace MODULE__VIRUSES_DB
 
                             break;
                         }
+
+                    case "/shutdown":
+                        {
+                            Logger.WriteLine("[ModuleVirusesDb] Закрытие труб");
+                            VirusesDb_CommandPipe.Close();
+                            ScannerService_signatures.Close();
+
+                            Logger.WriteLine("[ModuleVirusesDb] Закрытие потока");
+                            CommandThread.Abort();
+                            break;
+                        }
                 }
             }
         }

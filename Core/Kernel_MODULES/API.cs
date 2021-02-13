@@ -13,6 +13,8 @@ using Core.Kernel.Quarantine;
 using Core.Kernel.VirusesManager;
 using Core.Kernel.ErrorTasks;
 
+using Core.Kernel.ModuleLoader;
+
 
 namespace Core.Kernel.API
 {
@@ -202,8 +204,19 @@ namespace Core.Kernel.API
                         //Отключить всё
                         case 13:
                             {
+                                KernelConnectors.PartitionMon_CommandWriter.Write("7*");
+                                KernelConnectors.ScannerService_CommandWriter.Write((byte)1);
+                                KernelConnectors.VirusesDb_CommandWriter.Write("/shutdown");
+
                                 ScanTasks.ClearQueue();
                                 KernelConnectors.Stop();
+
+                                break;
+                            }
+
+                        case 14:
+                            {
+                                Defender(binaryReader.ReadBoolean());
                                 break;
                             }
 
@@ -318,7 +331,6 @@ namespace Core.Kernel.API
                 Out_writer.Write(virusInfo.VirusId);
                 Out_writer.Write(virusInfo.inQuarantine);
 
-#warning Странный и непонятный баг тут иногда значение каким то образом становится NULLом
                 Out_writer.Write(virusInfo.fileInQuarantine is null ? " " : virusInfo.fileInQuarantine);
                 Out_writer.Flush();
             }
@@ -337,13 +349,26 @@ namespace Core.Kernel.API
                     Out_writer.Write(virusInfo.VirusId);
                     Out_writer.Write(virusInfo.inQuarantine);
 
-#warning Странный и непонятный баг тут иногда появляется, значение каким то образом становится NULLом
                     Out_writer.Write(virusInfo.fileInQuarantine is null ? " " : virusInfo.fileInQuarantine);
 
                     Out_writer.Flush();
                 }
             }
             API_Out_sync.ReleaseMutex();
+        }
+
+        private static void Defender(bool flag)
+        {
+            KernelConnectors.PartitionMon_CommandPipe_Sync.WaitOne();
+            if (flag)
+            {
+                KernelConnectors.PartitionMon_CommandWriter.Write("5*");
+            }
+            else
+            {
+                KernelConnectors.PartitionMon_CommandWriter.Write("6*");
+            }
+            KernelConnectors.PartitionMon_CommandPipe_Sync.ReleaseMutex();
         }
 
 

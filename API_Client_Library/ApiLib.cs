@@ -122,6 +122,25 @@ namespace API_Client_Library
                             break;
                         }
 
+                    case 3:
+                        {
+                            var SystemId = reader.ReadInt32();
+                            var pathToFile = reader.ReadString();
+                            var virusId = reader.ReadInt32();
+                            var quarantine = reader.ReadBoolean();
+                            var pathToFileInQuarantine = reader.ReadString();
+
+                            onVirusInfo.Invoke(new VirusInfo(
+                                pathToFile,
+                                SystemId,
+                                virusId,
+                                quarantine,
+                                pathToFileInQuarantine
+                            ));
+
+                            break;
+                        }
+
 
                     default:
                         {
@@ -167,6 +186,17 @@ namespace API_Client_Library
         public static void GetVirusInfo(int virusId)
         {
 
+        }
+
+        public static void SetDefenderState(bool state)
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)14);
+                OutputWriter.Write(state);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
         }
 
         public static void StopKernel()

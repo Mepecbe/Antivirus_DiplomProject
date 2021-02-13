@@ -50,12 +50,25 @@ namespace MODULE__SCAN.Yara
             Errors = Compiler.GetErrors();
             Warnings = Compiler.GetWarnings();
 
+            var ErrDump = Errors.Dump();
+            var WrnDump = Warnings.Dump();
+
+            foreach (var key in ErrDump)
+            {
+                Connector.Logger.WriteLine($"[YaraIntegration.Init] Error!");
+            }
+
+            foreach (var key in WrnDump)
+            {
+                Connector.Logger.WriteLine($"[YaraIntegration.Init] Warning!");
+            }
+
             Connector.Logger.WriteLine($"[YaraIntegration.Init] Загрузка завершена");
         }
 
         public static List<YSMatches> GetCheckResult(string path)
         {
-            foreach(string ext in skipExtentions)
+            foreach (string ext in skipExtentions)
             {
                 if (path.Contains(ext))
                 {
@@ -63,27 +76,43 @@ namespace MODULE__SCAN.Yara
                 }
             }
 
-            List<YSMatches> Matches = Instance.ScanFile(path, Rules,
-                    new Dictionary<string, object>()
-                    {
+            List<YSMatches> Matches = new List<YSMatches>();
+
+            try
+            {
+                Matches = Instance.ScanFile(path, Rules,
+                        new Dictionary<string, object>()
+                        {
                     { "filename",  Alphaleonis.Win32.Filesystem.Path.GetFileName(path) },
                     { "filepath",  Alphaleonis.Win32.Filesystem.Path.GetFullPath(path) },
                     { "extension", Alphaleonis.Win32.Filesystem.Path.GetExtension(path) }
-                    },
-                    0);
-
-            //  Iterate over matches
-            foreach (YSMatches Match in Matches)
+                        },
+                        0);
+            }
+            catch
             {
-                Connector.Logger.WriteLine("[Yara.check] ВНИМАНИЕ! СОВПАДЕНИЕ! ->" + Match.Rule.Identifier, LogLevel.WARN);
+
             }
 
-            return Matches;
+            var matches = new List<YSMatches>();
+
+            foreach (YSMatches Match in Matches)
+            {
+                if (Match.Rule.Identifier == "UPX")
+                {
+                    continue;
+                }
+
+                Connector.Logger.WriteLine("[Yara.check] ВНИМАНИЕ! СОВПАДЕНИЕ! ->" + Match.Rule.Identifier, LogLevel.WARN);
+                matches.Add(Match);
+            }
+
+            return matches;
         }
 
         public static bool CheckFile(string path)
         {
-            if(GetCheckResult(path).Count > 0)
+            if (GetCheckResult(path).Count > 0)
             {
                 return true;
             }

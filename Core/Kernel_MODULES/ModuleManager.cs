@@ -21,6 +21,7 @@ namespace Core.Kernel.ModuleLoader
             }
         }
 
+
         /// <summary>
         /// Представляет собой модуль, а так же загрузчик
         /// </summary>

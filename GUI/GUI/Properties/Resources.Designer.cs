@@ -63,6 +63,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap About_icon_icons_com_55974 {
+            get {
+                object obj = ResourceManager.GetObject("About_icon-icons.com_55974", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_96 {
             get {
                 object obj = ResourceManager.GetObject("close 96", resourceCulture);
