@@ -170,5 +170,18 @@ namespace Core.Kernel.Connectors
             });
         }
 
+        public static void Stop()
+        {
+            VirusesDb_CommandPipe.Close();
+            ScannerService_Command.Close();
+            ScannerService_Output.Close();
+            PartitionMon_CommandPipe.Close();
+            Filter_Command.Close();
+            ScannerService_Input.Close();
+            Filter_Input.Close();
+        }
     }
+
+
+
 }

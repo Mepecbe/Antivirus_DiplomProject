@@ -112,9 +112,7 @@ namespace GUI
                 TabControl.Appearance = TabAppearance.Buttons; //FlatButtons
                 TabControl.ItemSize = new System.Drawing.Size(0, 1);
                 TabControl.SizeMode = TabSizeMode.Fixed;
-                TabControl.TabStop = false;
-
-                
+                TabControl.TabStop = false;                
             }
 
             {
@@ -191,7 +189,6 @@ namespace GUI
                 files_sync.WaitOne();
                 {
                     var fileInfo = files.Dequeue();
-
 
                     var popup = new PopupNotifier()
                     {
@@ -359,6 +356,7 @@ namespace GUI
             {
                 var newItem = this.ScanObjectsList.Items.Add((this.ScanObjectsList.Items.Count + 1).ToString());
                 newItem.SubItems.Add("       " + folderBrowserDialog1.SelectedPath);
+                newItem.Tag = folderBrowserDialog1.SelectedPath;
             }
         }
 
@@ -370,6 +368,7 @@ namespace GUI
             {
                 var newItem = this.ScanObjectsList.Items.Add((this.ScanObjectsList.Items.Count + 1).ToString());
                 newItem.SubItems.Add("       " + openFileDialog1.FileName);
+                newItem.Tag = openFileDialog1.FileName;
             }
         }
 
@@ -392,11 +391,11 @@ namespace GUI
             {
                 if (Item.SubItems[1].Text.LastIndexOf('.') > Item.SubItems[1].Text.LastIndexOf('\\'))
                 {
-                    files.Add(Item.SubItems[1].Text.Remove(0, 7));
+                    files.Add(Item.Tag.ToString());
                 }
                 else
                 {
-                    dirs.Add(Item.SubItems[1].Text);
+                    dirs.Add(Item.Tag.ToString());
                 }
             }
 
@@ -545,6 +544,17 @@ namespace GUI
             foreach(ListViewItem item in metroListView4.Items)
             {
                 virusesActions.Add((VirusAction)item.Tag);
+            }
+
+            if(virusesActions.Count > 0)
+            {
+                var popup = new PopupNotifier()
+                {
+                    ContentText = "Действия выполнены",
+                    TitleText = "Antivirus"
+                };
+
+                popup.Popup();
             }
 
             API.ApplyingActions(virusesActions.ToArray());
@@ -711,10 +721,12 @@ namespace GUI
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            API.StopKernel();
             ScanManager.Stop();
             API.ApiStop();
             Updater.Stop();
-            this.Close();
+
+            Application.Exit();
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -830,12 +842,15 @@ namespace GUI
             this.ScanObjectsList.Items.Clear();
             ScanManager.ExtentionsFilter = $"*.exe|*.dll|*.bat|*.vba|*.py|*.xlsx|*.docx";
 
+            var root = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
+
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
-                if (drive.DriveType == DriveType.Fixed && drive.Name != Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System)))
+                if (drive.DriveType == DriveType.Fixed && drive.Name != root)
                 {
                     var item = ScanObjectsList.Items.Add((ScanObjectsList.Items.Count + 1).ToString());
                     item.SubItems.Add("       " + drive.Name);
+                    item.Tag = drive.Name;
                 }
             }
 

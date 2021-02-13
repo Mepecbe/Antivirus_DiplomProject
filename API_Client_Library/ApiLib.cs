@@ -169,6 +169,16 @@ namespace API_Client_Library
 
         }
 
+        public static void StopKernel()
+        {
+            Writer_sync.WaitOne();
+            {
+                OutputWriter.Write((byte)13);
+                OutputWriter.Flush();
+            }
+            Writer_sync.ReleaseMutex();
+        }
+
         /// <summary>
         /// Применить действия для обнаруженных вирусов
         /// </summary>

@@ -1,10 +1,4 @@
-﻿/*
-    Наименование модуля: Scanner(Сканнер)
-    Описание модуля
-        Служит для проверки файлов
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
@@ -19,12 +13,14 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using LoggerLib;
+using MODULE__SCAN.Yara;
 
 namespace MODULE__SCAN
 {
     public static class Configuration
     {
         public static Encoding PipeEncoding = Encoding.Unicode;
+        public static bool UsingYara = true;
 
         /// <summary>
         /// Максимальный размер файла для быстрого сканирования (файл подходящий под такой критерий будет полностью считываться в память)
@@ -39,6 +35,9 @@ namespace MODULE__SCAN
         public const int MAX_SCAN_TASKS = THREAD_COUNT * 2;
 
         public const int SCAN_THREAD_SLEEP = 100;
+
+        public const string YaraRulesDir = @"Modules\YARA\Rules";
+        public const SearchOption YaraRulesSearchOption = SearchOption.TopDirectoryOnly;
     }
 
 
@@ -242,7 +241,18 @@ namespace MODULE__SCAN
                 ScanResult Result = new ScanResult(0, result.NotVirus);
 
                 byte[] FileBuffer = new byte[FileStream.Length];
-                int readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
+
+                int readed = 0;
+
+                try
+                {
+                    readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
+                }
+                catch(Exception ex)
+                {
+                    Connector.Logger.WriteLine($"[Scanner] Ошибка чтения файла {ex.Message}", LogLevel.ERROR);
+                    return new ScanResult(0, result.Error);
+                }
 
                 if (readed == 0)
                 {
@@ -296,7 +306,7 @@ namespace MODULE__SCAN
                 }
                 catch (Exception ex)
                 {
-                    Connector.Logger.WriteLine($"[Scanner] error {ex.Message}", LogLevel.ERROR);
+                    Connector.Logger.WriteLine($"[Scanner] Ошибка во время проверки {ex.Message}", LogLevel.ERROR);
                 }
 
                 return Result;
@@ -384,45 +394,69 @@ namespace MODULE__SCAN
                         TaskQueue_Sync.ReleaseMutex();
 
                         {
-                            FileStream stream = null;
+                            if (Configuration.UsingYara)
+                            {
+                                try
+                                {
+                                    Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал проверку правил Yara", LogLevel.WARN);
+                                    var result = YaraIntegration.CheckFile(task.file);
 
-                            try
-                            {
-                                stream = File.Open(task.file, FileMode.Open, FileAccess.Read);
+                                    ScanCompleted(
+                                        task, 
+                                        new ScanResult(0, result ? MODULE__SCAN.result.Virus : MODULE__SCAN.result.NotVirus)
+                                    );                                  
+                                }
+                                catch(Exception ex)
+                                {
+                                    Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Ошибка при проверке правил\n{ex.Message}", LogLevel.ERROR);
+                                    ScanCompleted(
+                                        task,
+                                        new ScanResult(0, MODULE__SCAN.result.Error)
+                                    ); ;
+                                }
                             }
-                            catch (PathTooLongException)
+                            else
                             {
-                                Connector.Logger.WriteLine($"[SCANNER] PathTooLongException", LogLevel.ERROR);
-                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                            }
-                            catch (UnauthorizedAccessException)
-                            {
-                                Connector.Logger.WriteLine($"[SCANNER] UnauthorizedAccessException", LogLevel.ERROR);
-                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                            }
-                            catch (DirectoryNotFoundException)
-                            {
-                                Connector.Logger.WriteLine($"[SCANNER] DirectoryNotFoundException", LogLevel.ERROR);
-                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                            }
-                            catch (FileNotFoundException)
-                            {
-                                Connector.Logger.WriteLine($"[SCANNER] FileNotFoundException", LogLevel.ERROR);
-                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                            }
-                            catch (Exception ex)
-                            {
-                                Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}", LogLevel.ERROR);
-                                ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
-                                continue;
-                            }
+                                FileStream stream = null;
 
-                            Connector.Logger.WriteLine($"Thread start scan {Thread.CurrentThread.Name}", LogLevel.WARN);
+                                try
+                                {
+                                    stream = File.Open(task.file, FileMode.Open, FileAccess.Read);
+                                }
+                                catch (PathTooLongException)
+                                {
+                                    Connector.Logger.WriteLine($"[SCANNER] PathTooLongException", LogLevel.ERROR);
+                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    Connector.Logger.WriteLine($"[SCANNER] UnauthorizedAccessException", LogLevel.ERROR);
+                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                                }
+                                catch (DirectoryNotFoundException)
+                                {
+                                    Connector.Logger.WriteLine($"[SCANNER] DirectoryNotFoundException", LogLevel.ERROR);
+                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                                }
+                                catch (FileNotFoundException)
+                                {
+                                    Connector.Logger.WriteLine($"[SCANNER] FileNotFoundException", LogLevel.ERROR);
+                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                                }
+                                catch (Exception ex)
+                                {
+                                    Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}", LogLevel.ERROR);
+                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
+                                    continue;
+                                }
 
-                            var result = Scanner.ScanFile(stream);
+                                Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал сканирование поиском сигнатуры", LogLevel.WARN);
 
-                            stream.Close();
-                            ScanCompleted(task, result);
+                                var result = Scanner.ScanFile(stream);
+
+                                stream.Close();
+                                ScanCompleted(task, result);
+                            }
                         }
 
                         continue;
@@ -451,6 +485,8 @@ namespace MODULE__SCAN
     {
         public static byte EntryPoint()
         {
+            YaraIntegration.Init();
+
             ScanTasks.Init();
             new Thread(() => Connector.Init()).Start();
 

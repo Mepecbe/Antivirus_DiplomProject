@@ -28,8 +28,9 @@ namespace Core
     {
 #if DEBUG
         private static Process LoggerProc;
-        private static Process GUI_Proc;
 #endif
+
+        private static Process GUI_Proc;
 
         public static Configuration Config;
 
@@ -64,9 +65,6 @@ namespace Core
             foreach (string FileName in Directory.GetFiles(Directory.GetCurrentDirectory() + "\\Modules\\", "*.dll"))
             {
                 string File = FileName.Substring(FileName.LastIndexOf('\\') + 1, FileName.Length - FileName.LastIndexOf('\\') - 1);
-#if DEBUG
-                KernelConnectors.Logger.WriteLine("[Kernel.initModules] Загрузка модуля -> " + File);
-#endif
                 ModuleManager.Loader.LoadModule(File);
             }
 
@@ -116,6 +114,8 @@ namespace Core
             //VirusesDb 
             new Task(() =>
             {
+                Thread.Sleep(200);
+
                 //Выгрузить все сигнатуры в менеджер сканера
                 KernelConnectors.VirusesDb_CommandWriter.Write("/upload_to_scanner");
                 KernelConnectors.VirusesDb_CommandWriter.Flush(); 

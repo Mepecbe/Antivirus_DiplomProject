@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Core.Kernel.Connectors;
+using Core;
 
 namespace Core.Kernel.ModuleLoader
 {
@@ -34,7 +35,15 @@ namespace Core.Kernel.ModuleLoader
                 this.IsRunning = false;
                 this.ModuleName = ModuleFileName;
 
-                this.ModuleAssembly = Assembly.LoadFrom("Modules\\" + ModuleFileName);
+                try
+                {
+                    this.ModuleAssembly = Assembly.LoadFrom("Modules\\" + ModuleFileName);
+                }
+                catch
+                {
+#warning Обработка ошибки сборки
+                    return;
+                }
 
                 {
                     //Проверка существования класса инициализатора

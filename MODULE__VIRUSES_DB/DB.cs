@@ -16,6 +16,7 @@ namespace MODULE__VIRUSES_DB
     public static class Configurations
     {
         public static Encoding NamedPipeEncoding = Encoding.Unicode;
+        public static string DatabaseFilesDir = "DatabaseFiles\\";
     }
 
 
@@ -117,8 +118,14 @@ namespace MODULE__VIRUSES_DB
                 DbStorage.CreateDirectory("VirusesDb");
             }
 
-            LoadToIsolatedStorage("DatabaseFiles\\");
+            if (!Directory.Exists(Configurations.DatabaseFilesDir))
+            {
+                Connectors.Logger.WriteLine($"[InitDB] ВНИМАНИЕ! Создана папка {Configurations.DatabaseFilesDir}", LogLevel.WARN);
+                Directory.CreateDirectory(Configurations.DatabaseFilesDir);
+            }
 
+            //Выгрузка баз из жесткого диска в изолированное хранилище
+            LoadToIsolatedStorage("DatabaseFiles\\");
             string[] files = DbStorage.GetFileNames("VirusesDb\\*.db");
 
             if (files.Length > 0)
@@ -187,7 +194,6 @@ namespace MODULE__VIRUSES_DB
 
             int signatureLen = 0;
             VirusTypes type = 0;
-
 
             while (reader.BaseStream.Position < reader.BaseStream.Length)
             {

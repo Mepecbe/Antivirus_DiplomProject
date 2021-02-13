@@ -13,6 +13,7 @@ using Core.Kernel.Quarantine;
 using Core.Kernel.VirusesManager;
 using Core.Kernel.ErrorTasks;
 
+
 namespace Core.Kernel.API
 {
     static class API
@@ -195,6 +196,14 @@ namespace Core.Kernel.API
                             {
                                 KernelConnectors.Filter_CommandWriter.Write((byte)5);
                                 KernelConnectors.Filter_CommandWriter.Flush();
+                                break;
+                            }
+
+                        //Отключить всё
+                        case 13:
+                            {
+                                ScanTasks.ClearQueue();
+                                KernelConnectors.Stop();
                                 break;
                             }
 
