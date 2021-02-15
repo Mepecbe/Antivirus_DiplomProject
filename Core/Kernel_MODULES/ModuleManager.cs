@@ -42,7 +42,7 @@ namespace Core.Kernel.ModuleLoader
                 }
                 catch
                 {
-#warning Обработка ошибки сборки
+                    KernelConnectors.Logger.WriteLine($"[ModuleManager.LoadModule] Ошибка загрузки сборки модуля {ModuleFileName}", LoggerLib.LogLevel.ERROR);
                     return;
                 }
 
