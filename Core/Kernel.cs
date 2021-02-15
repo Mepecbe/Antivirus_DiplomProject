@@ -127,7 +127,7 @@ namespace Core
         /// Точка входа в ядро
         /// </summary>
         /// <param name="args"></param>
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             Console.CancelKeyPress += Console_CancelKeyPress;
             AppDomain.CurrentDomain.ProcessExit += OnCloseProcess;
@@ -168,7 +168,7 @@ namespace Core
                 }
             }
 
-            await Task.Delay(-1);
+            //await Task.Delay(-1);
         }
 
         private static void OnCloseProcess(object sender, EventArgs e)

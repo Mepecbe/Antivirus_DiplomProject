@@ -87,6 +87,11 @@ namespace Core.Kernel.ScanModule
         {
             InputThreadHandler.Start();
         }
+
+        public static void Stop()
+        {
+            InputThreadHandler.Abort();
+        }
     }
 
     /// <summary>
@@ -113,7 +118,7 @@ namespace Core.Kernel.ScanModule
             while (true)
             {
                 string commandBuffer = KernelConnectors.Filter_Reader.ReadString();
-
+                
                 if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
                 {
                     //Если файл уже числится у нас как вирус
@@ -147,6 +152,11 @@ namespace Core.Kernel.ScanModule
         public static void Run()
         {
             FilterMonitor.Start();
+        }
+
+        public static void Stop()
+        {
+            FilterMonitor.Abort();
         }
     }
 
@@ -367,6 +377,18 @@ namespace Core.Kernel.ScanModule
 
             Scanner_Output = KernelConnectors.ScannerService_Output;
             ScannerBinaryWriter = new BinaryWriter(Scanner_Output, KernelInitializator.Config.NamedPipeEncoding);
+        }
+
+        public static void Stop()
+        {
+            KernelConnectors.Logger.WriteLine("[ScanQueue.Stop] Остановка обработчика фильтра");
+            FilterHandler.Stop();
+
+            KernelConnectors.Logger.WriteLine("[ScanQueue.Stop] Остановка обработчика ответов от сканнера");
+            ScannerResponseHandler.Stop();
+
+            KernelConnectors.Logger.WriteLine("[ScanQueue.Stop] Очистка очереди сканирования");
+            ClearQueue();
         }
     }
 

@@ -23,10 +23,7 @@ namespace Core.Kernel.API
         private static Thread RequestHandler = new Thread(Handler);
 
         private static NamedPipeClientStream UserOutputConnector;
-        private static Mutex API_Out_sync;
-
         private static NamedPipeServerStream UserInputConnector;
-        private static Mutex API_In_sync;
 
         private static BinaryWriter Out_writer;
 
@@ -58,11 +55,21 @@ namespace Core.Kernel.API
                         if (!UserInputConnector.IsConnected)
                         {
 #if DEBUG
-                            Console.WriteLine("[API] Переподключение");
+                            Console.WriteLine("[API] Ожидание переподключения пользователя");
 #endif
                             UserInputConnector.WaitForConnection();
 
+                            if (!UserOutputConnector.IsConnected)
+                            {
+#if DEBUG
+                                Console.WriteLine("[API] Переподключение к пользователю");
+#endif
+                                UserOutputConnector.Connect();
+                            }
+
+
                             KernelConnectors.Api_In_Sync.ReleaseMutex();
+                            continue;
                         }
                     }
 
@@ -126,8 +133,15 @@ namespace Core.Kernel.API
                             {
                                 string file = binaryReader.ReadString();
 
-                                if(ScanTasks.Add(file) is null)
+#if DEBUG
+                                Console.WriteLine("[API] Добавление задачи " + file);
+#endif
+
+                                if (ScanTasks.Add(file) is null)
                                 {
+#if DEBUG
+                                    Console.WriteLine("[API] Ошибка добавления задачи, проверка завершена");
+#endif
                                     API_ScanCompleted(0, false, 0, file);
                                 } 
 
@@ -204,12 +218,44 @@ namespace Core.Kernel.API
                         //Отключить всё
                         case 13:
                             {
-                                KernelConnectors.PartitionMon_CommandWriter.Write("7*");
-                                KernelConnectors.ScannerService_CommandWriter.Write((byte)1);
-                                KernelConnectors.VirusesDb_CommandWriter.Write("/shutdown");
+#if DEBUG
+                                Console.WriteLine("[API] Выключение ядра");
+#endif
 
-                                ScanTasks.ClearQueue();
+                                ScanTasks.Stop();
+
+                                {
+#if DEBUG
+                                    Console.WriteLine("[API] Выключение фильтра ");
+#endif
+                                    KernelConnectors.Filter_CommandWriter.Write((byte)6);
+
+#if DEBUG
+                                    Console.WriteLine("[API] Выключение монитора разделов ");
+#endif
+                                    KernelConnectors.PartitionMon_CommandWriter.Write("7*");
+
+#if DEBUG
+                                    Console.WriteLine("[API] Выключение сканнера ");
+#endif
+                                    KernelConnectors.ScannerService_CommandWriter.Write((byte)1);
+
+#if DEBUG
+                                    Console.WriteLine("[API] Выключение вирусной БД");
+#endif
+                                    KernelConnectors.VirusesDb_CommandWriter.Write("/shutdown");
+                                }
+
+#if DEBUG
+                                Console.WriteLine("[API] Закрытие подключений");
+#endif
                                 KernelConnectors.Stop();
+
+
+#if DEBUG
+                                Console.WriteLine("[API] Отключение обработчика API");
+#endif
+                                RequestHandler.Abort();
 
                                 break;
                             }
@@ -241,7 +287,7 @@ namespace Core.Kernel.API
                 return;
             }
 
-            API_Out_sync.WaitOne();
+            KernelConnectors.Api_Out_Sync.WaitOne();
             {
                 if (found)
                 {
@@ -259,7 +305,7 @@ namespace Core.Kernel.API
 
                 Out_writer.Flush();
             }
-            API_Out_sync.ReleaseMutex();
+            KernelConnectors.Api_Out_Sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -323,7 +369,7 @@ namespace Core.Kernel.API
                 return;
             }
 
-            API_Out_sync.WaitOne();
+            KernelConnectors.Api_Out_Sync.WaitOne();
             {
                 Out_writer.Write((byte)2);
                 Out_writer.Write(virusInfo.id);
@@ -334,12 +380,12 @@ namespace Core.Kernel.API
                 Out_writer.Write(virusInfo.fileInQuarantine is null ? " " : virusInfo.fileInQuarantine);
                 Out_writer.Flush();
             }
-            API_Out_sync.ReleaseMutex();
+            KernelConnectors.Api_Out_Sync.ReleaseMutex();
         }
 
         private static void getAllVirusesInfo()
         {
-            API_Out_sync.WaitOne();
+            KernelConnectors.Api_Out_Sync.WaitOne();
             {
                 foreach(VirusInfo virusInfo in FoundVirusesManager.getAllViruses())
                 {
@@ -354,7 +400,7 @@ namespace Core.Kernel.API
                     Out_writer.Flush();
                 }
             }
-            API_Out_sync.ReleaseMutex();
+            KernelConnectors.Api_Out_Sync.ReleaseMutex();
         }
 
         private static void Defender(bool flag)
@@ -376,9 +422,6 @@ namespace Core.Kernel.API
         {
             UserOutputConnector = KernelConnectors.Api_Out;
             UserInputConnector = KernelConnectors.Api_In;
-
-            API_In_sync = KernelConnectors.Api_In_Sync;
-            API_Out_sync = KernelConnectors.Api_Out_Sync;
 
             ScannerResponseHandler.onScanCompleted += API_ScanCompleted;
 

@@ -49,9 +49,9 @@ namespace MODULE__SCAN
 
         public static NamedPipeClientStream outputPipe = new NamedPipeClientStream("ScannerService.output");
 
-        private static Thread inputHandler = new Thread(inputThread);
-        private static Thread signatureHandler = new Thread(signatureThread);
-        private static Thread commandHandler = new Thread(commandThread);
+        private static Thread inputHandler = new Thread(inputThread)         { Name = "inputHandler" };
+        private static Thread signatureHandler = new Thread(signatureThread) { Name = "signatureHandler" };
+        private static Thread commandHandler = new Thread(commandThread)     { Name = "commandHandler" };
 
         private static BinaryWriter outputWriter;
         private static BinaryReader commandReader;
@@ -83,7 +83,18 @@ namespace MODULE__SCAN
 
             while (true)
             {
-                int id = binaryReader.ReadInt32();
+                int id = 0;
+
+                try
+                {
+                    id = binaryReader.ReadInt32();
+                }
+                catch
+                {
+                    Logger.WriteLine("[Scanner.signatureThread] Отключаю поток", LogLevel.ERROR);
+                    break;
+                }
+
                 string file = binaryReader.ReadString();
 
                 Logger.WriteLine($"[Scanner.inputThread] Добавляю задачу сканирования, айди {id}, путь -> {file}");
@@ -103,13 +114,14 @@ namespace MODULE__SCAN
             while (true)
             {
                 var ID = 0;
+
                 try
                 {
                     ID = binaryReader.ReadInt16();
                 }
                 catch
                 {
-                    Logger.WriteLine("[Scanner.signatureThread] Отключаю поток", LogLevel.OK);
+                    Logger.WriteLine("[Scanner.signatureThread] Отключаю поток", LogLevel.ERROR);
                     break;
                 }
 
@@ -146,7 +158,7 @@ namespace MODULE__SCAN
                 {
                     case 0:
                         {
-                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.OK);
+                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
                             ScanTasks.TaskQueue_Sync.WaitOne();
                             {
@@ -159,7 +171,7 @@ namespace MODULE__SCAN
 
                     case 1:
                         {
-                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.OK);
+                            Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
                             ScanTasks.TaskQueue_Sync.WaitOne();
                             {
@@ -167,18 +179,25 @@ namespace MODULE__SCAN
                                 ScanTasks.ActiveScanTasks = 0;
                             }
 
-                            Logger.WriteLine("[Scanner.commandThread] Остановка потоков", LogLevel.OK);
+                            for(int index = 0; index < ScanTasks.ScanThreads.Length; index++)
+                            {
+                                Logger.WriteLine($"[Scanner.commandThread] Остановка потока сканирования {index}", LogLevel.WARN);
+                                ScanTasks.ScanThreads[index].Abort();
+                            }
+
+                            Logger.WriteLine("[Scanner.commandThread] Остановка потоков", LogLevel.WARN);
                             inputHandler.Abort();
                             signatureHandler.Abort();
 
-                            Logger.WriteLine("[Scanner.commandThread] Закрытие труб", LogLevel.OK);
+                            Thread.Sleep(100);
+
+                            Logger.WriteLine("[Scanner.commandThread] Закрытие труб", LogLevel.WARN);
                             commandPipe.Close();
                             inputPipe.Close();
                             commandPipe.Close();
                             outputPipe.Close();
 
                             commandHandler.Abort();
-
                             break;
                         }
                 }
@@ -510,7 +529,7 @@ namespace MODULE__SCAN
         {
             for (int index = 0; index < ScanThreads.Length; index++)
             {
-                ScanThreads[index] = new Thread(ScanThread) { Name = index.ToString() };
+                ScanThreads[index] = new Thread(ScanThread) { Name = "Scan Thread " + index.ToString() };
                 ScanThreads[index].Start();
             }
         }

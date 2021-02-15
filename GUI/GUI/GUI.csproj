@@ -202,7 +202,7 @@
     <None Include="Resources\About_icon-icons.com_55974.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Antivirus_Core\API_Client_Library\API_Client_Library.csproj">
+    <ProjectReference Include="..\..\API_Client_Library\API_Client_Library.csproj">
       <Project>{0bab3d40-59eb-46f0-8a82-b90b1df1f593}</Project>
       <Name>API_Client_Library</Name>
     </ProjectReference>

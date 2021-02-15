@@ -28,7 +28,8 @@ namespace MODULE__VIRUSES_DB
         public static NamedPipeClientStream ScannerService_signatures = new NamedPipeClientStream("ScannerService.signatures");
         public static BinaryWriter ScannerService_signatures_Writer;
 
-        public static Thread CommandThread = new Thread(commandHandler);
+        public static Thread CommandThread = new Thread(commandHandler)
+        { Name = "VirusesDbHandler" };
 
         public static LoggerClient Logger = new LoggerClient("Logger.VirusesDB", "Viruses DB");
 

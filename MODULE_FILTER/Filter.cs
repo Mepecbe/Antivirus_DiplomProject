@@ -71,7 +71,8 @@ namespace MODULE__FILTER
                 Connector.Logger.WriteLine("[Filter.DriverHandler] Ожидаю подключения драйвер коннектора");
                 Connector.DriverMonitor.WaitForConnection();
                 Connector.Logger.WriteLine("[Filter.DriverHandler] Драйвер коннектор подключен", LogLevel.OK);
-            });
+            })
+            { Name = "DriverHandler" };
 
             /// <summary>
             /// Обработчик сообщений от API монитора
@@ -101,7 +102,8 @@ namespace MODULE__FILTER
                         Connector.Logger.WriteLine("[Filter.ApiMonHandler] ПУТЬ ОТФИЛЬТРОВАН ->" + buffer, LogLevel.WARN);
                     }
                 }
-            });
+            })
+            { Name = "ApiMonHandler" };
 
             /// <summary>
             /// Обработчик команд
@@ -186,14 +188,29 @@ namespace MODULE__FILTER
                                 
                                 break;
                             }
+
+                        //Выключение
+                        case 6:
+                            {
+                                Connector.Logger.WriteLine("[Filter.CommandHandler] Выключение", LogLevel.OK);
+
+                                Handler1.Abort();
+                                Handler2.Abort();
+
+
+                                CommandHandler.Abort();
+
+                                break;
+                            }
                     }
                 }
-            });
+            })
+            { Name = "CommandHandler" };
 
 
             public static void Init()
             {
-                Handler1.Start();
+                //Handler1.Start();
                 Handler2.Start();
                 CommandHandler.Start();
             }

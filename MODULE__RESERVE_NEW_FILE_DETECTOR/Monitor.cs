@@ -490,7 +490,9 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
 
         public static Queue<string> FileQueue = new Queue<string>();
 
-        public static Thread LoaderThread = new Thread(Loader);
+        public static Thread LoaderThread = new Thread(Loader) { Name = "MonitorLoader" };
+        public static Thread BufferCleaner = new Thread(Cleaner) { Name = "MonitorBufferCleaner" };
+
 
         private static bool RemoveIfExists(string path)
         {
@@ -506,19 +508,18 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             return false;
         }
 
+        public static void Cleaner()
+        {
+            while (true)
+            {
+                Connector.Logger.WriteLine($"[FileSysApiMon.AutoCleaner] Очистка буффера файлов {CreatedFilesBuffer.Count}");
+                CreatedFilesBuffer.Clear();
+                Thread.Sleep(TimeSpan.FromSeconds(60));
+            }
+        }
+
         public static void Loader()
         {
-            new Task(() =>
-            {
-                while (true)
-                {
-                    Connector.Logger.WriteLine($"[FileSysApiMon.AutoCleaner] Очистка буффера файлов {CreatedFilesBuffer.Count}");
-                    CreatedFilesBuffer.Clear();
-                    Thread.Sleep(TimeSpan.FromSeconds(60));
-                }
-            }).Start();
-
-
             while (true)
             {
                 if(FileQueue.Count > 0)
@@ -655,6 +656,14 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю командную трубу!", LogLevel.OK);
                                 Connector.CommandPipe.Close();
 
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Остановка потока загрузчика!", LogLevel.OK);
+                                LoaderThread.Abort();
+
+
+                                Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Остановка потока очистки буффера!", LogLevel.OK);
+                                BufferCleaner.Abort();
+
                                 foreach (FileSystemWatcher watcher in FileSystemWatchers)
                                 {
                                     Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю монитор раздела!", LogLevel.OK);
@@ -781,6 +790,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             new Task(() =>
             {
                 PartitionMonitor.LoaderThread.Start();
+                PartitionMonitor.BufferCleaner.Start();
                 Connector.Init();
                 PartitionMonitor.Init();
                 RemovableDeviceMonitor.Init();
