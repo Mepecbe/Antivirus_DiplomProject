@@ -35,6 +35,13 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.progInfo = new MetroFramework.Controls.MetroTile();
+            this.ExceptionsButton = new MetroFramework.Controls.MetroTile();
+            this.UpdateButton = new MetroFramework.Controls.MetroTile();
+            this.QuarantineButton = new MetroFramework.Controls.MetroTile();
+            this.settingsButton = new MetroFramework.Controls.MetroTile();
+            this.ScanButton = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.metroButton9 = new MetroFramework.Controls.MetroButton();
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
@@ -128,18 +135,11 @@ namespace GUI
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyIconContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.приостановитьЗащитуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.progInfo = new MetroFramework.Controls.MetroTile();
-            this.ExceptionsButton = new MetroFramework.Controls.MetroTile();
-            this.UpdateButton = new MetroFramework.Controls.MetroTile();
-            this.QuarantineButton = new MetroFramework.Controls.MetroTile();
-            this.settingsButton = new MetroFramework.Controls.MetroTile();
-            this.ScanButton = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.приостановитьЗащитуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -193,6 +193,116 @@ namespace GUI
             this.tabPage1.Size = new System.Drawing.Size(896, 415);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "page_main";
+            // 
+            // progInfo
+            // 
+            this.progInfo.ActiveControl = null;
+            this.progInfo.Location = new System.Drawing.Point(642, 22);
+            this.progInfo.Name = "progInfo";
+            this.progInfo.Size = new System.Drawing.Size(168, 168);
+            this.progInfo.TabIndex = 18;
+            this.progInfo.Text = "О программе";
+            this.progInfo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.progInfo.TileImage = global::GUI.Properties.Resources.About_icon_icons_com_55974;
+            this.progInfo.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progInfo.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.progInfo.UseSelectable = true;
+            this.progInfo.UseTileImage = true;
+            this.progInfo.Click += new System.EventHandler(this.progInfo_Click);
+            // 
+            // ExceptionsButton
+            // 
+            this.ExceptionsButton.ActiveControl = null;
+            this.ExceptionsButton.Location = new System.Drawing.Point(222, 212);
+            this.ExceptionsButton.Name = "ExceptionsButton";
+            this.ExceptionsButton.Size = new System.Drawing.Size(168, 168);
+            this.ExceptionsButton.TabIndex = 17;
+            this.ExceptionsButton.Text = "ИСКЛЮЧЕНИЯ";
+            this.ExceptionsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ExceptionsButton.TileImage = global::GUI.Properties.Resources.close_96;
+            this.ExceptionsButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ExceptionsButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.ExceptionsButton.UseSelectable = true;
+            this.ExceptionsButton.UseTileImage = true;
+            this.ExceptionsButton.Click += new System.EventHandler(this.ExceptionsButton_Click_1);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.ActiveControl = null;
+            this.UpdateButton.Location = new System.Drawing.Point(435, 212);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(168, 168);
+            this.UpdateButton.TabIndex = 16;
+            this.UpdateButton.Text = "ОБНОВЛЕНИЯ";
+            this.UpdateButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.UpdateButton.TileImage = global::GUI.Properties.Resources.reload_96;
+            this.UpdateButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UpdateButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.UpdateButton.UseSelectable = true;
+            this.UpdateButton.UseTileImage = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click_1);
+            // 
+            // QuarantineButton
+            // 
+            this.QuarantineButton.ActiveControl = null;
+            this.QuarantineButton.Location = new System.Drawing.Point(435, 22);
+            this.QuarantineButton.Name = "QuarantineButton";
+            this.QuarantineButton.Size = new System.Drawing.Size(168, 168);
+            this.QuarantineButton.TabIndex = 15;
+            this.QuarantineButton.Text = "КАРАНТИН";
+            this.QuarantineButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.QuarantineButton.TileImage = global::GUI.Properties.Resources.safe_96;
+            this.QuarantineButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.QuarantineButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.QuarantineButton.UseSelectable = true;
+            this.QuarantineButton.UseTileImage = true;
+            this.QuarantineButton.Click += new System.EventHandler(this.QuarantineButton_Click_1);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.ActiveControl = null;
+            this.settingsButton.Location = new System.Drawing.Point(17, 212);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(168, 168);
+            this.settingsButton.TabIndex = 14;
+            this.settingsButton.Text = "НАСТРОЙКИ";
+            this.settingsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.settingsButton.TileImage = global::GUI.Properties.Resources.settings_96;
+            this.settingsButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.settingsButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.settingsButton.UseSelectable = true;
+            this.settingsButton.UseTileImage = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click_1);
+            // 
+            // ScanButton
+            // 
+            this.ScanButton.ActiveControl = null;
+            this.ScanButton.Location = new System.Drawing.Point(222, 22);
+            this.ScanButton.Name = "ScanButton";
+            this.ScanButton.Size = new System.Drawing.Size(168, 168);
+            this.ScanButton.TabIndex = 13;
+            this.ScanButton.Text = "СКАНИРОВАНИЕ";
+            this.ScanButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ScanButton.TileImage = global::GUI.Properties.Resources.search_96;
+            this.ScanButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ScanButton.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.ScanButton.UseSelectable = true;
+            this.ScanButton.UseTileImage = true;
+            this.ScanButton.Click += new System.EventHandler(this.ScanButton_Click_2);
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(17, 22);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(168, 168);
+            this.metroTile1.TabIndex = 12;
+            this.metroTile1.Text = "ЗАЩИТА АКТИВНА";
+            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.metroTile1.TileImage = global::GUI.Properties.Resources.iconfinder_securityprotectlockshield04_4021479_113137;
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseTileImage = true;
             // 
             // tabPage2
             // 
@@ -1096,6 +1206,13 @@ namespace GUI
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
+            // приостановитьЗащитуToolStripMenuItem
+            // 
+            this.приостановитьЗащитуToolStripMenuItem.Name = "приостановитьЗащитуToolStripMenuItem";
+            this.приостановитьЗащитуToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.приостановитьЗащитуToolStripMenuItem.Text = "Приостановить защиту";
+            this.приостановитьЗащитуToolStripMenuItem.Click += new System.EventHandler(this.приостановитьЗащитуToolStripMenuItem_Click);
+            // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
@@ -1111,117 +1228,6 @@ namespace GUI
             // 
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
-            // 
-            // progInfo
-            // 
-            this.progInfo.ActiveControl = null;
-            this.progInfo.Location = new System.Drawing.Point(642, 22);
-            this.progInfo.Name = "progInfo";
-            this.progInfo.Size = new System.Drawing.Size(168, 168);
-            this.progInfo.TabIndex = 18;
-            this.progInfo.Text = "О программе";
-            this.progInfo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.progInfo.TileImage = global::GUI.Properties.Resources.About_icon_icons_com_55974;
-            this.progInfo.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.progInfo.UseSelectable = true;
-            this.progInfo.UseTileImage = true;
-            this.progInfo.Click += new System.EventHandler(this.progInfo_Click);
-            // 
-            // ExceptionsButton
-            // 
-            this.ExceptionsButton.ActiveControl = null;
-            this.ExceptionsButton.Location = new System.Drawing.Point(222, 212);
-            this.ExceptionsButton.Name = "ExceptionsButton";
-            this.ExceptionsButton.Size = new System.Drawing.Size(168, 168);
-            this.ExceptionsButton.TabIndex = 17;
-            this.ExceptionsButton.Text = "ИСКЛЮЧЕНИЯ";
-            this.ExceptionsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ExceptionsButton.TileImage = global::GUI.Properties.Resources.close_96;
-            this.ExceptionsButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ExceptionsButton.UseSelectable = true;
-            this.ExceptionsButton.UseTileImage = true;
-            this.ExceptionsButton.Click += new System.EventHandler(this.ExceptionsButton_Click_1);
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.ActiveControl = null;
-            this.UpdateButton.Location = new System.Drawing.Point(435, 212);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(168, 168);
-            this.UpdateButton.TabIndex = 16;
-            this.UpdateButton.Text = "ОБНОВЛЕНИЯ";
-            this.UpdateButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UpdateButton.TileImage = global::GUI.Properties.Resources.reload_96;
-            this.UpdateButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.UpdateButton.UseSelectable = true;
-            this.UpdateButton.UseTileImage = true;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click_1);
-            // 
-            // QuarantineButton
-            // 
-            this.QuarantineButton.ActiveControl = null;
-            this.QuarantineButton.Location = new System.Drawing.Point(435, 22);
-            this.QuarantineButton.Name = "QuarantineButton";
-            this.QuarantineButton.Size = new System.Drawing.Size(168, 168);
-            this.QuarantineButton.TabIndex = 15;
-            this.QuarantineButton.Text = "КАРАНТИН";
-            this.QuarantineButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.QuarantineButton.TileImage = global::GUI.Properties.Resources.safe_96;
-            this.QuarantineButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.QuarantineButton.UseSelectable = true;
-            this.QuarantineButton.UseTileImage = true;
-            this.QuarantineButton.Click += new System.EventHandler(this.QuarantineButton_Click_1);
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.ActiveControl = null;
-            this.settingsButton.Location = new System.Drawing.Point(17, 212);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(168, 168);
-            this.settingsButton.TabIndex = 14;
-            this.settingsButton.Text = "НАСТРОЙКИ";
-            this.settingsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.settingsButton.TileImage = global::GUI.Properties.Resources.settings_96;
-            this.settingsButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.settingsButton.UseSelectable = true;
-            this.settingsButton.UseTileImage = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click_1);
-            // 
-            // ScanButton
-            // 
-            this.ScanButton.ActiveControl = null;
-            this.ScanButton.Location = new System.Drawing.Point(222, 22);
-            this.ScanButton.Name = "ScanButton";
-            this.ScanButton.Size = new System.Drawing.Size(168, 168);
-            this.ScanButton.TabIndex = 13;
-            this.ScanButton.Text = "СКАНИРОВАНИЕ";
-            this.ScanButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ScanButton.TileImage = global::GUI.Properties.Resources.search_96;
-            this.ScanButton.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ScanButton.UseSelectable = true;
-            this.ScanButton.UseTileImage = true;
-            this.ScanButton.Click += new System.EventHandler(this.ScanButton_Click_2);
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(17, 22);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(168, 168);
-            this.metroTile1.TabIndex = 12;
-            this.metroTile1.Text = "ЗАЩИТА АКТИВНА";
-            this.metroTile1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.metroTile1.TileImage = global::GUI.Properties.Resources.iconfinder_securityprotectlockshield04_4021479_113137;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
-            // 
-            // приостановитьЗащитуToolStripMenuItem
-            // 
-            this.приостановитьЗащитуToolStripMenuItem.Name = "приостановитьЗащитуToolStripMenuItem";
-            this.приостановитьЗащитуToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.приостановитьЗащитуToolStripMenuItem.Text = "Приостановить защиту";
-            this.приостановитьЗащитуToolStripMenuItem.Click += new System.EventHandler(this.приостановитьЗащитуToolStripMenuItem_Click);
             // 
             // MainForm
             // 
