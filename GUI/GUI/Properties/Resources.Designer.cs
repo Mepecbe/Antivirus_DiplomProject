@@ -63,6 +63,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _128_crypto {
+            get {
+                object obj = ResourceManager.GetObject("128_crypto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4124820_document_encryption_file_access_file_security_protected_file_113909 {
+            get {
+                object obj = ResourceManager.GetObject("4124820-document-encryption-file-access-file-security-protected-file_113909", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap About_icon_icons_com_55974 {
             get {
                 object obj = ResourceManager.GetObject("About_icon-icons.com_55974", resourceCulture);

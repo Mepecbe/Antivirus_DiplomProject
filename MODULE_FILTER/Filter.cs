@@ -202,6 +202,16 @@ namespace MODULE__FILTER
 
                                 break;
                             }
+
+                        //Удалить все правила (регулярные выражения)
+                        case 7:
+                            {
+                                FiltrationRules.Extentions.Clear();
+                                FiltrationRules.OtherRules.Clear();
+                                FiltrationRules.Paths.Clear();
+
+                                break;
+                            }
                     }
                 }
             })

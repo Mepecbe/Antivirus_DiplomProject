@@ -35,6 +35,7 @@ namespace GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Cryptographer = new MetroFramework.Controls.MetroTile();
             this.progInfo = new MetroFramework.Controls.MetroTile();
             this.ExceptionsButton = new MetroFramework.Controls.MetroTile();
             this.UpdateButton = new MetroFramework.Controls.MetroTile();
@@ -129,6 +130,7 @@ namespace GUI
             this.page_scan_result_all_scanned = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,6 +142,7 @@ namespace GUI
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -154,6 +157,7 @@ namespace GUI
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.setAction.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.MonPartitionContextMenu.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -169,6 +173,7 @@ namespace GUI
             this.TabControl.Controls.Add(this.tabPage6);
             this.TabControl.Controls.Add(this.tabPage7);
             this.TabControl.Controls.Add(this.tabPage8);
+            this.TabControl.Controls.Add(this.tabPage9);
             this.TabControl.ItemSize = new System.Drawing.Size(0, 10);
             this.TabControl.Location = new System.Drawing.Point(2, 27);
             this.TabControl.Name = "TabControl";
@@ -180,6 +185,7 @@ namespace GUI
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage1.Controls.Add(this.Cryptographer);
             this.tabPage1.Controls.Add(this.progInfo);
             this.tabPage1.Controls.Add(this.ExceptionsButton);
             this.tabPage1.Controls.Add(this.UpdateButton);
@@ -193,6 +199,22 @@ namespace GUI
             this.tabPage1.Size = new System.Drawing.Size(896, 415);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "page_main";
+            // 
+            // Cryptographer
+            // 
+            this.Cryptographer.ActiveControl = null;
+            this.Cryptographer.Location = new System.Drawing.Point(642, 212);
+            this.Cryptographer.Name = "Cryptographer";
+            this.Cryptographer.Size = new System.Drawing.Size(168, 168);
+            this.Cryptographer.TabIndex = 19;
+            this.Cryptographer.Text = "КРИПТОГРАФ";
+            this.Cryptographer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Cryptographer.TileImage = global::GUI.Properties.Resources._4124820_document_encryption_file_access_file_security_protected_file_113909;
+            this.Cryptographer.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Cryptographer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.Cryptographer.UseSelectable = true;
+            this.Cryptographer.UseTileImage = true;
+            this.Cryptographer.Click += new System.EventHandler(this.Cryptographer_Click);
             // 
             // progInfo
             // 
@@ -1162,6 +1184,16 @@ namespace GUI
             this.metroLabel12.TabIndex = 3;
             this.metroLabel12.Text = "Результаты сканирования";
             // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage9.Controls.Add(this.metroLabel21);
+            this.tabPage9.Location = new System.Drawing.Point(4, 14);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(896, 415);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "page_cryptograph";
+            // 
             // MonPartitionContextMenu
             // 
             this.MonPartitionContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1229,6 +1261,16 @@ namespace GUI
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel21.Location = new System.Drawing.Point(17, 9);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(254, 25);
+            this.metroLabel21.TabIndex = 4;
+            this.metroLabel21.Text = "Защита файлов шифрованием";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1260,6 +1302,8 @@ namespace GUI
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.setAction.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.MonPartitionContextMenu.ResumeLayout(false);
             this.notifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1374,6 +1418,9 @@ namespace GUI
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroTile progInfo;
         private ToolStripMenuItem приостановитьЗащитуToolStripMenuItem;
+        private MetroFramework.Controls.MetroTile Cryptographer;
+        private TabPage tabPage9;
+        private MetroFramework.Controls.MetroLabel metroLabel21;
     }
 
 

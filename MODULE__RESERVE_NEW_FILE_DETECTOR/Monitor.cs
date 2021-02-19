@@ -25,9 +25,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         //Флаг выключенной защиты
         public static bool Disable = false;
 
-        /// <summary>
-        /// 
-        /// </summary>
         public static Encoding NamedPipeEncoding = Encoding.Unicode;
 
         /// <summary>
@@ -84,7 +81,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         //Запись(строчка) в таблице
         public struct Drive
         {
-            DriveInfo DriveInf;
+            public DriveInfo DriveInf;
             public string VolumeLabel;
             public string SerialNumber;
             public long TotalSize;

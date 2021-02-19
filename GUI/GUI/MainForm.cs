@@ -904,6 +904,11 @@ namespace GUI
             }
         }
 
+        private void Cryptographer_Click(object sender, EventArgs e)
+        {
+            this.TabControl.SelectedIndex = 8;
+        }
+
         /*====*/
     }
 

@@ -40,10 +40,13 @@ namespace DB_Editor
             this.metroTile1.ActiveControl = null;
             this.metroTile1.Location = new System.Drawing.Point(24, 64);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(191, 139);
+            this.metroTile1.Size = new System.Drawing.Size(191, 157);
             this.metroTile1.TabIndex = 0;
             this.metroTile1.Text = "Создать новую базу";
+            this.metroTile1.TileImage = global::DB_Editor.Properties.Resources.file_89266;
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseTileImage = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroTile2
@@ -51,10 +54,13 @@ namespace DB_Editor
             this.metroTile2.ActiveControl = null;
             this.metroTile2.Location = new System.Drawing.Point(238, 63);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(209, 139);
+            this.metroTile2.Size = new System.Drawing.Size(209, 158);
             this.metroTile2.TabIndex = 1;
             this.metroTile2.Text = "Открыть существующую базу";
+            this.metroTile2.TileImage = global::DB_Editor.Properties.Resources.openfolderwithfile_122800;
+            this.metroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile2.UseSelectable = true;
+            this.metroTile2.UseTileImage = true;
             this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
             // 
             // openFileDialog1
@@ -69,7 +75,7 @@ namespace DB_Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 226);
+            this.ClientSize = new System.Drawing.Size(493, 255);
             this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTile1);
             this.Name = "Form1";
