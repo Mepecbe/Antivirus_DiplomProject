@@ -89,8 +89,11 @@ namespace Core.Kernel.API
                         //Запрос на перемещение файла в карантин
                         case 1:
                             {
-                                var id = binaryReader.ReadInt32();
-                                ToQuarantine(id);
+                                Task.Run(() =>
+                                {
+                                    var id = binaryReader.ReadInt32();
+                                    ToQuarantine(id);
+                                });
 
                                 break;
                             }
@@ -98,8 +101,11 @@ namespace Core.Kernel.API
                         //Запрос на восстановление файла из карантина
                         case 2:
                             {
-                                var id = binaryReader.ReadInt32();
-                                Restore(id);
+                                Task.Run(() =>
+                                {
+                                    var id = binaryReader.ReadInt32();
+                                    Restore(id);
+                                });
 
                                 break;
                             }
@@ -107,8 +113,11 @@ namespace Core.Kernel.API
                         //Запрос на удаление файла
                         case 3:
                             {
-                                var id = binaryReader.ReadInt32();
-                                Delete(id);
+                                Task.Run(() =>
+                                {
+                                    var id = binaryReader.ReadInt32();
+                                    Delete(id);
+                                });
 
                                 break;
                             }
@@ -116,15 +125,23 @@ namespace Core.Kernel.API
                         //Запрос информации о вирусе
                         case 4:
                             {
-                                var id = binaryReader.ReadInt32();
-                                getVirusInfo(id);
+                                Task.Run(() =>
+                                {
+                                    var id = binaryReader.ReadInt32();
+                                    getVirusInfo(id);
+                                });
+
                                 break;
                             }
 
                         //Запрос информации о всех вирусах
                         case 5:
                             {
-                                getAllVirusesInfo();
+                                Task.Run(() =>
+                                {
+                                    getAllVirusesInfo();
+                                });
+
                                 break;
                             }
 
@@ -137,13 +154,17 @@ namespace Core.Kernel.API
                                 Console.WriteLine("[API] Добавление задачи " + file);
 #endif
 
-                                if (ScanTasks.Add(file) is null)
+                                Task.Run(() =>
                                 {
+                                    if (ScanTasks.Add(file) is null)
+                                    {
 #if DEBUG
-                                    Console.WriteLine("[API] Ошибка добавления задачи, проверка завершена");
+                                        Console.WriteLine("[API] Ошибка добавления задачи, проверка завершена");
 #endif
-                                    API_ScanCompleted(0, false, 0, file);
-                                } 
+                                        API_ScanCompleted(0, false, 0, file);
+                                    }
+                                }
+                                );
 
                                 break;
                             }

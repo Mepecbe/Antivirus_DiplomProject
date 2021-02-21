@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Pipes;
 
+using System.Diagnostics;
+
 namespace API_Client_Library
 {
     public class ScannedFileInfo
@@ -159,6 +161,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Перемещение в карантин {id}");
+#endif
                 OutputWriter.Write((byte)1);
                 OutputWriter.Write(id);
                 OutputWriter.Flush();
@@ -173,6 +178,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Восстановление из карантина {id}");
+#endif
                 OutputWriter.Write((byte)2);
                 OutputWriter.Write(id);
                 OutputWriter.Flush();
@@ -192,6 +200,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Установить состояние защиты {state}");
+#endif
                 OutputWriter.Write((byte)14);
                 OutputWriter.Write(state);
                 OutputWriter.Flush();
@@ -203,6 +214,10 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+
+#if DEBUG
+                Debug.WriteLine($"[api] Остановка ядра");
+#endif
                 OutputWriter.Write((byte)13);
                 OutputWriter.Flush();
             }
@@ -216,6 +231,10 @@ namespace API_Client_Library
         public static void ApplyingActions(VirusAction[] Info)
         {
             Writer_sync.WaitOne();
+
+#if DEBUG
+            Debug.WriteLine($"[api] Применение действий к вирусам");
+#endif
 
             foreach (VirusAction info in Info)
             {
@@ -251,6 +270,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Очистка очереди сканирования файлов");
+#endif
                 OutputWriter.Write((byte)7);
                 OutputWriter.Flush();
             }
@@ -264,6 +286,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Добавление в очередь сканирования {file}");
+#endif
                 OutputWriter.Write((byte)6);
                 OutputWriter.Write(file);
                 OutputWriter.Flush();
@@ -278,6 +303,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Установка состояния автопроверки съемных носителей {flag}");
+#endif
                 OutputWriter.Write((byte)8);
                 OutputWriter.Write(flag);
                 OutputWriter.Flush();
@@ -289,6 +317,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Получить информацию о всех вирусах");
+#endif
                 OutputWriter.Write((byte)5);
                 OutputWriter.Flush();
             }
@@ -299,6 +330,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Удалить файл {id}");
+#endif
                 OutputWriter.Write((byte)3);
                 OutputWriter.Write(id);
                 OutputWriter.Flush();
@@ -310,6 +344,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Очистить таблицу подключенных устройств");
+#endif
                 OutputWriter.Write((byte)9);
                 OutputWriter.Flush();
             }
@@ -320,6 +357,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Добавить простое правило {rule}");
+#endif
                 OutputWriter.Write((byte)10);
                 OutputWriter.Write(rule);
                 OutputWriter.Flush();
@@ -331,6 +371,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Удалить простое правило {rule}");
+#endif
                 OutputWriter.Write((byte)11);
                 OutputWriter.Write(rule);
                 OutputWriter.Flush();
@@ -342,6 +385,9 @@ namespace API_Client_Library
         {
             Writer_sync.WaitOne();
             {
+#if DEBUG
+                Debug.WriteLine($"[api] Очистить простые правила");
+#endif
                 OutputWriter.Write((byte)12);
                 OutputWriter.Flush();
             }
@@ -351,18 +397,31 @@ namespace API_Client_Library
 
         public static void Init()
         {
-            Console.WriteLine("[api] connect");
+#if DEBUG
+            Debug.WriteLine("[api] подключение...");
+#endif
+
             OutputConnector.Connect();
 
-            Console.WriteLine("[api] wait for connection");
+#if DEBUG
+            Debug.WriteLine("[api] ожидание подключения ядра");
+#endif
+
             InputConnector.WaitForConnection();
 
-            Console.WriteLine("[api] Input handler start");
+#if DEBUG
+            Debug.WriteLine("[api] Запуск входящего обработчика");
+#endif
+
             InputHandler.Start();
         }
 
         public static void ApiStop()
         {
+#if DEBUG
+            Debug.WriteLine("[api] Стоп, закрытие соединений");
+#endif
+
             InputHandler.Abort();
             InputConnector.Close();
             OutputConnector.Close();

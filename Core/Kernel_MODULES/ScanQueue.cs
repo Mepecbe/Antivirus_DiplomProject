@@ -102,7 +102,9 @@ namespace Core.Kernel.ScanModule
         /// <summary>
         /// Обработчик обнаруженных файлов от фильтра
         /// </summary>
-        private static readonly Thread FilterMonitor = new Thread(() =>
+        private static readonly Thread FilterMonitor = new Thread(Handler);
+
+        public static void Handler()
         {
             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Запуск, ожидание мьютекса... ");
 
@@ -117,8 +119,18 @@ namespace Core.Kernel.ScanModule
 
             while (true)
             {
-                string commandBuffer = KernelConnectors.Filter_Reader.ReadString();
-                
+                string commandBuffer = string.Empty;
+
+                try
+                {
+                    commandBuffer = KernelConnectors.Filter_Reader.ReadString();
+                }
+                catch
+                {
+                    KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Отключаю поток ", LoggerLib.LogLevel.WARN);
+                    break;
+                }
+
                 if (FoundVirusesManager.Exists(commandBuffer.Substring(1)))
                 {
                     //Если файл уже числится у нас как вирус
@@ -127,26 +139,24 @@ namespace Core.Kernel.ScanModule
 
                 switch (commandBuffer[0])
                 {
-                    case '1': 
+                    case '1':
                         {
                             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Создание файла -> " + commandBuffer);
-                                                        
+
                             ScanTasks.Add(commandBuffer.Substring(1));
-                            break; 
+                            break;
                         }
 
-                    case '4': 
+                    case '4':
                         {
                             KernelConnectors.Logger.WriteLine("[FileQueue] [Thr.Monitor] Изменение файла -> " + commandBuffer);
 
                             ScanTasks.Add(commandBuffer.Substring(1));
-                            break; 
+                            break;
                         }
                 }
-
-                commandBuffer = string.Empty;
             }
-        });
+        }
 
 
         public static void Run()
@@ -324,7 +334,7 @@ namespace Core.Kernel.ScanModule
                 tasks.Clear();
 
                 {
-                    KernelConnectors.ScannerService_CommandWriter.Write(0);
+                    KernelConnectors.ScannerService_CommandWriter.Write((byte)0);
                     KernelConnectors.ScannerService_CommandWriter.Flush();
                 }
             }

@@ -26,7 +26,8 @@ namespace Logger
             { "Logger.Kernel", "Service Scanner logger" },
             { "Logger.Filter", "Service Filter logger" },
             { "Logger.ApiMonitor", "Service FileSysApiMon logger" },
-            { "Logger.VirusesDB", "Service VirusesDB logger" }
+            { "Logger.VirusesDB", "Service VirusesDB logger" },
+            { "Logger.GUI", "Service GUI logger" }
         };
     }
 

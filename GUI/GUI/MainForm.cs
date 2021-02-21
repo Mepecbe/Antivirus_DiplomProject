@@ -20,11 +20,13 @@ using GUI.Components.ScanManager;
 using GUI.Components.Configurations;
 
 using System.IO;
+using LoggerLib;
 
 namespace GUI
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
+        public static LoggerClient Logger = new LoggerClient("Logger.GUI", "Logger");
         public static Mutex files_sync = new Mutex();
         public static Queue<ScannedFileInfo> files = new Queue<ScannedFileInfo>();
 
@@ -42,6 +44,10 @@ namespace GUI
 
         public MainForm()
         {
+#if DEBUG
+            Logger.Init();
+#endif
+
             {
                 //Накладываем белую панель на кусочек TabControl'а сверху
                 var topPanel = new Panel();
@@ -513,6 +519,7 @@ namespace GUI
         /// </summary>
         private void metroButton3_Click(object sender, EventArgs e)
         {
+            Logger.WriteLine("[GUI] Abort click");
             ScanManager.Abort();
 
             ScanManager.CountAllFiles = ScanManager.CountAllScannedFiles;

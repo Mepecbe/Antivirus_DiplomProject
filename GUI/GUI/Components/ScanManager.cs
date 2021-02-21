@@ -66,15 +66,28 @@ namespace GUI.Components.ScanManager
 
             State = ScanState.Active;
 
-            foreach (string file in files)
+            FileQueue_sync.WaitOne();
             {
-                CountAllFiles++;
-                FileQueue.Enqueue(file);
+                foreach (string file in files)
+                {
+                    if (!File.Exists(file))
+                    {
+                        MainForm.Logger.WriteLine($"[StartScan] File {file} not exists, continue", LoggerLib.LogLevel.ERROR);
+                        continue;
+                    }
+
+                    CountAllFiles++;
+                    FileQueue.Enqueue(file);
+
+                    MainForm.Logger.WriteLine($"[StartScan] Add {file} to queue");
+                }
             }
+            FileQueue_sync.ReleaseMutex();
 
             foreach (string dir in dirs)
             {
                 new Task(() => AddAllFilesToScan(dir)).Start();
+                MainForm.Logger.WriteLine($"[StartScan] Add to queue dir {dir}");
             }
         }
 
@@ -101,14 +114,19 @@ namespace GUI.Components.ScanManager
             }
             catch
             {
+                MainForm.Logger.WriteLine($"[AddAllFilesToScan] Error getFiles, exit");
                 return;
             }
 
-            for (int index = 0; index < files.Length; index++)
+            FileQueue_sync.WaitOne();
             {
-                CountAllFiles++;
-                FileQueue.Enqueue(files[index]);
+                for (int index = 0; index < files.Length; index++)
+                {
+                    CountAllFiles++;
+                    FileQueue.Enqueue(files[index]);
+                }
             }
+            FileQueue_sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -116,6 +134,8 @@ namespace GUI.Components.ScanManager
         /// </summary>
         private static void ScanFilesLoader()
         {
+            MainForm.Logger.WriteLine($"[ScanFilesLoader] Running", LoggerLib.LogLevel.OK);
+
             while (true)
             {
                 if (FileQueue.Count > 0 && InScanProcess <= MAX_SCAN_TASKS)
@@ -123,6 +143,8 @@ namespace GUI.Components.ScanManager
                     FileQueue_sync.WaitOne();
                     {
                         var file = FileQueue.Dequeue();
+
+                        MainForm.Logger.WriteLine($"[ScanFilesLoader] Add {file} to scan");
 
                         if (file != null)
                         {
@@ -145,6 +167,7 @@ namespace GUI.Components.ScanManager
         /// </summary>
         public static void Pause()
         {
+            MainForm.Logger.WriteLine($"[ScanFilesLoader] Pause scan");
             FileQueue_sync.WaitOne();
         }
 
@@ -153,6 +176,7 @@ namespace GUI.Components.ScanManager
         /// </summary>
         public static void Resume()
         {
+            MainForm.Logger.WriteLine($"[ScanFilesLoader] Resume scan");
             FileQueue_sync.ReleaseMutex();
         }
 
@@ -163,6 +187,8 @@ namespace GUI.Components.ScanManager
         {
             FileQueue_sync.WaitOne();
             {
+                MainForm.Logger.WriteLine($"[ScanFilesLoader] Abort scan");
+
                 FileQueue.Clear();
                 API.ClearScanQueue();
             }
@@ -175,26 +201,32 @@ namespace GUI.Components.ScanManager
         public static void Reset()
         {
             FileQueue.Clear();
-
             CountAllFiles = 0;
             CountAllScannedFiles = 0;
             InScanProcess = 0;
 
             State = ScanState.Completed;
+
+            MainForm.Logger.WriteLine($"[ScanFilesLoader] Reset");
         }
+
 
         public static void Init(MainForm Form)
         {
             MForm = Form;
-
             Thread1.Start();
         }
 
         public static void Stop()
         {
             Thread1.Abort();
+            State = ScanState.Aborted;
         }
     }
+
+
+
+
 
     public enum ScanState
     {

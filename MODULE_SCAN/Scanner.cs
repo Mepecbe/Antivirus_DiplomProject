@@ -7,6 +7,8 @@ using System.IO.Compression;
 using System.IO.Pipes;
 using System.IO.Ports;
 
+using System.Collections;
+
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -27,12 +29,7 @@ namespace MODULE__SCAN
         /// </summary>
         public const int MAX_FAST_SCAN_FILE = 1_000_000_000;
 
-        public const int THREAD_COUNT = 40;
-
-        /// <summary>
-        /// Максимальное количество задач сканирования
-        /// </summary>
-        public const int MAX_SCAN_TASKS = THREAD_COUNT * 2;
+        public static int THREAD_COUNT = 30;
 
         public const int SCAN_THREAD_SLEEP = 100;
 
@@ -49,9 +46,9 @@ namespace MODULE__SCAN
 
         public static NamedPipeClientStream outputPipe = new NamedPipeClientStream("ScannerService.output");
 
-        private static Thread inputHandler = new Thread(inputThread)         { Name = "inputHandler" };
+        private static Thread inputHandler = new Thread(inputThread) { Name = "inputHandler", Priority = ThreadPriority.Highest };
         private static Thread signatureHandler = new Thread(signatureThread) { Name = "signatureHandler" };
-        private static Thread commandHandler = new Thread(commandThread)     { Name = "commandHandler" };
+        private static Thread commandHandler = new Thread(commandThread) { Name = "commandHandler" };
 
         private static BinaryWriter outputWriter;
         private static BinaryReader commandReader;
@@ -91,7 +88,7 @@ namespace MODULE__SCAN
                 }
                 catch
                 {
-                    Logger.WriteLine("[Scanner.signatureThread] Отключаю поток", LogLevel.ERROR);
+                    Logger.WriteLine("[Scanner.inputThread] Отключаю поток", LogLevel.ERROR);
                     break;
                 }
 
@@ -150,7 +147,7 @@ namespace MODULE__SCAN
             commandReader = new BinaryReader(commandPipe, Configuration.PipeEncoding);
             Logger.WriteLine("[Scanner.commandThread] Подключено", LogLevel.OK);
 
-            while (true) 
+            while (true)
             {
                 var code = commandReader.ReadByte();
 
@@ -160,7 +157,7 @@ namespace MODULE__SCAN
                         {
                             Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
-                            ScanTasks.TaskQueue_Sync.WaitOne();
+                            lock(ScanTasks.TaskQueue.SyncRoot)
                             {
                                 ScanTasks.TaskQueue.Clear();
                                 ScanTasks.ActiveScanTasks = 0;
@@ -173,13 +170,13 @@ namespace MODULE__SCAN
                         {
                             Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
-                            ScanTasks.TaskQueue_Sync.WaitOne();
+                            lock (ScanTasks.TaskQueue.SyncRoot)
                             {
                                 ScanTasks.TaskQueue.Clear();
                                 ScanTasks.ActiveScanTasks = 0;
                             }
-
-                            for(int index = 0; index < ScanTasks.ScanThreads.Length; index++)
+                            
+                            for (int index = 0; index < ScanTasks.ScanThreads.Length; index++)
                             {
                                 Logger.WriteLine($"[Scanner.commandThread] Остановка потока сканирования {index}", LogLevel.WARN);
                                 ScanTasks.ScanThreads[index].Abort();
@@ -227,62 +224,6 @@ namespace MODULE__SCAN
         }
     }
 
-    public class ScanTask
-    {
-        public string file;
-        public int id;
-
-        public ScanTask(int id, string file, ScanTasks.ScanStart onStart, ScanTasks.ScanComplete onCompleted, Task task = null)
-        {
-            this.id = id;
-            this.file = file;
-        }
-    }
-
-    /// <summary>
-    /// Содержит информацию о результате сканирования
-    /// </summary>
-    public class ScanResult
-    {
-        public readonly int VirusID;
-        public readonly result Result;
-
-        public ScanResult(int virusId, result res)
-        {
-            this.VirusID = virusId;
-            this.Result = res;
-        }
-    }
-
-    /// <summary>
-    /// Результат сканирования
-    /// </summary>
-    public enum result
-    {
-        NotVirus,
-        Virus,
-        Error
-    }
-
-    /// <summary>
-    /// Сигнатура
-    /// </summary>
-    public struct Signature
-    {
-        public readonly byte[] SignatureBytes;
-        public readonly int Summ;
-
-        public Signature(byte[] signature)
-        {
-            this.SignatureBytes = signature;
-            this.Summ = 0;
-
-            foreach (byte b in signature)
-            {
-                this.Summ += b;
-            }
-        }
-    }
 
     public static class Scanner
     {
@@ -302,7 +243,7 @@ namespace MODULE__SCAN
                 {
                     readed = FileStream.Read(FileBuffer, 0, FileBuffer.Length);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Connector.Logger.WriteLine($"[Scanner] Ошибка чтения файла {ex.Message}", LogLevel.ERROR);
                     return new ScanResult(0, result.Error);
@@ -374,19 +315,17 @@ namespace MODULE__SCAN
 
     public static class ScanTasks
     {
-        public static Thread[] ScanThreads = new Thread[Configuration.THREAD_COUNT];
+        public static Thread[] ScanThreads;
 
         /// <summary>
         /// Очередь задач сканирования
         /// </summary>
-        public static Queue<ScanTask> TaskQueue = new Queue<ScanTask>();
-        public static Mutex TaskQueue_Sync = new Mutex();
+        public static Queue TaskQueue = new Queue();
 
         /// <summary>
         /// Количество активных задач сканирования
         /// </summary>
         public static byte ActiveScanTasks = 0;
-        public static Mutex ActiveScanTasks_Sync = new Mutex();
 
         /// <summary>
         /// Мьютекс для сервиса сканнера
@@ -401,11 +340,7 @@ namespace MODULE__SCAN
         /// </summary>
         private static void ScanStarted()
         {
-            ActiveScanTasks_Sync.WaitOne();
-            {
-                ActiveScanTasks++;
-            }
-            ActiveScanTasks_Sync.ReleaseMutex();
+            ActiveScanTasks++;
         }
 
         /// <summary>
@@ -415,12 +350,10 @@ namespace MODULE__SCAN
         {
             Connector.Logger.WriteLine($"\n\n[SCAN COMPLETE EVENT] {task.file}, result {result.Result}");
 
-            ActiveScanTasks_Sync.WaitOne();
             {
                 Connector.ToOutput(task.id, result);
                 ActiveScanTasks--;
             }
-            ActiveScanTasks_Sync.ReleaseMutex();
         }
 
         /// <summary>
@@ -429,107 +362,127 @@ namespace MODULE__SCAN
         /// <param name="pathToFile"></param>
         public static void Add(int id, string pathToFile)
         {
-            TaskQueue_Sync.WaitOne();
+            //lock (TaskQueue.SyncRoot)
             {
                 TaskQueue.Enqueue(new ScanTask(id, pathToFile, ScanStarted, ScanCompleted));
             }
-            TaskQueue_Sync.ReleaseMutex();
         }
 
         public static void ScanThread()
         {
             while (true)
             {
-                TaskQueue_Sync.WaitOne();
+                ScanTask task = null;
+
+                lock (TaskQueue.SyncRoot)
                 {
                     if (TaskQueue.Count > 0)
                     {
-                        var task = TaskQueue.Dequeue();
-                        TaskQueue_Sync.ReleaseMutex();
+                        task = (ScanTask)TaskQueue.Dequeue();
+                    }
+                }
 
+                if (task != null)
+                {
+                    if (Configuration.UsingYara)
+                    {
+                        Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал проверку правил Yara", LogLevel.WARN);
+
+                        ScanResult result;
+
+                        if (!File.Exists(task.file))
                         {
-                            if (Configuration.UsingYara)
+                            Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Файл не найден", LogLevel.ERROR);
+                            result = new ScanResult(0, MODULE__SCAN.result.Error);
+                        }
+                        else
+                        {
+                            try
                             {
-                                try
+                                if (YaraIntegration.CheckFile(task.file))
                                 {
-                                    Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал проверку правил Yara", LogLevel.WARN);
-                                    var result = YaraIntegration.CheckFile(task.file);
-
-                                    ScanCompleted(
-                                        task, 
-                                        new ScanResult(0, result ? MODULE__SCAN.result.Virus : MODULE__SCAN.result.NotVirus)
-                                    );                                  
+                                    result = new ScanResult(0, MODULE__SCAN.result.Virus);
                                 }
-                                catch(Exception ex)
+                                else
                                 {
-                                    Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Ошибка при проверке правил\n{ex.Message}", LogLevel.ERROR);
-                                    ScanCompleted(
-                                        task,
-                                        new ScanResult(0, MODULE__SCAN.result.Error)
-                                    ); ;
+                                    result = new ScanResult(0, MODULE__SCAN.result.NotVirus);
                                 }
                             }
-                            else
+                            catch(Exception ex)
                             {
-                                FileStream stream = null;
-
-                                try
-                                {
-                                    stream = File.Open(task.file, FileMode.Open, FileAccess.Read);
-                                }
-                                catch (PathTooLongException)
-                                {
-                                    Connector.Logger.WriteLine($"[SCANNER] PathTooLongException", LogLevel.ERROR);
-                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                                }
-                                catch (UnauthorizedAccessException)
-                                {
-                                    Connector.Logger.WriteLine($"[SCANNER] UnauthorizedAccessException", LogLevel.ERROR);
-                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                                }
-                                catch (DirectoryNotFoundException)
-                                {
-                                    Connector.Logger.WriteLine($"[SCANNER] DirectoryNotFoundException", LogLevel.ERROR);
-                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                                }
-                                catch (FileNotFoundException)
-                                {
-                                    Connector.Logger.WriteLine($"[SCANNER] FileNotFoundException", LogLevel.ERROR);
-                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
-                                }
-                                catch (Exception ex)
-                                {
-                                    Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}", LogLevel.ERROR);
-                                    ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
-                                    continue;
-                                }
-
-                                Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал сканирование поиском сигнатуры", LogLevel.WARN);
-
-                                var result = Scanner.ScanFile(stream);
-
-                                stream.Close();
-                                ScanCompleted(task, result);
+                                Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Ошибка при проверке файла {ex.Message}", LogLevel.ERROR);
+                                result = new ScanResult(0, MODULE__SCAN.result.Error);
                             }
                         }
 
-                        continue;
+                        ScanCompleted(
+                            task,
+                            new ScanResult(0, result.Result)
+                        );
+                    }
+                    else
+                    {
+                        FileStream stream = null;
+
+                        try
+                        {
+                            stream = File.Open(task.file, FileMode.Open, FileAccess.Read);
+                        }
+                        catch (PathTooLongException)
+                        {
+                            Connector.Logger.WriteLine($"[SCANNER] PathTooLongException", LogLevel.ERROR);
+                            ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            Connector.Logger.WriteLine($"[SCANNER] UnauthorizedAccessException", LogLevel.ERROR);
+                            ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                        }
+                        catch (DirectoryNotFoundException)
+                        {
+                            Connector.Logger.WriteLine($"[SCANNER] DirectoryNotFoundException", LogLevel.ERROR);
+                            ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                        }
+                        catch (FileNotFoundException)
+                        {
+                            Connector.Logger.WriteLine($"[SCANNER] FileNotFoundException", LogLevel.ERROR);
+                            ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.NotVirus));
+                        }
+                        catch (Exception ex)
+                        {
+                            Connector.Logger.WriteLine($"[SCANNER] ERROR OPEN FILE {ex.Message}", LogLevel.ERROR);
+                            ScanCompleted(task, new ScanResult(0, MODULE__SCAN.result.Error));
+                            continue;
+                        }
+
+                        Connector.Logger.WriteLine($"[ScanThread {Thread.CurrentThread.Name}] Поток начал сканирование поиском сигнатуры", LogLevel.WARN);
+
+                        var result = Scanner.ScanFile(stream);
+
+                        stream.Close();
+                        ScanCompleted(task, result);
                     }
                 }
-                TaskQueue_Sync.ReleaseMutex();
 
                 Thread.Sleep(Configuration.SCAN_THREAD_SLEEP);
             }
         }
+
 
         /// <summary>
         /// Инициализация сервиса
         /// </summary>
         public static void Init()
         {
+            Configuration.THREAD_COUNT = Environment.ProcessorCount * 4;
+
+            Connector.Logger.WriteLine($"[Scanner.Init] Запуск {Configuration.THREAD_COUNT} потоков сканирования");
+
+            ScanThreads = new Thread[Configuration.THREAD_COUNT];
+
             for (int index = 0; index < ScanThreads.Length; index++)
             {
-                ScanThreads[index] = new Thread(ScanThread) { Name = "Scan Thread " + index.ToString() };
+                ScanThreads[index] = new Thread(ScanThread) { Name = "Scan Thread " + index.ToString(), Priority = ThreadPriority.Lowest };
                 ScanThreads[index].Start();
             }
         }
@@ -549,6 +502,64 @@ namespace MODULE__SCAN
         public static void Exit()
         {
 
+        }
+    }
+
+
+    public class ScanTask
+    {
+        public string file;
+        public int id;
+
+        public ScanTask(int id, string file, ScanTasks.ScanStart onStart, ScanTasks.ScanComplete onCompleted, Task task = null)
+        {
+            this.id = id;
+            this.file = file;
+        }
+    }
+
+    /// <summary>
+    /// Содержит информацию о результате сканирования
+    /// </summary>
+    public class ScanResult
+    {
+        public readonly int VirusID;
+        public readonly result Result;
+
+        public ScanResult(int virusId, result res)
+        {
+            this.VirusID = virusId;
+            this.Result = res;
+        }
+    }
+
+    /// <summary>
+    /// Результат сканирования
+    /// </summary>
+    public enum result
+    {
+        NotVirus,
+        Virus,
+        Error
+    }
+
+    /// <summary>
+    /// Сигнатура
+    /// </summary>
+    public struct Signature
+    {
+        public readonly byte[] SignatureBytes;
+        public readonly int Summ;
+
+        public Signature(byte[] signature)
+        {
+            this.SignatureBytes = signature;
+            this.Summ = 0;
+
+            foreach (byte b in signature)
+            {
+                this.Summ += b;
+            }
         }
     }
 }

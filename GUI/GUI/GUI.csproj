@@ -206,6 +206,10 @@
       <Project>{0bab3d40-59eb-46f0-8a82-b90b1df1f593}</Project>
       <Name>API_Client_Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\LoggerLib\LoggerLib.csproj">
+      <Project>{703b493a-a924-4dd6-96f8-aef411e5667c}</Project>
+      <Name>LoggerLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\4124820-document-encryption-file-access-file-security-protected-file_113909.png" />
