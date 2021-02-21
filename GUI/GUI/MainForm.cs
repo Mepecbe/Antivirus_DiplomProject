@@ -916,6 +916,11 @@ namespace GUI
             this.TabControl.SelectedIndex = 8;
         }
 
+        private void metroButton1_Click_1(object sender, EventArgs e)
+        {
+            this.TabControl.SelectedIndex = 0;
+        }
+
         /*====*/
     }
 

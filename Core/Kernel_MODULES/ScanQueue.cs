@@ -40,7 +40,7 @@ namespace Core.Kernel.ScanModule
 
             while (true)
             {
-                Connectors.KernelConnectors.ScannerService_Input_Sync.WaitOne();
+                KernelConnectors.ScannerService_Input_Sync.WaitOne();
                 {
                     int id = KernelConnectors.ScannerService_Reader.ReadInt32();
                     byte result = KernelConnectors.ScannerService_Reader.ReadByte();

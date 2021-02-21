@@ -14,7 +14,7 @@ using Core.Kernel.VirusesManager;
 using Core.Kernel.ErrorTasks;
 
 using Core.Kernel.ModuleLoader;
-
+using System.Diagnostics;
 
 namespace Core.Kernel.API
 {
@@ -57,7 +57,17 @@ namespace Core.Kernel.API
 #if DEBUG
                             Console.WriteLine("[API] Ожидание переподключения пользователя");
 #endif
-                            UserInputConnector.WaitForConnection();
+                            try
+                            {
+                                UserInputConnector.WaitForConnection();
+                            }
+                            catch(Exception ex)
+                            {
+#if DEBUG
+                                Console.WriteLine($"[API] {ex.Message}");
+#endif
+                                break;
+                            }
 
                             if (!UserOutputConnector.IsConnected)
                             {
@@ -272,11 +282,20 @@ namespace Core.Kernel.API
 #endif
                                 KernelConnectors.Stop();
 
+                                Task.Run(() => { 
+                                    Thread.Sleep(1000);
+#if DEBUG
+                                    Console.WriteLine("[API] Отключение обработчика API");
+#endif
+
+                                    RequestHandler.Abort();
 
 #if DEBUG
-                                Console.WriteLine("[API] Отключение обработчика API");
+                                    Console.WriteLine("[API] Закрытие процесса ядра");
 #endif
-                                RequestHandler.Abort();
+                                    Process.GetCurrentProcess().Kill();
+                                } );
+
 
                                 break;
                             }

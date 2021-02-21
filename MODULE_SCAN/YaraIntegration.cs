@@ -23,7 +23,7 @@ namespace MODULE__SCAN.Yara
         public static YSReport Errors;
         public static YSReport Warnings;
 
-        private static string[] skipExtentions = new string[] { /*".db", ".toc", ".sp", ".sb", ".dll"*/ };
+        private static string[] skipExtentions = new string[] {/* ".db", ".toc", ".sp", ".sb", ".dll"*/ };
 
         public static void Init()
         {
