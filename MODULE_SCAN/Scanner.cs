@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
@@ -160,7 +161,6 @@ namespace MODULE__SCAN
                         {
                             Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
-                            ScanTasks.TaskQueue_Sync.WaitOne();
                             {
                                 ScanTasks.TaskQueue.Clear();
                                 ScanTasks.ActiveScanTasks = 0;
@@ -173,7 +173,6 @@ namespace MODULE__SCAN
                         {
                             Logger.WriteLine("[Scanner.commandThread] Очистка буфера задач сканирования", LogLevel.WARN);
 
-                            ScanTasks.TaskQueue_Sync.WaitOne();
                             {
                                 ScanTasks.TaskQueue.Clear();
                                 ScanTasks.ActiveScanTasks = 0;
@@ -379,8 +378,7 @@ namespace MODULE__SCAN
         /// <summary>
         /// Очередь задач сканирования
         /// </summary>
-        public static Queue<ScanTask> TaskQueue = new Queue<ScanTask>();
-        public static Mutex TaskQueue_Sync = new Mutex();
+        public static Queue TaskQueue = new Queue();
 
         /// <summary>
         /// Количество активных задач сканирования
@@ -429,23 +427,18 @@ namespace MODULE__SCAN
         /// <param name="pathToFile"></param>
         public static void Add(int id, string pathToFile)
         {
-            TaskQueue_Sync.WaitOne();
-            {
-                TaskQueue.Enqueue(new ScanTask(id, pathToFile, ScanStarted, ScanCompleted));
-            }
-            TaskQueue_Sync.ReleaseMutex();
+            TaskQueue.Enqueue(new ScanTask(id, pathToFile, ScanStarted, ScanCompleted));
         }
 
         public static void ScanThread()
         {
             while (true)
             {
-                TaskQueue_Sync.WaitOne();
+                lock(TaskQueue.SyncRoot)
                 {
                     if (TaskQueue.Count > 0)
                     {
-                        var task = TaskQueue.Dequeue();
-                        TaskQueue_Sync.ReleaseMutex();
+                        var task = (ScanTask)TaskQueue.Dequeue();
 
                         {
                             if (Configuration.UsingYara)
@@ -516,7 +509,6 @@ namespace MODULE__SCAN
                         continue;
                     }
                 }
-                TaskQueue_Sync.ReleaseMutex();
 
                 Thread.Sleep(Configuration.SCAN_THREAD_SLEEP);
             }

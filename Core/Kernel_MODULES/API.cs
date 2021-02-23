@@ -14,7 +14,7 @@ using Core.Kernel.VirusesManager;
 using Core.Kernel.ErrorTasks;
 
 using Core.Kernel.ModuleLoader;
-
+using System.Diagnostics;
 
 namespace Core.Kernel.API
 {
@@ -251,6 +251,8 @@ namespace Core.Kernel.API
 #endif
                                 KernelConnectors.Stop();
 
+
+                                Process.GetCurrentProcess().Kill();
 
 #if DEBUG
                                 Console.WriteLine("[API] Отключение обработчика API");

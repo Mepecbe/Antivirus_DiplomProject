@@ -131,6 +131,7 @@ namespace GUI
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +143,6 @@ namespace GUI
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -214,6 +214,7 @@ namespace GUI
             this.Cryptographer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.Cryptographer.UseSelectable = true;
             this.Cryptographer.UseTileImage = true;
+            this.Cryptographer.Visible = false;
             this.Cryptographer.Click += new System.EventHandler(this.Cryptographer_Click);
             // 
             // progInfo
@@ -1194,6 +1195,16 @@ namespace GUI
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "page_cryptograph";
             // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel21.Location = new System.Drawing.Point(17, 9);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(254, 25);
+            this.metroLabel21.TabIndex = 4;
+            this.metroLabel21.Text = "Защита файлов шифрованием";
+            // 
             // MonPartitionContextMenu
             // 
             this.MonPartitionContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1260,16 +1271,6 @@ namespace GUI
             // 
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel21.Location = new System.Drawing.Point(17, 9);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(254, 25);
-            this.metroLabel21.TabIndex = 4;
-            this.metroLabel21.Text = "Защита файлов шифрованием";
             // 
             // MainForm
             // 
