@@ -569,7 +569,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                     
                     switch (buffer[buffer.IndexOf('*') - 1])
                     {
-                        //command id 0 - Create Partition Monitor
+                        // 0 - Создать монитор
                         case '0':
                             {
                                 if (args[1].Length == 0)
@@ -581,14 +581,14 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //command id 1 - Disable partition monitor 
+                        // 1 - Создать монитор
                         case '1':
                             {
                                 DisablePartitionMon(args[0]);
                                 break;
                             }
 
-                        //Включить авто проверку съемных носителей
+                        // 2 - Включить авто проверку съемных носителей
                         case '2':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Включаю автоскан съемных носителей");
@@ -597,7 +597,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //Выключить авто проверку съемных носителей
+                        // 3 - Выключить авто проверку съемных носителей
                         case '3':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Выключаю автоскан съемных носителей");
@@ -606,7 +606,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //Очистить информацию о подключенных устройствах
+                        // 4 - Очистить информацию о подключенных устройствах
                         case '4':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Очищаю информацию о подключенных устройствах");
@@ -615,7 +615,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //Приостановить защиту
+                        // 5 - Приостановить защиту
                         case '5':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Защита отключена!", LogLevel.WARN);
@@ -624,7 +624,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //Активировать защиту
+                        // 6 - Активировать защиту
                         case '6':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Защита включена!", LogLevel.OK);
@@ -633,7 +633,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
                                 break;
                             }
 
-                        //Выключить всё
+                        // 7 - Выключить всё
                         case '7':
                             {
                                 Connector.Logger.WriteLine("[FileSysApiMon.CommandThread] Отключаю всё!", LogLevel.OK);
@@ -710,7 +710,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         }
 
         /// <summary>
-        /// Disable FileSystemWatcher for partition
+        /// Отключить монитор раздела
         /// </summary>
         /// <param name="PartitionPath"></param>
         public static void DisablePartitionMon(string PartitionPath)
@@ -749,8 +749,10 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             Connector.Logger.WriteLine($"[FileSysApiMon.Error] =============", LogLevel.ERROR);
         }
 
-
-    public static void Init()
+        /// <summary>
+        /// Запуск потока обработки команд и обработки фильтрации
+        /// </summary>
+        public static void Init()
         {
             Connector.FilterInputPipe.Connect();
             Connector.FilterPipeWriter = new BinaryWriter(Connector.FilterInputPipe, Configuration.NamedPipeEncoding);
@@ -759,7 +761,7 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
         }
 
         /// <summary>
-        /// Disable all threads and FileSys watchers
+        /// Отключение всех потоков и мониторов файловой системы
         /// </summary>
         public static void StopAll()
         {
@@ -774,10 +776,6 @@ namespace MODULE__RESERVE_NEW_FILE_DETECTOR
             }
         }
     }
-
-
-
-
 
 
     public static class Initializator
