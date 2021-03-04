@@ -131,6 +131,19 @@ namespace GUI
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.cryptoTable = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.добавитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.зашифроватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.расшифроватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.MonPartitionContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -143,7 +156,7 @@ namespace GUI
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -159,6 +172,7 @@ namespace GUI
             this.tabPage8.SuspendLayout();
             this.setAction.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.metroContextMenu1.SuspendLayout();
             this.MonPartitionContextMenu.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -1188,6 +1202,9 @@ namespace GUI
             // tabPage9
             // 
             this.tabPage9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage9.Controls.Add(this.metroButton4);
+            this.tabPage9.Controls.Add(this.metroButton2);
+            this.tabPage9.Controls.Add(this.cryptoTable);
             this.tabPage9.Controls.Add(this.metroButton1);
             this.tabPage9.Controls.Add(this.metroLabel21);
             this.tabPage9.Location = new System.Drawing.Point(4, 14);
@@ -1195,6 +1212,113 @@ namespace GUI
             this.tabPage9.Size = new System.Drawing.Size(896, 415);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "page_cryptograph";
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(521, 372);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(114, 23);
+            this.metroButton4.TabIndex = 9;
+            this.metroButton4.Text = "Зашифровать";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click_1);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(657, 372);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(114, 23);
+            this.metroButton2.TabIndex = 8;
+            this.metroButton2.Text = "Расшифровать";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
+            // 
+            // cryptoTable
+            // 
+            this.cryptoTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader9});
+            this.cryptoTable.ContextMenuStrip = this.metroContextMenu1;
+            this.cryptoTable.FullRowSelect = true;
+            this.cryptoTable.HideSelection = false;
+            this.cryptoTable.Location = new System.Drawing.Point(17, 37);
+            this.cryptoTable.Name = "cryptoTable";
+            this.cryptoTable.Size = new System.Drawing.Size(860, 329);
+            this.cryptoTable.TabIndex = 7;
+            this.cryptoTable.UseCompatibleStateImageBehavior = false;
+            this.cryptoTable.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Файл";
+            this.columnHeader3.Width = 540;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Размер (Мегабайт)";
+            this.columnHeader4.Width = 196;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Зашифрован";
+            this.columnHeader9.Width = 120;
+            // 
+            // metroContextMenu1
+            // 
+            this.metroContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьФайлToolStripMenuItem1,
+            this.удалитьФайлToolStripMenuItem1,
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem,
+            this.зашифроватьToolStripMenuItem,
+            this.расшифроватьToolStripMenuItem});
+            this.metroContextMenu1.Name = "metroContextMenu1";
+            this.metroContextMenu1.Size = new System.Drawing.Size(254, 114);
+            // 
+            // добавитьФайлToolStripMenuItem1
+            // 
+            this.добавитьФайлToolStripMenuItem1.Name = "добавитьФайлToolStripMenuItem1";
+            this.добавитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(253, 22);
+            this.добавитьФайлToolStripMenuItem1.Text = "Добавить файл";
+            this.добавитьФайлToolStripMenuItem1.Click += new System.EventHandler(this.добавитьФайлToolStripMenuItem1_Click);
+            // 
+            // удалитьФайлToolStripMenuItem1
+            // 
+            this.удалитьФайлToolStripMenuItem1.Name = "удалитьФайлToolStripMenuItem1";
+            this.удалитьФайлToolStripMenuItem1.Size = new System.Drawing.Size(253, 22);
+            this.удалитьФайлToolStripMenuItem1.Text = "Удалить файл из списка";
+            this.удалитьФайлToolStripMenuItem1.Click += new System.EventHandler(this.удалитьФайлToolStripMenuItem1_Click);
+            // 
+            // удалитьФайлИзЖесткогоДискаToolStripMenuItem
+            // 
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem.Name = "удалитьФайлИзЖесткогоДискаToolStripMenuItem";
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem.Text = "Удалить файл из жесткого диска";
+            this.удалитьФайлИзЖесткогоДискаToolStripMenuItem.Click += new System.EventHandler(this.удалитьФайлИзЖесткогоДискаToolStripMenuItem_Click);
+            // 
+            // зашифроватьToolStripMenuItem
+            // 
+            this.зашифроватьToolStripMenuItem.Name = "зашифроватьToolStripMenuItem";
+            this.зашифроватьToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.зашифроватьToolStripMenuItem.Text = "Зашифровать";
+            this.зашифроватьToolStripMenuItem.Click += new System.EventHandler(this.зашифроватьToolStripMenuItem_Click);
+            // 
+            // расшифроватьToolStripMenuItem
+            // 
+            this.расшифроватьToolStripMenuItem.Name = "расшифроватьToolStripMenuItem";
+            this.расшифроватьToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
+            this.расшифроватьToolStripMenuItem.Text = "Расшифровать";
+            this.расшифроватьToolStripMenuItem.Click += new System.EventHandler(this.расшифроватьToolStripMenuItem_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(802, 372);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 6;
+            this.metroButton1.Text = "На главную";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
             // 
             // metroLabel21
             // 
@@ -1273,16 +1397,6 @@ namespace GUI
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(802, 372);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "На главную";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click_1);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1316,6 +1430,7 @@ namespace GUI
             this.setAction.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.metroContextMenu1.ResumeLayout(false);
             this.MonPartitionContextMenu.ResumeLayout(false);
             this.notifyIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1353,7 +1468,6 @@ namespace GUI
         private MetroFramework.Controls.MetroButton page_exceptions_back_to_main;
         private MetroFramework.Controls.MetroButton saveExceptions;
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private MetroFramework.Controls.MetroListView quarantine_files;
         private MetroFramework.Controls.MetroListView ScanObjectsList;
         private MetroFramework.Controls.MetroButton startScanButton;
         private System.Windows.Forms.TabPage tabPage7;
@@ -1434,6 +1548,20 @@ namespace GUI
         private TabPage tabPage9;
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private ListView cryptoTable;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
+        private ToolStripMenuItem добавитьФайлToolStripMenuItem1;
+        private ToolStripMenuItem удалитьФайлToolStripMenuItem1;
+        private ToolStripMenuItem удалитьФайлИзЖесткогоДискаToolStripMenuItem;
+        private ToolStripMenuItem зашифроватьToolStripMenuItem;
+        private ToolStripMenuItem расшифроватьToolStripMenuItem;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private SaveFileDialog saveFileDialog1;
+        private ColumnHeader columnHeader9;
+        public MetroFramework.Controls.MetroListView quarantine_files;
     }
 
 

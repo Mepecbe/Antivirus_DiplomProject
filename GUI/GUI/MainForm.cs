@@ -21,6 +21,8 @@ using GUI.Components.Configurations;
 
 using System.IO;
 using LoggerLib;
+using Elskom.Generic.Libs;
+using Tulpep.NotificationWindow;
 
 namespace GUI
 {
@@ -47,6 +49,7 @@ namespace GUI
 #if DEBUG
             Logger.Init();
 #endif
+            cryptor.SetRandomIV();
 
             {
                 //Накладываем белую панель на кусочек TabControl'а сверху
@@ -54,6 +57,8 @@ namespace GUI
                 var leftPanel = new Panel();
                 var rightPanel = new Panel();
                 var buttomPanel = new Panel();
+
+                APIHandlers.f = this;
 
                 {
                     {
@@ -276,7 +281,7 @@ namespace GUI
             InfoBuffer.Clear();
 
             API.getAllViruses();
-            Thread.Sleep(200);
+            Thread.Sleep(500);
 
             this.quarantine_files.Items.Clear();
 
@@ -921,11 +926,286 @@ namespace GUI
             this.TabControl.SelectedIndex = 0;
         }
 
+        private void добавитьФайлToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var res = openFileDialog1.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                var item = this.cryptoTable.Items.Add(openFileDialog1.FileName);
+
+                item.SubItems.Add((new FileInfo(openFileDialog1.FileName).Length / (1024L * 1024)).ToString());
+
+                if (File.Exists(openFileDialog1.FileName + ".crypt"))
+                {
+                    item.SubItems.Add("Да");
+                } else
+                {
+                    item.SubItems.Add("Нет");
+                }
+            }
+        }
+
+        private BlowFish cryptor = new BlowFish(new byte[] { 0xA, 0xB, 0xC, 0xD, 0xDE, 0xDA, 0xFE, 0xFA });
+
+        private void зашифроватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.cryptoTable.SelectedItems.Count == 0)
+            {
+                Logger.WriteLine("[crypt] не выбраны файлы");
+                return;
+            }
+
+            if (File.Exists(this.cryptoTable.SelectedItems[0].Text + ".crypt"))
+            {
+                new PopupNotifier()
+                {
+                    ContentText =
+                        "Зашифрованный файл уже существует\nШифрование отменено",
+                    TitleText = "Antivirus"
+                }.Popup();
+
+                return;
+            }
+
+            Logger.WriteLine("[crypt] старт");
+
+            if (File.Exists(cryptoTable.SelectedItems[0].SubItems[0].Text))
+            {
+                {
+                    var file = File.Open(cryptoTable.SelectedItems[0].SubItems[0].Text, FileMode.Open);
+                    var result = File.Create(cryptoTable.SelectedItems[0].SubItems[0].Text + ".crypt");
+
+                    var bReader = new BinaryReader(file);
+                    var bWriter = new BinaryWriter(result);
+
+                    while (file.Position < file.Length)
+                    {
+                        bWriter.Write(cryptor.EncryptCBC(bReader.ReadBytes(256)));
+                    }
+
+                    bReader.Close();
+                    bWriter.Close();
+                }
+
+                new PopupNotifier()
+                {
+                    ContentText =
+                        "Файл зашифрован\n" + cryptoTable.SelectedItems[0].SubItems[0].Text,
+                    TitleText = "Antivirus"
+                }.Popup();
+
+                this.cryptoTable.SelectedItems[0].SubItems[2].Text = "Да";
+            } else
+            {
+                new PopupNotifier()
+                {
+                    ContentText = "Файл не найден\n" + cryptoTable.SelectedItems[0].SubItems[0].Text,
+                    TitleText = "Antivirus"
+                }.Popup();
+            }
+        }
+
+
+
+        private void metroButton2_Click_1(object sender, EventArgs e)
+        {
+            var res = this.openFileDialog1.ShowDialog();
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+            res = this.saveFileDialog1.ShowDialog();
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+            FileStream source = null;
+            FileStream result = null;
+
+            try
+            {
+                source = File.Open(this.openFileDialog1.FileName, FileMode.Open);
+                result = File.Create(this.saveFileDialog1.FileName);
+            }
+            catch (Exception ex)
+            {
+                new PopupNotifier()
+                {
+                    ContentText =
+                        "Ошибка при открытии файла\n" + ex.Message,
+                    TitleText = "Antivirus"
+                }.Popup();
+
+                return;
+            }
+
+            Task.Run(() =>
+            {
+                var bReader = new BinaryReader(source);
+                var bWriter = new BinaryWriter(result);
+
+                while (source.Position < source.Length)
+                {
+                    bWriter.Write(cryptor.DecryptCBC(bReader.ReadBytes(256)));
+                }
+
+                bReader.Close();
+                bWriter.Close();
+            });
+
+            new PopupNotifier()
+            {
+                ContentText =
+                    "Файл расшифрован\n" + this.openFileDialog1.FileName,
+                TitleText = "Antivirus"
+            }.Popup();
+        }
+
+
+
+        private void metroButton4_Click_1(object sender, EventArgs e)
+        {
+            var res = this.openFileDialog1.ShowDialog();
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+            res = this.saveFileDialog1.ShowDialog();
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+            FileStream source = null;
+            FileStream result = null;
+
+            try
+            {
+                source = File.Open(this.openFileDialog1.FileName, FileMode.Open);
+                result = File.Create(this.saveFileDialog1.FileName + ".crypt");
+            }
+            catch(Exception ex)
+            {
+                new PopupNotifier()
+                {
+                    ContentText =
+                        "Ошибка при открытии файла\n" + ex.Message,
+                    TitleText = "Antivirus"
+                }.Popup();
+
+                return;
+            }
+                        
+            var bReader = new BinaryReader(source);
+            var bWriter = new BinaryWriter(result);
+
+            while (source.Position < source.Length)
+            {
+                try
+                {
+                    bWriter.Write(cryptor.EncryptCBC(bReader.ReadBytes(256)));
+                }
+                catch(Exception ex)
+                {
+                    new PopupNotifier()
+                    {
+                        ContentText =
+                            "Ошибка при шифровании файла\n" + ex.Message,
+                        TitleText = "Antivirus"
+                    }.Popup();
+
+                    bReader.Close();
+                    bWriter.Close();
+                    return;
+                }
+            }
+
+            bReader.Close();
+            bWriter.Close();
+            
+
+            new PopupNotifier()
+            {
+                ContentText =
+                    "Файл зашифрован\n" + this.openFileDialog1.FileName,
+                TitleText = "Antivirus"
+            }.Popup();
+        }
+
+        private void расшифроватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var res = this.saveFileDialog1.ShowDialog();
+
+            if (res != DialogResult.OK)
+            {
+                return;
+            }
+
+
+            Logger.WriteLine("[crypt] старт");
+
+
+            var source = File.Open(this.cryptoTable.SelectedItems[0].Text + ".crypt", FileMode.Open);
+            var result = File.Open(this.openFileDialog1.FileName, FileMode.Open);
+
+            Task.Run(() =>
+            {
+                var bReader = new BinaryReader(source);
+                var bWriter = new BinaryWriter(result);
+
+                while (source.Position < source.Length)
+                {
+                    bWriter.Write(cryptor.DecryptCBC(bReader.ReadBytes(256)));
+                }
+
+                bReader.Close();
+                bWriter.Close();
+            });
+
+            new PopupNotifier()
+            {
+                ContentText =
+                    "Файл расшифрован\n" + this.openFileDialog1.FileName,
+                TitleText = "Antivirus"
+            }.Popup();
+
+            this.cryptoTable.SelectedItems[0].SubItems[2].Text = "Нет";
+        }
+
+        private void удалитьФайлToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.cryptoTable.SelectedItems.Count > 0) {
+                this.cryptoTable.SelectedItems[0].Remove();
+            }
+        }
+
+        private void удалитьФайлИзЖесткогоДискаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.cryptoTable.SelectedItems.Count > 0) {
+                if (File.Exists(this.cryptoTable.SelectedItems[0].Text))
+                {
+                    File.Delete(this.cryptoTable.SelectedItems[0].Text);
+                }
+
+                this.cryptoTable.SelectedItems[0].Remove();
+            }
+        }
+
         /*====*/
     }
 
     public static class APIHandlers
     {
+        public static Form f;
+
         /// <summary>
         /// Если проверили файл и он не вирус
         /// </summary>
@@ -962,13 +1242,10 @@ namespace GUI
             if (MainForm.QuarantineShow)
             {
                 //pass
+                
             }
-
-            MainForm.InfoBuffer_sync.WaitOne();
-            {
-                MainForm.InfoBuffer.Add(info);
-            }
-            MainForm.InfoBuffer_sync.ReleaseMutex();
+            
+            MainForm.InfoBuffer.Add(info);            
         }
     }
 
