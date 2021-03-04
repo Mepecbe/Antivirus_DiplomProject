@@ -131,9 +131,12 @@ namespace GUI
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.cryptoTable = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.добавитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьФайлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,10 +156,7 @@ namespace GUI
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.active_scan_updater = new System.Windows.Forms.Timer(this.components);
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1213,6 +1213,26 @@ namespace GUI
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "page_cryptograph";
             // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(521, 372);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(114, 23);
+            this.metroButton4.TabIndex = 9;
+            this.metroButton4.Text = "Зашифровать";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click_1);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(657, 372);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(114, 23);
+            this.metroButton2.TabIndex = 8;
+            this.metroButton2.Text = "Расшифровать";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
+            // 
             // cryptoTable
             // 
             this.cryptoTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1238,6 +1258,11 @@ namespace GUI
             // 
             this.columnHeader4.Text = "Размер (Мегабайт)";
             this.columnHeader4.Width = 196;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Зашифрован";
+            this.columnHeader9.Width = 120;
             // 
             // metroContextMenu1
             // 
@@ -1372,31 +1397,6 @@ namespace GUI
             this.active_scan_updater.Interval = 50;
             this.active_scan_updater.Tick += new System.EventHandler(this.active_scan_updater_Tick);
             // 
-            // metroButton2
-            // 
-            this.metroButton2.Location = new System.Drawing.Point(657, 372);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(114, 23);
-            this.metroButton2.TabIndex = 8;
-            this.metroButton2.Text = "Расшифровать";
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
-            // 
-            // metroButton4
-            // 
-            this.metroButton4.Location = new System.Drawing.Point(521, 372);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(114, 23);
-            this.metroButton4.TabIndex = 9;
-            this.metroButton4.Text = "Зашифровать";
-            this.metroButton4.UseSelectable = true;
-            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click_1);
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Зашифрован";
-            this.columnHeader9.Width = 120;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1468,7 +1468,6 @@ namespace GUI
         private MetroFramework.Controls.MetroButton page_exceptions_back_to_main;
         private MetroFramework.Controls.MetroButton saveExceptions;
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private MetroFramework.Controls.MetroListView quarantine_files;
         private MetroFramework.Controls.MetroListView ScanObjectsList;
         private MetroFramework.Controls.MetroButton startScanButton;
         private System.Windows.Forms.TabPage tabPage7;
@@ -1562,6 +1561,7 @@ namespace GUI
         private MetroFramework.Controls.MetroButton metroButton2;
         private SaveFileDialog saveFileDialog1;
         private ColumnHeader columnHeader9;
+        public MetroFramework.Controls.MetroListView quarantine_files;
     }
 
 

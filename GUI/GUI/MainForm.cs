@@ -58,6 +58,8 @@ namespace GUI
                 var rightPanel = new Panel();
                 var buttomPanel = new Panel();
 
+                APIHandlers.f = this;
+
                 {
                     {
                         topPanel.Visible = true;
@@ -279,7 +281,7 @@ namespace GUI
             InfoBuffer.Clear();
 
             API.getAllViruses();
-            Thread.Sleep(200);
+            Thread.Sleep(500);
 
             this.quarantine_files.Items.Clear();
 
@@ -1202,6 +1204,8 @@ namespace GUI
 
     public static class APIHandlers
     {
+        public static Form f;
+
         /// <summary>
         /// Если проверили файл и он не вирус
         /// </summary>
@@ -1238,13 +1242,10 @@ namespace GUI
             if (MainForm.QuarantineShow)
             {
                 //pass
+                
             }
-
-            MainForm.InfoBuffer_sync.WaitOne();
-            {
-                MainForm.InfoBuffer.Add(info);
-            }
-            MainForm.InfoBuffer_sync.ReleaseMutex();
+            
+            MainForm.InfoBuffer.Add(info);            
         }
     }
 
