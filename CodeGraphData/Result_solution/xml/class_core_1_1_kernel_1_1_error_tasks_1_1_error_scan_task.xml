@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kind="class" prot="public">
+    <compoundname>Core::Kernel::ErrorTasks::ErrorScanTask</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1ac37e28ad5e4677067f9debd0566adec3" prot="public" static="no" mutable="no">
+        <type>readonly string</type>
+        <definition>readonly string Core.Kernel.ErrorTasks.ErrorScanTask.ErrorMessage</definition>
+        <argsstring></argsstring>
+        <name>ErrorMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="42" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1aed61a1ad484922980e448d238f03e19d" prot="public" static="no" mutable="no">
+        <type>readonly byte</type>
+        <definition>readonly byte Core.Kernel.ErrorTasks.ErrorScanTask.ErrorCode</definition>
+        <argsstring></argsstring>
+        <name>ErrorCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="43" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a6a9933a833759067f7a2fe6ad3d4f170" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref></type>
+        <definition>readonly ScanTask Core.Kernel.ErrorTasks.ErrorScanTask.task</definition>
+        <argsstring></argsstring>
+        <name>task</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="44" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a23e5761d975fe1442695b80fbdbbdc35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.ErrorTasks.ErrorScanTask.ErrorScanTask</definition>
+        <argsstring>(byte code, string message, ScanTask task)</argsstring>
+        <name>ErrorScanTask</name>
+        <param>
+          <type>byte</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="46" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="57">
+        <label>Core.Kernel.ScanModule.ScanTask</label>
+        <link refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task"/>
+      </node>
+      <node id="56">
+        <label>Core.Kernel.ErrorTasks.ErrorScanTask</label>
+        <link refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task"/>
+        <childnode refid="57" relation="usage">
+          <edgelabel>task</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="40" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1aed61a1ad484922980e448d238f03e19d" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTask</scope><name>ErrorCode</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1ac37e28ad5e4677067f9debd0566adec3" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTask</scope><name>ErrorMessage</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a23e5761d975fe1442695b80fbdbbdc35" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTask</scope><name>ErrorScanTask</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a6a9933a833759067f7a2fe6ad3d4f170" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTask</scope><name>task</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

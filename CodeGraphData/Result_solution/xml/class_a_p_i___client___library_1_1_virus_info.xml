@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_a_p_i___client___library_1_1_virus_info" kind="class" prot="public">
+    <compoundname>API_Client_Library::VirusInfo</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_info_1acf99b6ad465c4de1a43e127259489de3" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string API_Client_Library.VirusInfo.path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="433" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="433" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" compoundref="_api_lib_8cs" startline="440" endline="453">API_Client_Library.VirusInfo.VirusInfo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_info_1adda248e38cb7b09eaf323409c9deee3d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int API_Client_Library.VirusInfo.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="434" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="434" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" compoundref="_api_lib_8cs" startline="440" endline="453">API_Client_Library.VirusInfo.VirusInfo</referencedby>
+        <referencedby refid="class_g_u_i_1_1_main_form_1aaa62eec5fb8e0c9e5554228418b07932" compoundref="_main_form_8cs" startline="690" endline="700">GUI.MainForm.восстановитьФайлToolStripMenuItem_Click</referencedby>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a1db9d68d62b463b613a7a740ee6fa9cb" compoundref="_main_form_8cs" startline="703" endline="725">GUI.MainForm.удалитьФайлToolStripMenuItem_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_info_1a374854d74b4a333af6a93079942cec85" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int API_Client_Library.VirusInfo.VirusId</definition>
+        <argsstring></argsstring>
+        <name>VirusId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="435" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="435" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" compoundref="_api_lib_8cs" startline="440" endline="453">API_Client_Library.VirusInfo.VirusInfo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_info_1af8d823d439ba0c221fc5ee5db49d2ccb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool API_Client_Library.VirusInfo.inQuarantine</definition>
+        <argsstring></argsstring>
+        <name>inQuarantine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="437" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="437" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" compoundref="_api_lib_8cs" startline="440" endline="453">API_Client_Library.VirusInfo.VirusInfo</referencedby>
+        <referencedby refid="class_g_u_i_1_1_main_form_1aaa62eec5fb8e0c9e5554228418b07932" compoundref="_main_form_8cs" startline="690" endline="700">GUI.MainForm.восстановитьФайлToolStripMenuItem_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_info_1a7e4104a7b7b816b8a734a15d112485f3" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string API_Client_Library.VirusInfo.pathInQuarantine</definition>
+        <argsstring></argsstring>
+        <name>pathInQuarantine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="438" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>API_Client_Library.VirusInfo.VirusInfo</definition>
+        <argsstring>(string path, int id, int VirusId, bool quarantine, string inQuarantine)</argsstring>
+        <name>VirusInfo</name>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>VirusId</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>quarantine</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>inQuarantine</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="440" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="440" bodyend="453"/>
+        <references refid="class_a_p_i___client___library_1_1_virus_info_1adda248e38cb7b09eaf323409c9deee3d" compoundref="_api_lib_8cs" startline="434">API_Client_Library.VirusInfo.id</references>
+        <references refid="class_a_p_i___client___library_1_1_virus_info_1af8d823d439ba0c221fc5ee5db49d2ccb" compoundref="_api_lib_8cs" startline="437">API_Client_Library.VirusInfo.inQuarantine</references>
+        <references refid="class_a_p_i___client___library_1_1_virus_info_1acf99b6ad465c4de1a43e127259489de3" compoundref="_api_lib_8cs" startline="433">API_Client_Library.VirusInfo.path</references>
+        <references refid="class_a_p_i___client___library_1_1_virus_info_1a374854d74b4a333af6a93079942cec85" compoundref="_api_lib_8cs" startline="435">API_Client_Library.VirusInfo.VirusId</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="432" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="431" bodyend="454"/>
+    <listofallmembers>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1adda248e38cb7b09eaf323409c9deee3d" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>id</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1af8d823d439ba0c221fc5ee5db49d2ccb" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>inQuarantine</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1acf99b6ad465c4de1a43e127259489de3" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>path</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1a7e4104a7b7b816b8a734a15d112485f3" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>pathInQuarantine</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1a374854d74b4a333af6a93079942cec85" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>VirusId</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_info_1aaeb358f212b8c2b005a721df2c0dd12a" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusInfo</scope><name>VirusInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

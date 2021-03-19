@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_a_p_i___client___library" kind="namespace">
+    <compoundname>API_Client_Library</compoundname>
+    <innerclass refid="class_a_p_i___client___library_1_1_scanned_file_info" prot="public">API_Client_Library::ScannedFileInfo</innerclass>
+    <innerclass refid="class_a_p_i___client___library_1_1_a_p_i" prot="public">API_Client_Library::API</innerclass>
+    <innerclass refid="class_a_p_i___client___library_1_1_virus_info" prot="public">API_Client_Library::VirusInfo</innerclass>
+    <innerclass refid="class_a_p_i___client___library_1_1_virus_action" prot="public">API_Client_Library::VirusAction</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803" prot="public" static="no">
+        <name>ActionType</name>
+        <enumvalue id="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803af2a6c498fb90ee345d997f888fce3b18" prot="public">
+          <name>Delete</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803aceef81d6a6dbbd0cd3672cbd0c9cf013" prot="public">
+          <name>ToQuarantine</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803af80a4ad87fee7c9fdc19b7769495fdb5" prot="public">
+          <name>Nothing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="25" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="14" column="1"/>
+  </compounddef>
+</doxygen>

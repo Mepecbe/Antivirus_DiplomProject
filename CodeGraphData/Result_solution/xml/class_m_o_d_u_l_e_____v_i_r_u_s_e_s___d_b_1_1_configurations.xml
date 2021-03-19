@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations" kind="class" prot="public">
+    <compoundname>MODULE__VIRUSES_DB::Configurations</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations_1a26ebff390321304f0949f88eda7b35d3" prot="public" static="yes" mutable="no">
+        <type>Encoding</type>
+        <definition>Encoding MODULE__VIRUSES_DB.Configurations.NamedPipeEncoding</definition>
+        <argsstring></argsstring>
+        <name>NamedPipeEncoding</name>
+        <initializer>= Encoding.Unicode</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="18" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations_1a44b675d693cc807876ec2516a1eab737" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__VIRUSES_DB.Configurations.DatabaseFilesDir</definition>
+        <argsstring></argsstring>
+        <name>DatabaseFilesDir</name>
+        <initializer>= &quot;DatabaseFiles\\&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" compoundref="_d_b_8cs" startline="122" endline="157">MODULE__VIRUSES_DB.Db.InitDb</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="16" bodyend="20"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations_1a44b675d693cc807876ec2516a1eab737" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Configurations</scope><name>DatabaseFilesDir</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations_1a26ebff390321304f0949f88eda7b35d3" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Configurations</scope><name>NamedPipeEncoding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

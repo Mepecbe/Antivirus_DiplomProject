@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_g_u_i_1_1_components_1_1_scan_manager" kind="namespace">
+    <compoundname>GUI::Components::ScanManager</compoundname>
+    <innerclass refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager" prot="public">GUI::Components::ScanManager::ScanManager</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699" prot="public" static="no">
+        <name>ScanState</name>
+        <enumvalue id="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699a4d3d769b812b6faa6b76e1a8abaece2d" prot="public">
+          <name>Active</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699a105b296a83f9c105355403f3332af50f" prot="public">
+          <name>Pause</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699a721c28f4c74928cc9e0bb3fef345e408" prot="public">
+          <name>Aborted</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699a07ca5050e697392c9ed47e6453f1453f" prot="public">
+          <name>Completed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="232" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="231" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="14" column="1"/>
+  </compounddef>
+</doxygen>

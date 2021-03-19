@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_logger_1_1_logger" kind="class" prot="public">
+    <compoundname>Logger::Logger</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_logger_1_1_logger_1a4eb5612a4b989d4c56830d249ef00678" prot="public" static="no" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream Logger.Logger.inputPipe</definition>
+        <argsstring></argsstring>
+        <name>inputPipe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_logger_1a68780216463189df6f77cc33cbf7cf42" prot="public" static="no" mutable="no">
+        <type>Thread</type>
+        <definition>Thread Logger.Logger.HandlerThread</definition>
+        <argsstring></argsstring>
+        <name>HandlerThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="39" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_logger_1_1_logger_1a976721b7f993840ac98b41e727d9eb06" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string Logger.Logger.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="37" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_logger_1_1_logger_1a077c0d8426fbbe0c555f93f1a383e3a6" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string Logger.Logger.PipeName</definition>
+        <argsstring></argsstring>
+        <name>PipeName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="38" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Logger.Logger.Handler</definition>
+        <argsstring>()</argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="41" bodyend="103"/>
+        <references refid="class_logger_1_1_conf_1ac0cc15664616b7b8e18526784797a1b0" compoundref="_logger_2_program_8cs" startline="22">Logger.Conf.DEFAULT_COLOR</references>
+        <references refid="class_logger_1_1_conf_1ad5719506ed38a1d476ab3c5ef2bf3b9e" compoundref="_logger_2_program_8cs" startline="20">Logger.Conf.ERROR_COLOR</references>
+        <references refid="class_logger_1_1_conf_1a2779cbe06348663bbf8f477840a6863c" compoundref="_logger_2_program_8cs" startline="19">Logger.Conf.INFO_COLOR</references>
+        <references refid="class_logger_1_1_conf_1aeb23a0aaa6038667dca5287c38d42c44" compoundref="_logger_2_program_8cs" startline="21">Logger.Conf.OK_COLOR</references>
+        <references refid="class_logger_1_1_conf_1a9d59a66482b6b43060ad0fb7f29ca9dd" compoundref="_logger_2_program_8cs" startline="18">Logger.Conf.WARN_COLOR</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_logger_1_1_logger_1a49144baffcf27b4b1679b5427907a3d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Logger.Logger.Logger</definition>
+        <argsstring>(string pipeName, string loggerName)</argsstring>
+        <name>Logger</name>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>loggerName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="105" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="105" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="35" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="34" bodyend="114"/>
+    <listofallmembers>
+      <member refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" prot="private" virt="non-virtual"><scope>Logger::Logger</scope><name>Handler</name></member>
+      <member refid="class_logger_1_1_logger_1a68780216463189df6f77cc33cbf7cf42" prot="public" virt="non-virtual"><scope>Logger::Logger</scope><name>HandlerThread</name></member>
+      <member refid="class_logger_1_1_logger_1a4eb5612a4b989d4c56830d249ef00678" prot="public" virt="non-virtual"><scope>Logger::Logger</scope><name>inputPipe</name></member>
+      <member refid="class_logger_1_1_logger_1a49144baffcf27b4b1679b5427907a3d9" prot="public" virt="non-virtual"><scope>Logger::Logger</scope><name>Logger</name></member>
+      <member refid="class_logger_1_1_logger_1a976721b7f993840ac98b41e727d9eb06" prot="public" virt="non-virtual"><scope>Logger::Logger</scope><name>Name</name></member>
+      <member refid="class_logger_1_1_logger_1a077c0d8426fbbe0c555f93f1a383e3a6" prot="public" virt="non-virtual"><scope>Logger::Logger</scope><name>PipeName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor" kind="class" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a602f150d6e7677fc0770da657fb25c07" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.ThreadMonitor</definition>
+        <argsstring></argsstring>
+        <name>ThreadMonitor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="238" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="238" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1aeb7e3dfac86ead82d50a638c576e838d" compoundref="_monitor_8cs" startline="449" endline="459">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a52381ce06cb7ccc7ccab3d6940c7c641" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.AddRemovableDeviceToScan</definition>
+        <argsstring>(string pathToDrive)</argsstring>
+        <name>AddRemovableDeviceToScan</name>
+        <param>
+          <type>string</type>
+          <declname>pathToDrive</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="240" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="240" bodyend="272"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a6d2d7ba0302b28763df79f75583be249" compoundref="_monitor_8cs" startline="274" endline="442">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Worker</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a60315e71ec2538f8acd5c34e49e93879" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.ClearAllDevices</definition>
+        <argsstring>()</argsstring>
+        <name>ClearAllDevices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="444" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="444" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1aeb7e3dfac86ead82d50a638c576e838d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="449" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="449" bodyend="459"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a602f150d6e7677fc0770da657fb25c07" compoundref="_monitor_8cs" startline="238">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.ThreadMonitor</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a6d2d7ba0302b28763df79f75583be249" compoundref="_monitor_8cs" startline="274" endline="442">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Worker</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a5b84669393693f1fd939db84d059813d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.StopService</definition>
+        <argsstring>()</argsstring>
+        <name>StopService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="461" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="461" bodyend="464"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a6d2d7ba0302b28763df79f75583be249" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Worker</definition>
+        <argsstring>()</argsstring>
+        <name>Worker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="274" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="274" bodyend="442"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a52381ce06cb7ccc7ccab3d6940c7c641" compoundref="_monitor_8cs" startline="240" endline="272">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.AddRemovableDeviceToScan</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1ab0dff05508fb1712f0cd35b0f37f4a7b" compoundref="_monitor_8cs" startline="152" endline="165">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckDrive</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1a1ad5bb78ba50587f854dc27e75b649e3" compoundref="_monitor_8cs" startline="187" endline="199">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.checkDriveSerial</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1aa60ee2329d3dfb276b7cc819860e9696" compoundref="_monitor_8cs" startline="139" endline="147">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckSerial</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1a65473c898d8a3512236d611f4fc748f1" compoundref="_monitor_8cs" startline="79">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.countConnectedRemovableDevices</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1ac20a83f70595484f0972383473349beb" compoundref="_monitor_8cs" startline="23">MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.RemovableAutoScan</references>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1aeb7e3dfac86ead82d50a638c576e838d" compoundref="_monitor_8cs" startline="449" endline="459">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Init</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="237" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="236" bodyend="465"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a52381ce06cb7ccc7ccab3d6940c7c641" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>AddRemovableDeviceToScan</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a60315e71ec2538f8acd5c34e49e93879" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>ClearAllDevices</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1aeb7e3dfac86ead82d50a638c576e838d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>Init</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a5b84669393693f1fd939db84d059813d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>StopService</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a602f150d6e7677fc0770da657fb25c07" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>ThreadMonitor</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a6d2d7ba0302b28763df79f75583be249" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</scope><name>Worker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

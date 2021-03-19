@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors" kind="class" prot="public">
+    <compoundname>MODULE__VIRUSES_DB::Connectors</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a062b831050d8a235fbeec6dd3bc414fa" prot="public" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream MODULE__VIRUSES_DB.Connectors.VirusesDb_CommandPipe</definition>
+        <argsstring></argsstring>
+        <name>VirusesDb_CommandPipe</name>
+        <initializer>= new NamedPipeServerStream(&quot;VirusesDb.CommandPipe&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" compoundref="_d_b_8cs" startline="36" endline="93">MODULE__VIRUSES_DB.Connectors.commandHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ad30c89c8fd2814b643deb722547bc17d" prot="public" static="yes" mutable="no">
+        <type>BinaryReader</type>
+        <definition>BinaryReader MODULE__VIRUSES_DB.Connectors.VirusesDb_CommandPipe_Reader</definition>
+        <argsstring></argsstring>
+        <name>VirusesDb_CommandPipe_Reader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" compoundref="_d_b_8cs" startline="36" endline="93">MODULE__VIRUSES_DB.Connectors.commandHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ac8ce40bfe7d1a396bf3579fa30854814" prot="public" static="yes" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream MODULE__VIRUSES_DB.Connectors.ScannerService_signatures</definition>
+        <argsstring></argsstring>
+        <name>ScannerService_signatures</name>
+        <initializer>= new NamedPipeClientStream(&quot;ScannerService.signatures&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="28" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" compoundref="_d_b_8cs" startline="36" endline="93">MODULE__VIRUSES_DB.Connectors.commandHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a90c4f2d5693c41dadcda79ed86960a93" prot="public" static="yes" mutable="no">
+        <type>BinaryWriter</type>
+        <definition>BinaryWriter MODULE__VIRUSES_DB.Connectors.ScannerService_signatures_Writer</definition>
+        <argsstring></argsstring>
+        <name>ScannerService_signatures_Writer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="29" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" compoundref="_d_b_8cs" startline="36" endline="93">MODULE__VIRUSES_DB.Connectors.commandHandler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1aae852e2967b645958a04016593b225f0" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__VIRUSES_DB.Connectors.CommandThread</definition>
+        <argsstring></argsstring>
+        <name>CommandThread</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" kindref="member">commandHandler</ref>)
+        { Name = &quot;VirusesDbHandler&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ad67496a67bd48d840a5db972529f00b9" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref></type>
+        <definition>LoggerClient MODULE__VIRUSES_DB.Connectors.Logger</definition>
+        <argsstring></argsstring>
+        <name>Logger</name>
+        <initializer>= new <ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref>(&quot;Logger.VirusesDB&quot;, &quot;Viruses DB&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="34" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Connectors.commandHandler</definition>
+        <argsstring>()</argsstring>
+        <name>commandHandler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="36" bodyend="93"/>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ac8ce40bfe7d1a396bf3579fa30854814" compoundref="_d_b_8cs" startline="28">MODULE__VIRUSES_DB.Connectors.ScannerService_signatures</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a90c4f2d5693c41dadcda79ed86960a93" compoundref="_d_b_8cs" startline="29">MODULE__VIRUSES_DB.Connectors.ScannerService_signatures_Writer</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a062b831050d8a235fbeec6dd3bc414fa" compoundref="_d_b_8cs" startline="25">MODULE__VIRUSES_DB.Connectors.VirusesDb_CommandPipe</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ad30c89c8fd2814b643deb722547bc17d" compoundref="_d_b_8cs" startline="26">MODULE__VIRUSES_DB.Connectors.VirusesDb_CommandPipe_Reader</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1adb17e3e659cd632f18238bd91d3e8e45" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Connectors.RunConnector</definition>
+        <argsstring>()</argsstring>
+        <name>RunConnector</name>
+        <briefdescription>
+<para>Запуск коннектора </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="99" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="99" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="39">
+        <label>LoggerLib.LoggerClient</label>
+        <link refid="class_logger_lib_1_1_logger_client"/>
+      </node>
+      <node id="38">
+        <label>MODULE__VIRUSES_DB.Connectors</label>
+        <link refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors"/>
+        <childnode refid="39" relation="usage">
+          <edgelabel>Logger</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="24" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="23" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1afd2c3a35efd4295ade879118a9124338" prot="private" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>commandHandler</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1aae852e2967b645958a04016593b225f0" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>CommandThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ad67496a67bd48d840a5db972529f00b9" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>Logger</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1adb17e3e659cd632f18238bd91d3e8e45" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>RunConnector</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ac8ce40bfe7d1a396bf3579fa30854814" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>ScannerService_signatures</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a90c4f2d5693c41dadcda79ed86960a93" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>ScannerService_signatures_Writer</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1a062b831050d8a235fbeec6dd3bc414fa" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>VirusesDb_CommandPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_connectors_1ad30c89c8fd2814b643deb722547bc17d" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Connectors</scope><name>VirusesDb_CommandPipe_Reader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

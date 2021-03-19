@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_g_u_i_1_1_properties_1_1_resources" kind="class" prot="package">
+    <compoundname>GUI::Properties::Resources</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_properties_1_1_resources_1a9c95f11d35dd94c316898f5a33acc7c9" prot="private" static="yes" mutable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager GUI.Properties.Resources.resourceMan</definition>
+        <argsstring></argsstring>
+        <name>resourceMan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="27" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_properties_1_1_resources_1abc487b67204a6581bc014d0a6b93c95d" prot="private" static="yes" mutable="no">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo GUI.Properties.Resources.resourceCulture</definition>
+        <argsstring></argsstring>
+        <name>resourceCulture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1ae81bdec4563f7ef8ce984e30958dd99f" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager GUI.Properties.Resources.ResourceManager</definition>
+        <argsstring></argsstring>
+        <name>ResourceManager</name>
+        <briefdescription>
+<para>Возвращает кэшированный экземпляр ResourceManager, использованный этим классом. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="39" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a7788cc1a1a9e035e383b3bb583755bd1" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo GUI.Properties.Resources.Culture</definition>
+        <argsstring></argsstring>
+        <name>Culture</name>
+        <briefdescription>
+<para>Перезаписывает свойство CurrentUICulture текущего потока для всех обращений к ресурсу с помощью этого класса ресурса со строгой типизацией. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="54" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a4281a9dc49eb8b41476342ce5fbf8fb0" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources._128_crypto</definition>
+        <argsstring></argsstring>
+        <name>_128_crypto</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="66" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a30aecd9ef5cfea72a8b9514af022b8f7" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources._4124820_document_encryption_file_access_file_security_protected_file_113909</definition>
+        <argsstring></argsstring>
+        <name>_4124820_document_encryption_file_access_file_security_protected_file_113909</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="76" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a52c28160d8552e81e24add90101ecd20" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.About_icon_icons_com_55974</definition>
+        <argsstring></argsstring>
+        <name>About_icon_icons_com_55974</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="86" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a436d1eb20d1e65ff46380e98af661c8a" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.close_96</definition>
+        <argsstring></argsstring>
+        <name>close_96</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="96" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a692f3ee76d29c58dc09ff3845b9a4952" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.iconfinder_securityprotectlockshield04_4021479_113137</definition>
+        <argsstring></argsstring>
+        <name>iconfinder_securityprotectlockshield04_4021479_113137</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="106" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a215d4e2472f224e6ce9eba695d8272eb" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.iconfinder_securityprotectlockshield04_4021479_1131371</definition>
+        <argsstring></argsstring>
+        <name>iconfinder_securityprotectlockshield04_4021479_1131371</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="116" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a3c9ff54923bf6635e19a32b42a154130" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.reload_96</definition>
+        <argsstring></argsstring>
+        <name>reload_96</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="126" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a2f6b3e85fa2cee990573fa3b958f68a5" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.safe_96</definition>
+        <argsstring></argsstring>
+        <name>safe_96</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="136" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a5ccd5b0a24976732b70bfa8cf7fa3332" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.search</definition>
+        <argsstring></argsstring>
+        <name>search</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="146" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a5673276cebb791761f4cccc6fec2fd1b" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.search_96</definition>
+        <argsstring></argsstring>
+        <name>search_96</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="156" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_properties_1_1_resources_1a5aef1461043fd309d765bbca10123c33" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap GUI.Properties.Resources.settings_96</definition>
+        <argsstring></argsstring>
+        <name>settings_96</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="166" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_properties_1_1_resources_1a70af8fd32290501dbc0a69c8336a0e39" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GUI.Properties.Resources.Resources</definition>
+        <argsstring>()</argsstring>
+        <name>Resources</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="32" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="32" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Класс ресурса со строгой типизацией для поиска локализованных строк и т.д. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="131">
+        <label>GUI.Properties.Resources</label>
+        <link refid="class_g_u_i_1_1_properties_1_1_resources"/>
+        <childnode refid="131" relation="usage">
+          <edgelabel>resourceMan</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties/Resources.Designer.cs" bodystart="25" bodyend="172"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a4281a9dc49eb8b41476342ce5fbf8fb0" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>_128_crypto</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a30aecd9ef5cfea72a8b9514af022b8f7" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>_4124820_document_encryption_file_access_file_security_protected_file_113909</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a52c28160d8552e81e24add90101ecd20" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>About_icon_icons_com_55974</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a436d1eb20d1e65ff46380e98af661c8a" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>close_96</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a7788cc1a1a9e035e383b3bb583755bd1" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>Culture</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a692f3ee76d29c58dc09ff3845b9a4952" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>iconfinder_securityprotectlockshield04_4021479_113137</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a215d4e2472f224e6ce9eba695d8272eb" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>iconfinder_securityprotectlockshield04_4021479_1131371</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a3c9ff54923bf6635e19a32b42a154130" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>reload_96</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1abc487b67204a6581bc014d0a6b93c95d" prot="private" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>resourceCulture</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a9c95f11d35dd94c316898f5a33acc7c9" prot="private" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>resourceMan</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1ae81bdec4563f7ef8ce984e30958dd99f" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>ResourceManager</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a70af8fd32290501dbc0a69c8336a0e39" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>Resources</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a2f6b3e85fa2cee990573fa3b958f68a5" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>safe_96</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a5ccd5b0a24976732b70bfa8cf7fa3332" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>search</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a5673276cebb791761f4cccc6fec2fd1b" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>search_96</name></member>
+      <member refid="class_g_u_i_1_1_properties_1_1_resources_1a5aef1461043fd309d765bbca10123c33" prot="package" virt="non-virtual"><scope>GUI::Properties::Resources</scope><name>settings_96</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db" kind="class" prot="public">
+    <compoundname>MODULE__VIRUSES_DB::Db</compoundname>
+    <innerclass refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record" prot="public">MODULE__VIRUSES_DB::Db::DbRecord</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6" prot="public" static="no">
+        <name>VirusTypes</name>
+        <enumvalue id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6aa5312fd5717d3e2fd419132e3c3ac51b" prot="public">
+          <name>Trojan</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6a4bba490de1497694047b035f77f27c56" prot="public">
+          <name>Worm</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6af42b0f0e28a6c8d4c0dba87fb61946bc" prot="public">
+          <name>Cryptor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="271" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="270" bodyend="276"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1af8571e89d86536026b3e3dec87f76709" prot="private" static="yes" mutable="no">
+        <type>IsolatedStorageFile</type>
+        <definition>IsolatedStorageFile MODULE__VIRUSES_DB.Db.DbStorage</definition>
+        <argsstring></argsstring>
+        <name>DbStorage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="117" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="117" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" compoundref="_d_b_8cs" startline="122" endline="157">MODULE__VIRUSES_DB.Db.InitDb</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a8193d2ea31f3141d66f0985e8fee6d97" compoundref="_d_b_8cs" startline="163" endline="193">MODULE__VIRUSES_DB.Db.LoadToIsolatedStorage</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ac934221ef598e4d3eb8f2e3b82d3a1f0" prot="private" static="yes" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex MODULE__VIRUSES_DB.Db.DbSync</definition>
+        <argsstring></argsstring>
+        <name>DbSync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="119" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3bb14d4e369fcb7d2bba14852e66ffa0" prot="public" static="yes" mutable="no">
+        <type><ref refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record" kindref="compound">DbRecord</ref>[]</type>
+        <definition>DbRecord [] MODULE__VIRUSES_DB.Db.DbTable</definition>
+        <argsstring></argsstring>
+        <name>DbTable</name>
+        <initializer>= new <ref refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record" kindref="compound">DbRecord</ref>[] { }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="118" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="118" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a1d5aa8e838f70b8b6dc8bf36e3abc36e" compoundref="_d_b_8cs" startline="199" endline="247">MODULE__VIRUSES_DB.Db.LoadDbFromFile</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Db.InitDb</definition>
+        <argsstring>()</argsstring>
+        <name>InitDb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="122" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="122" bodyend="157"/>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_configurations_1a44b675d693cc807876ec2516a1eab737" compoundref="_d_b_8cs" startline="19">MODULE__VIRUSES_DB.Configurations.DatabaseFilesDir</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1af8571e89d86536026b3e3dec87f76709" compoundref="_d_b_8cs" startline="117">MODULE__VIRUSES_DB.Db.DbStorage</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a1d5aa8e838f70b8b6dc8bf36e3abc36e" compoundref="_d_b_8cs" startline="199" endline="247">MODULE__VIRUSES_DB.Db.LoadDbFromFile</references>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a8193d2ea31f3141d66f0985e8fee6d97" compoundref="_d_b_8cs" startline="163" endline="193">MODULE__VIRUSES_DB.Db.LoadToIsolatedStorage</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a8193d2ea31f3141d66f0985e8fee6d97" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Db.LoadToIsolatedStorage</definition>
+        <argsstring>(string localDir)</argsstring>
+        <name>LoadToIsolatedStorage</name>
+        <param>
+          <type>string</type>
+          <declname>localDir</declname>
+        </param>
+        <briefdescription>
+<para>Загрузить файлы БД из локального хранилища в изолированное </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>localDir</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="163" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="163" bodyend="193"/>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1af8571e89d86536026b3e3dec87f76709" compoundref="_d_b_8cs" startline="117">MODULE__VIRUSES_DB.Db.DbStorage</references>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" compoundref="_d_b_8cs" startline="122" endline="157">MODULE__VIRUSES_DB.Db.InitDb</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a1d5aa8e838f70b8b6dc8bf36e3abc36e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Db.LoadDbFromFile</definition>
+        <argsstring>(string PathToFile)</argsstring>
+        <name>LoadDbFromFile</name>
+        <param>
+          <type>string</type>
+          <declname>PathToFile</declname>
+        </param>
+        <briefdescription>
+<para>Загрузить БД из файла </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>PathToFile</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="199" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="199" bodyend="247"/>
+        <references refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3bb14d4e369fcb7d2bba14852e66ffa0" compoundref="_d_b_8cs" startline="118">MODULE__VIRUSES_DB.Db.DbTable</references>
+        <referencedby refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" compoundref="_d_b_8cs" startline="122" endline="157">MODULE__VIRUSES_DB.Db.InitDb</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>База сигнатур </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="44">
+        <label>MODULE__VIRUSES_DB.Db.DbRecord</label>
+        <link refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record"/>
+      </node>
+      <node id="43">
+        <label>MODULE__VIRUSES_DB.Db</label>
+        <link refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db"/>
+        <childnode refid="44" relation="usage">
+          <edgelabel>DbTable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="116" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="115" bodyend="277"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1af8571e89d86536026b3e3dec87f76709" prot="private" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>DbStorage</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ac934221ef598e4d3eb8f2e3b82d3a1f0" prot="private" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>DbSync</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3bb14d4e369fcb7d2bba14852e66ffa0" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>DbTable</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1ada8d8b6861244f14078788f1140dce37" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>InitDb</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a1d5aa8e838f70b8b6dc8bf36e3abc36e" prot="private" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>LoadDbFromFile</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a8193d2ea31f3141d66f0985e8fee6d97" prot="private" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>LoadToIsolatedStorage</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db</scope><name>VirusTypes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

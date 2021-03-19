@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::Scanner</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1a501f0dcbeb4d0e086a6bba4d89f1b6f7" prot="public" static="yes" mutable="no">
+        <type><ref refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature" kindref="compound">Signature</ref>[]</type>
+        <definition>Signature [] MODULE__SCAN.Scanner.Signatures</definition>
+        <argsstring></argsstring>
+        <name>Signatures</name>
+        <initializer>= new <ref refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature" kindref="compound">Signature</ref>[0]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="230" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="230" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1abb0853b6452221bcf3b44971dadd527e" compoundref="_scanner_8cs" startline="232" endline="313">MODULE__SCAN.Scanner.ScanFile</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1af103f0766fdeab9d4305501bba98bcba" compoundref="_scanner_8cs" startline="102" endline="141">MODULE__SCAN.Connector.signatureThread</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1abb0853b6452221bcf3b44971dadd527e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result" kindref="compound">ScanResult</ref></type>
+        <definition>static ScanResult MODULE__SCAN.Scanner.ScanFile</definition>
+        <argsstring>(Stream FileStream)</argsstring>
+        <name>ScanFile</name>
+        <param>
+          <type>Stream</type>
+          <declname>FileStream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="232" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="232" bodyend="313"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a5950bedc53cc8e7609ecdd3b3bc61fa4" compoundref="_scanner_8cs" startline="30">MODULE__SCAN.Configuration.MAX_FAST_SCAN_FILE</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1a501f0dcbeb4d0e086a6bba4d89f1b6f7" compoundref="_scanner_8cs" startline="230">MODULE__SCAN.Scanner.Signatures</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="141">
+        <label>MODULE__SCAN.Scanner</label>
+        <link refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner"/>
+        <childnode refid="142" relation="usage">
+          <edgelabel>Signatures</edgelabel>
+        </childnode>
+      </node>
+      <node id="142">
+        <label>MODULE__SCAN.Signature</label>
+        <link refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="229" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="228" bodyend="314"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1abb0853b6452221bcf3b44971dadd527e" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Scanner</scope><name>ScanFile</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1a501f0dcbeb4d0e086a6bba4d89f1b6f7" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Scanner</scope><name>Signatures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_a_p_i___client___library_1_1_a_p_i" kind="class" prot="public">
+    <compoundname>API_Client_Library::API</compoundname>
+      <sectiondef kind="event">
+      <memberdef kind="event" id="class_a_p_i___client___library_1_1_a_p_i_1ad59488557ddacd873d3826fafba268a3" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type><ref refid="class_a_p_i___client___library_1_1_a_p_i_1aafa380e09b0a4ebc67a3957ffdca8734" kindref="member">scanCompetedEvent</ref></type>
+        <definition>scanCompetedEvent API_Client_Library.API.onScanCompleted</definition>
+        <argsstring></argsstring>
+        <name>onScanCompleted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="44" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_a_p_i___client___library_1_1_a_p_i_1a1bb7506f992077030f0d998cbacf6491" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type><ref refid="class_a_p_i___client___library_1_1_a_p_i_1a4570df1b60c190f2f66d3de25028e28e" kindref="member">scanFoundVirusEvent</ref></type>
+        <definition>scanFoundVirusEvent API_Client_Library.API.onScanFound</definition>
+        <argsstring></argsstring>
+        <name>onScanFound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="45" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_a_p_i___client___library_1_1_a_p_i_1aeaec50047f06c34c41c65bec71cb3ed1" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type><ref refid="class_a_p_i___client___library_1_1_a_p_i_1a233503c9b450f9759bc0410b30b8271c" kindref="member">virusInfo</ref></type>
+        <definition>virusInfo API_Client_Library.API.onVirusInfo</definition>
+        <argsstring></argsstring>
+        <name>onVirusInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_a_p_i_1ad5304745038a19390974c439b3276854" prot="private" static="yes" mutable="no">
+        <type>readonly NamedPipeServerStream</type>
+        <definition>readonly NamedPipeServerStream API_Client_Library.API.InputConnector</definition>
+        <argsstring></argsstring>
+        <name>InputConnector</name>
+        <initializer>= new NamedPipeServerStream(&quot;API.User&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="49" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="49" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_a_p_i_1afc18f8a3bae911b80f0e64a10fdf0c56" compoundref="_api_lib_8cs" startline="64" endline="153">API_Client_Library.API.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_a_p_i_1a1aaf7b8d35fdff8f33adee41d41d6f50" prot="private" static="yes" mutable="no">
+        <type>readonly NamedPipeClientStream</type>
+        <definition>readonly NamedPipeClientStream API_Client_Library.API.OutputConnector</definition>
+        <argsstring></argsstring>
+        <name>OutputConnector</name>
+        <initializer>= new NamedPipeClientStream(&quot;API.Core&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="50" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_a_p_i_1a7a122673a874a3f37c4da4a1e8222cd4" prot="private" static="yes" mutable="no">
+        <type>readonly Thread</type>
+        <definition>readonly Thread API_Client_Library.API.InputHandler</definition>
+        <argsstring></argsstring>
+        <name>InputHandler</name>
+        <initializer>= new Thread(<ref refid="class_a_p_i___client___library_1_1_a_p_i_1afc18f8a3bae911b80f0e64a10fdf0c56" kindref="member">Handler</ref>) { Name = &quot;ApiHandler&quot; }</initializer>
+        <briefdescription>
+<para>Поток обработки событий </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="55" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_a_p_i_1ab2e3e58283a281c1874402bd2cfea0e6" prot="private" static="yes" mutable="no">
+        <type>readonly BinaryWriter</type>
+        <definition>readonly BinaryWriter API_Client_Library.API.OutputWriter</definition>
+        <argsstring></argsstring>
+        <name>OutputWriter</name>
+        <initializer>= new BinaryWriter(<ref refid="class_a_p_i___client___library_1_1_a_p_i_1a1aaf7b8d35fdff8f33adee41d41d6f50" kindref="member">OutputConnector</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="57" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_a_p_i_1a00cb9d7481fdbb6a072170c97e3f2394" prot="public" static="yes" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex API_Client_Library.API.Writer_sync</definition>
+        <argsstring></argsstring>
+        <name>Writer_sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="58" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1aafa380e09b0a4ebc67a3957ffdca8734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate void</type>
+        <definition>delegate void API_Client_Library.API.scanCompetedEvent</definition>
+        <argsstring>(string File)</argsstring>
+        <name>scanCompetedEvent</name>
+        <param>
+          <type>string</type>
+          <declname>File</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a4570df1b60c190f2f66d3de25028e28e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate void</type>
+        <definition>delegate void API_Client_Library.API.scanFoundVirusEvent</definition>
+        <argsstring>(VirusInfo File)</argsstring>
+        <name>scanFoundVirusEvent</name>
+        <param>
+          <type><ref refid="class_a_p_i___client___library_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>File</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a233503c9b450f9759bc0410b30b8271c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate void</type>
+        <definition>delegate void API_Client_Library.API.virusInfo</definition>
+        <argsstring>(VirusInfo info)</argsstring>
+        <name>virusInfo</name>
+        <param>
+          <type><ref refid="class_a_p_i___client___library_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="42" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1afc18f8a3bae911b80f0e64a10fdf0c56" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.Handler</definition>
+        <argsstring>()</argsstring>
+        <name>Handler</name>
+        <briefdescription>
+<para>Код потока обработчика событий </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="64" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="64" bodyend="153"/>
+        <references refid="class_a_p_i___client___library_1_1_a_p_i_1ad5304745038a19390974c439b3276854" compoundref="_api_lib_8cs" startline="49">API_Client_Library.API.InputConnector</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a700260aaa270211e124238b64576f10f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ToQuarantine</definition>
+        <argsstring>(int id)</argsstring>
+        <name>ToQuarantine</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Поместить вирус в карантин </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="160" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="160" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a7bc67d8c08279c786b72092d79c4a25f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.RestoreFile</definition>
+        <argsstring>(int id)</argsstring>
+        <name>RestoreFile</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Восстановить файл из карантина </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="177" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="177" bodyend="189"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1aaa62eec5fb8e0c9e5554228418b07932" compoundref="_main_form_8cs" startline="690" endline="700">GUI.MainForm.восстановитьФайлToolStripMenuItem_Click</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1afed6ab5805bf8038198c845893860d46" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.GetVirusInfo</definition>
+        <argsstring>(int virusId)</argsstring>
+        <name>GetVirusInfo</name>
+        <param>
+          <type>int</type>
+          <declname>virusId</declname>
+        </param>
+        <briefdescription>
+<para>Получить информацию о вирусе </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="194" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="194" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a49ccfdb5e46426458df8710d03162061" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.SetDefenderState</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>SetDefenderState</name>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="199" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="199" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1ada4c063eb767857c1d79300bb49fc692" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.StopKernel</definition>
+        <argsstring>()</argsstring>
+        <name>StopKernel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="213" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="213" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a8dd98addc794248971e95af6f55fb36b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ApplyingActions</definition>
+        <argsstring>(VirusAction[] Info)</argsstring>
+        <name>ApplyingActions</name>
+        <param>
+          <type><ref refid="class_a_p_i___client___library_1_1_virus_action" kindref="compound">VirusAction</ref>[]</type>
+          <declname>Info</declname>
+        </param>
+        <briefdescription>
+<para>Применить действия для обнаруженных вирусов </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Info</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="231" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="231" bodyend="264"/>
+        <references refid="class_a_p_i___client___library_1_1_virus_action_1af2f599ec30e13cd9bd87eec5db906b29" compoundref="_api_lib_8cs" startline="459">API_Client_Library.VirusAction.Action</references>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a83683fdc0f0892043779d702505c67ec" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ClearScanQueue</definition>
+        <argsstring>()</argsstring>
+        <name>ClearScanQueue</name>
+        <briefdescription>
+<para>Очистить очередь сканирования файлов </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="269" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="269" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1acfd8ee1e75b7500c09e385731c7e7443" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.AddToScan</definition>
+        <argsstring>(string file)</argsstring>
+        <name>AddToScan</name>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Добавить в очередь сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="285" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="285" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a469c343023db0aac5c3bc0117fee837f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.SetAutoScanRemovableDevices</definition>
+        <argsstring>(bool flag)</argsstring>
+        <name>SetAutoScanRemovableDevices</name>
+        <param>
+          <type>bool</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Автосканирование съемных носителей </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="302" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="302" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a67f6f6d5e83d1ebbe951f047fa2f152c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.getAllViruses</definition>
+        <argsstring>()</argsstring>
+        <name>getAllViruses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="316" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="316" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a97deb6fee3f30f6e0af6e30e102922b9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.DeleteFile</definition>
+        <argsstring>(int id)</argsstring>
+        <name>DeleteFile</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="329" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="329" bodyend="341"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a1db9d68d62b463b613a7a740ee6fa9cb" compoundref="_main_form_8cs" startline="703" endline="725">GUI.MainForm.удалитьФайлToolStripMenuItem_Click</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1accbd6b494d69d72863691c4e570d280c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ClearConnectedDevices</definition>
+        <argsstring>()</argsstring>
+        <name>ClearConnectedDevices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="343" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="343" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a0a2371e682b41dea7dfa2c5b535285a8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.AddSimpleRule</definition>
+        <argsstring>(string rule)</argsstring>
+        <name>AddSimpleRule</name>
+        <param>
+          <type>string</type>
+          <declname>rule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="356" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="356" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1ac2b898b2fcf12f5ab0b40695241eff4f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.RemoveSimpleRule</definition>
+        <argsstring>(string rule)</argsstring>
+        <name>RemoveSimpleRule</name>
+        <param>
+          <type>string</type>
+          <declname>rule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="370" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="370" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a4ad4e77c148bcd0b38d982ef91ca3791" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ClearSimpleRules</definition>
+        <argsstring>()</argsstring>
+        <name>ClearSimpleRules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="384" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="384" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1aeefffa620f4cca83422903edc55b08b5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="398" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="398" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_a_p_i_1a583635f715bf5ff0f65e491d22b3bb42" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void API_Client_Library.API.ApiStop</definition>
+        <argsstring>()</argsstring>
+        <name>ApiStop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="419" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="419" bodyend="428"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_a_p_i___client___library_1_1_a_p_i" kindref="compound">API</ref> ядра антивируса </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="38" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="37" bodyend="429"/>
+    <listofallmembers>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a0a2371e682b41dea7dfa2c5b535285a8" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>AddSimpleRule</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1acfd8ee1e75b7500c09e385731c7e7443" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>AddToScan</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a583635f715bf5ff0f65e491d22b3bb42" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ApiStop</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a8dd98addc794248971e95af6f55fb36b" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ApplyingActions</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1accbd6b494d69d72863691c4e570d280c" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ClearConnectedDevices</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a83683fdc0f0892043779d702505c67ec" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ClearScanQueue</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a4ad4e77c148bcd0b38d982ef91ca3791" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ClearSimpleRules</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a97deb6fee3f30f6e0af6e30e102922b9" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>DeleteFile</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a67f6f6d5e83d1ebbe951f047fa2f152c" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>getAllViruses</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1afed6ab5805bf8038198c845893860d46" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>GetVirusInfo</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1afc18f8a3bae911b80f0e64a10fdf0c56" prot="private" virt="non-virtual"><scope>API_Client_Library::API</scope><name>Handler</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1aeefffa620f4cca83422903edc55b08b5" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>Init</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1ad5304745038a19390974c439b3276854" prot="private" virt="non-virtual"><scope>API_Client_Library::API</scope><name>InputConnector</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a7a122673a874a3f37c4da4a1e8222cd4" prot="private" virt="non-virtual"><scope>API_Client_Library::API</scope><name>InputHandler</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1ad59488557ddacd873d3826fafba268a3" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>onScanCompleted</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a1bb7506f992077030f0d998cbacf6491" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>onScanFound</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1aeaec50047f06c34c41c65bec71cb3ed1" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>onVirusInfo</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a1aaf7b8d35fdff8f33adee41d41d6f50" prot="private" virt="non-virtual"><scope>API_Client_Library::API</scope><name>OutputConnector</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1ab2e3e58283a281c1874402bd2cfea0e6" prot="private" virt="non-virtual"><scope>API_Client_Library::API</scope><name>OutputWriter</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1ac2b898b2fcf12f5ab0b40695241eff4f" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>RemoveSimpleRule</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a7bc67d8c08279c786b72092d79c4a25f" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>RestoreFile</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1aafa380e09b0a4ebc67a3957ffdca8734" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>scanCompetedEvent</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a4570df1b60c190f2f66d3de25028e28e" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>scanFoundVirusEvent</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a469c343023db0aac5c3bc0117fee837f" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>SetAutoScanRemovableDevices</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a49ccfdb5e46426458df8710d03162061" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>SetDefenderState</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1ada4c063eb767857c1d79300bb49fc692" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>StopKernel</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a700260aaa270211e124238b64576f10f" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>ToQuarantine</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a233503c9b450f9759bc0410b30b8271c" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>virusInfo</name></member>
+      <member refid="class_a_p_i___client___library_1_1_a_p_i_1a00cb9d7481fdbb6a072170c97e3f2394" prot="public" virt="non-virtual"><scope>API_Client_Library::API</scope><name>Writer_sync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

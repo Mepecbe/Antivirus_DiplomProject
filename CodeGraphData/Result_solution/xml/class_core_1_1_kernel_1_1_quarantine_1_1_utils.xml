@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_quarantine_1_1_utils" kind="class" prot="public">
+    <compoundname>Core::Kernel::Quarantine::Utils</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_quarantine_1_1_utils_1a7d73c9f321bbd4ec92ca840500891946" prot="public" static="yes" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; Core.Kernel.Quarantine.Utils.NotExistsFiles</definition>
+        <argsstring></argsstring>
+        <name>NotExistsFiles</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+<para>Не найденные файлы </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="18" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_utils_1a7d73c9f321bbd4ec92ca840500891946" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Utils</scope><name>NotExistsFiles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

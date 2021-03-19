@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kind="class" prot="public">
+    <compoundname>Core::Kernel::ScanModule::ScanTask</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1afde0cabe4e8350d1486ee6332038051e" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Core.Kernel.ScanModule.ScanTask.File</definition>
+        <argsstring></argsstring>
+        <name>File</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="419" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a7f49e5c51ceb798059a59e4fe2a6b097" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Core.Kernel.ScanModule.ScanTask.TaskId</definition>
+        <argsstring></argsstring>
+        <name>TaskId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="420" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a483ae1e4561b9a7db9f54724fc084ed8" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte Core.Kernel.ScanModule.ScanTask.ProbesCount</definition>
+        <argsstring></argsstring>
+        <name>ProbesCount</name>
+        <briefdescription>
+<para>Количество попыток сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="425" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a9ee2deafd554bad90b6b8c4de96cca91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.ScanModule.ScanTask.ScanTask</definition>
+        <argsstring>(string file, int id)</argsstring>
+        <name>ScanTask</name>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="428" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="428" bodyend="433"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Представляет собой задачу сканирования </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="418" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="417" bodyend="434"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1afde0cabe4e8350d1486ee6332038051e" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScanTask</scope><name>File</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a483ae1e4561b9a7db9f54724fc084ed8" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScanTask</scope><name>ProbesCount</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a9ee2deafd554bad90b6b8c4de96cca91" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScanTask</scope><name>ScanTask</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a7f49e5c51ceb798059a59e4fe2a6b097" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScanTask</scope><name>TaskId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

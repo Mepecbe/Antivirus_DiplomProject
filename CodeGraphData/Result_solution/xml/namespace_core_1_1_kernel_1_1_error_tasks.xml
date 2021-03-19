@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_core_1_1_kernel_1_1_error_tasks" kind="namespace">
+    <compoundname>Core::Kernel::ErrorTasks</compoundname>
+    <innerclass refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" prot="public">Core::Kernel::ErrorTasks::ErrorScanTasksManager</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" prot="public">Core::Kernel::ErrorTasks::ErrorScanTask</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="11" column="1"/>
+  </compounddef>
+</doxygen>

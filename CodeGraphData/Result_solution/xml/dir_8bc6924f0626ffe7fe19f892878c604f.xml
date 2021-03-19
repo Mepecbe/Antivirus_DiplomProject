@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_8bc6924f0626ffe7fe19f892878c604f" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor</compoundname>
+    <innerdir refid="dir_ae25b3fc4e0f6d44752fa306d65c7060">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties</innerdir>
+    <innerfile refid="_add_new_signature_form_8cs">AddNewSignatureForm.cs</innerfile>
+    <innerfile refid="_add_new_signature_form_8_designer_8cs">AddNewSignatureForm.Designer.cs</innerfile>
+    <innerfile refid="_editor_8cs">Editor.cs</innerfile>
+    <innerfile refid="_editor_8_designer_8cs">Editor.Designer.cs</innerfile>
+    <innerfile refid="_form1_8cs">Form1.cs</innerfile>
+    <innerfile refid="_form1_8_designer_8cs">Form1.Designer.cs</innerfile>
+    <innerfile refid="_d_b___editor_2_program_8cs">Program.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/"/>
+  </compounddef>
+</doxygen>

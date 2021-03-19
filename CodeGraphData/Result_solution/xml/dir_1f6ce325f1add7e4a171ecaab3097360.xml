@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_1f6ce325f1add7e4a171ecaab3097360" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library</compoundname>
+    <innerdir refid="dir_d42addee5c6608211090922fe32e9c5b">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/Properties</innerdir>
+    <innerfile refid="_api_lib_8cs">ApiLib.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/"/>
+  </compounddef>
+</doxygen>

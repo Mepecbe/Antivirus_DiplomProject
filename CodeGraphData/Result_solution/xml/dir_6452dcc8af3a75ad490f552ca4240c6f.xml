@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_6452dcc8af3a75ad490f552ca4240c6f" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES</compoundname>
+    <innerfile refid="_a_p_i_8cs">API.cs</innerfile>
+    <innerfile refid="_core_2_kernel___m_o_d_u_l_e_s_2_configuration_8cs">Configuration.cs</innerfile>
+    <innerfile refid="_connector_8cs">Connector.cs</innerfile>
+    <innerfile refid="_cryptographer_8cs">Cryptographer.cs</innerfile>
+    <innerfile refid="_error_scan_tasks_8cs">ErrorScanTasks.cs</innerfile>
+    <innerfile refid="_found_viruses_manager_8cs">FoundVirusesManager.cs</innerfile>
+    <innerfile refid="_module_manager_8cs">ModuleManager.cs</innerfile>
+    <innerfile refid="_quarantine_8cs">Quarantine.cs</innerfile>
+    <innerfile refid="_scan_queue_8cs">ScanQueue.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/"/>
+  </compounddef>
+</doxygen>

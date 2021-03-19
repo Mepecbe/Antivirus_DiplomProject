@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration" kind="class" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a4778a52dfea22a03282469f70d156499" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.API_MON_PIPE_NAME</definition>
+        <argsstring></argsstring>
+        <name>API_MON_PIPE_NAME</name>
+        <initializer>= &quot;API_MON_FILTER&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="21" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1adc178b783467737dca3962b439e4213a" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.COMMAND_PIPE_NAME</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_PIPE_NAME</name>
+        <initializer>= &quot;PartitionMon.Command&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1ac20a83f70595484f0972383473349beb" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.RemovableAutoScan</definition>
+        <argsstring></argsstring>
+        <name>RemovableAutoScan</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor_1a6d2d7ba0302b28763df79f75583be249" compoundref="_monitor_8cs" startline="274" endline="442">MODULE__RESERVE_NEW_FILE_DETECTOR.RemovableDeviceMonitor.Worker</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a0c6cd9ef4cc14aa84ee7f166182d4012" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.Disable</definition>
+        <argsstring></argsstring>
+        <name>Disable</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" compoundref="_monitor_8cs" startline="518" endline="545">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Loader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1abb0c6b3f89ac994de6d43bcabcacba5d" prot="public" static="yes" mutable="no">
+        <type>Encoding</type>
+        <definition>Encoding MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.NamedPipeEncoding</definition>
+        <argsstring></argsstring>
+        <name>NamedPipeEncoding</name>
+        <initializer>= Encoding.Unicode</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="28" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" compoundref="_monitor_8cs" startline="547" endline="684">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a754660953a6d6cfc1c4d6b682fc74429" compoundref="_monitor_8cs" startline="755" endline="761">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a4d2c8223e34b2946865a1573d6c9e496" prot="public" static="yes" mutable="no">
+        <type>string[]</type>
+        <definition>string [] MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.RemovableDevicesFilter</definition>
+        <argsstring></argsstring>
+        <name>RemovableDevicesFilter</name>
+        <initializer>= new string[]{ &quot;exe&quot;, &quot;dll&quot;, &quot;msi&quot;, &quot;mp4&quot;}</initializer>
+        <briefdescription>
+<para>Какие файлы будут проверятся на флешке </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="33" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="19" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a4778a52dfea22a03282469f70d156499" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>API_MON_PIPE_NAME</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1adc178b783467737dca3962b439e4213a" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>COMMAND_PIPE_NAME</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a0c6cd9ef4cc14aa84ee7f166182d4012" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>Disable</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1abb0c6b3f89ac994de6d43bcabcacba5d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>NamedPipeEncoding</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1ac20a83f70595484f0972383473349beb" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>RemovableAutoScan</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a4d2c8223e34b2946865a1573d6c9e496" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</scope><name>RemovableDevicesFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

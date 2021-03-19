@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_885b3c0cc2de4314bbfed03d0b6e5f18" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI</compoundname>
+    <innerdir refid="dir_dc3e197f213419d87489905cbc1b4b11">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components</innerdir>
+    <innerdir refid="dir_8fe4d3f0e13ff73b23c38bcfb07ba550">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Properties</innerdir>
+    <innerfile refid="_main_form_8cs">MainForm.cs</innerfile>
+    <innerfile refid="_main_form_8_designer_8cs">MainForm.Designer.cs</innerfile>
+    <innerfile refid="_g_u_i_2_g_u_i_2_program_8cs">Program.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/"/>
+  </compounddef>
+</doxygen>

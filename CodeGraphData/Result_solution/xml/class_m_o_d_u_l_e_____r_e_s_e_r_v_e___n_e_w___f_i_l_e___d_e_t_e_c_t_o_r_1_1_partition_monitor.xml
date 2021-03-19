@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor" kind="class" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ab25c83ff7fe359a48ff6c1657eb66ab0" prot="private" static="yes" mutable="no">
+        <type>readonly Thread</type>
+        <definition>readonly Thread MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandExecuter</definition>
+        <argsstring></argsstring>
+        <name>CommandExecuter</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" kindref="member">CommandThread</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="480" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="480" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" prot="private" static="yes" mutable="no">
+        <type>FileSystemWatcher[]</type>
+        <definition>FileSystemWatcher [] MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers</definition>
+        <argsstring></argsstring>
+        <name>FileSystemWatchers</name>
+        <initializer>= new FileSystemWatcher[0]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="482" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="482" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" compoundref="_monitor_8cs" startline="547" endline="684">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" compoundref="_monitor_8cs" startline="690" endline="710">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a01d4480cb5d8f048bb9a905377d20d54" compoundref="_monitor_8cs" startline="716" endline="732">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.DisablePartitionMon</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a3f54db77decfb7358842cdd460aae94e" compoundref="_monitor_8cs" startline="766" endline="777">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.StopAll</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1af43013b8f57d61165979e6179ef45006" prot="private" static="yes" mutable="no">
+        <type>readonly Mutex</type>
+        <definition>readonly Mutex MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers_sync</definition>
+        <argsstring></argsstring>
+        <name>FileSystemWatchers_sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="483" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="483" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a01d4480cb5d8f048bb9a905377d20d54" compoundref="_monitor_8cs" startline="716" endline="732">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.DisablePartitionMon</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1aabb063a014b382fbfdcd0d94cfe40c3b" prot="private" static="yes" mutable="no">
+        <type>readonly Mutex</type>
+        <definition>readonly Mutex MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatedFilesBuffer_sync</definition>
+        <argsstring></argsstring>
+        <name>CreatedFilesBuffer_sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="486" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="486" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ae75b974f573c5e9e15219d3cdcfa96dd" prot="public" static="yes" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatedFilesBuffer</definition>
+        <argsstring></argsstring>
+        <name>CreatedFilesBuffer</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="485" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="485" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1afceb1e7109b0d13f9dd61349ba6d2475" compoundref="_monitor_8cs" startline="494" endline="506">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.RemoveIfExists</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a5ec6eb5dbd2ed35cd2d952492c8917d3" prot="public" static="yes" mutable="no">
+        <type>Queue&lt; string &gt;</type>
+        <definition>Queue&lt;string&gt; MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileQueue</definition>
+        <argsstring></argsstring>
+        <name>FileQueue</name>
+        <initializer>= new Queue&lt;string&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="488" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="488" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" compoundref="_monitor_8cs" startline="518" endline="545">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Loader</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7e4307cc49b6e8886b0c9492bc80c7ab" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.LoaderThread</definition>
+        <argsstring></argsstring>
+        <name>LoaderThread</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" kindref="member">Loader</ref>) { Name = &quot;MonitorLoader&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="490" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="490" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1aaa485fd292c58b462594a3c4f41c31b0" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.BufferCleaner</definition>
+        <argsstring></argsstring>
+        <name>BufferCleaner</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9b7556643393d69b07da91c9370e7075" kindref="member">Cleaner</ref>) { Name = &quot;MonitorBufferCleaner&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="491" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="491" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1afceb1e7109b0d13f9dd61349ba6d2475" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.RemoveIfExists</definition>
+        <argsstring>(string path)</argsstring>
+        <name>RemoveIfExists</name>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="494" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="494" bodyend="506"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ae75b974f573c5e9e15219d3cdcfa96dd" compoundref="_monitor_8cs" startline="485">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatedFilesBuffer</references>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" compoundref="_monitor_8cs" startline="518" endline="545">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Loader</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a17985785464519af6b2cffed720dc9c9" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreateFileEvent</definition>
+        <argsstring>(object sender, FileSystemEventArgs e)</argsstring>
+        <name>CreateFileEvent</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>FileSystemEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="734" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="734" bodyend="737"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" compoundref="_monitor_8cs" startline="690" endline="710">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9e84f7149951b10d64041c6d06d4ad51" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.ChangedFileEvent</definition>
+        <argsstring>(object sender, FileSystemEventArgs e)</argsstring>
+        <name>ChangedFileEvent</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>FileSystemEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="739" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="739" bodyend="742"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" compoundref="_monitor_8cs" startline="690" endline="710">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a8439ded1486bf2010b84aef4881ef8bf" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Error</definition>
+        <argsstring>(object sender, ErrorEventArgs e)</argsstring>
+        <name>Error</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>ErrorEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="745" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="745" bodyend="750"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" compoundref="_monitor_8cs" startline="690" endline="710">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9b7556643393d69b07da91c9370e7075" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Cleaner</definition>
+        <argsstring>()</argsstring>
+        <name>Cleaner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="508" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="508" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Loader</definition>
+        <argsstring>()</argsstring>
+        <name>Loader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="518" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="518" bodyend="545"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a0c6cd9ef4cc14aa84ee7f166182d4012" compoundref="_monitor_8cs" startline="26">MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.Disable</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a5ec6eb5dbd2ed35cd2d952492c8917d3" compoundref="_monitor_8cs" startline="488">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileQueue</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1afceb1e7109b0d13f9dd61349ba6d2475" compoundref="_monitor_8cs" startline="494" endline="506">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.RemoveIfExists</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</definition>
+        <argsstring>()</argsstring>
+        <name>CommandThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="547" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="547" bodyend="684"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a3d8bf30577210639e9e5fedec392452d" compoundref="_monitor_8cs" startline="46">MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.CommandPipe</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" compoundref="_monitor_8cs" startline="690" endline="710">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a01d4480cb5d8f048bb9a905377d20d54" compoundref="_monitor_8cs" startline="716" endline="732">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.DisablePartitionMon</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" compoundref="_monitor_8cs" startline="482">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1abb0c6b3f89ac994de6d43bcabcacba5d" compoundref="_monitor_8cs" startline="28">MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.NamedPipeEncoding</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreatePartitionMon</definition>
+        <argsstring>(string PartitionPath, string Filter)</argsstring>
+        <name>CreatePartitionMon</name>
+        <param>
+          <type>string</type>
+          <declname>PartitionPath</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Filter</declname>
+        </param>
+        <briefdescription>
+<para>Создать и включить FileSystemWatcher для раздела </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="690" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="690" bodyend="710"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9e84f7149951b10d64041c6d06d4ad51" compoundref="_monitor_8cs" startline="739" endline="742">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.ChangedFileEvent</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a17985785464519af6b2cffed720dc9c9" compoundref="_monitor_8cs" startline="734" endline="737">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CreateFileEvent</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a8439ded1486bf2010b84aef4881ef8bf" compoundref="_monitor_8cs" startline="745" endline="750">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Error</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" compoundref="_monitor_8cs" startline="482">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers</references>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" compoundref="_monitor_8cs" startline="547" endline="684">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a01d4480cb5d8f048bb9a905377d20d54" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.DisablePartitionMon</definition>
+        <argsstring>(string PartitionPath)</argsstring>
+        <name>DisablePartitionMon</name>
+        <param>
+          <type>string</type>
+          <declname>PartitionPath</declname>
+        </param>
+        <briefdescription>
+<para>Отключить монитор раздела </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>PartitionPath</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="716" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="716" bodyend="732"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" compoundref="_monitor_8cs" startline="482">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1af43013b8f57d61165979e6179ef45006" compoundref="_monitor_8cs" startline="483">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers_sync</references>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" compoundref="_monitor_8cs" startline="547" endline="684">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a754660953a6d6cfc1c4d6b682fc74429" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+<para>Запуск потока обработки команд и обработки фильтрации </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="755" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="755" bodyend="761"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1ab765ef36c4978bf12e3539988c6b58f0" compoundref="_monitor_8cs" startline="41">MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.FilterInputPipe</references>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1abb0c6b3f89ac994de6d43bcabcacba5d" compoundref="_monitor_8cs" startline="28">MODULE__RESERVE_NEW_FILE_DETECTOR.Configuration.NamedPipeEncoding</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a3f54db77decfb7358842cdd460aae94e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.StopAll</definition>
+        <argsstring>()</argsstring>
+        <name>StopAll</name>
+        <briefdescription>
+<para>Отключение всех потоков и мониторов файловой системы </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="766" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="766" bodyend="777"/>
+        <references refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" compoundref="_monitor_8cs" startline="482">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.FileSystemWatchers</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="479" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="478" bodyend="778"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1aaa485fd292c58b462594a3c4f41c31b0" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>BufferCleaner</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9e84f7149951b10d64041c6d06d4ad51" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>ChangedFileEvent</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a9b7556643393d69b07da91c9370e7075" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>Cleaner</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ab25c83ff7fe359a48ff6c1657eb66ab0" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CommandExecuter</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CommandThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ae75b974f573c5e9e15219d3cdcfa96dd" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CreatedFilesBuffer</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1aabb063a014b382fbfdcd0d94cfe40c3b" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CreatedFilesBuffer_sync</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a17985785464519af6b2cffed720dc9c9" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CreateFileEvent</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a4ab48969d4e94b3f709d00a9f915ad21" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>CreatePartitionMon</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a01d4480cb5d8f048bb9a905377d20d54" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>DisablePartitionMon</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a8439ded1486bf2010b84aef4881ef8bf" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>Error</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a5ec6eb5dbd2ed35cd2d952492c8917d3" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>FileQueue</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a26a416ebfaa01aae0bca874aef5198b7" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>FileSystemWatchers</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1af43013b8f57d61165979e6179ef45006" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>FileSystemWatchers_sync</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a754660953a6d6cfc1c4d6b682fc74429" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>Init</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1ac4c212c4a93f69a63ffc853772edc3b4" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>Loader</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7e4307cc49b6e8886b0c9492bc80c7ab" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>LoaderThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1afceb1e7109b0d13f9dd61349ba6d2475" prot="private" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>RemoveIfExists</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a3f54db77decfb7358842cdd460aae94e" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</scope><name>StopAll</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

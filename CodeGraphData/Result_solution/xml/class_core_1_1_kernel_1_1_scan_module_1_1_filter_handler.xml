@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler" kind="class" prot="public">
+    <compoundname>Core::Kernel::ScanModule::FilterHandler</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a994d07ba8adfaad3346203c960284d47" prot="private" static="yes" mutable="no">
+        <type>readonly Thread</type>
+        <definition>readonly Thread Core.Kernel.ScanModule.FilterHandler.FilterMonitor</definition>
+        <argsstring></argsstring>
+        <name>FilterMonitor</name>
+        <initializer>= new Thread(<ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1ad7fb6525f078da9e9d57630afd5c6f39" kindref="member">Handler</ref>)</initializer>
+        <briefdescription>
+<para>Обработчик обнаруженных файлов от фильтра </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="105" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1ad7fb6525f078da9e9d57630afd5c6f39" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.FilterHandler.Handler</definition>
+        <argsstring>()</argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="107" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="107" bodyend="159"/>
+        <references refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a63ea043cbb256dc75af0e1fac96a1605" compoundref="_found_viruses_manager_8cs" startline="64" endline="81">Core.Kernel.VirusesManager.FoundVirusesManager.Exists</references>
+        <references refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a2f6864bfe7827a692cdb6ff561717557" compoundref="_connector_8cs" startline="41">Core.Kernel.Connectors.KernelConnectors.Filter_Input</references>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1addb45c31ecff07fef3750aea8423bd00" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.FilterHandler.Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="162" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a8c3c4d1bd29f6f73225af131a58656f8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.FilterHandler.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="167" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="167" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Обработчик подключаемого фильтра </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="101" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="100" bodyend="171"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a994d07ba8adfaad3346203c960284d47" prot="private" virt="non-virtual"><scope>Core::Kernel::ScanModule::FilterHandler</scope><name>FilterMonitor</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1ad7fb6525f078da9e9d57630afd5c6f39" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::FilterHandler</scope><name>Handler</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1addb45c31ecff07fef3750aea8423bd00" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::FilterHandler</scope><name>Run</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a8c3c4d1bd29f6f73225af131a58656f8" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::FilterHandler</scope><name>Stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_add_new_signature_form" kind="class" prot="public">
+    <compoundname>DB_Editor::AddNewSignatureForm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MetroForm</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1a935b68593f831ece87ccadbca42d5aa4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DB_Editor.AddNewSignatureForm.Add</definition>
+        <argsstring></argsstring>
+        <name>Add</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" compoundref="_add_new_signature_form_8cs" startline="31" endline="71">DB_Editor.AddNewSignatureForm.metroButton1_Click</referencedby>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aa2dfbf173baabb3e22e138589d66df12" compoundref="_add_new_signature_form_8cs" startline="73" endline="77">DB_Editor.AddNewSignatureForm.metroButton2_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1a541e4c400f0c0b5a9abe0ce73a0ded28" prot="public" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] DB_Editor.AddNewSignatureForm.signature</definition>
+        <argsstring></argsstring>
+        <name>signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="18" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" compoundref="_add_new_signature_form_8cs" startline="31" endline="71">DB_Editor.AddNewSignatureForm.metroButton1_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1abb576fc374465c21d989b1bce820284c" prot="public" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroTextBox</type>
+        <definition>MetroFramework.Controls.MetroTextBox DB_Editor.AddNewSignatureForm.metroTextBox_NAME</definition>
+        <argsstring></argsstring>
+        <name>metroTextBox_NAME</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="191" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="191" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" compoundref="_add_new_signature_form_8cs" startline="31" endline="71">DB_Editor.AddNewSignatureForm.metroButton1_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1a48408edfad55b33ba47294e705746315" prot="public" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroTextBox</type>
+        <definition>MetroFramework.Controls.MetroTextBox DB_Editor.AddNewSignatureForm.metroTextBox3</definition>
+        <argsstring></argsstring>
+        <name>metroTextBox3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="192" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="192" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" compoundref="_add_new_signature_form_8cs" startline="31" endline="71">DB_Editor.AddNewSignatureForm.metroButton1_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1a185bc5ac49955a044321d635cf77e4c4" prot="public" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroComboBox</type>
+        <definition>MetroFramework.Controls.MetroComboBox DB_Editor.AddNewSignatureForm.TypeComboBox</definition>
+        <argsstring></argsstring>
+        <name>TypeComboBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="193" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="193" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" compoundref="_add_new_signature_form_8cs" startline="31" endline="71">DB_Editor.AddNewSignatureForm.metroButton1_Click</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1aee06c4245df53eb3e7b768e37ff46e1f" prot="private" static="no" mutable="no">
+        <type>System.ComponentModel.IContainer</type>
+        <definition>System.ComponentModel.IContainer DB_Editor.AddNewSignatureForm.components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Required designer variable. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="9" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1a7be89ace619c703abe2f7d8ac4297daf" compoundref="_add_new_signature_form_8_designer_8cs" startline="15" endline="22">DB_Editor.AddNewSignatureForm.Dispose</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1afc4d1b80cf6003c28c99ffd669640b12" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroLabel</type>
+        <definition>MetroFramework.Controls.MetroLabel DB_Editor.AddNewSignatureForm.metroLabel1</definition>
+        <argsstring></argsstring>
+        <name>metroLabel1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="186" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1ac73deecfd937f987679fed822ab5a58c" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroLabel</type>
+        <definition>MetroFramework.Controls.MetroLabel DB_Editor.AddNewSignatureForm.metroLabel2</definition>
+        <argsstring></argsstring>
+        <name>metroLabel2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="187" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1ac79ddcfada37aaa25a0f17734dc19b5b" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroLabel</type>
+        <definition>MetroFramework.Controls.MetroLabel DB_Editor.AddNewSignatureForm.metroLabel3</definition>
+        <argsstring></argsstring>
+        <name>metroLabel3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="188" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1a66bbf2ba9f6fa11218fb43f92227f797" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroButton</type>
+        <definition>MetroFramework.Controls.MetroButton DB_Editor.AddNewSignatureForm.metroButton1</definition>
+        <argsstring></argsstring>
+        <name>metroButton1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="189" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_add_new_signature_form_1aa940d6f335f5c6481cf63e7ae3cfff91" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroButton</type>
+        <definition>MetroFramework.Controls.MetroButton DB_Editor.AddNewSignatureForm.metroButton2</definition>
+        <argsstring></argsstring>
+        <name>metroButton2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="190" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_add_new_signature_form_1a4f0d05265753c0cefaf1012882c62ef5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DB_Editor.AddNewSignatureForm.AddNewSignatureForm</definition>
+        <argsstring>()</argsstring>
+        <name>AddNewSignatureForm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="20" bodyend="29"/>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1ae5c65136ca7ce35b94b00df7843c7292" compoundref="_add_new_signature_form_8_designer_8cs" startline="30" endline="182">DB_Editor.AddNewSignatureForm.InitializeComponent</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.AddNewSignatureForm.metroButton1_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>metroButton1_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="31" bodyend="71"/>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1a935b68593f831ece87ccadbca42d5aa4" compoundref="_add_new_signature_form_8cs" startline="17">DB_Editor.AddNewSignatureForm.Add</references>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1a48408edfad55b33ba47294e705746315" compoundref="_add_new_signature_form_8_designer_8cs" startline="192">DB_Editor.AddNewSignatureForm.metroTextBox3</references>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1abb576fc374465c21d989b1bce820284c" compoundref="_add_new_signature_form_8_designer_8cs" startline="191">DB_Editor.AddNewSignatureForm.metroTextBox_NAME</references>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1a541e4c400f0c0b5a9abe0ce73a0ded28" compoundref="_add_new_signature_form_8cs" startline="18">DB_Editor.AddNewSignatureForm.signature</references>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1a185bc5ac49955a044321d635cf77e4c4" compoundref="_add_new_signature_form_8_designer_8cs" startline="193">DB_Editor.AddNewSignatureForm.TypeComboBox</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_add_new_signature_form_1aa2dfbf173baabb3e22e138589d66df12" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.AddNewSignatureForm.metroButton2_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>metroButton2_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="73" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="73" bodyend="77"/>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1a935b68593f831ece87ccadbca42d5aa4" compoundref="_add_new_signature_form_8cs" startline="17">DB_Editor.AddNewSignatureForm.Add</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_add_new_signature_form_1ae5c65136ca7ce35b94b00df7843c7292" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.AddNewSignatureForm.InitializeComponent</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeComponent</name>
+        <briefdescription>
+<para>Required method for Designer support - do not modify the contents of this method with the code editor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="30" bodyend="182"/>
+        <referencedby refid="class_d_b___editor_1_1_add_new_signature_form_1a4f0d05265753c0cefaf1012882c62ef5" compoundref="_add_new_signature_form_8cs" startline="20" endline="29">DB_Editor.AddNewSignatureForm.AddNewSignatureForm</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_add_new_signature_form_1a7be89ace619c703abe2f7d8ac4297daf" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DB_Editor.AddNewSignatureForm.Dispose</definition>
+        <argsstring>(bool disposing)</argsstring>
+        <name>Dispose</name>
+        <param>
+          <type>bool</type>
+          <declname>disposing</declname>
+        </param>
+        <briefdescription>
+<para>Clean up any resources being used. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disposing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if managed resources should be disposed; otherwise, false.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.Designer.cs" bodystart="15" bodyend="22"/>
+        <references refid="class_d_b___editor_1_1_add_new_signature_form_1aee06c4245df53eb3e7b768e37ff46e1f" compoundref="_add_new_signature_form_8_designer_8cs" startline="9">DB_Editor.AddNewSignatureForm.components</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>DB_Editor.AddNewSignatureForm</label>
+        <link refid="class_d_b___editor_1_1_add_new_signature_form"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>DB_Editor.AddNewSignatureForm</label>
+        <link refid="class_d_b___editor_1_1_add_new_signature_form"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>components</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>metroButton2</edgelabel>
+          <edgelabel>TypeComboBox</edgelabel>
+          <edgelabel>metroTextBox_NAME</edgelabel>
+          <edgelabel>metroLabel1</edgelabel>
+          <edgelabel>metroTextBox3</edgelabel>
+          <edgelabel>metroLabel2</edgelabel>
+          <edgelabel>metroLabel3</edgelabel>
+          <edgelabel>metroButton1</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>System</label>
+      </node>
+      <node id="3">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+      <node id="5">
+        <label>MetroFramework</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" bodystart="15" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a935b68593f831ece87ccadbca42d5aa4" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>Add</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a4f0d05265753c0cefaf1012882c62ef5" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>AddNewSignatureForm</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1aee06c4245df53eb3e7b768e37ff46e1f" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>components</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a7be89ace619c703abe2f7d8ac4297daf" prot="protected" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>Dispose</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1ae5c65136ca7ce35b94b00df7843c7292" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>InitializeComponent</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a66bbf2ba9f6fa11218fb43f92227f797" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroButton1</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1aee3bf141b88d408d728db7a0d08d10ba" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroButton1_Click</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1aa940d6f335f5c6481cf63e7ae3cfff91" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroButton2</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1aa2dfbf173baabb3e22e138589d66df12" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroButton2_Click</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1afc4d1b80cf6003c28c99ffd669640b12" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroLabel1</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1ac73deecfd937f987679fed822ab5a58c" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroLabel2</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1ac79ddcfada37aaa25a0f17734dc19b5b" prot="private" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroLabel3</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a48408edfad55b33ba47294e705746315" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroTextBox3</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1abb576fc374465c21d989b1bce820284c" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>metroTextBox_NAME</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a541e4c400f0c0b5a9abe0ce73a0ded28" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>signature</name></member>
+      <member refid="class_d_b___editor_1_1_add_new_signature_form_1a185bc5ac49955a044321d635cf77e4c4" prot="public" virt="non-virtual"><scope>DB_Editor::AddNewSignatureForm</scope><name>TypeComboBox</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

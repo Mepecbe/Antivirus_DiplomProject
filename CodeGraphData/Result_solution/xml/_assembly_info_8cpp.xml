@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_assembly_info_8cpp" kind="file">
+    <compoundname>AssemblyInfo.cpp</compoundname>
+    <includes refid="pch_8h" local="yes">pch.h</includes>
+    <incdepgraph>
+      <node id="92">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/AssemblyInfo.cpp</label>
+        <link refid="AssemblyInfo.cpp"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>pch.h</label>
+        <link refid="pch_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespace_system_1_1_security_1_1_permissions">System::Security::Permissions</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pch_8h" kindref="compound">pch.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System::Reflection;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System::Runtime::CompilerServices;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System::Runtime::InteropServices;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System::Security::Permissions;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">[assembly:AssemblyTitleAttribute(L</highlight><highlight class="stringliteral">&quot;MUDULEDRIVERCONNECTOR&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">[assembly:AssemblyDescriptionAttribute(L</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">[assembly:AssemblyConfigurationAttribute(L</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">[assembly:AssemblyCompanyAttribute(L</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">[assembly:AssemblyProductAttribute(L</highlight><highlight class="stringliteral">&quot;MUDULEDRIVERCONNECTOR&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">[assembly:AssemblyCopyrightAttribute(L</highlight><highlight class="stringliteral">&quot;(c)<sp/><sp/>2020&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">[assembly:AssemblyTrademarkAttribute(L</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">[assembly:AssemblyCultureAttribute(L</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">[assembly:AssemblyVersionAttribute(</highlight><highlight class="stringliteral">&quot;1.0.*&quot;</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">[assembly:ComVisible(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">[assembly:CLSCompliantAttribute(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)];</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/AssemblyInfo.cpp"/>
+  </compounddef>
+</doxygen>

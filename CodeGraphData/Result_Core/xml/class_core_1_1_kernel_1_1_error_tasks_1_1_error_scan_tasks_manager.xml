@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" kind="class" prot="public">
+    <compoundname>Core::Kernel::ErrorTasks::ErrorScanTasksManager</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a7ebfdaf0439c22563beb373c8ddc7195" prot="private" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kindref="compound">ErrorScanTask</ref> &gt;</type>
+        <definition>List&lt;ErrorScanTask&gt; Core.Kernel.ErrorTasks.ErrorScanTasksManager.ErrorScanTasks</definition>
+        <argsstring></argsstring>
+        <name>ErrorScanTasks</name>
+        <initializer>= new List&lt;<ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kindref="compound">ErrorScanTask</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a82a7ff1f4fbfb50a797779f1804f74ba" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>int</type>
+        <definition>int Core.Kernel.ErrorTasks.ErrorScanTasksManager.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="18" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a3c05032cd8e8b1b6c266717e6bf4e616" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ErrorTasks.ErrorScanTasksManager.Add</definition>
+        <argsstring>(byte code, string message, ScanTask task)</argsstring>
+        <name>Add</name>
+        <param>
+          <type>byte</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a2d238e65c6e3171669baf663480db868" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ErrorTasks.ErrorScanTasksManager.Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+<para>Удалить все записи о задачах сканирования завершенных с ошибкой </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a43b99f3498c2930170b2a19d10828846" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ErrorTasks.ErrorScanTasksManager.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="33" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="33" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Менеджер задач сканирования завершенных с ошибкой </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs" bodystart="15" bodyend="37"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a3c05032cd8e8b1b6c266717e6bf4e616" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTasksManager</scope><name>Add</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a2d238e65c6e3171669baf663480db868" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTasksManager</scope><name>Clear</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a82a7ff1f4fbfb50a797779f1804f74ba" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTasksManager</scope><name>Count</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a7ebfdaf0439c22563beb373c8ddc7195" prot="private" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTasksManager</scope><name>ErrorScanTasks</name></member>
+      <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a43b99f3498c2930170b2a19d10828846" prot="public" virt="non-virtual"><scope>Core::Kernel::ErrorTasks::ErrorScanTasksManager</scope><name>Init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

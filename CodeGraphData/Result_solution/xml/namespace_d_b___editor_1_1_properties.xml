@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_d_b___editor_1_1_properties" kind="namespace">
+    <compoundname>DB_Editor::Properties</compoundname>
+    <innerclass refid="class_d_b___editor_1_1_properties_1_1_resources" prot="package">DB_Editor::Properties::Resources</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_properties_1_1_settings" prot="package">DB_Editor::Properties::Settings</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="11" column="1"/>
+  </compounddef>
+</doxygen>

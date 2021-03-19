@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator" kind="class" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::Initializator</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator_1a47ad03ecd06c20977e7f9fc0f1937e0b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>static byte MODULE__RESERVE_NEW_FILE_DETECTOR.Initializator.EntryPoint</definition>
+        <argsstring>()</argsstring>
+        <name>EntryPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="783" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="783" bodyend="794"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator_1a5cd102507dbae64f2830680452daf56d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.Initializator.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="796" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="796" bodyend="799"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="782" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="781" bodyend="800"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator_1a47ad03ecd06c20977e7f9fc0f1937e0b" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Initializator</scope><name>EntryPoint</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator_1a5cd102507dbae64f2830680452daf56d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Initializator</scope><name>Stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r" kind="namespace">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR</compoundname>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::Configuration</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_removable_device_monitor" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::RemovableDeviceMonitor</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::PartitionMonitor</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_initializator" prot="public">MODULE__RESERVE_NEW_FILE_DETECTOR::Initializator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="18" column="1"/>
+  </compounddef>
+</doxygen>

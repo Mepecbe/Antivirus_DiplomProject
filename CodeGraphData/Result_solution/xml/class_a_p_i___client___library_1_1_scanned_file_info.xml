@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_a_p_i___client___library_1_1_scanned_file_info" kind="class" prot="public">
+    <compoundname>API_Client_Library::ScannedFileInfo</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_scanned_file_info_1a0f6413bc534e9b66bb72255d42e95e17" prot="public" static="no" mutable="no">
+        <type>readonly string</type>
+        <definition>readonly string API_Client_Library.ScannedFileInfo.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_scanned_file_info_1aece20c61c27dc3c191e47af82aa83979" compoundref="_api_lib_8cs" startline="19" endline="22">API_Client_Library.ScannedFileInfo.ScannedFileInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_scanned_file_info_1aece20c61c27dc3c191e47af82aa83979" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>API_Client_Library.ScannedFileInfo.ScannedFileInfo</definition>
+        <argsstring>(string file)</argsstring>
+        <name>ScannedFileInfo</name>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="19" bodyend="22"/>
+        <references refid="class_a_p_i___client___library_1_1_scanned_file_info_1a0f6413bc534e9b66bb72255d42e95e17" compoundref="_api_lib_8cs" startline="17">API_Client_Library.ScannedFileInfo.file</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="15" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_a_p_i___client___library_1_1_scanned_file_info_1a0f6413bc534e9b66bb72255d42e95e17" prot="public" virt="non-virtual"><scope>API_Client_Library::ScannedFileInfo</scope><name>file</name></member>
+      <member refid="class_a_p_i___client___library_1_1_scanned_file_info_1aece20c61c27dc3c191e47af82aa83979" prot="public" virt="non-virtual"><scope>API_Client_Library::ScannedFileInfo</scope><name>ScannedFileInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

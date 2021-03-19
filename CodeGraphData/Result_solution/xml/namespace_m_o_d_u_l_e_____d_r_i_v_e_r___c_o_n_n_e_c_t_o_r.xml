@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r" kind="namespace">
+    <compoundname>MODULE__DRIVER_CONNECTOR</compoundname>
+    <innerclass refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator" prot="public">MODULE__DRIVER_CONNECTOR::Initializator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h" line="25" column="1"/>
+  </compounddef>
+</doxygen>

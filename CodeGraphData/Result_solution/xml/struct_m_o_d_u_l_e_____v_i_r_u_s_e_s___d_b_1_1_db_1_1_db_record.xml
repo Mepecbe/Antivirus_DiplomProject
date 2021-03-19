@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record" kind="struct" prot="public">
+    <compoundname>MODULE__VIRUSES_DB::Db::DbRecord</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1af6d2aeec6caf6719002c019abc22567b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__VIRUSES_DB.Db.DbRecord.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="251" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aa78322b478150ac6d3a1faa537184dcf" prot="public" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] MODULE__VIRUSES_DB.Db.DbRecord.Signature</definition>
+        <argsstring></argsstring>
+        <name>Signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="252" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1af278a8797a473563fefc4237fc92623e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MODULE__VIRUSES_DB.Db.DbRecord.Summ</definition>
+        <argsstring></argsstring>
+        <name>Summ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="253" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aabca91cc6ab16b3583aa604467d49564" prot="public" static="no" mutable="no">
+        <type><ref refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6" kindref="member">VirusTypes</ref></type>
+        <definition>VirusTypes MODULE__VIRUSES_DB.Db.DbRecord.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="254" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aea7268de3f8e1888a3220e167b563e29" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MODULE__VIRUSES_DB.Db.DbRecord.DbRecord</definition>
+        <argsstring>(string name, byte[] signature, VirusTypes type=VirusTypes.Trojan)</argsstring>
+        <name>DbRecord</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type><ref refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1a3739cbbf28fe900e4665cb4377461eb6" kindref="member">VirusTypes</ref></type>
+          <declname>type</declname>
+          <defval>VirusTypes.Trojan</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="256" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="256" bodyend="267"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="250" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="249" bodyend="268"/>
+    <listofallmembers>
+      <member refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aea7268de3f8e1888a3220e167b563e29" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db::DbRecord</scope><name>DbRecord</name></member>
+      <member refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1af6d2aeec6caf6719002c019abc22567b" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db::DbRecord</scope><name>Name</name></member>
+      <member refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aa78322b478150ac6d3a1faa537184dcf" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db::DbRecord</scope><name>Signature</name></member>
+      <member refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1af278a8797a473563fefc4237fc92623e" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db::DbRecord</scope><name>Summ</name></member>
+      <member refid="struct_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_db_1_1_db_record_1aabca91cc6ab16b3583aa604467d49564" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Db::DbRecord</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

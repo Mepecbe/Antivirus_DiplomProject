@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_core_1_1_kernel_initializator" kind="class"><name>Core::KernelInitializator</name>
+    <member refid="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" kind="variable"><name>GUI_Proc</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" kind="variable"><name>Config</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" kind="function"><name>InitKernelConfiguration</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a23846cc9a43efe1e76d73ad2217347c3" kind="function"><name>InitKernelComponents</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" kind="function"><name>InitModules</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a74ca163691e0664da0c385920d922524" kind="function"><name>ApplyingBasicSettings</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" kind="function"><name>Main</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a231a1722c1a1bb079cc92357458d119f" kind="function"><name>OnCloseProcess</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" kind="function"><name>Console_CancelKeyPress</name></member>
+  </compound>
+  <compound refid="namespace_core" kind="namespace"><name>Core</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_a_p_i" kind="namespace"><name>Core::Kernel::API</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_configurations" kind="namespace"><name>Core::Kernel::Configurations</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_connectors" kind="namespace"><name>Core::Kernel::Connectors</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_cryptographer" kind="namespace"><name>Core::Kernel::Cryptographer</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_module_loader" kind="namespace"><name>Core::Kernel::ModuleLoader</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_quarantine" kind="namespace"><name>Core::Kernel::Quarantine</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_scan_module" kind="namespace"><name>Core::Kernel::ScanModule</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_viruses_manager" kind="namespace"><name>Core::Kernel::VirusesManager</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_diagnostics" kind="namespace"><name>System::Diagnostics</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="_kernel_8cs" kind="file"><name>Kernel.cs</name>
+  </compound>
+  <compound refid="dir_96e2e1c95e9e53138e235985fc49566a" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject</name>
+  </compound>
+  <compound refid="dir_488b26a2689babb5034c43e9255f81da" kind="dir"><name>C:/Users/Cisco</name>
+  </compound>
+  <compound refid="dir_02bb23351936cd38098b96a1e2ab38b9" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core</name>
+  </compound>
+  <compound refid="dir_98f8eeb679915decf3808a0cad17a40c" kind="dir"><name>C:/Users/Cisco/Desktop</name>
+  </compound>
+  <compound refid="dir_8ceffd4ee35c3518d4e8bdc7e638efe8" kind="dir"><name>C:/Users</name>
+  </compound>
+</doxygenindex>

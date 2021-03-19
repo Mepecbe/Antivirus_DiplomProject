@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager" kind="class" prot="public">
+    <compoundname>Core::Kernel::VirusesManager::FoundVirusesManager</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ac489c0fdeeb79f308fc39dde8ad515b8" prot="private" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kindref="compound">VirusInfo</ref> &gt;</type>
+        <definition>List&lt;VirusInfo&gt; Core.Kernel.VirusesManager.FoundVirusesManager.VirusesTable</definition>
+        <argsstring></argsstring>
+        <name>VirusesTable</name>
+        <initializer>= new List&lt;<ref refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kindref="compound">VirusInfo</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a29f34fd7818c50605ffb2e683f05be76" prot="private" static="yes" mutable="no">
+        <type>IsolatedStorageFile</type>
+        <definition>IsolatedStorageFile Core.Kernel.VirusesManager.FoundVirusesManager.Storage</definition>
+        <argsstring></argsstring>
+        <name>Storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1acec6ed042067cfb86ff98eac3c7b9c1c" prot="private" static="yes" mutable="no">
+        <type>XmlSerializer</type>
+        <definition>XmlSerializer Core.Kernel.VirusesManager.FoundVirusesManager.Serializer</definition>
+        <argsstring></argsstring>
+        <name>Serializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="27" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5af2a7674b7f2f612d451d5bbd82bc2a" prot="public" static="yes" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex Core.Kernel.VirusesManager.FoundVirusesManager.VirusesTable_sync</definition>
+        <argsstring></argsstring>
+        <name>VirusesTable_sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="24" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab6d5348112a4b5cf1bf8770b78377462" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.VirusesManager.FoundVirusesManager.AddNewVirus</definition>
+        <argsstring>(VirusInfo info)</argsstring>
+        <name>AddNewVirus</name>
+        <param>
+          <type><ref refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Добавить новый вирус в таблицу </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="32" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="32" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5aedf38083ae386ace1af0eadfac8704" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+        <definition>static VirusInfo Core.Kernel.VirusesManager.FoundVirusesManager.getInfo</definition>
+        <argsstring>(int id)</argsstring>
+        <name>getInfo</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="41" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a63ea043cbb256dc75af0e1fac96a1605" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Core.Kernel.VirusesManager.FoundVirusesManager.Exists</definition>
+        <argsstring>(string file)</argsstring>
+        <name>Exists</name>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Проверка существования такого файла в таблице обнаруженных вирусов </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="64" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="64" bodyend="81"/>
+        <referencedby refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1ad7fb6525f078da9e9d57630afd5c6f39" compoundref="_scan_queue_8cs" startline="107" endline="159">Core.Kernel.ScanModule.FilterHandler.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a7e4a7db6b8f4023f219c1fe693b6e9c5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kindref="compound">VirusInfo</ref>[]</type>
+        <definition>static VirusInfo [] Core.Kernel.VirusesManager.FoundVirusesManager.getAllViruses</definition>
+        <argsstring>()</argsstring>
+        <name>getAllViruses</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="83" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="83" bodyend="86"/>
+        <referencedby refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0b71cd9cab2df65a893196167df95141" compoundref="_a_p_i_8cs" startline="426" endline="444">Core.Kernel.API.API.getAllVirusesInfo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ad7c4d54058a915120eefb266bcb9cd58" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int Core.Kernel.VirusesManager.FoundVirusesManager.getLastId</definition>
+        <argsstring>()</argsstring>
+        <name>getLastId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="88" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab07103f8e935b10a531ddb4807794991" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Core.Kernel.VirusesManager.FoundVirusesManager.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Удалить запись о вирусе </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="97" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="97" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a88a3d51ff644e9ac6c556d8f934045d2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.VirusesManager.FoundVirusesManager.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+<para>Инициализация компонента </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="119" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="119" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Класс отвечающий за найденные вирусы </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/FoundVirusesManager.cs" bodystart="21" bodyend="145"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab6d5348112a4b5cf1bf8770b78377462" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>AddNewVirus</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab07103f8e935b10a531ddb4807794991" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>Delete</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a63ea043cbb256dc75af0e1fac96a1605" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>Exists</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a7e4a7db6b8f4023f219c1fe693b6e9c5" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>getAllViruses</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5aedf38083ae386ace1af0eadfac8704" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>getInfo</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ad7c4d54058a915120eefb266bcb9cd58" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>getLastId</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a88a3d51ff644e9ac6c556d8f934045d2" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>Init</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1acec6ed042067cfb86ff98eac3c7b9c1c" prot="private" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>Serializer</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a29f34fd7818c50605ffb2e683f05be76" prot="private" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>Storage</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ac489c0fdeeb79f308fc39dde8ad515b8" prot="private" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>VirusesTable</name></member>
+      <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5af2a7674b7f2f612d451d5bbd82bc2a" prot="public" virt="non-virtual"><scope>Core::Kernel::VirusesManager::FoundVirusesManager</scope><name>VirusesTable_sync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

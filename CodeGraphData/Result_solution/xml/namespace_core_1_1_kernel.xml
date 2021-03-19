@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_core_1_1_kernel" kind="namespace">
+    <compoundname>Core::Kernel</compoundname>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_a_p_i">Core::Kernel::API</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_configurations">Core::Kernel::Configurations</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_connectors">Core::Kernel::Connectors</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_cryptographer">Core::Kernel::Cryptographer</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_error_tasks">Core::Kernel::ErrorTasks</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_module_loader">Core::Kernel::ModuleLoader</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_quarantine">Core::Kernel::Quarantine</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_scan_module">Core::Kernel::ScanModule</innernamespace>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_viruses_manager">Core::Kernel::VirusesManager</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="[generated]" line="1" column="1"/>
+  </compounddef>
+</doxygen>

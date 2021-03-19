@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_2eac5c75192c36ac2f0bbd8f99a486dc" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR</compoundname>
+    <innerfile refid="_assembly_info_8cpp">AssemblyInfo.cpp</innerfile>
+    <innerfile refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp">MODULE__DRIVER_CONNECTOR.cpp</innerfile>
+    <innerfile refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h">MODULE__DRIVER_CONNECTOR.h</innerfile>
+    <innerfile refid="pch_8cpp">pch.cpp</innerfile>
+    <innerfile refid="pch_8h">pch.h</innerfile>
+    <innerfile refid="_resource_8h">Resource.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/"/>
+  </compounddef>
+</doxygen>

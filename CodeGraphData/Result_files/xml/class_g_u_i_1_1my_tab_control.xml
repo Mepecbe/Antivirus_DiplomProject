@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_g_u_i_1_1my_tab_control" kind="class" prot="public">
+    <compoundname>GUI::myTabControl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">TabControl</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_u_i_1_1my_tab_control_1a0d88192858205eb2cd87df2226202192" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GUI.myTabControl.myTabControl</definition>
+        <argsstring>()</argsstring>
+        <name>myTabControl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" line="1579" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" bodystart="1579" bodyend="1586"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_g_u_i_1_1my_tab_control_1ae35d5a600df905aa017ea8e3368ce442" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void GUI.myTabControl.OnPaint</definition>
+        <argsstring>(PaintEventArgs e)</argsstring>
+        <name>OnPaint</name>
+        <param>
+          <type>PaintEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" line="1588" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" bodystart="1588" bodyend="1593"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="11">
+        <label>TabControl</label>
+      </node>
+      <node id="10">
+        <label>GUI.myTabControl</label>
+        <link refid="class_g_u_i_1_1my_tab_control"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="13">
+        <label>TabControl</label>
+      </node>
+      <node id="12">
+        <label>GUI.myTabControl</label>
+        <link refid="class_g_u_i_1_1my_tab_control"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" line="1578" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.Designer.cs" bodystart="1577" bodyend="1594"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1_1my_tab_control_1a0d88192858205eb2cd87df2226202192" prot="public" virt="non-virtual"><scope>GUI::myTabControl</scope><name>myTabControl</name></member>
+      <member refid="class_g_u_i_1_1my_tab_control_1ae35d5a600df905aa017ea8e3368ce442" prot="protected" virt="non-virtual"><scope>GUI::myTabControl</scope><name>OnPaint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

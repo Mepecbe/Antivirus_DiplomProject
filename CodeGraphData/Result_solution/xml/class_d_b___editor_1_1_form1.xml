@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_form1" kind="class" prot="public">
+    <compoundname>DB_Editor::Form1</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MetroForm</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_form1_1a0b7cd85faaa37a25f7cde80473f43c59" prot="private" static="no" mutable="no">
+        <type>System.ComponentModel.IContainer</type>
+        <definition>System.ComponentModel.IContainer DB_Editor.Form1.components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Обязательная переменная конструктора. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="9" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_form1_1acebc7307dbdeabc0c8e26b7506015bae" compoundref="_form1_8_designer_8cs" startline="15" endline="22">DB_Editor.Form1.Dispose</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_form1_1a6d49a618086b40a05b55cd3d0bf26abe" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroTile</type>
+        <definition>MetroFramework.Controls.MetroTile DB_Editor.Form1.metroTile1</definition>
+        <argsstring></argsstring>
+        <name>metroTile1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="89" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_form1_1a01da79bceedba944002b6959f9f2c2a3" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroTile</type>
+        <definition>MetroFramework.Controls.MetroTile DB_Editor.Form1.metroTile2</definition>
+        <argsstring></argsstring>
+        <name>metroTile2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="90" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_form1_1a182cdf4d1b9c3e0cfbdc6ce071f9b573" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.OpenFileDialog</type>
+        <definition>System.Windows.Forms.OpenFileDialog DB_Editor.Form1.openFileDialog1</definition>
+        <argsstring></argsstring>
+        <name>openFileDialog1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="91" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_form1_1a89bdc724c64553f3f424b60c1196e952" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.SaveFileDialog</type>
+        <definition>System.Windows.Forms.SaveFileDialog DB_Editor.Form1.saveFileDialog1</definition>
+        <argsstring></argsstring>
+        <name>saveFileDialog1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="92" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_form1_1a51e291f4fbfa91a86e5786a8691f28ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DB_Editor.Form1.Form1</definition>
+        <argsstring>()</argsstring>
+        <name>Form1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="20" bodyend="23"/>
+        <references refid="class_d_b___editor_1_1_form1_1a689e968ddf62dbd90209bb60706c4f14" compoundref="_form1_8_designer_8cs" startline="30" endline="85">DB_Editor.Form1.InitializeComponent</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_form1_1a67365a3b4cad45d7b527e7e1a251f480" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Form1.metroTile2_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>metroTile2_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="25" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_form1_1abe521a5235972c0505017807632741af" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Form1.metroTile1_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>metroTile1_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="46" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_form1_1a689e968ddf62dbd90209bb60706c4f14" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Form1.InitializeComponent</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeComponent</name>
+        <briefdescription>
+<para>Требуемый метод для поддержки конструктора — не изменяйте содержимое этого метода с помощью редактора кода. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="30" bodyend="85"/>
+        <referencedby refid="class_d_b___editor_1_1_form1_1a51e291f4fbfa91a86e5786a8691f28ea" compoundref="_form1_8cs" startline="20" endline="23">DB_Editor.Form1.Form1</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_form1_1acebc7307dbdeabc0c8e26b7506015bae" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DB_Editor.Form1.Dispose</definition>
+        <argsstring>(bool disposing)</argsstring>
+        <name>Dispose</name>
+        <param>
+          <type>bool</type>
+          <declname>disposing</declname>
+        </param>
+        <briefdescription>
+<para>Освободить все используемые ресурсы. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disposing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>истинно, если управляемый ресурс должен быть удален; иначе ложно.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.Designer.cs" bodystart="15" bodyend="22"/>
+        <references refid="class_d_b___editor_1_1_form1_1a0b7cd85faaa37a25f7cde80473f43c59" compoundref="_form1_8_designer_8cs" startline="9">DB_Editor.Form1.components</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="66">
+        <label>DB_Editor.Form1</label>
+        <link refid="class_d_b___editor_1_1_form1"/>
+        <childnode refid="67" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="68">
+        <label>DB_Editor.Form1</label>
+        <link refid="class_d_b___editor_1_1_form1"/>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>saveFileDialog1</edgelabel>
+          <edgelabel>openFileDialog1</edgelabel>
+          <edgelabel>components</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>metroTile1</edgelabel>
+          <edgelabel>metroTile2</edgelabel>
+        </childnode>
+      </node>
+      <node id="70">
+        <label>System</label>
+      </node>
+      <node id="69">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+      <node id="71">
+        <label>MetroFramework</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="18" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_form1_1a0b7cd85faaa37a25f7cde80473f43c59" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>components</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1acebc7307dbdeabc0c8e26b7506015bae" prot="protected" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>Dispose</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a51e291f4fbfa91a86e5786a8691f28ea" prot="public" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>Form1</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a689e968ddf62dbd90209bb60706c4f14" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>InitializeComponent</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a6d49a618086b40a05b55cd3d0bf26abe" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>metroTile1</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1abe521a5235972c0505017807632741af" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>metroTile1_Click</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a01da79bceedba944002b6959f9f2c2a3" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>metroTile2</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a67365a3b4cad45d7b527e7e1a251f480" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>metroTile2_Click</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a182cdf4d1b9c3e0cfbdc6ce071f9b573" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>openFileDialog1</name></member>
+      <member refid="class_d_b___editor_1_1_form1_1a89bdc724c64553f3f424b60c1196e952" prot="private" virt="non-virtual"><scope>DB_Editor::Form1</scope><name>saveFileDialog1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

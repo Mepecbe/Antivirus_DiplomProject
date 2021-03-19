@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::ScanTask</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a2a6b478e66d8d9461e65ffcd0a3088a6" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__SCAN.ScanTask.file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="511" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="511" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1ab4e8ebdac4f1f3be32403c4336247bc1" compoundref="_scanner_8cs" startline="514" endline="518">MODULE__SCAN.ScanTask.ScanTask</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1aefc1de2623429946048be79d29a95a40" compoundref="_scanner_8cs" startline="371" endline="469">MODULE__SCAN.ScanTasks.ScanThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a20b6f9a891dae3cf0ee6f9ce4dac3f88" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MODULE__SCAN.ScanTask.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="512" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="512" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1ab4e8ebdac4f1f3be32403c4336247bc1" compoundref="_scanner_8cs" startline="514" endline="518">MODULE__SCAN.ScanTask.ScanTask</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1ab4e8ebdac4f1f3be32403c4336247bc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MODULE__SCAN.ScanTask.ScanTask</definition>
+        <argsstring>(int id, string file, ScanTasks.ScanStart onStart, ScanTasks.ScanComplete onCompleted, Task task=null)</argsstring>
+        <name>ScanTask</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type><ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1a2375259957f53bfac80dc1b8273e4814" kindref="member">ScanTasks.ScanStart</ref></type>
+          <declname>onStart</declname>
+        </param>
+        <param>
+          <type><ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1a402d782cc6886cc1d44005c44ba71547" kindref="member">ScanTasks.ScanComplete</ref></type>
+          <declname>onCompleted</declname>
+        </param>
+        <param>
+          <type>Task</type>
+          <declname>task</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="514" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="514" bodyend="518"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a2a6b478e66d8d9461e65ffcd0a3088a6" compoundref="_scanner_8cs" startline="511">MODULE__SCAN.ScanTask.file</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a20b6f9a891dae3cf0ee6f9ce4dac3f88" compoundref="_scanner_8cs" startline="512">MODULE__SCAN.ScanTask.id</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="510" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="509" bodyend="519"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a2a6b478e66d8d9461e65ffcd0a3088a6" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanTask</scope><name>file</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1a20b6f9a891dae3cf0ee6f9ce4dac3f88" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanTask</scope><name>id</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task_1ab4e8ebdac4f1f3be32403c4336247bc1" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanTask</scope><name>ScanTask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

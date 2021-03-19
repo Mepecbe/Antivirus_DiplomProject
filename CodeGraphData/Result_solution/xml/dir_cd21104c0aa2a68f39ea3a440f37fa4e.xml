@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_cd21104c0aa2a68f39ea3a440f37fa4e" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib</compoundname>
+    <innerdir refid="dir_6fe8ddcaa0f5ff48aea9a54e81ae3fcd">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/Properties</innerdir>
+    <innerfile refid="_logger_client_8cs">LoggerClient.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/"/>
+  </compounddef>
+</doxygen>

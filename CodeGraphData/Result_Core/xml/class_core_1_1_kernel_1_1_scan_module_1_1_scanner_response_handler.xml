@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler" kind="class" prot="public">
+    <compoundname>Core::Kernel::ScanModule::ScannerResponseHandler</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afb5d98d1625194c991fab8649b7cc0ca" prot="private" static="yes" mutable="no">
+        <type>readonly TimeSpan</type>
+        <definition>readonly TimeSpan Core.Kernel.ScanModule.ScannerResponseHandler.ErrorScanProbeSleep</definition>
+        <argsstring></argsstring>
+        <name>ErrorScanProbeSleep</name>
+        <initializer>= TimeSpan.FromSeconds(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a30d4c5be7ef603535d675ddf237bab28" prot="private" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream Core.Kernel.ScanModule.ScannerResponseHandler.Connector</definition>
+        <argsstring></argsstring>
+        <name>Connector</name>
+        <initializer>= <ref refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a4869c715720a9af4bf76480702d1727f" kindref="member">Connectors.KernelConnectors.ScannerService_Input</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="event">
+      <memberdef kind="event" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a3feb09828f018efc773897214d83921f" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a74dcaa11d6741e9abd0e7a21c41d3644" kindref="member">ScanCompletedEvent</ref></type>
+        <definition>ScanCompletedEvent Core.Kernel.ScanModule.ScannerResponseHandler.onScanCompleted</definition>
+        <argsstring></argsstring>
+        <name>onScanCompleted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a19032d76bb1d9b672fb0575d00f74e71" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread Core.Kernel.ScanModule.ScannerResponseHandler.InputThreadHandler</definition>
+        <argsstring></argsstring>
+        <name>InputThreadHandler</name>
+        <initializer>= new Thread(<ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afea0193c1eacbccea3278ef2d7f37061" kindref="member">InputHandler</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a643668df5e64217932979faacc77fde6" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Core.Kernel.ScanModule.ScannerResponseHandler.MAX_PROBES</definition>
+        <argsstring></argsstring>
+        <name>MAX_PROBES</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+<para>Максимальное количество попыток для скана </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="34" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a74dcaa11d6741e9abd0e7a21c41d3644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate void</type>
+        <definition>delegate void Core.Kernel.ScanModule.ScannerResponseHandler.ScanCompletedEvent</definition>
+        <argsstring>(int id, bool found, int virusId, string file)</argsstring>
+        <name>ScanCompletedEvent</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>found</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>virusId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="25" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afea0193c1eacbccea3278ef2d7f37061" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.ScannerResponseHandler.InputHandler</definition>
+        <argsstring>()</argsstring>
+        <name>InputHandler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="37" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="37" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1ac167900bb62816237f7fb8c768a7c029" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.ScannerResponseHandler.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="86" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a43e031a840e9cf6be0afe835d50dce68" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.ScanModule.ScannerResponseHandler.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="91" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="91" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Обработчик ответов с результатами сканирования от сервиса скана </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" bodystart="21" bodyend="95"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a30d4c5be7ef603535d675ddf237bab28" prot="private" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>Connector</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afb5d98d1625194c991fab8649b7cc0ca" prot="private" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>ErrorScanProbeSleep</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1ac167900bb62816237f7fb8c768a7c029" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>Init</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afea0193c1eacbccea3278ef2d7f37061" prot="private" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>InputHandler</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a19032d76bb1d9b672fb0575d00f74e71" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>InputThreadHandler</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a643668df5e64217932979faacc77fde6" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>MAX_PROBES</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a3feb09828f018efc773897214d83921f" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>onScanCompleted</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a74dcaa11d6741e9abd0e7a21c41d3644" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>ScanCompletedEvent</name></member>
+      <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a43e031a840e9cf6be0afe835d50dce68" prot="public" virt="non-virtual"><scope>Core::Kernel::ScanModule::ScannerResponseHandler</scope><name>Stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

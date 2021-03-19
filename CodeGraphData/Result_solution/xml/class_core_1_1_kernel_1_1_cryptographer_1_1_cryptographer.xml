@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer" kind="class" prot="public">
+    <compoundname>Core::Kernel::Cryptographer::Cryptographer</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a85bf90ae31cc02abc9409b985aebc7cf" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string Core.Kernel.Cryptographer.Cryptographer.Key</definition>
+        <argsstring></argsstring>
+        <name>Key</name>
+        <initializer>= &quot;Fa30x4&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a7e460a0ac6c7954519eed7b578168bd2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.Cryptographer.Cryptographer.Encrypt</definition>
+        <argsstring>(string path)</argsstring>
+        <name>Encrypt</name>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" bodystart="17" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" line="14" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Cryptographer.cs" bodystart="13" bodyend="81"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a7e460a0ac6c7954519eed7b578168bd2" prot="public" virt="non-virtual"><scope>Core::Kernel::Cryptographer::Cryptographer</scope><name>Encrypt</name></member>
+      <member refid="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a85bf90ae31cc02abc9409b985aebc7cf" prot="private" virt="non-virtual"><scope>Core::Kernel::Cryptographer::Cryptographer</scope><name>Key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result" kind="class" prot="public">
+    <compoundname>Core::Kernel::Quarantine::Quarantine::AddToStorageResult</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ab706e449ecd3e8c2bdb29dbd02ae5c7d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Core.Kernel.Quarantine.Quarantine.AddToStorageResult.is_success</definition>
+        <argsstring></argsstring>
+        <name>is_success</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="210" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ac6f6deefeed570ea1c81591794e27c51" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Core.Kernel.Quarantine.Quarantine.AddToStorageResult.fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="211" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1a0d3f942f85a64fe5ec9b8484d6c73541" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.Quarantine.Quarantine.AddToStorageResult.AddToStorageResult</definition>
+        <argsstring>(bool success, string FileName)</argsstring>
+        <name>AddToStorageResult</name>
+        <param>
+          <type>bool</type>
+          <declname>success</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>FileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="213" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="213" bodyend="217"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Результат добавления в изолированное хранилище </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="209" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="208" bodyend="218"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1a0d3f942f85a64fe5ec9b8484d6c73541" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine::AddToStorageResult</scope><name>AddToStorageResult</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ac6f6deefeed570ea1c81591794e27c51" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine::AddToStorageResult</scope><name>fileName</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ab706e449ecd3e8c2bdb29dbd02ae5c7d" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine::AddToStorageResult</scope><name>is_success</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

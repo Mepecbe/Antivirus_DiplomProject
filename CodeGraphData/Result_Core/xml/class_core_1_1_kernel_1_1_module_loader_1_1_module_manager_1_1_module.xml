@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module" kind="class" prot="public">
+    <compoundname>Core::Kernel::ModuleLoader::ModuleManager::Module</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab044aaa2e4cbaac36dacb7f86786d8ec" prot="public" static="no" mutable="no">
+        <type>readonly string</type>
+        <definition>readonly string Core.Kernel.ModuleLoader.ModuleManager.Module.ModuleName</definition>
+        <argsstring></argsstring>
+        <name>ModuleName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab1ef716f17c1385ea8d1da94dd2d59f4" prot="public" static="no" mutable="no">
+        <type>readonly Assembly</type>
+        <definition>readonly Assembly Core.Kernel.ModuleLoader.ModuleManager.Module.ModuleAssembly</definition>
+        <argsstring></argsstring>
+        <name>ModuleAssembly</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab89ffd77044866ca349fafe00af32f7c" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>bool</type>
+        <definition>bool Core.Kernel.ModuleLoader.ModuleManager.Module.IsRunning</definition>
+        <argsstring></argsstring>
+        <name>IsRunning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="32" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1a44da0a67bfdfd599a8c26374b49a5918" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.ModuleLoader.ModuleManager.Module.Module</definition>
+        <argsstring>(string ModuleFileName)</argsstring>
+        <name>Module</name>
+        <param>
+          <type>string</type>
+          <declname>ModuleFileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="34" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="34" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Представляет собой модуль, а так же загрузчик </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="28" bodyend="91"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab89ffd77044866ca349fafe00af32f7c" prot="public" virt="non-virtual"><scope>Core::Kernel::ModuleLoader::ModuleManager::Module</scope><name>IsRunning</name></member>
+      <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1a44da0a67bfdfd599a8c26374b49a5918" prot="public" virt="non-virtual"><scope>Core::Kernel::ModuleLoader::ModuleManager::Module</scope><name>Module</name></member>
+      <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab1ef716f17c1385ea8d1da94dd2d59f4" prot="public" virt="non-virtual"><scope>Core::Kernel::ModuleLoader::ModuleManager::Module</scope><name>ModuleAssembly</name></member>
+      <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab044aaa2e4cbaac36dacb7f86786d8ec" prot="public" virt="non-virtual"><scope>Core::Kernel::ModuleLoader::ModuleManager::Module</scope><name>ModuleName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

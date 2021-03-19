@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows" kind="class" prot="public">
+    <compoundname>MODULE__FILTER::Filter::ProcessingFlows</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a8a0e58bdfda789c4e0a32edc66473c42" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__FILTER.Filter.ProcessingFlows.Handler1</definition>
+        <argsstring></argsstring>
+        <name>Handler1</name>
+        <initializer>= new Thread(() =&gt;
+            {
+                Connector.Logger.WriteLine(&quot;[Filter.DriverHandler] Ожидаю подключения драйвер коннектора&quot;);
+                Connector.DriverMonitor.WaitForConnection();
+                Connector.Logger.WriteLine(&quot;[Filter.DriverHandler] Драйвер коннектор подключен&quot;, LogLevel.OK);
+            })
+            { Name = &quot;DriverHandler&quot; }</initializer>
+        <briefdescription>
+<para>Обработчик сообщений от драйвера </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="69" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a40aadbea20e90a9f800d4d715ba9be49" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__FILTER.Filter.ProcessingFlows.Handler2</definition>
+        <argsstring></argsstring>
+        <name>Handler2</name>
+        <initializer>= new Thread(() =&gt;
+            {
+                Connector.Logger.WriteLine(&quot;[Filter.ApiMonHandler] Ожидаю подключения API монитора&quot;);
+
+                Connector.ApiMonitor.WaitForConnection();
+
+                Connector.Logger.WriteLine(&quot;[Filter.ApiMonHandler] API монитор подключен&quot;, LogLevel.OK);
+
+
+                while (true)
+                {
+                    string buffer = Connector.ApiMonitorReader.ReadString();
+
+                    Connector.Logger.WriteLine($&quot;[Filter.ApiMonHandler] ПРОЧИТАНО {buffer}&quot;);
+
+                    if (!<ref refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" kindref="member">FiltrationRules.ApplyFilter</ref>(buffer))
+                    {
+                        Connector.KernelPipeWriter.Write(buffer);
+                        Connector.KernelPipeWriter.Flush();
+                    }
+                    else
+                    {
+                        Connector.Logger.WriteLine(&quot;[Filter.ApiMonHandler] ПУТЬ ОТФИЛЬТРОВАН -&gt;&quot; + buffer, LogLevel.WARN);
+                    }
+                }
+            })
+            { Name = &quot;ApiMonHandler&quot; }</initializer>
+        <briefdescription>
+<para>Обработчик сообщений от API монитора </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="80" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a8a7bfc8131cfbd4b75104fe74d464c7c" prot="public" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__FILTER.Filter.ProcessingFlows.CommandHandler</definition>
+        <argsstring></argsstring>
+        <name>CommandHandler</name>
+        <briefdescription>
+<para>Обработчик команд </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="111" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a5806608881b3d8b8dd69946dc8dc4cd8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__FILTER.Filter.ProcessingFlows.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="221" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="221" bodyend="226"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="65" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="64" bodyend="227"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a8a7bfc8131cfbd4b75104fe74d464c7c" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::ProcessingFlows</scope><name>CommandHandler</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a8a0e58bdfda789c4e0a32edc66473c42" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::ProcessingFlows</scope><name>Handler1</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a40aadbea20e90a9f800d4d715ba9be49" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::ProcessingFlows</scope><name>Handler2</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_processing_flows_1a5806608881b3d8b8dd69946dc8dc4cd8" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::ProcessingFlows</scope><name>Init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

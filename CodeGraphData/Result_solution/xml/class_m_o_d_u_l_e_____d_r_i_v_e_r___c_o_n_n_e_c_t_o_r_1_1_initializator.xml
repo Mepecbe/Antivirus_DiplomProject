@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator" kind="class" prot="public">
+    <compoundname>MODULE__DRIVER_CONNECTOR::Initializator</compoundname>
+    <includes refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h" local="no">MODULE__DRIVER_CONNECTOR.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator_1a06351bcd80afae98b62e3bf335faf223" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>static byte MODULE__DRIVER_CONNECTOR::Initializator::EntryPoint</definition>
+        <argsstring>()</argsstring>
+        <name>EntryPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h" bodystart="29" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h" bodystart="27" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator_1a06351bcd80afae98b62e3bf335faf223" prot="public" virt="non-virtual"><scope>MODULE__DRIVER_CONNECTOR::Initializator</scope><name>EntryPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

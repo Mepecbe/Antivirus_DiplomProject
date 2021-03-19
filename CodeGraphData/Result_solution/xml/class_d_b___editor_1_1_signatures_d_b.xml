@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_signatures_d_b" kind="class" prot="public">
+    <compoundname>DB_Editor::SignaturesDB</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_signatures_d_b_1a68df93a84491baebfc85826b7c0a6840" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string DB_Editor.SignaturesDB.Path</definition>
+        <argsstring></argsstring>
+        <name>Path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="63" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" compoundref="_form1_8cs" startline="140" endline="160">DB_Editor.SignaturesDB.Save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_signatures_d_b_1ab096bb3369d5243788c4860259661760" prot="public" static="yes" mutable="no">
+        <type>FileStream</type>
+        <definition>FileStream DB_Editor.SignaturesDB.DBFile</definition>
+        <argsstring></argsstring>
+        <name>DBFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="64" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="64" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1ace6138d958c69f3cd5be4f444e80e3a6" compoundref="_form1_8cs" startline="69" endline="81">DB_Editor.SignaturesDB.Load</referencedby>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" compoundref="_form1_8cs" startline="140" endline="160">DB_Editor.SignaturesDB.Save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_signatures_d_b_1adb65cdd1190ca08d0b7d87538db88c9c" prot="public" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_d_b___editor_1_1_virus_info" kindref="compound">VirusInfo</ref> &gt;</type>
+        <definition>List&lt;VirusInfo&gt; DB_Editor.SignaturesDB.Signatures</definition>
+        <argsstring></argsstring>
+        <name>Signatures</name>
+        <initializer>= new List&lt;<ref refid="class_d_b___editor_1_1_virus_info" kindref="compound">VirusInfo</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="66" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="66" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1aefecf9753aab79ea565e7f26c9351ed0" compoundref="_form1_8cs" startline="127" endline="138">DB_Editor.SignaturesDB.GetDBSize</referencedby>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" compoundref="_form1_8cs" startline="140" endline="160">DB_Editor.SignaturesDB.Save</referencedby>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1aa0f315ffe9a341e6148025855a55b40e" compoundref="_form1_8cs" startline="88" endline="106">DB_Editor.SignaturesDB.UpdateList</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_signatures_d_b_1a00813f5eefe591c38418de582949777a" prot="private" static="yes" mutable="no">
+        <type>Random</type>
+        <definition>Random DB_Editor.SignaturesDB.Gen</definition>
+        <argsstring></argsstring>
+        <name>Gen</name>
+        <initializer>= new Random()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="67" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1ace6138d958c69f3cd5be4f444e80e3a6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Load</definition>
+        <argsstring>()</argsstring>
+        <name>Load</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="69" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="69" bodyend="81"/>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1ab096bb3369d5243788c4860259661760" compoundref="_form1_8cs" startline="64">DB_Editor.SignaturesDB.DBFile</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1a2159823063bf583aeeb5e4631f52ad1c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>static byte DB_Editor.SignaturesDB.genId</definition>
+        <argsstring>()</argsstring>
+        <name>genId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="83" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1aa0f315ffe9a341e6148025855a55b40e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.UpdateList</definition>
+        <argsstring>(ListView list, string baseNameText=&quot;          &quot;)</argsstring>
+        <name>UpdateList</name>
+        <param>
+          <type>ListView</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>baseNameText</declname>
+          <defval>&quot;          &quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="88" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="88" bodyend="106"/>
+        <references refid="class_d_b___editor_1_1_virus_info_1a418f72bdfd438c9e10e373eaf78a59ae" compoundref="_form1_8cs" startline="177">DB_Editor.VirusInfo.Signature</references>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1adb65cdd1190ca08d0b7d87538db88c9c" compoundref="_form1_8cs" startline="66">DB_Editor.SignaturesDB.Signatures</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1a870331f57468e906115f92e851c06e4e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Update</definition>
+        <argsstring>(VirusInfo old, VirusInfo New)</argsstring>
+        <name>Update</name>
+        <param>
+          <type><ref refid="class_d_b___editor_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>old</declname>
+        </param>
+        <param>
+          <type><ref refid="class_d_b___editor_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>New</declname>
+        </param>
+        <briefdescription>
+<para>Обновить информацию о вирусе </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="111" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="111" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1a42f34e7384635b5414bbbf1ad95f1b6e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Add</definition>
+        <argsstring>(VirusType type, string name, byte[] signature)</argsstring>
+        <name>Add</name>
+        <param>
+          <type><ref refid="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62" kindref="member">VirusType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Добавить новый вирус в базу сигнатур </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="121" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1aefecf9753aab79ea565e7f26c9351ed0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int DB_Editor.SignaturesDB.GetDBSize</definition>
+        <argsstring>()</argsstring>
+        <name>GetDBSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="127" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="127" bodyend="138"/>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1adb65cdd1190ca08d0b7d87538db88c9c" compoundref="_form1_8cs" startline="66">DB_Editor.SignaturesDB.Signatures</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Save</definition>
+        <argsstring>()</argsstring>
+        <name>Save</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="140" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="140" bodyend="160"/>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1ab096bb3369d5243788c4860259661760" compoundref="_form1_8cs" startline="64">DB_Editor.SignaturesDB.DBFile</references>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1a68df93a84491baebfc85826b7c0a6840" compoundref="_form1_8cs" startline="63">DB_Editor.SignaturesDB.Path</references>
+        <references refid="class_d_b___editor_1_1_signatures_d_b_1adb65cdd1190ca08d0b7d87538db88c9c" compoundref="_form1_8cs" startline="66">DB_Editor.SignaturesDB.Signatures</references>
+        <references refid="class_d_b___editor_1_1_virus_info_1ae842f7c1faee59a22157b89ce7383d00" compoundref="_form1_8cs" startline="176">DB_Editor.VirusInfo.Type</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1a7e7e330f63d4b78d58307c9b6c8bb058" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Delete</definition>
+        <argsstring>(VirusInfo info)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type><ref refid="class_d_b___editor_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="162" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_signatures_d_b_1ae370c2f35b3a5e5ad79c6d94803160da" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DB_Editor.SignaturesDB.Close</definition>
+        <argsstring>()</argsstring>
+        <name>Close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="167" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="167" bodyend="171"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="62" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="61" bodyend="172"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a42f34e7384635b5414bbbf1ad95f1b6e" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Add</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1ae370c2f35b3a5e5ad79c6d94803160da" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Close</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1ab096bb3369d5243788c4860259661760" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>DBFile</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a7e7e330f63d4b78d58307c9b6c8bb058" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Delete</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a00813f5eefe591c38418de582949777a" prot="private" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Gen</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a2159823063bf583aeeb5e4631f52ad1c" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>genId</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1aefecf9753aab79ea565e7f26c9351ed0" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>GetDBSize</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1ace6138d958c69f3cd5be4f444e80e3a6" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Load</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a68df93a84491baebfc85826b7c0a6840" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Path</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Save</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1adb65cdd1190ca08d0b7d87538db88c9c" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Signatures</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1a870331f57468e906115f92e851c06e4e" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>Update</name></member>
+      <member refid="class_d_b___editor_1_1_signatures_d_b_1aa0f315ffe9a341e6148025855a55b40e" prot="public" virt="non-virtual"><scope>DB_Editor::SignaturesDB</scope><name>UpdateList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

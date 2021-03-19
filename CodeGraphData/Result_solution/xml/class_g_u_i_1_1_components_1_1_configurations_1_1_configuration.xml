@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration" kind="class" prot="public">
+    <compoundname>GUI::Components::Configurations::Configuration</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a2cffbaa5faa2d7677acd47baa526b19f" prot="private" static="yes" mutable="no">
+        <type>readonly XmlDocument</type>
+        <definition>readonly XmlDocument GUI.Components.Configurations.Configuration.Doc</definition>
+        <argsstring></argsstring>
+        <name>Doc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1adbd1fb43afd5c5f424f251c074cd8c6b" prot="private" static="yes" mutable="no">
+        <type>readonly XmlElement</type>
+        <definition>readonly XmlElement GUI.Components.Configurations.Configuration.Root</definition>
+        <argsstring></argsstring>
+        <name>Root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="18" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1ad25b4a9b8aa62290064e327308a43d10" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>bool</type>
+        <definition>bool GUI.Components.Configurations.Configuration.Notify_FoundVirus</definition>
+        <argsstring></argsstring>
+        <name>Notify_FoundVirus</name>
+        <briefdescription>
+<para>Уведомления при обнаружении вируса </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a679e353a3c05f25906b8ecdb66c4312e" compoundref="_main_form_8cs" startline="191" endline="261">GUI.MainForm.MyTimer_Tick</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a2521e8a919bdb39570a72148df26372f" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>bool</type>
+        <definition>bool GUI.Components.Configurations.Configuration.AutoScanRemovableDevices</definition>
+        <argsstring></argsstring>
+        <name>AutoScanRemovableDevices</name>
+        <briefdescription>
+<para>Автоскан подключаемых съемных носителей </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="32" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a048ce28d32fb91620a409d3bcaceb466" compoundref="_main_form_8cs" startline="597" endline="642">GUI.MainForm.metroButton7_Click</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1afd54ed78dc822e553d0289b8c7caad77" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803" kindref="member">ActionType</ref></type>
+        <definition>ActionType GUI.Components.Configurations.Configuration.AutoAction</definition>
+        <argsstring></argsstring>
+        <name>AutoAction</name>
+        <briefdescription>
+<para>Действие осуществляемое автоматически над обнаруженным вирусом </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="40" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a679e353a3c05f25906b8ecdb66c4312e" compoundref="_main_form_8cs" startline="191" endline="261">GUI.MainForm.MyTimer_Tick</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1af519d99a5a7510c5062862dc66427d4e" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string[]</type>
+        <definition>string [] GUI.Components.Configurations.Configuration.PathExceptions</definition>
+        <argsstring></argsstring>
+        <name>PathExceptions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="47" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="48" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a264bace9c3b6887e206b566eb986d2bc" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string[]</type>
+        <definition>string [] GUI.Components.Configurations.Configuration.ExtentionExceptions</definition>
+        <argsstring></argsstring>
+        <name>ExtentionExceptions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="80" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="81" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a11e23dacab72c2c4a01d7b960b4802eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.Configurations.Configuration.Save</definition>
+        <argsstring>()</argsstring>
+        <name>Save</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="114" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="114" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a5ddd456c67655f5e527ea370fb773aaf" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static</type>
+        <definition>static GUI.Components.Configurations.Configuration.Configuration</definition>
+        <argsstring>()</argsstring>
+        <name>Configuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="119" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="119" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a6c0a6164de37159e11f0049485e93263" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>XmlElement</type>
+        <definition>static XmlElement GUI.Components.Configurations.Configuration.getElementValueByName</definition>
+        <argsstring>(string name)</argsstring>
+        <name>getElementValueByName</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="141" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="141" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/Configuration.cs" bodystart="15" bodyend="153"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1afd54ed78dc822e553d0289b8c7caad77" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>AutoAction</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a2521e8a919bdb39570a72148df26372f" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>AutoScanRemovableDevices</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a5ddd456c67655f5e527ea370fb773aaf" prot="private" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>Configuration</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a2cffbaa5faa2d7677acd47baa526b19f" prot="private" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>Doc</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a264bace9c3b6887e206b566eb986d2bc" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>ExtentionExceptions</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a6c0a6164de37159e11f0049485e93263" prot="private" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>getElementValueByName</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1ad25b4a9b8aa62290064e327308a43d10" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>Notify_FoundVirus</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1af519d99a5a7510c5062862dc66427d4e" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>PathExceptions</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1adbd1fb43afd5c5f424f251c074cd8c6b" prot="private" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>Root</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_configurations_1_1_configuration_1a11e23dacab72c2c4a01d7b960b4802eb" prot="public" virt="non-virtual"><scope>GUI::Components::Configurations::Configuration</scope><name>Save</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_logger_lib" kind="namespace">
+    <compoundname>LoggerLib</compoundname>
+    <innerclass refid="class_logger_lib_1_1_logger_client" prot="public">LoggerLib::LoggerClient</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378e" prot="public" static="no">
+        <name>LogLevel</name>
+        <enumvalue id="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378ea32bd8a1db2275458673903bdb84cb277" prot="public">
+          <name>WARN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378ea551b723eafd6a31d444fcb2f5920fbd3" prot="public">
+          <name>INFO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378eabb1ca97ec761fc37101737ba0aa2e7c5" prot="public">
+          <name>ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378eae0aa021e21dddbd6d8cecec71e9cf564" prot="public">
+          <name>OK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="14" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="13" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="12" column="1"/>
+  </compounddef>
+</doxygen>

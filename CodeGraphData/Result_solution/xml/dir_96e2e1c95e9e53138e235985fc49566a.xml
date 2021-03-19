@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_96e2e1c95e9e53138e235985fc49566a" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject</compoundname>
+    <innerdir refid="dir_43c6580b531b008a14b807f7dce2ac31">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/AntivirusServerUpdater</innerdir>
+    <innerdir refid="dir_1f6ce325f1add7e4a171ecaab3097360">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library</innerdir>
+    <innerdir refid="dir_02bb23351936cd38098b96a1e2ab38b9">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core</innerdir>
+    <innerdir refid="dir_8bc6924f0626ffe7fe19f892878c604f">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor</innerdir>
+    <innerdir refid="dir_d4be7e35e680c208b9ed91cd5597c24a">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI</innerdir>
+    <innerdir refid="dir_557a5689375f01da2c52c71febaff4d9">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger</innerdir>
+    <innerdir refid="dir_cd21104c0aa2a68f39ea3a440f37fa4e">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib</innerdir>
+    <innerdir refid="dir_be6e9820f28d7aba20261263c715b030">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR</innerdir>
+    <innerdir refid="dir_1b68c24d9630e504bf158f197261a19b">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB</innerdir>
+    <innerdir refid="dir_4a1fbf333cbaad64af31add82d54b81d">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER</innerdir>
+    <innerdir refid="dir_be3b13a38fea88da25c46e5839db8f18">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN</innerdir>
+    <innerdir refid="dir_2eac5c75192c36ac2f0bbd8f99a486dc">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/"/>
+  </compounddef>
+</doxygen>

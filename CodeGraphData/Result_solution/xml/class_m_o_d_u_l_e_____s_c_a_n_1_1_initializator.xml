@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::Initializator</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator_1aed23d43785e074f6063b76ae5599a54f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>static byte MODULE__SCAN.Initializator.EntryPoint</definition>
+        <argsstring>()</argsstring>
+        <name>EntryPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="493" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="493" bodyend="500"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a63491cb6fa9dc78bdcb15b34e624bf28" compoundref="_scanner_8cs" startline="207" endline="224">MODULE__SCAN.Connector.Init</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator_1a96cfcdca9945eac27ee516a3b0f29308" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Initializator.Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="502" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="502" bodyend="505"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="492" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="491" bodyend="506"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator_1aed23d43785e074f6063b76ae5599a54f" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Initializator</scope><name>EntryPoint</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator_1a96cfcdca9945eac27ee516a3b0f29308" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Initializator</scope><name>Exit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

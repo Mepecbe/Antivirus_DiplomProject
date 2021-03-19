@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_editor" kind="class" prot="public">
+    <compoundname>DB_Editor::Editor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MetroForm</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1ab2266c8091c5e5db2dc5f40b041dbe2f" prot="private" static="no" mutable="no">
+        <type>System.ComponentModel.IContainer</type>
+        <definition>System.ComponentModel.IContainer DB_Editor.Editor.components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Required designer variable. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="9" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_editor_1a520559fae45d635aca1102fc9c09c21a" compoundref="_editor_8_designer_8cs" startline="15" endline="22">DB_Editor.Editor.Dispose</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1ab19179accb1bbb56a6c59c5974455294" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroContextMenu</type>
+        <definition>MetroFramework.Controls.MetroContextMenu DB_Editor.Editor.metroContextMenu1</definition>
+        <argsstring></argsstring>
+        <name>metroContextMenu1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="136" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1acc0a94e04943e93779fd9c795a2c3f11" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ToolStripMenuItem</type>
+        <definition>System.Windows.Forms.ToolStripMenuItem DB_Editor.Editor.добавитьToolStripMenuItem</definition>
+        <argsstring></argsstring>
+        <name>добавитьToolStripMenuItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="137" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1a938ea79f2d8e581bbd73f828abbb4131" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ToolStripMenuItem</type>
+        <definition>System.Windows.Forms.ToolStripMenuItem DB_Editor.Editor.редактироватьToolStripMenuItem</definition>
+        <argsstring></argsstring>
+        <name>редактироватьToolStripMenuItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="138" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1a8f1f6eac58ae77e9af4ca9a8ce5e2074" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ToolStripMenuItem</type>
+        <definition>System.Windows.Forms.ToolStripMenuItem DB_Editor.Editor.удалитьToolStripMenuItem</definition>
+        <argsstring></argsstring>
+        <name>удалитьToolStripMenuItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="139" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1aea6a64c4c5a206a2975f127fe08635e8" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroListView</type>
+        <definition>MetroFramework.Controls.MetroListView DB_Editor.Editor.metroListView1</definition>
+        <argsstring></argsstring>
+        <name>metroListView1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="140" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="140" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_editor_1afc31fee719e87ab1e7d441174d2011e2" compoundref="_editor_8cs" startline="66" endline="79">DB_Editor.Editor.удалитьToolStripMenuItem_Click</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1a22d58d1aed73869d0877db30b392afe7" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ColumnHeader</type>
+        <definition>System.Windows.Forms.ColumnHeader DB_Editor.Editor.columnHeader1</definition>
+        <argsstring></argsstring>
+        <name>columnHeader1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="141" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1a7d3208e9c3f4b9b40afdcbdb5013b7d8" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ColumnHeader</type>
+        <definition>System.Windows.Forms.ColumnHeader DB_Editor.Editor.columnHeader3</definition>
+        <argsstring></argsstring>
+        <name>columnHeader3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="142" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1aca8eef8405b3a4426885985946baee68" prot="private" static="no" mutable="no">
+        <type>MetroFramework.Controls.MetroButton</type>
+        <definition>MetroFramework.Controls.MetroButton DB_Editor.Editor.btn_ApplyChanges</definition>
+        <argsstring></argsstring>
+        <name>btn_ApplyChanges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="143" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_editor_1acd25e8a58e55528d1e5870017d4d3ff7" prot="private" static="no" mutable="no">
+        <type>System.Windows.Forms.ColumnHeader</type>
+        <definition>System.Windows.Forms.ColumnHeader DB_Editor.Editor.columnHeader2</definition>
+        <argsstring></argsstring>
+        <name>columnHeader2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="144" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1aa04bb0ed4ba83195f4bc82a56e88980a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DB_Editor.Editor.Editor</definition>
+        <argsstring>()</argsstring>
+        <name>Editor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="17" bodyend="20"/>
+        <references refid="class_d_b___editor_1_1_editor_1a2019e78ce1641166236c65480c59ef95" compoundref="_editor_8_designer_8cs" startline="30" endline="133">DB_Editor.Editor.InitializeComponent</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1a1eeb956d8d6c85de70fd14379c2cbeab" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.Editor_Shown</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>Editor_Shown</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1acab9a50e66ebc45a06ea3c6badbfea7e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.добавитьToolStripMenuItem_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>добавитьToolStripMenuItem_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="27" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="27" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1ac5b31c9f23153f7fd56fc710763bd7d6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.metroButton1_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>metroButton1_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="49" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="49" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1afc31fee719e87ab1e7d441174d2011e2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.удалитьToolStripMenuItem_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>удалитьToolStripMenuItem_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="66" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="66" bodyend="79"/>
+        <references refid="class_d_b___editor_1_1_editor_1aea6a64c4c5a206a2975f127fe08635e8" compoundref="_editor_8_designer_8cs" startline="140">DB_Editor.Editor.metroListView1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1a31e21d156f34fa58171ff696d02738be" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.Editor_FormClosing</definition>
+        <argsstring>(object sender, FormClosingEventArgs e)</argsstring>
+        <name>Editor_FormClosing</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>FormClosingEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="81" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1a5f131013273e7a3e8ac041f07dc89763" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.редактироватьToolStripMenuItem_Click</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>редактироватьToolStripMenuItem_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="86" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1a2019e78ce1641166236c65480c59ef95" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DB_Editor.Editor.InitializeComponent</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeComponent</name>
+        <briefdescription>
+<para>Required method for Designer support - do not modify the contents of this method with the code editor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="30" bodyend="133"/>
+        <referencedby refid="class_d_b___editor_1_1_editor_1aa04bb0ed4ba83195f4bc82a56e88980a" compoundref="_editor_8cs" startline="17" endline="20">DB_Editor.Editor.Editor</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_editor_1a520559fae45d635aca1102fc9c09c21a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DB_Editor.Editor.Dispose</definition>
+        <argsstring>(bool disposing)</argsstring>
+        <name>Dispose</name>
+        <param>
+          <type>bool</type>
+          <declname>disposing</declname>
+        </param>
+        <briefdescription>
+<para>Clean up any resources being used. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>disposing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if managed resources should be disposed; otherwise, false.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.Designer.cs" bodystart="15" bodyend="22"/>
+        <references refid="class_d_b___editor_1_1_editor_1ab2266c8091c5e5db2dc5f40b041dbe2f" compoundref="_editor_8_designer_8cs" startline="9">DB_Editor.Editor.components</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="49">
+        <label>DB_Editor.Editor</label>
+        <link refid="class_d_b___editor_1_1_editor"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="51">
+        <label>DB_Editor.Editor</label>
+        <link refid="class_d_b___editor_1_1_editor"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>редактироватьToolStripMenuItem</edgelabel>
+          <edgelabel>удалитьToolStripMenuItem</edgelabel>
+          <edgelabel>добавитьToolStripMenuItem</edgelabel>
+          <edgelabel>components</edgelabel>
+          <edgelabel>columnHeader1</edgelabel>
+          <edgelabel>columnHeader2</edgelabel>
+          <edgelabel>columnHeader3</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>metroListView1</edgelabel>
+          <edgelabel>btn_ApplyChanges</edgelabel>
+          <edgelabel>metroContextMenu1</edgelabel>
+        </childnode>
+      </node>
+      <node id="53">
+        <label>System</label>
+      </node>
+      <node id="52">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+      <node id="54">
+        <label>MetroFramework</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Editor.cs" bodystart="15" bodyend="90"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_editor_1aca8eef8405b3a4426885985946baee68" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>btn_ApplyChanges</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a22d58d1aed73869d0877db30b392afe7" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>columnHeader1</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1acd25e8a58e55528d1e5870017d4d3ff7" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>columnHeader2</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a7d3208e9c3f4b9b40afdcbdb5013b7d8" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>columnHeader3</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1ab2266c8091c5e5db2dc5f40b041dbe2f" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>components</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a520559fae45d635aca1102fc9c09c21a" prot="protected" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>Dispose</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1aa04bb0ed4ba83195f4bc82a56e88980a" prot="public" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>Editor</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a31e21d156f34fa58171ff696d02738be" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>Editor_FormClosing</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a1eeb956d8d6c85de70fd14379c2cbeab" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>Editor_Shown</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a2019e78ce1641166236c65480c59ef95" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>InitializeComponent</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1ac5b31c9f23153f7fd56fc710763bd7d6" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>metroButton1_Click</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1ab19179accb1bbb56a6c59c5974455294" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>metroContextMenu1</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1aea6a64c4c5a206a2975f127fe08635e8" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>metroListView1</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1acc0a94e04943e93779fd9c795a2c3f11" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>добавитьToolStripMenuItem</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1acab9a50e66ebc45a06ea3c6badbfea7e" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>добавитьToolStripMenuItem_Click</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a938ea79f2d8e581bbd73f828abbb4131" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>редактироватьToolStripMenuItem</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a5f131013273e7a3e8ac041f07dc89763" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>редактироватьToolStripMenuItem_Click</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1a8f1f6eac58ae77e9af4ca9a8ce5e2074" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>удалитьToolStripMenuItem</name></member>
+      <member refid="class_d_b___editor_1_1_editor_1afc31fee719e87ab1e7d441174d2011e2" prot="private" virt="non-virtual"><scope>DB_Editor::Editor</scope><name>удалитьToolStripMenuItem_Click</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

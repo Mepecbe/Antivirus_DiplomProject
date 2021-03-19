@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_m_o_d_u_l_e_____s_c_a_n_1_1_yara" kind="namespace">
+    <compoundname>MODULE__SCAN::Yara</compoundname>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_yara_1_1_yara_integration" prot="public">MODULE__SCAN::Yara::YaraIntegration</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/YaraIntegration.cs" line="15" column="1"/>
+  </compounddef>
+</doxygen>

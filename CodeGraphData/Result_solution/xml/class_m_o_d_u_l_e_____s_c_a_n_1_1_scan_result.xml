@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::ScanResult</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a7872c789677ec3f6a37912e56f465c1d" prot="public" static="no" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int MODULE__SCAN.ScanResult.VirusID</definition>
+        <argsstring></argsstring>
+        <name>VirusID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="526" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="526" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a3d13d248bc3774c89e4031a006532b90" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6" kindref="member">result</ref></type>
+        <definition>readonly result MODULE__SCAN.ScanResult.Result</definition>
+        <argsstring></argsstring>
+        <name>Result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="527" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="527" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ae830b382438312a4017d9b3de96037b5" compoundref="_scanner_8cs" startline="61" endline="67">MODULE__SCAN.Connector.ToOutput</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a8a445e0939f7a57361c7d253c20aa73a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MODULE__SCAN.ScanResult.ScanResult</definition>
+        <argsstring>(int virusId, result res)</argsstring>
+        <name>ScanResult</name>
+        <param>
+          <type>int</type>
+          <declname>virusId</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6" kindref="member">result</ref></type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="529" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="529" bodyend="533"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Содержит информацию о результате сканирования </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="525" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="524" bodyend="534"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a3d13d248bc3774c89e4031a006532b90" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanResult</scope><name>Result</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a8a445e0939f7a57361c7d253c20aa73a" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanResult</scope><name>ScanResult</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a7872c789677ec3f6a37912e56f465c1d" prot="public" virt="non-virtual"><scope>MODULE__SCAN::ScanResult</scope><name>VirusID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

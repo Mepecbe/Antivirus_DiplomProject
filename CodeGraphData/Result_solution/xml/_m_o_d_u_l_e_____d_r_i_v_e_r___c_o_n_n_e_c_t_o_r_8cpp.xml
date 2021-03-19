@@ -1,0 +1,380 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp" kind="file">
+    <compoundname>MODULE__DRIVER_CONNECTOR.cpp</compoundname>
+    <includes refid="pch_8h" local="yes">pch.h</includes>
+    <includes refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h" local="yes">MODULE__DRIVER_CONNECTOR.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/yvals_core.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/chrono</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/limits</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cfloat</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/float.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/climits</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/limits.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cwchar</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdio</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stdio.h</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/wchar.h</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/corecrt.h</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/sys/types.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/intrin0.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/isa_availability.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xstddef</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstddef</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stddef.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xtr1common</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdlib</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/math.h</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stdlib.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/initializer_list</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/ratio</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/stdint.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/type_traits</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/time.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/utility</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xtimec.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/memory</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/exception</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/yvals.h</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/malloc.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_exception.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/iosfwd</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstring</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/string.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/typeinfo</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_typeinfo.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xmemory</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdint</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/new</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_new.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xatomic.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xutility</includes>
+    <includes local="no">C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/process.h</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/tuple</includes>
+    <includes local="no">C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xthreads.h</includes>
+    <incdepgraph>
+      <node id="155">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/tuple</label>
+      </node>
+      <node id="148">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xmemory</label>
+      </node>
+      <node id="98">
+        <label>windows.h</label>
+      </node>
+      <node id="136">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/utility</label>
+      </node>
+      <node id="104">
+        <label>assert.h</label>
+      </node>
+      <node id="114">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/climits</label>
+      </node>
+      <node id="131">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/initializer_list</label>
+      </node>
+      <node id="110">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/chrono</label>
+      </node>
+      <node id="151">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_new.h</label>
+      </node>
+      <node id="153">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xutility</label>
+      </node>
+      <node id="99">
+        <label>stdlib.h</label>
+      </node>
+      <node id="122">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/intrin0.h</label>
+      </node>
+      <node id="129">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/math.h</label>
+      </node>
+      <node id="154">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/process.h</label>
+      </node>
+      <node id="142">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_exception.h</label>
+      </node>
+      <node id="141">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/malloc.h</label>
+      </node>
+      <node id="138">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/memory</label>
+      </node>
+      <node id="143">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/iosfwd</label>
+      </node>
+      <node id="109">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/yvals_core.h</label>
+      </node>
+      <node id="121">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/sys/types.h</label>
+      </node>
+      <node id="107">
+        <label>conio.h</label>
+      </node>
+      <node id="150">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/new</label>
+      </node>
+      <node id="156">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xthreads.h</label>
+      </node>
+      <node id="132">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/ratio</label>
+      </node>
+      <node id="116">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cwchar</label>
+      </node>
+      <node id="126">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stddef.h</label>
+      </node>
+      <node id="139">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/exception</label>
+      </node>
+      <node id="113">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/float.h</label>
+      </node>
+      <node id="112">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cfloat</label>
+      </node>
+      <node id="95">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp</label>
+        <link refid="MODULE__DRIVER_CONNECTOR.cpp"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+        <childnode refid="145" relation="include">
+        </childnode>
+        <childnode refid="146" relation="include">
+        </childnode>
+        <childnode refid="147" relation="include">
+        </childnode>
+        <childnode refid="148" relation="include">
+        </childnode>
+        <childnode refid="149" relation="include">
+        </childnode>
+        <childnode refid="150" relation="include">
+        </childnode>
+        <childnode refid="151" relation="include">
+        </childnode>
+        <childnode refid="152" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="154" relation="include">
+        </childnode>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>string.h</label>
+      </node>
+      <node id="101">
+        <label>winioctl.h</label>
+      </node>
+      <node id="145">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/string.h</label>
+      </node>
+      <node id="123">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/isa_availability.h</label>
+      </node>
+      <node id="117">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdio</label>
+      </node>
+      <node id="103">
+        <label>crtdbg.h</label>
+      </node>
+      <node id="137">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xtimec.h</label>
+      </node>
+      <node id="146">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/typeinfo</label>
+      </node>
+      <node id="147">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/vcruntime_typeinfo.h</label>
+      </node>
+      <node id="133">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/stdint.h</label>
+      </node>
+      <node id="152">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xatomic.h</label>
+      </node>
+      <node id="118">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stdio.h</label>
+      </node>
+      <node id="149">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdint</label>
+      </node>
+      <node id="115">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/limits.h</label>
+      </node>
+      <node id="105">
+        <label>fltuser.h</label>
+      </node>
+      <node id="97">
+        <label>MODULE__DRIVER_CONNECTOR.h</label>
+        <link refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>pch.h</label>
+        <link refid="pch_8h"/>
+      </node>
+      <node id="125">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstddef</label>
+      </node>
+      <node id="108">
+        <label>tchar.h</label>
+      </node>
+      <node id="144">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstring</label>
+      </node>
+      <node id="140">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/yvals.h</label>
+      </node>
+      <node id="119">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/wchar.h</label>
+      </node>
+      <node id="111">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/limits</label>
+      </node>
+      <node id="106">
+        <label>thread</label>
+      </node>
+      <node id="120">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/corecrt.h</label>
+      </node>
+      <node id="135">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/time.h</label>
+      </node>
+      <node id="128">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/cstdlib</label>
+      </node>
+      <node id="134">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/type_traits</label>
+      </node>
+      <node id="127">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xtr1common</label>
+      </node>
+      <node id="100">
+        <label>stdio.h</label>
+      </node>
+      <node id="124">
+        <label>C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/VC/Tools/MSVC/14.28.29333/include/xstddef</label>
+      </node>
+      <node id="130">
+        <label>C:/Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/ucrt/stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pch_8h" kindref="compound">pch.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h" kindref="compound">MODULE__DRIVER_CONNECTOR.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp"/>
+  </compounddef>
+</doxygen>

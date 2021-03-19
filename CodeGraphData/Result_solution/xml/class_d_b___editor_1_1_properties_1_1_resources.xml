@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_properties_1_1_resources" kind="class" prot="package">
+    <compoundname>DB_Editor::Properties::Resources</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_properties_1_1_resources_1a54d3374b41e1fbf1f9cb41dce6cfb7ee" prot="private" static="yes" mutable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager DB_Editor.Properties.Resources.resourceMan</definition>
+        <argsstring></argsstring>
+        <name>resourceMan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="27" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_properties_1_1_resources_1af3a1ee035d37401c9db607766e7f84f5" prot="private" static="yes" mutable="no">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo DB_Editor.Properties.Resources.resourceCulture</definition>
+        <argsstring></argsstring>
+        <name>resourceCulture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_b___editor_1_1_properties_1_1_resources_1a2bdeb88f1937616fb78baa72d20eb67f" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager DB_Editor.Properties.Resources.ResourceManager</definition>
+        <argsstring></argsstring>
+        <name>ResourceManager</name>
+        <briefdescription>
+<para>Возвращает кэшированный экземпляр ResourceManager, использованный этим классом. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="39" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_b___editor_1_1_properties_1_1_resources_1afb01d619b9ae6184c5040fd2ef0a0f73" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo DB_Editor.Properties.Resources.Culture</definition>
+        <argsstring></argsstring>
+        <name>Culture</name>
+        <briefdescription>
+<para>Перезаписывает свойство CurrentUICulture текущего потока для всех обращений к ресурсу с помощью этого класса ресурса со строгой типизацией. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="54" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_b___editor_1_1_properties_1_1_resources_1a4ac9302e984f1df7981bc8390f934727" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap DB_Editor.Properties.Resources.file_89266</definition>
+        <argsstring></argsstring>
+        <name>file_89266</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="66" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_b___editor_1_1_properties_1_1_resources_1aa01d3b10e096e1cb2f54912c0f58e626" prot="package" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type>System.Drawing.Bitmap</type>
+        <definition>System.Drawing.Bitmap DB_Editor.Properties.Resources.openfolderwithfile_122800</definition>
+        <argsstring></argsstring>
+        <name>openfolderwithfile_122800</name>
+        <briefdescription>
+<para>Поиск локализованного ресурса типа System.Drawing.Bitmap. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="76" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_properties_1_1_resources_1a3fcbe1c2a4b5d53280537519a22b7725" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DB_Editor.Properties.Resources.Resources</definition>
+        <argsstring>()</argsstring>
+        <name>Resources</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="32" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="32" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Класс ресурса со строгой типизацией для поиска локализованных строк и т.д. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="129">
+        <label>DB_Editor.Properties.Resources</label>
+        <link refid="class_d_b___editor_1_1_properties_1_1_resources"/>
+        <childnode refid="129" relation="usage">
+          <edgelabel>resourceMan</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Properties/Resources.Designer.cs" bodystart="25" bodyend="82"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1afb01d619b9ae6184c5040fd2ef0a0f73" prot="package" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>Culture</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1a4ac9302e984f1df7981bc8390f934727" prot="package" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>file_89266</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1aa01d3b10e096e1cb2f54912c0f58e626" prot="package" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>openfolderwithfile_122800</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1af3a1ee035d37401c9db607766e7f84f5" prot="private" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>resourceCulture</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1a54d3374b41e1fbf1f9cb41dce6cfb7ee" prot="private" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>resourceMan</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1a2bdeb88f1937616fb78baa72d20eb67f" prot="package" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>ResourceManager</name></member>
+      <member refid="class_d_b___editor_1_1_properties_1_1_resources_1a3fcbe1c2a4b5d53280537519a22b7725" prot="package" virt="non-virtual"><scope>DB_Editor::Properties::Resources</scope><name>Resources</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

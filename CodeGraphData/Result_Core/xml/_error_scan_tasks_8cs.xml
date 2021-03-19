@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_error_scan_tasks_8cs" kind="file">
+    <compoundname>ErrorScanTasks.cs</compoundname>
+    <innerclass refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" prot="public">Core::Kernel::ErrorTasks::ErrorScanTasksManager</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" prot="public">Core::Kernel::ErrorTasks::ErrorScanTask</innerclass>
+    <innernamespace refid="namespace_core_1_1_kernel_1_1_error_tasks">Core::Kernel::ErrorTasks</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Linq;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Text;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Threading.Tasks;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Core.Kernel.ScanModule;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Core.Kernel.VirusesManager;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="namespace_core_1_1_kernel_1_1_error_tasks" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Core.Kernel.ErrorTasks</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" kindref="compound">ErrorScanTasksManager</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="17" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a7ebfdaf0439c22563beb373c8ddc7195" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>List&lt;ErrorScanTask&gt;<sp/>ErrorScanTasks<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>List&lt;ErrorScanTask&gt;();</highlight></codeline>
+<codeline lineno="18" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a82a7ff1f4fbfb50a797779f1804f74ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Count<sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ErrorScanTasks.Count;<sp/>}<sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a3c05032cd8e8b1b6c266717e6bf4e616" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a3c05032cd8e8b1b6c266717e6bf4e616" kindref="member">Add</ref>(byte<sp/>code,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message,<sp/><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref><sp/>task)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ErrorScanTasks.Add(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kindref="compound">ErrorScanTask</ref>(code,<sp/>message,<sp/>task));</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a2d238e65c6e3171669baf663480db868" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a2d238e65c6e3171669baf663480db868" kindref="member">Clear</ref>()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ErrorScanTasks.Clear();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a43b99f3498c2930170b2a19d10828846" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a43b99f3498c2930170b2a19d10828846" kindref="member">Init</ref>()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kindref="compound">ErrorScanTask</ref></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1ac37e28ad5e4677067f9debd0566adec3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>readonly<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1ac37e28ad5e4677067f9debd0566adec3" kindref="member">ErrorMessage</ref>;</highlight></codeline>
+<codeline lineno="43" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1aed61a1ad484922980e448d238f03e19d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>readonly<sp/>byte<sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1aed61a1ad484922980e448d238f03e19d" kindref="member">ErrorCode</ref>;</highlight></codeline>
+<codeline lineno="44" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a6a9933a833759067f7a2fe6ad3d4f170" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a6a9933a833759067f7a2fe6ad3d4f170" kindref="member">task</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a23e5761d975fe1442695b80fbdbbdc35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a23e5761d975fe1442695b80fbdbbdc35" kindref="member">ErrorScanTask</ref>(byte<sp/>code,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message,<sp/><ref refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kindref="compound">ScanTask</ref><sp/>task)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ErrorCode<sp/>=<sp/>code;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ErrorMessage<sp/>=<sp/>message;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.task<sp/>=<sp/>task;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ErrorScanTasks.cs"/>
+  </compounddef>
+</doxygen>

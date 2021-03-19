@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_d_b___editor_1_1_virus_info" kind="class" prot="public">
+    <compoundname>DB_Editor::VirusInfo</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_d_b___editor_1_1_virus_info_1ae842f7c1faee59a22157b89ce7383d00" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62" kindref="member">VirusType</ref></type>
+        <definition>VirusType DB_Editor.VirusInfo.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="176" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="176" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1a02fe3215151236c7611c8b742400e205" compoundref="_form1_8cs" startline="140" endline="160">DB_Editor.SignaturesDB.Save</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_virus_info_1a418f72bdfd438c9e10e373eaf78a59ae" prot="public" static="no" mutable="no">
+        <type>byte[]</type>
+        <definition>byte [] DB_Editor.VirusInfo.Signature</definition>
+        <argsstring></argsstring>
+        <name>Signature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="177" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="177" bodyend="-1"/>
+        <referencedby refid="class_d_b___editor_1_1_signatures_d_b_1aa0f315ffe9a341e6148025855a55b40e" compoundref="_form1_8cs" startline="88" endline="106">DB_Editor.SignaturesDB.UpdateList</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_b___editor_1_1_virus_info_1a966998e4d36fdf1f83a060107592fe14" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string DB_Editor.VirusInfo.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="178" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_b___editor_1_1_virus_info_1abe6478702a93766275114d695a96aed1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DB_Editor.VirusInfo.VirusInfo</definition>
+        <argsstring>(VirusType type, byte[] signatures, string name)</argsstring>
+        <name>VirusInfo</name>
+        <param>
+          <type><ref refid="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62" kindref="member">VirusType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>signatures</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="180" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="180" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="175" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="174" bodyend="186"/>
+    <listofallmembers>
+      <member refid="class_d_b___editor_1_1_virus_info_1a966998e4d36fdf1f83a060107592fe14" prot="public" virt="non-virtual"><scope>DB_Editor::VirusInfo</scope><name>Name</name></member>
+      <member refid="class_d_b___editor_1_1_virus_info_1a418f72bdfd438c9e10e373eaf78a59ae" prot="public" virt="non-virtual"><scope>DB_Editor::VirusInfo</scope><name>Signature</name></member>
+      <member refid="class_d_b___editor_1_1_virus_info_1ae842f7c1faee59a22157b89ce7383d00" prot="public" virt="non-virtual"><scope>DB_Editor::VirusInfo</scope><name>Type</name></member>
+      <member refid="class_d_b___editor_1_1_virus_info_1abe6478702a93766275114d695a96aed1" prot="public" virt="non-virtual"><scope>DB_Editor::VirusInfo</scope><name>VirusInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

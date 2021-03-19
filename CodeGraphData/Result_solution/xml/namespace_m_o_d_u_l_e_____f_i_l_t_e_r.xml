@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_m_o_d_u_l_e_____f_i_l_t_e_r" kind="namespace">
+    <compoundname>MODULE__FILTER</compoundname>
+    <innerclass refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_configuration" prot="public">MODULE__FILTER::Configuration</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter" prot="public">MODULE__FILTER::Filter</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_initializator" prot="public">MODULE__FILTER::Initializator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="22" column="1"/>
+  </compounddef>
+</doxygen>

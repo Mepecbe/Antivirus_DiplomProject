@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_02bb23351936cd38098b96a1e2ab38b9" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core</compoundname>
+    <innerdir refid="dir_6452dcc8af3a75ad490f552ca4240c6f">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES</innerdir>
+    <innerdir refid="dir_5df37c041b3a01dc63d0b42028ab81e4">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Properties</innerdir>
+    <innerfile refid="_kernel_8cs">Kernel.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/"/>
+  </compounddef>
+</doxygen>

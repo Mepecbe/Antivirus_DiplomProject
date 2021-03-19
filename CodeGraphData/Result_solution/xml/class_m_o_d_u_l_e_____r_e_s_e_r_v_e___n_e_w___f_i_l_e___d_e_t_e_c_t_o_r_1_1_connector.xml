@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector" kind="class" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1ab765ef36c4978bf12e3539988c6b58f0" prot="public" static="yes" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.FilterInputPipe</definition>
+        <argsstring></argsstring>
+        <name>FilterInputPipe</name>
+        <initializer>= new NamedPipeClientStream(<ref refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1a4778a52dfea22a03282469f70d156499" kindref="member">Configuration.API_MON_PIPE_NAME</ref>)</initializer>
+        <briefdescription>
+<para>Для отправки путей к файлам в модуль фильтра, которые были обнаружены </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a754660953a6d6cfc1c4d6b682fc74429" compoundref="_monitor_8cs" startline="755" endline="761">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.Init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a3d8bf30577210639e9e5fedec392452d" prot="public" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.CommandPipe</definition>
+        <argsstring></argsstring>
+        <name>CommandPipe</name>
+        <initializer>= new NamedPipeServerStream(<ref refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_configuration_1adc178b783467737dca3962b439e4213a" kindref="member">Configuration.COMMAND_PIPE_NAME</ref>)</initializer>
+        <briefdescription>
+<para>Для приёма команд </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="46" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_partition_monitor_1a7300c6a07173a2e075b2a32cdbf988f9" compoundref="_monitor_8cs" startline="547" endline="684">MODULE__RESERVE_NEW_FILE_DETECTOR.PartitionMonitor.CommandThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a8bdec99e15039d04ad665bc35582b980" prot="public" static="yes" mutable="no">
+        <type>BinaryReader</type>
+        <definition>BinaryReader MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.CommandReader</definition>
+        <argsstring></argsstring>
+        <name>CommandReader</name>
+        <briefdescription>
+<para>Для чтения команд </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="51" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a133e257d9cf1bd39aed7dd9f5c613022" prot="public" static="yes" mutable="no">
+        <type>BinaryWriter</type>
+        <definition>BinaryWriter MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.FilterPipeWriter</definition>
+        <argsstring></argsstring>
+        <name>FilterPipeWriter</name>
+        <briefdescription>
+<para>Для записи путей обнаруженных файлов </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="56" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a0b00c298402a7ee6ca109aed0054523d" prot="public" static="yes" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.Writer_Sync</definition>
+        <argsstring></argsstring>
+        <name>Writer_Sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="58" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a8af3eb63aa90ab53393357a53bc0c56d" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref></type>
+        <definition>LoggerClient MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.Logger</definition>
+        <argsstring></argsstring>
+        <name>Logger</name>
+        <initializer>= new <ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref>(&quot;Logger.ApiMonitor&quot;, &quot;Api monitor&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="60" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a380c5d95b83d5248c5953081b72fc2be" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__RESERVE_NEW_FILE_DETECTOR.Connector.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="62" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="62" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="36">
+        <label>LoggerLib.LoggerClient</label>
+        <link refid="class_logger_lib_1_1_logger_client"/>
+      </node>
+      <node id="35">
+        <label>MODULE__RESERVE_NEW_FILE_DETECTOR.Connector</label>
+        <link refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector"/>
+        <childnode refid="36" relation="usage">
+          <edgelabel>Logger</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="37" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="36" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a3d8bf30577210639e9e5fedec392452d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>CommandPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a8bdec99e15039d04ad665bc35582b980" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>CommandReader</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1ab765ef36c4978bf12e3539988c6b58f0" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>FilterInputPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a133e257d9cf1bd39aed7dd9f5c613022" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>FilterPipeWriter</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a380c5d95b83d5248c5953081b72fc2be" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>Init</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a8af3eb63aa90ab53393357a53bc0c56d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>Logger</name></member>
+      <member refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_connector_1a0b00c298402a7ee6ca109aed0054523d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::Connector</scope><name>Writer_Sync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

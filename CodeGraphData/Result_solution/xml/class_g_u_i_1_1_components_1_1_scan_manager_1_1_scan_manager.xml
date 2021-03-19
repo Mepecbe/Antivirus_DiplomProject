@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager" kind="class" prot="public">
+    <compoundname>GUI::Components::ScanManager::ScanManager</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a4192acdd47a04c5aea7fbeba4ddb6b07" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int GUI.Components.ScanManager.ScanManager.MAX_SCAN_TASKS</definition>
+        <argsstring></argsstring>
+        <name>MAX_SCAN_TASKS</name>
+        <initializer>= 2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1b1c66c07b8d9f1347c8982d52bf3d9c" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_g_u_i_1_1_main_form" kindref="compound">MainForm</ref></type>
+        <definition>MainForm GUI.Components.ScanManager.ScanManager.MForm</definition>
+        <argsstring></argsstring>
+        <name>MForm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1580286702309a0664212b79034cd447" prot="private" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread GUI.Components.ScanManager.ScanManager.Thread1</definition>
+        <argsstring></argsstring>
+        <name>Thread1</name>
+        <initializer>= new Thread(<ref refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ab64baf34933bf1273956e567f2ac7784" kindref="member">ScanFilesLoader</ref>) { Name = &quot;ScanFilesLoader&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a96b6aa11778571528a54bdb2900152ce" prot="public" static="yes" mutable="no">
+        <type>Queue&lt; string &gt;</type>
+        <definition>Queue&lt;string&gt; GUI.Components.ScanManager.ScanManager.FileQueue</definition>
+        <argsstring></argsstring>
+        <name>FileQueue</name>
+        <initializer>= new Queue&lt;string&gt;()</initializer>
+        <briefdescription>
+<para>Очередь файлов ожидающих сканирование </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a22313f7b6cba27fc235a332965d7c07e" prot="public" static="yes" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex GUI.Components.ScanManager.ScanManager.FileQueue_sync</definition>
+        <argsstring></argsstring>
+        <name>FileQueue_sync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aad43db45a6f7cdac6c8aa7068a5e251d" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int GUI.Components.ScanManager.ScanManager.CountAllFiles</definition>
+        <argsstring></argsstring>
+        <name>CountAllFiles</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Количество всех файлов </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="31" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1acbf0030bdc757d9de7c321f982c7d033" compoundref="_main_form_8cs" startline="431" endline="487">GUI.MainForm.active_scan_updater_Tick</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a930fcd142314181a5aefe81c333d2c3f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int GUI.Components.ScanManager.ScanManager.CountAllScannedFiles</definition>
+        <argsstring></argsstring>
+        <name>CountAllScannedFiles</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Количество отсканированных файлов </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="36" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1acbf0030bdc757d9de7c321f982c7d033" compoundref="_main_form_8cs" startline="431" endline="487">GUI.MainForm.active_scan_updater_Tick</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ac5f8941d8b5c44f14ae75620fce1d867" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int GUI.Components.ScanManager.ScanManager.InScanProcess</definition>
+        <argsstring></argsstring>
+        <name>InScanProcess</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Активно сканируются </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1279396cbf67e22d7381a9d0130530be" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string GUI.Components.ScanManager.ScanManager.ExtentionsFilter</definition>
+        <argsstring></argsstring>
+        <name>ExtentionsFilter</name>
+        <initializer>= &quot;*.*&quot;</initializer>
+        <briefdescription>
+<para>Расширения файлов, которые нужно проверять </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="51" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1adc926f85adae2d4ea6092b4eeefe7dc0" prot="public" static="yes" mutable="no">
+        <type><ref refid="namespace_g_u_i_1_1_components_1_1_scan_manager_1a0e110b45709c0df35a99f3693c00c699" kindref="member">ScanState</ref></type>
+        <definition>ScanState GUI.Components.ScanManager.ScanManager.State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <initializer>= ScanState.Completed</initializer>
+        <briefdescription>
+<para>Текущее состояние сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="56" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a679e353a3c05f25906b8ecdb66c4312e" compoundref="_main_form_8cs" startline="191" endline="261">GUI.MainForm.MyTimer_Tick</referencedby>
+        <referencedby refid="class_g_u_i_1_1_a_p_i_handlers_1a6f79733e780ec29c1214c4ad38198396" compoundref="_main_form_8cs" startline="1221" endline="1229">GUI.APIHandlers.OnFoundVirus</referencedby>
+        <referencedby refid="class_g_u_i_1_1_a_p_i_handlers_1a288fa9d06a2b24fc0f3b3583ffd40acd" compoundref="_main_form_8cs" startline="1212" endline="1219">GUI.APIHandlers.OnScannedFile</referencedby>
+        <referencedby refid="class_g_u_i_1_1_a_p_i_handlers_1add976806e9d422ac62e47744179a6aa0" compoundref="_main_form_8cs" startline="1235" endline="1249">GUI.APIHandlers.virusInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ac36711eb967ab3f9517a5c9b03d25c1c" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string GUI.Components.ScanManager.ScanManager.LastScanned</definition>
+        <argsstring></argsstring>
+        <name>LastScanned</name>
+        <briefdescription>
+<para>Последний отсканированный файл </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aaf40e49b0ff7ac7f70c07c03f27958a9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.StartScan</definition>
+        <argsstring>(string[] dirs, string[] files=null)</argsstring>
+        <name>StartScan</name>
+        <param>
+          <type>string[]</type>
+          <declname>dirs</declname>
+        </param>
+        <param>
+          <type>string[]</type>
+          <declname>files</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+<para>Старт сканирования </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dirs</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="62" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="62" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aa0bbd51857b304f76f7c8f8c5a83a621" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Pause</definition>
+        <argsstring>()</argsstring>
+        <name>Pause</name>
+        <briefdescription>
+<para>Приостановить сканирование </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="168" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="168" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1af45cc6b2b885f8c4f2e4a36b8156edc6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Resume</definition>
+        <argsstring>()</argsstring>
+        <name>Resume</name>
+        <briefdescription>
+<para>Продолжить сканирование </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="177" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="177" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a23ee484ccdc2c0014b4c9377b3f9b097" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Abort</definition>
+        <argsstring>()</argsstring>
+        <name>Abort</name>
+        <briefdescription>
+<para>Отменить сканирование </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="186" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="186" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a3591a103d33d40ab168eafdc5b87f4d9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <briefdescription>
+<para>Сброс </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="201" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="201" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ae7d0b804b8b15cda7e45c9c1a55343b6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Init</definition>
+        <argsstring>(MainForm Form)</argsstring>
+        <name>Init</name>
+        <param>
+          <type><ref refid="class_g_u_i_1_1_main_form" kindref="compound">MainForm</ref></type>
+          <declname>Form</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="214" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="214" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ad6c2abcfa6267f79b308fe5ec455f49a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="220" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="220" bodyend="224"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ad30627b6dcb629305faa9596f0c688c6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.AddAllFilesToScan</definition>
+        <argsstring>(string dir)</argsstring>
+        <name>AddAllFilesToScan</name>
+        <param>
+          <type>string</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="94" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="94" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ab64baf34933bf1273956e567f2ac7784" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.Components.ScanManager.ScanManager.ScanFilesLoader</definition>
+        <argsstring>()</argsstring>
+        <name>ScanFilesLoader</name>
+        <briefdescription>
+<para>Поток который загружает файлы для сканирования в ядро </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="135" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="135" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="133">
+        <label>GUI.Components.ScanManager.ScanManager</label>
+        <link refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager"/>
+        <childnode refid="134" relation="usage">
+          <edgelabel>MForm</edgelabel>
+        </childnode>
+      </node>
+      <node id="134">
+        <label>GUI.MainForm</label>
+        <link refid="class_g_u_i_1_1_main_form"/>
+        <childnode refid="135" relation="public-inheritance">
+        </childnode>
+        <childnode refid="136" relation="usage">
+          <edgelabel>notifyIcon</edgelabel>
+          <edgelabel>удалитьToolStripMenuItem</edgelabel>
+          <edgelabel>добавитьToolStripMenuItem1</edgelabel>
+          <edgelabel>удалитьФайлToolStripMenuItem</edgelabel>
+          <edgelabel>добавитьToolStripMenuItem</edgelabel>
+          <edgelabel>tabPage1</edgelabel>
+          <edgelabel>tabPage2</edgelabel>
+          <edgelabel>components</edgelabel>
+          <edgelabel>tabPage3</edgelabel>
+          <edgelabel>tabPage4</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="137" relation="usage">
+          <edgelabel>quarantine_files</edgelabel>
+          <edgelabel>metroButton2</edgelabel>
+          <edgelabel>page_scan_result_all_scanned</edgelabel>
+          <edgelabel>metroLabel16</edgelabel>
+          <edgelabel>saveSettings</edgelabel>
+          <edgelabel>metroLabel7</edgelabel>
+          <edgelabel>metroTile1</edgelabel>
+          <edgelabel>metroLabel8</edgelabel>
+          <edgelabel>settingsAutoAction</edgelabel>
+          <edgelabel>metroLabel17</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+      <node id="136">
+        <label>System</label>
+      </node>
+      <node id="135">
+        <label>MetroFramework::Forms::MetroForm</label>
+      </node>
+      <node id="137">
+        <label>MetroFramework</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/Components/ScanManager.cs" bodystart="15" bodyend="225"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a23ee484ccdc2c0014b4c9377b3f9b097" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Abort</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ad30627b6dcb629305faa9596f0c688c6" prot="private" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>AddAllFilesToScan</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aad43db45a6f7cdac6c8aa7068a5e251d" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>CountAllFiles</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a930fcd142314181a5aefe81c333d2c3f" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>CountAllScannedFiles</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1279396cbf67e22d7381a9d0130530be" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>ExtentionsFilter</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a96b6aa11778571528a54bdb2900152ce" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>FileQueue</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a22313f7b6cba27fc235a332965d7c07e" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>FileQueue_sync</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ae7d0b804b8b15cda7e45c9c1a55343b6" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Init</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ac5f8941d8b5c44f14ae75620fce1d867" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>InScanProcess</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ac36711eb967ab3f9517a5c9b03d25c1c" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>LastScanned</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a4192acdd47a04c5aea7fbeba4ddb6b07" prot="private" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>MAX_SCAN_TASKS</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1b1c66c07b8d9f1347c8982d52bf3d9c" prot="private" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>MForm</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aa0bbd51857b304f76f7c8f8c5a83a621" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Pause</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a3591a103d33d40ab168eafdc5b87f4d9" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Reset</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1af45cc6b2b885f8c4f2e4a36b8156edc6" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Resume</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ab64baf34933bf1273956e567f2ac7784" prot="private" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>ScanFilesLoader</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1aaf40e49b0ff7ac7f70c07c03f27958a9" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>StartScan</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1adc926f85adae2d4ea6092b4eeefe7dc0" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>State</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1ad6c2abcfa6267f79b308fe5ec455f49a" prot="public" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Stop</name></member>
+      <member refid="class_g_u_i_1_1_components_1_1_scan_manager_1_1_scan_manager_1a1580286702309a0664212b79034cd447" prot="private" virt="non-virtual"><scope>GUI::Components::ScanManager::ScanManager</scope><name>Thread1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

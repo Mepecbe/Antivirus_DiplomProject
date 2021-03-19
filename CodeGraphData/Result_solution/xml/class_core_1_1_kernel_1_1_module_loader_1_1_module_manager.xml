@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager" kind="class" prot="public">
+    <compoundname>Core::Kernel::ModuleLoader::ModuleManager</compoundname>
+    <innerclass refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_loader" prot="public">Core::Kernel::ModuleLoader::ModuleManager::Loader</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module" prot="public">Core::Kernel::ModuleLoader::ModuleManager::Module</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1a46a6dff1112ecc9fa6118a439e2fe927" prot="public" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module" kindref="compound">Module</ref> &gt;</type>
+        <definition>List&lt;Module&gt; Core.Kernel.ModuleLoader.ModuleManager.Modules</definition>
+        <argsstring></argsstring>
+        <name>Modules</name>
+        <initializer>= new List&lt;<ref refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module" kindref="compound">Module</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" compoundref="_kernel_8cs" startline="63" endline="78">Core.KernelInitializator.InitModules</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" line="14" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ModuleManager.cs" bodystart="13" bodyend="92"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1a46a6dff1112ecc9fa6118a439e2fe927" prot="public" virt="non-virtual"><scope>Core::Kernel::ModuleLoader::ModuleManager</scope><name>Modules</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

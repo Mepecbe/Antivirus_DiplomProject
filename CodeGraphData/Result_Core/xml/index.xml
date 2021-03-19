@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result" kind="class"><name>Core::Kernel::Quarantine::Quarantine::AddToStorageResult</name>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ab706e449ecd3e8c2bdb29dbd02ae5c7d" kind="variable"><name>is_success</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1ac6f6deefeed570ea1c81591794e27c51" kind="variable"><name>fileName</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result_1a0d3f942f85a64fe5ec9b8484d6c73541" kind="function"><name>AddToStorageResult</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i" kind="class"><name>Core::Kernel::API::API</name>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1aec0368fad481d2d0acd1e75a08c6e302" kind="variable"><name>RequestHandler</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a4f76e9fae617643370bff6b717cc9f76" kind="variable"><name>UserOutputConnector</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a407548116b97d869f0d209b096a12c20" kind="variable"><name>UserInputConnector</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a54e7612837dbe947dff4c1c4aa89e623" kind="variable"><name>Out_writer</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a48a48b67b4e121c04b5ae1b1228011a7" kind="function"><name>Handler</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a3d806efe33a3d2abde91e1a3b34610b8" kind="function"><name>API_ScanCompleted</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0f705868c72956b76d17b3b3e124acae" kind="function"><name>ToQuarantine</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a31aaac24b8213ec19dbc0af932dbd359" kind="function"><name>Restore</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1ad2749bb917c9257149d50d3a5b581ecc" kind="function"><name>Delete</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a834b28a7b5cfa9bc6d2da022046af0a5" kind="function"><name>getVirusInfo</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0b71cd9cab2df65a893196167df95141" kind="function"><name>getAllVirusesInfo</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a1aedad845a2ad43f08dc6fd8a7af3d99" kind="function"><name>Defender</name></member>
+    <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a487efe36a9d87c1802dcf62863d8d412" kind="function"><name>Init</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration" kind="class"><name>Core::Kernel::Configurations::Configuration</name>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a16798ccb642eb7b91de2df95064b5c58" kind="property"><name>NamedPipeEncoding</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a95b84c4ca3f7cbf8497980c516bd504a" kind="property"><name>GUI_Autostart</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a3ca5042e63481b7835f087f91ed4a73c" kind="variable"><name>SystemConftFile</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1ae3a06a7efc262e8d285e54e530b60e6d" kind="variable"><name>SystemXmlFile</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a4b8716d087bce4095c9311be05b9e4d4" kind="function"><name>Configuration</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a718407039f34bdd07eb07d4e19013a91" kind="function"><name>Configuration</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1adab6a44405b07d254151e0c1b784f349" kind="function"><name>getElementValueByName</name></member>
+    <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a6ea73edbb4742e7fcf47f03f34470511" kind="function"><name>GetDefaultConfiguration</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer" kind="class"><name>Core::Kernel::Cryptographer::Cryptographer</name>
+    <member refid="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a85bf90ae31cc02abc9409b985aebc7cf" kind="variable"><name>Key</name></member>
+    <member refid="class_core_1_1_kernel_1_1_cryptographer_1_1_cryptographer_1a7e460a0ac6c7954519eed7b578168bd2" kind="function"><name>Encrypt</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task" kind="class"><name>Core::Kernel::ErrorTasks::ErrorScanTask</name>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1ac37e28ad5e4677067f9debd0566adec3" kind="variable"><name>ErrorMessage</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1aed61a1ad484922980e448d238f03e19d" kind="variable"><name>ErrorCode</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a6a9933a833759067f7a2fe6ad3d4f170" kind="variable"><name>task</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_task_1a23e5761d975fe1442695b80fbdbbdc35" kind="function"><name>ErrorScanTask</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager" kind="class"><name>Core::Kernel::ErrorTasks::ErrorScanTasksManager</name>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a7ebfdaf0439c22563beb373c8ddc7195" kind="variable"><name>ErrorScanTasks</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a82a7ff1f4fbfb50a797779f1804f74ba" kind="property"><name>Count</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a3c05032cd8e8b1b6c266717e6bf4e616" kind="function"><name>Add</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a2d238e65c6e3171669baf663480db868" kind="function"><name>Clear</name></member>
+    <member refid="class_core_1_1_kernel_1_1_error_tasks_1_1_error_scan_tasks_manager_1a43b99f3498c2930170b2a19d10828846" kind="function"><name>Init</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler" kind="class"><name>Core::Kernel::ScanModule::FilterHandler</name>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a994d07ba8adfaad3346203c960284d47" kind="variable"><name>FilterMonitor</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1ad7fb6525f078da9e9d57630afd5c6f39" kind="function"><name>Handler</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1addb45c31ecff07fef3750aea8423bd00" kind="function"><name>Run</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler_1a8c3c4d1bd29f6f73225af131a58656f8" kind="function"><name>Stop</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager" kind="class"><name>Core::Kernel::VirusesManager::FoundVirusesManager</name>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ac489c0fdeeb79f308fc39dde8ad515b8" kind="variable"><name>VirusesTable</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a29f34fd7818c50605ffb2e683f05be76" kind="variable"><name>Storage</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1acec6ed042067cfb86ff98eac3c7b9c1c" kind="variable"><name>Serializer</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5af2a7674b7f2f612d451d5bbd82bc2a" kind="variable"><name>VirusesTable_sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab6d5348112a4b5cf1bf8770b78377462" kind="function"><name>AddNewVirus</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a5aedf38083ae386ace1af0eadfac8704" kind="function"><name>getInfo</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a63ea043cbb256dc75af0e1fac96a1605" kind="function"><name>Exists</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a7e4a7db6b8f4023f219c1fe693b6e9c5" kind="function"><name>getAllViruses</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ad7c4d54058a915120eefb266bcb9cd58" kind="function"><name>getLastId</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1ab07103f8e935b10a531ddb4807794991" kind="function"><name>Delete</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a88a3d51ff644e9ac6c556d8f934045d2" kind="function"><name>Init</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors" kind="class"><name>Core::Kernel::Connectors::KernelConnectors</name>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a7f3f1e1c3c407b42537d5410a0018bc3" kind="variable"><name>PartitionMon_CommandPipe</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a5bf80c01bc30de30f26f4af410f71da8" kind="variable"><name>PartitionMon_CommandWriter</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1ac44362a249d3bf4a26098fe79d8178a2" kind="variable"><name>PartitionMon_CommandPipe_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1af4076fcc45e34685f5e5912314358fa3" kind="variable"><name>VirusesDb_CommandPipe</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1ab9db09e0ec708b94f51fbaf760b3ae17" kind="variable"><name>VirusesDb_CommandWriter</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a2ace2846feca8755cca3f0dfd4107c73" kind="variable"><name>VirusesDb_CommandPipe_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a3adb139bfb54ef97fb94170f0942577f" kind="variable"><name>ScannerService_Output</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a737c8e4a335f00b5bd4d8ae96beb40f5" kind="variable"><name>ScannerService_Writer</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a338798ae70b402c7fdc3e1c97fe1e892" kind="variable"><name>ScannerService_Output_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0be767b1cd42c695a443d38b4d084bd8" kind="variable"><name>ScannerService_Command</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a7044d786d91d5c89af1f919bcd46db35" kind="variable"><name>ScannerService_CommandWriter</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0e9a927c124542a024b5dc57374bde60" kind="variable"><name>ScannerService_Command_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a45688582679c5511594dfe3fbc0049c4" kind="variable"><name>Filter_Command</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a31519734186c63d0ff53ba9e908d7f8f" kind="variable"><name>Filter_CommandWriter</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a7f5aa47983712a6ed02bc0b09ddfcb94" kind="variable"><name>Filter_Command_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a2f6864bfe7827a692cdb6ff561717557" kind="variable"><name>Filter_Input</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a58535a1eb27ea639b471d9cf947ef5f1" kind="variable"><name>Filter_Reader</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a77d235f6c1b5fc520bd8108cd6bf6006" kind="variable"><name>Filter_Input_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a4869c715720a9af4bf76480702d1727f" kind="variable"><name>ScannerService_Input</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1ae0dad6fe41b94bbcfc5bcca424ee7657" kind="variable"><name>ScannerService_Reader</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a03a0939aac9a82af9c9e39f7dc053346" kind="variable"><name>ScannerService_Input_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1ad8b618c897d2e3cfbc4b89bf963d3e3f" kind="variable"><name>Api_In</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a1aca0da65d14bfd5e25ef0417e630669" kind="variable"><name>Api_Out</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1ad6b4d364be39747c5b5f9c824fb75155" kind="variable"><name>Api_In_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1afc4ba0c36f125353a46c6eaad570804d" kind="variable"><name>Api_Out_Sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0abc89591fecac0574a5d1138a0e45ef" kind="variable"><name>Logger</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a53e487a58647c6fa890f8f7c271c5942" kind="function"><name>InitInputConnections</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0ffaa2d7eff3c3d411db29f074df3971" kind="function"><name>InitOutputConnections</name></member>
+    <member refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1af41b0fc3a83fa6673c859e41107edc33" kind="function"><name>Stop</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_initializator" kind="class"><name>Core::KernelInitializator</name>
+    <member refid="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" kind="variable"><name>GUI_Proc</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" kind="variable"><name>Config</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" kind="function"><name>InitKernelConfiguration</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a23846cc9a43efe1e76d73ad2217347c3" kind="function"><name>InitKernelComponents</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" kind="function"><name>InitModules</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a74ca163691e0664da0c385920d922524" kind="function"><name>ApplyingBasicSettings</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" kind="function"><name>Main</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1a231a1722c1a1bb079cc92357458d119f" kind="function"><name>OnCloseProcess</name></member>
+    <member refid="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" kind="function"><name>Console_CancelKeyPress</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_loader" kind="class"><name>Core::Kernel::ModuleLoader::ModuleManager::Loader</name>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_loader_1a021ca4c2a5f9635845d621c4449b2bb0" kind="function"><name>LoadModule</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module" kind="class"><name>Core::Kernel::ModuleLoader::ModuleManager::Module</name>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab044aaa2e4cbaac36dacb7f86786d8ec" kind="variable"><name>ModuleName</name></member>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab1ef716f17c1385ea8d1da94dd2d59f4" kind="variable"><name>ModuleAssembly</name></member>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1ab89ffd77044866ca349fafe00af32f7c" kind="property"><name>IsRunning</name></member>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1_1_module_1a44da0a67bfdfd599a8c26374b49a5918" kind="function"><name>Module</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager" kind="class"><name>Core::Kernel::ModuleLoader::ModuleManager</name>
+    <member refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1a46a6dff1112ecc9fa6118a439e2fe927" kind="variable"><name>Modules</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine" kind="class"><name>Core::Kernel::Quarantine::Quarantine</name>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a2df4180da5c745e48a31dca96e16046d" kind="variable"><name>VirusStorage</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a51829d6f163ac7fa74b278a24570d687" kind="function"><name>AddFileToStorage</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1abe36e428f4f8dbca5bcb5d2cb1858b1f" kind="function"><name>Restore</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1aacbf8fb3c802f09ed02da7162330d82f" kind="function"><name>Restore</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a108dfa4ca63f2161fa70b4c33ee9fb2e" kind="function"><name>Delete</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a5644f325778cbcad313304a67661bae9" kind="function"><name>GetAllFiles</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a97acd06fdb9cbf64c91b8afae72cc2f3" kind="function"><name>MoveVirusToQuarantine</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a46fa2d534b9184064ba209c934ee731b" kind="function"><name>DeleteFromStorage</name></member>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1ae4dd3a38a1d074afde7fc15cd40f181c" kind="function"><name>InitStorage</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler" kind="class"><name>Core::Kernel::ScanModule::ScannerResponseHandler</name>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afb5d98d1625194c991fab8649b7cc0ca" kind="variable"><name>ErrorScanProbeSleep</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a30d4c5be7ef603535d675ddf237bab28" kind="variable"><name>Connector</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a3feb09828f018efc773897214d83921f" kind="event"><name>onScanCompleted</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a19032d76bb1d9b672fb0575d00f74e71" kind="variable"><name>InputThreadHandler</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a643668df5e64217932979faacc77fde6" kind="variable"><name>MAX_PROBES</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a74dcaa11d6741e9abd0e7a21c41d3644" kind="function"><name>ScanCompletedEvent</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1afea0193c1eacbccea3278ef2d7f37061" kind="function"><name>InputHandler</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1ac167900bb62816237f7fb8c768a7c029" kind="function"><name>Init</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler_1a43e031a840e9cf6be0afe835d50dce68" kind="function"><name>Stop</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" kind="class"><name>Core::Kernel::ScanModule::ScanTask</name>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1afde0cabe4e8350d1486ee6332038051e" kind="variable"><name>File</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a7f49e5c51ceb798059a59e4fe2a6b097" kind="variable"><name>TaskId</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a483ae1e4561b9a7db9f54724fc084ed8" kind="variable"><name>ProbesCount</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task_1a9ee2deafd554bad90b6b8c4de96cca91" kind="function"><name>ScanTask</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks" kind="class"><name>Core::Kernel::ScanModule::ScanTasks</name>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1adf1f2b887bd38319a25cbcd244bced93" kind="variable"><name>id</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1ae2212aa771eb4907f43c78e77a0306fc" kind="variable"><name>Scanner_Output</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a7a7e179115d89ed1333ab3e0e5afd2cf" kind="variable"><name>ScannerBinaryWriter</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a2060f51a32b5b649f30c4c3419a0645a" kind="variable"><name>tasks_sync</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a21020837049577c06e94cf889e70b988" kind="variable"><name>RestoredFile</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1ab00974fa19092bf8e528dfc662b10c29" kind="variable"><name>tasks</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a4da0119d99c6f91edec9698bfd0865a7" kind="function"><name>Add</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1acc257684ac9483b9d2b32cb3e439c97b" kind="function"><name>RestartScan</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a63ac1d5fd37d1a793c095a13c5a26fa4" kind="function"><name>RemoveById</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a47ed609334f2fbeaa7a2f55caba568bc" kind="function"><name>RemoveByFileName</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1ab19feede1f0d06073a56593de05ead40" kind="function"><name>getTaskById</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1ab513c0260bdec309242ed0153d2e58b3" kind="function"><name>getTaskAndRemove</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1afcaca214c2d1ae27c001d2c8fffae48f" kind="function"><name>ClearQueue</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1ab4898d785b5e9fb3a94f3b9909eb4ae5" kind="function"><name>ScanCompleted</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1aa1d9059c33509f5f93637a4579affeb6" kind="function"><name>Init</name></member>
+    <member refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a8fe95f43b71fe8ada21ed0e7d03fe0cb" kind="function"><name>Stop</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_quarantine_1_1_utils" kind="class"><name>Core::Kernel::Quarantine::Utils</name>
+    <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_utils_1a7d73c9f321bbd4ec92ca840500891946" kind="variable"><name>NotExistsFiles</name></member>
+  </compound>
+  <compound refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info" kind="class"><name>Core::Kernel::VirusesManager::VirusInfo</name>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1a32800dfd481528469ad45834c8d16833" kind="variable"><name>id</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1a1cc73e5b602acdca3464dcafd051554a" kind="variable"><name>inQuarantine</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1aa996f58f3e5ce82ba07e2592082bbd8b" kind="variable"><name>fileInQuarantine</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1a16365c16f94599bfb8acc7d1d01d0d2c" kind="variable"><name>file</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1a31c5bcb40c3be43f59e34fff95b8043e" kind="variable"><name>VirusId</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1a1e9da9cedf85c4fd561d6022297ae8fd" kind="function"><name>VirusInfo</name></member>
+    <member refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_virus_info_1ac38c56ca41b556b2dc6e43706fef5ce2" kind="function"><name>VirusInfo</name></member>
+  </compound>
+  <compound refid="namespace_core" kind="namespace"><name>Core</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel" kind="namespace"><name>Core::Kernel</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_a_p_i" kind="namespace"><name>Core::Kernel::API</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_configurations" kind="namespace"><name>Core::Kernel::Configurations</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_connectors" kind="namespace"><name>Core::Kernel::Connectors</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_cryptographer" kind="namespace"><name>Core::Kernel::Cryptographer</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_error_tasks" kind="namespace"><name>Core::Kernel::ErrorTasks</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_module_loader" kind="namespace"><name>Core::Kernel::ModuleLoader</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_quarantine" kind="namespace"><name>Core::Kernel::Quarantine</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_scan_module" kind="namespace"><name>Core::Kernel::ScanModule</name>
+  </compound>
+  <compound refid="namespace_core_1_1_kernel_1_1_viruses_manager" kind="namespace"><name>Core::Kernel::VirusesManager</name>
+  </compound>
+  <compound refid="namespace_logger_lib" kind="namespace"><name>LoggerLib</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_diagnostics" kind="namespace"><name>System::Diagnostics</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o_1_1_compression" kind="namespace"><name>System::IO::Compression</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o_1_1_isolated_storage" kind="namespace"><name>System::IO::IsolatedStorage</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o_1_1_memory_mapped_files" kind="namespace"><name>System::IO::MemoryMappedFiles</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o_1_1_pipes" kind="namespace"><name>System::IO::Pipes</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_security_1_1_cryptography" kind="namespace"><name>System::Security::Cryptography</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_xml" kind="namespace"><name>System::Xml</name>
+  </compound>
+  <compound refid="namespace_system_1_1_xml_1_1_serialization" kind="namespace"><name>System::Xml::Serialization</name>
+  </compound>
+  <compound refid="namespace_vlingo_1_1_u_u_i_d" kind="namespace"><name>Vlingo::UUID</name>
+  </compound>
+  <compound refid="_kernel_8cs" kind="file"><name>Kernel.cs</name>
+  </compound>
+  <compound refid="_a_p_i_8cs" kind="file"><name>API.cs</name>
+  </compound>
+  <compound refid="_configuration_8cs" kind="file"><name>Configuration.cs</name>
+  </compound>
+  <compound refid="_connector_8cs" kind="file"><name>Connector.cs</name>
+  </compound>
+  <compound refid="_cryptographer_8cs" kind="file"><name>Cryptographer.cs</name>
+  </compound>
+  <compound refid="_error_scan_tasks_8cs" kind="file"><name>ErrorScanTasks.cs</name>
+  </compound>
+  <compound refid="_found_viruses_manager_8cs" kind="file"><name>FoundVirusesManager.cs</name>
+  </compound>
+  <compound refid="_module_manager_8cs" kind="file"><name>ModuleManager.cs</name>
+  </compound>
+  <compound refid="_quarantine_8cs" kind="file"><name>Quarantine.cs</name>
+  </compound>
+  <compound refid="_scan_queue_8cs" kind="file"><name>ScanQueue.cs</name>
+  </compound>
+  <compound refid="_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dir_96e2e1c95e9e53138e235985fc49566a" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject</name>
+  </compound>
+  <compound refid="dir_488b26a2689babb5034c43e9255f81da" kind="dir"><name>C:/Users/Cisco</name>
+  </compound>
+  <compound refid="dir_02bb23351936cd38098b96a1e2ab38b9" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core</name>
+  </compound>
+  <compound refid="dir_98f8eeb679915decf3808a0cad17a40c" kind="dir"><name>C:/Users/Cisco/Desktop</name>
+  </compound>
+  <compound refid="dir_6452dcc8af3a75ad490f552ca4240c6f" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES</name>
+  </compound>
+  <compound refid="dir_5df37c041b3a01dc63d0b42028ab81e4" kind="dir"><name>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Properties</name>
+  </compound>
+  <compound refid="dir_8ceffd4ee35c3518d4e8bdc7e638efe8" kind="dir"><name>C:/Users</name>
+  </compound>
+</doxygenindex>

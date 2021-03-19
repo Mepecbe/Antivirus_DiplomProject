@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::Connector</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ade5a5e791a1e11ab558d7588bb1dfe2e" prot="public" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream MODULE__SCAN.Connector.commandPipe</definition>
+        <argsstring></argsstring>
+        <name>commandPipe</name>
+        <initializer>= new NamedPipeServerStream(&quot;Scanner.CommandPipe&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="43" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="43" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" compoundref="_scanner_8cs" startline="143" endline="202">MODULE__SCAN.Connector.commandThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a466dffbb34a7e339a10026ecdadd6cec" prot="public" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream MODULE__SCAN.Connector.inputPipe</definition>
+        <argsstring></argsstring>
+        <name>inputPipe</name>
+        <initializer>= new NamedPipeServerStream(&quot;ScannerService.input&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="44" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="44" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a703d4385ff92dea3e2b61626edf7ed92" compoundref="_scanner_8cs" startline="72" endline="100">MODULE__SCAN.Connector.inputThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1acf33b4403c84544feecc830ace27c689" prot="public" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream MODULE__SCAN.Connector.signaturesPipe</definition>
+        <argsstring></argsstring>
+        <name>signaturesPipe</name>
+        <initializer>= new NamedPipeServerStream(&quot;ScannerService.signatures&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="45" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="45" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1af103f0766fdeab9d4305501bba98bcba" compoundref="_scanner_8cs" startline="102" endline="141">MODULE__SCAN.Connector.signatureThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a935efcc5bd8e80425eee43a277f5371a" prot="public" static="yes" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream MODULE__SCAN.Connector.outputPipe</definition>
+        <argsstring></argsstring>
+        <name>outputPipe</name>
+        <initializer>= new NamedPipeClientStream(&quot;ScannerService.output&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="47" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="47" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a63491cb6fa9dc78bdcb15b34e624bf28" compoundref="_scanner_8cs" startline="207" endline="224">MODULE__SCAN.Connector.Init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a2a09e6c1a17c16372b56ad2150784f9b" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref></type>
+        <definition>LoggerClient MODULE__SCAN.Connector.Logger</definition>
+        <argsstring></argsstring>
+        <name>Logger</name>
+        <initializer>= new <ref refid="class_logger_lib_1_1_logger_client" kindref="compound">LoggerClient</ref>(&quot;Logger.Modules.Scanner&quot;, &quot;Log&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="56" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a173d856fec8faf32cf1bc99c06f7095d" prot="private" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__SCAN.Connector.inputHandler</definition>
+        <argsstring></argsstring>
+        <name>inputHandler</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a703d4385ff92dea3e2b61626edf7ed92" kindref="member">inputThread</ref>) { Name = &quot;inputHandler&quot;, Priority = ThreadPriority.Highest }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="49" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a22aaa15dc034a67b3b725c78712c89c8" prot="private" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__SCAN.Connector.signatureHandler</definition>
+        <argsstring></argsstring>
+        <name>signatureHandler</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1af103f0766fdeab9d4305501bba98bcba" kindref="member">signatureThread</ref>) { Name = &quot;signatureHandler&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="50" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a11c80bbdb9bf71d713c26396c3061860" prot="private" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread MODULE__SCAN.Connector.commandHandler</definition>
+        <argsstring></argsstring>
+        <name>commandHandler</name>
+        <initializer>= new Thread(<ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" kindref="member">commandThread</ref>) { Name = &quot;commandHandler&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="51" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a5173d6b4919dd4d7021f15a93d55f9ee" prot="private" static="yes" mutable="no">
+        <type>BinaryWriter</type>
+        <definition>BinaryWriter MODULE__SCAN.Connector.outputWriter</definition>
+        <argsstring></argsstring>
+        <name>outputWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="53" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="53" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a63491cb6fa9dc78bdcb15b34e624bf28" compoundref="_scanner_8cs" startline="207" endline="224">MODULE__SCAN.Connector.Init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a34fc6c44f2dc8aec49c5c6ad7eea3085" prot="private" static="yes" mutable="no">
+        <type>BinaryReader</type>
+        <definition>BinaryReader MODULE__SCAN.Connector.commandReader</definition>
+        <argsstring></argsstring>
+        <name>commandReader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="54" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="54" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" compoundref="_scanner_8cs" startline="143" endline="202">MODULE__SCAN.Connector.commandThread</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ae830b382438312a4017d9b3de96037b5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Connector.ToOutput</definition>
+        <argsstring>(int id, ScanResult result)</argsstring>
+        <name>ToOutput</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result" kindref="compound">ScanResult</ref></type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Записать данные о скане в выходящую трубу </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="61" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="61" bodyend="67"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result_1a3d13d248bc3774c89e4031a006532b90" compoundref="_scanner_8cs" startline="527">MODULE__SCAN.ScanResult.Result</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a703d4385ff92dea3e2b61626edf7ed92" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Connector.inputThread</definition>
+        <argsstring>()</argsstring>
+        <name>inputThread</name>
+        <briefdescription>
+<para>Обработчик трубы по которой приходят пути к файлам для сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="72" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="72" bodyend="100"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a466dffbb34a7e339a10026ecdadd6cec" compoundref="_scanner_8cs" startline="44">MODULE__SCAN.Connector.inputPipe</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a8f0b035d8762081580c30be898454584" compoundref="_scanner_8cs" startline="24">MODULE__SCAN.Configuration.PipeEncoding</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1af103f0766fdeab9d4305501bba98bcba" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Connector.signatureThread</definition>
+        <argsstring>()</argsstring>
+        <name>signatureThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="102" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="102" bodyend="141"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1a501f0dcbeb4d0e086a6bba4d89f1b6f7" compoundref="_scanner_8cs" startline="230">MODULE__SCAN.Scanner.Signatures</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1acf33b4403c84544feecc830ace27c689" compoundref="_scanner_8cs" startline="45">MODULE__SCAN.Connector.signaturesPipe</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Connector.commandThread</definition>
+        <argsstring>()</argsstring>
+        <name>commandThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="143" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="143" bodyend="202"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ade5a5e791a1e11ab558d7588bb1dfe2e" compoundref="_scanner_8cs" startline="43">MODULE__SCAN.Connector.commandPipe</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a34fc6c44f2dc8aec49c5c6ad7eea3085" compoundref="_scanner_8cs" startline="54">MODULE__SCAN.Connector.commandReader</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a8f0b035d8762081580c30be898454584" compoundref="_scanner_8cs" startline="24">MODULE__SCAN.Configuration.PipeEncoding</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1aaa023edcffd325f14cd3e600c41c3ee7" compoundref="_scanner_8cs" startline="323">MODULE__SCAN.ScanTasks.TaskQueue</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a63491cb6fa9dc78bdcb15b34e624bf28" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__SCAN.Connector.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+<para>Инициализация коннектора </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="207" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="207" bodyend="224"/>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a935efcc5bd8e80425eee43a277f5371a" compoundref="_scanner_8cs" startline="47">MODULE__SCAN.Connector.outputPipe</references>
+        <references refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a5173d6b4919dd4d7021f15a93d55f9ee" compoundref="_scanner_8cs" startline="53">MODULE__SCAN.Connector.outputWriter</references>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator_1aed23d43785e074f6063b76ae5599a54f" compoundref="_scanner_8cs" startline="493" endline="500">MODULE__SCAN.Initializator.EntryPoint</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="33">
+        <label>LoggerLib.LoggerClient</label>
+        <link refid="class_logger_lib_1_1_logger_client"/>
+      </node>
+      <node id="32">
+        <label>MODULE__SCAN.Connector</label>
+        <link refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector"/>
+        <childnode refid="33" relation="usage">
+          <edgelabel>Logger</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="42" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="41" bodyend="225"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a11c80bbdb9bf71d713c26396c3061860" prot="private" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>commandHandler</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ade5a5e791a1e11ab558d7588bb1dfe2e" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>commandPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a34fc6c44f2dc8aec49c5c6ad7eea3085" prot="private" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>commandReader</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>commandThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a63491cb6fa9dc78bdcb15b34e624bf28" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>Init</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a173d856fec8faf32cf1bc99c06f7095d" prot="private" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>inputHandler</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a466dffbb34a7e339a10026ecdadd6cec" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>inputPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a703d4385ff92dea3e2b61626edf7ed92" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>inputThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a2a09e6c1a17c16372b56ad2150784f9b" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>Logger</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a935efcc5bd8e80425eee43a277f5371a" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>outputPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a5173d6b4919dd4d7021f15a93d55f9ee" prot="private" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>outputWriter</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a22aaa15dc034a67b3b725c78712c89c8" prot="private" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>signatureHandler</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1acf33b4403c84544feecc830ace27c689" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>signaturesPipe</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1af103f0766fdeab9d4305501bba98bcba" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>signatureThread</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1ae830b382438312a4017d9b3de96037b5" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Connector</scope><name>ToOutput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

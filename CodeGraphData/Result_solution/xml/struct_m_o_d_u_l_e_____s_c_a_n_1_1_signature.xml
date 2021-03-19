@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature" kind="struct" prot="public">
+    <compoundname>MODULE__SCAN::Signature</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1a6d7fd42fbeba9032b47b001729566c6c" prot="public" static="no" mutable="no">
+        <type>readonly byte[]</type>
+        <definition>readonly byte [] MODULE__SCAN.Signature.SignatureBytes</definition>
+        <argsstring></argsstring>
+        <name>SignatureBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="551" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="551" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1ada430b6bf19aa019d06c147cca095643" prot="public" static="no" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int MODULE__SCAN.Signature.Summ</definition>
+        <argsstring></argsstring>
+        <name>Summ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="552" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="552" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1a1e9d5b2622d6da8f806d8b513a6df3a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MODULE__SCAN.Signature.Signature</definition>
+        <argsstring>(byte[] signature)</argsstring>
+        <name>Signature</name>
+        <param>
+          <type>byte[]</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="554" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="554" bodyend="563"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Сигнатура </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="550" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="549" bodyend="564"/>
+    <listofallmembers>
+      <member refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1a1e9d5b2622d6da8f806d8b513a6df3a7" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Signature</scope><name>Signature</name></member>
+      <member refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1a6d7fd42fbeba9032b47b001729566c6c" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Signature</scope><name>SignatureBytes</name></member>
+      <member refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature_1ada430b6bf19aa019d06c147cca095643" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Signature</scope><name>Summ</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

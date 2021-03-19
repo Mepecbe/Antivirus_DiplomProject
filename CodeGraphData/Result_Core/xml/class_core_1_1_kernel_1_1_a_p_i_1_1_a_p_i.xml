@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i" kind="class" prot="public">
+    <compoundname>Core::Kernel::API::API</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1aec0368fad481d2d0acd1e75a08c6e302" prot="private" static="yes" mutable="no">
+        <type>Thread</type>
+        <definition>Thread Core.Kernel.API.API.RequestHandler</definition>
+        <argsstring></argsstring>
+        <name>RequestHandler</name>
+        <initializer>= new Thread(<ref refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a48a48b67b4e121c04b5ae1b1228011a7" kindref="member">Handler</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a4f76e9fae617643370bff6b717cc9f76" prot="private" static="yes" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream Core.Kernel.API.API.UserOutputConnector</definition>
+        <argsstring></argsstring>
+        <name>UserOutputConnector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a407548116b97d869f0d209b096a12c20" prot="private" static="yes" mutable="no">
+        <type>NamedPipeServerStream</type>
+        <definition>NamedPipeServerStream Core.Kernel.API.API.UserInputConnector</definition>
+        <argsstring></argsstring>
+        <name>UserInputConnector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a54e7612837dbe947dff4c1c4aa89e623" prot="private" static="yes" mutable="no">
+        <type>BinaryWriter</type>
+        <definition>BinaryWriter Core.Kernel.API.API.Out_writer</definition>
+        <argsstring></argsstring>
+        <name>Out_writer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a48a48b67b4e121c04b5ae1b1228011a7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.Handler</definition>
+        <argsstring>()</argsstring>
+        <name>Handler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="31" bodyend="321"/>
+        <references refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1a4da0119d99c6f91edec9698bfd0865a7" compoundref="_scan_queue_8cs" startline="192" endline="217">Core.Kernel.ScanModule.ScanTasks.Add</references>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a3d806efe33a3d2abde91e1a3b34610b8" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.API_ScanCompleted</definition>
+        <argsstring>(int id, bool found, int virusId, string file)</argsstring>
+        <name>API_ScanCompleted</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>found</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>virusId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="323" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="323" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0f705868c72956b76d17b3b3e124acae" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.ToQuarantine</definition>
+        <argsstring>(int id)</argsstring>
+        <name>ToQuarantine</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Переместить файл в карантин </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="355" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="355" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a31aaac24b8213ec19dbc0af932dbd359" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.Restore</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Restore</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Восстановить файл </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="365" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="365" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1ad2749bb917c9257149d50d3a5b581ecc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Удалить файл, где бы он не находился(в карантине/на диске) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="383" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="383" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a834b28a7b5cfa9bc6d2da022046af0a5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.getVirusInfo</definition>
+        <argsstring>(int id)</argsstring>
+        <name>getVirusInfo</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="403" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="403" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0b71cd9cab2df65a893196167df95141" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.getAllVirusesInfo</definition>
+        <argsstring>()</argsstring>
+        <name>getAllVirusesInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="426" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="426" bodyend="444"/>
+        <references refid="class_core_1_1_kernel_1_1_viruses_manager_1_1_found_viruses_manager_1a7e4a7db6b8f4023f219c1fe693b6e9c5" compoundref="_found_viruses_manager_8cs" startline="83" endline="86">Core.Kernel.VirusesManager.FoundVirusesManager.getAllViruses</references>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a1aedad845a2ad43f08dc6fd8a7af3d99" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.Defender</definition>
+        <argsstring>(bool flag)</argsstring>
+        <name>Defender</name>
+        <param>
+          <type>bool</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="446" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="446" bodyend="458"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a487efe36a9d87c1802dcf62863d8d412" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.API.API.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="461" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="461" bodyend="469"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/API.cs" bodystart="21" bodyend="470"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a3d806efe33a3d2abde91e1a3b34610b8" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>API_ScanCompleted</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a1aedad845a2ad43f08dc6fd8a7af3d99" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Defender</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1ad2749bb917c9257149d50d3a5b581ecc" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Delete</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0b71cd9cab2df65a893196167df95141" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>getAllVirusesInfo</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a834b28a7b5cfa9bc6d2da022046af0a5" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>getVirusInfo</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a48a48b67b4e121c04b5ae1b1228011a7" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Handler</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a487efe36a9d87c1802dcf62863d8d412" prot="public" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Init</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a54e7612837dbe947dff4c1c4aa89e623" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Out_writer</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1aec0368fad481d2d0acd1e75a08c6e302" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>RequestHandler</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a31aaac24b8213ec19dbc0af932dbd359" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>Restore</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a0f705868c72956b76d17b3b3e124acae" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>ToQuarantine</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a407548116b97d869f0d209b096a12c20" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>UserInputConnector</name></member>
+      <member refid="class_core_1_1_kernel_1_1_a_p_i_1_1_a_p_i_1a4f76e9fae617643370bff6b717cc9f76" prot="private" virt="non-virtual"><scope>Core::Kernel::API::API</scope><name>UserOutputConnector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="pch_8h" kind="file">
+    <compoundname>pch.h</compoundname>
+    <includedby refid="_assembly_info_8cpp" local="yes">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/AssemblyInfo.cpp</includedby>
+    <includedby refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp" local="yes">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp</includedby>
+    <includedby refid="pch_8cpp" local="yes">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.cpp</includedby>
+    <invincdepgraph>
+      <node id="177">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/AssemblyInfo.cpp</label>
+        <link refid="_assembly_info_8cpp"/>
+      </node>
+      <node id="178">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp</label>
+        <link refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp"/>
+      </node>
+      <node id="179">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.cpp</label>
+        <link refid="pch_8cpp"/>
+      </node>
+      <node id="176">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.h</label>
+        <link refid="pch.h"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>pch.h:<sp/>это<sp/>предварительно<sp/>скомпилированный<sp/>заголовочный<sp/>файл.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Перечисленные<sp/>ниже<sp/>файлы<sp/>компилируются<sp/>только<sp/>один<sp/>раз,<sp/>что<sp/>ускоряет<sp/>последующие<sp/>сборки.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Это<sp/>также<sp/>влияет<sp/>на<sp/>работу<sp/>IntelliSense,<sp/>включая<sp/>многие<sp/>функции<sp/>просмотра<sp/>и<sp/>завершения<sp/>кода.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Однако<sp/>изменение<sp/>любого<sp/>из<sp/>приведенных<sp/>здесь<sp/>файлов<sp/>между<sp/>операциями<sp/>сборки<sp/>приведет<sp/>к<sp/>повторной<sp/>компиляции<sp/>всех(!)<sp/>этих<sp/>файлов.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Не<sp/>добавляйте<sp/>сюда<sp/>файлы,<sp/>которые<sp/>планируете<sp/>часто<sp/>изменять,<sp/>так<sp/>как<sp/>в<sp/>этом<sp/>случае<sp/>выигрыша<sp/>в<sp/>производительности<sp/>не<sp/>будет.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>PCH_H</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PCH_H</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Добавьте<sp/>сюда<sp/>заголовочные<sp/>файлы<sp/>для<sp/>предварительной<sp/>компиляции</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//PCH_H</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.h"/>
+  </compounddef>
+</doxygen>

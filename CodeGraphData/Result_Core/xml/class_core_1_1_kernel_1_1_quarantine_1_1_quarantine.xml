@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine" kind="class" prot="public">
+    <compoundname>Core::Kernel::Quarantine::Quarantine</compoundname>
+    <innerclass refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result" prot="public">Core::Kernel::Quarantine::Quarantine::AddToStorageResult</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a2df4180da5c745e48a31dca96e16046d" prot="private" static="yes" mutable="no">
+        <type>IsolatedStorageFile</type>
+        <definition>IsolatedStorageFile Core.Kernel.Quarantine.Quarantine.VirusStorage</definition>
+        <argsstring></argsstring>
+        <name>VirusStorage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a51829d6f163ac7fa74b278a24570d687" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1_1_add_to_storage_result" kindref="compound">AddToStorageResult</ref></type>
+        <definition>static AddToStorageResult Core.Kernel.Quarantine.Quarantine.AddFileToStorage</definition>
+        <argsstring>(string pathToFile)</argsstring>
+        <name>AddFileToStorage</name>
+        <param>
+          <type>string</type>
+          <declname>pathToFile</declname>
+        </param>
+        <briefdescription>
+<para>Поместить файл в карантин(защищенное хранилище) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pathToFile</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="36" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1abe36e428f4f8dbca5bcb5d2cb1858b1f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.Quarantine.Quarantine.Restore</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Restore</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Восстановить файл из карантина </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="80" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="80" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1aacbf8fb3c802f09ed02da7162330d82f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.Quarantine.Quarantine.Restore</definition>
+        <argsstring>(string from, string to)</argsstring>
+        <name>Restore</name>
+        <param>
+          <type>string</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="100" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="100" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a108dfa4ca63f2161fa70b4c33ee9fb2e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.Quarantine.Quarantine.Delete</definition>
+        <argsstring>(string path)</argsstring>
+        <name>Delete</name>
+        <param>
+          <type>string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Удалить файл в защищенном хранилище </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Путь к файлу в хранилище</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="122" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="122" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a5644f325778cbcad313304a67661bae9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string[]</type>
+        <definition>static string [] Core.Kernel.Quarantine.Quarantine.GetAllFiles</definition>
+        <argsstring>()</argsstring>
+        <name>GetAllFiles</name>
+        <briefdescription>
+<para>Получить пути ко всем файлам в карантине </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="133" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a97acd06fdb9cbf64c91b8afae72cc2f3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.Kernel.Quarantine.Quarantine.MoveVirusToQuarantine</definition>
+        <argsstring>(int id)</argsstring>
+        <name>MoveVirusToQuarantine</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Переместить вирус в карантин по его id </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="141" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="141" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a46fa2d534b9184064ba209c934ee731b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Core.Kernel.Quarantine.Quarantine.DeleteFromStorage</definition>
+        <argsstring>(int id)</argsstring>
+        <name>DeleteFromStorage</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="168" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="168" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1ae4dd3a38a1d074afde7fc15cd40f181c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Core.Kernel.Quarantine.Quarantine.InitStorage</definition>
+        <argsstring>()</argsstring>
+        <name>InitStorage</name>
+        <briefdescription>
+<para>Инициализация хранилища </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="184" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="184" bodyend="202"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Quarantine.cs" bodystart="27" bodyend="219"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a51829d6f163ac7fa74b278a24570d687" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>AddFileToStorage</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a108dfa4ca63f2161fa70b4c33ee9fb2e" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>Delete</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a46fa2d534b9184064ba209c934ee731b" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>DeleteFromStorage</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a5644f325778cbcad313304a67661bae9" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>GetAllFiles</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1ae4dd3a38a1d074afde7fc15cd40f181c" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>InitStorage</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a97acd06fdb9cbf64c91b8afae72cc2f3" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>MoveVirusToQuarantine</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1abe36e428f4f8dbca5bcb5d2cb1858b1f" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>Restore</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1aacbf8fb3c802f09ed02da7162330d82f" prot="public" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>Restore</name></member>
+      <member refid="class_core_1_1_kernel_1_1_quarantine_1_1_quarantine_1a2df4180da5c745e48a31dca96e16046d" prot="private" virt="non-virtual"><scope>Core::Kernel::Quarantine::Quarantine</scope><name>VirusStorage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

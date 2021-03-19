@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="pch_8cpp" kind="file">
+    <compoundname>pch.cpp</compoundname>
+    <includes refid="pch_8h" local="yes">pch.h</includes>
+    <incdepgraph>
+      <node id="172">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.cpp</label>
+        <link refid="pch.cpp"/>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>pch.h</label>
+        <link refid="pch_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>pch.cpp:<sp/>файл<sp/>исходного<sp/>кода,<sp/>соответствующий<sp/>предварительно<sp/>скомпилированному<sp/>заголовочному<sp/>файлу</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pch_8h" kindref="compound">pch.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>При<sp/>использовании<sp/>предварительно<sp/>скомпилированных<sp/>заголовочных<sp/>файлов<sp/>необходим<sp/>следующий<sp/>файл<sp/>исходного<sp/>кода<sp/>для<sp/>выполнения<sp/>сборки.</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/pch.cpp"/>
+  </compounddef>
+</doxygen>

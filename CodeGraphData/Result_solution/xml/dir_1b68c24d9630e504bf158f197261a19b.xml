@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_1b68c24d9630e504bf158f197261a19b" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB</compoundname>
+    <innerdir refid="dir_50beacfd92f914290f625834cb784722">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/Properties</innerdir>
+    <innerfile refid="_d_b_8cs">DB.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/"/>
+  </compounddef>
+</doxygen>

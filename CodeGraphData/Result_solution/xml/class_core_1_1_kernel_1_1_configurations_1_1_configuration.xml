@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_1_1_configurations_1_1_configuration" kind="class" prot="public">
+    <compoundname>Core::Kernel::Configurations::Configuration</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a16798ccb642eb7b91de2df95064b5c58" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>Encoding</type>
+        <definition>Encoding Core.Kernel.Configurations.Configuration.NamedPipeEncoding</definition>
+        <argsstring></argsstring>
+        <name>NamedPipeEncoding</name>
+        <briefdescription>
+<para>Кодировка именованных каналов(труб) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="21" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1aa1d9059c33509f5f93637a4579affeb6" compoundref="_scan_queue_8cs" startline="381" endline="390">Core.Kernel.ScanModule.ScanTasks.Init</referencedby>
+        <referencedby refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a53e487a58647c6fa890f8f7c271c5942" compoundref="_connector_8cs" startline="60" endline="108">Core.Kernel.Connectors.KernelConnectors.InitInputConnections</referencedby>
+        <referencedby refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0ffaa2d7eff3c3d411db29f074df3971" compoundref="_connector_8cs" startline="110" endline="171">Core.Kernel.Connectors.KernelConnectors.InitOutputConnections</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a95b84c4ca3f7cbf8497980c516bd504a" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>bool</type>
+        <definition>bool Core.Kernel.Configurations.Configuration.GUI_Autostart</definition>
+        <argsstring></argsstring>
+        <name>GUI_Autostart</name>
+        <briefdescription>
+<para>Автозапуск <ref refid="namespace_g_u_i" kindref="compound">GUI</ref> </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a3ca5042e63481b7835f087f91ed4a73c" prot="private" static="no" mutable="no">
+        <type>FileStream</type>
+        <definition>FileStream Core.Kernel.Configurations.Configuration.SystemConftFile</definition>
+        <argsstring></argsstring>
+        <name>SystemConftFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1ae3a06a7efc262e8d285e54e530b60e6d" prot="private" static="no" mutable="no">
+        <type>XmlDocument</type>
+        <definition>XmlDocument Core.Kernel.Configurations.Configuration.SystemXmlFile</definition>
+        <argsstring></argsstring>
+        <name>SystemXmlFile</name>
+        <initializer>= new XmlDocument()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="29" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a4b8716d087bce4095c9311be05b9e4d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.Configurations.Configuration.Configuration</definition>
+        <argsstring>()</argsstring>
+        <name>Configuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="31" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a718407039f34bdd07eb07d4e19013a91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Core.Kernel.Configurations.Configuration.Configuration</definition>
+        <argsstring>(string pathToSystemConf, string pathToUserConf)</argsstring>
+        <name>Configuration</name>
+        <param>
+          <type>string</type>
+          <declname>pathToSystemConf</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>pathToUserConf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="36" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1adab6a44405b07d254151e0c1b784f349" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>XmlElement</type>
+        <definition>static XmlElement Core.Kernel.Configurations.Configuration.getElementValueByName</definition>
+        <argsstring>(string name, XmlElement element)</argsstring>
+        <name>getElementValueByName</name>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>XmlElement</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+<para>Найти XML элемент по имени среди потомков </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="117" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="117" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a6ea73edbb4742e7fcf47f03f34470511" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration" kindref="compound">Configuration</ref></type>
+        <definition>static Configuration Core.Kernel.Configurations.Configuration.GetDefaultConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>GetDefaultConfiguration</name>
+        <briefdescription>
+<para>Загрузить стандартную конфигурацию </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="134" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="134" bodyend="140"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" line="17" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/Configuration.cs" bodystart="16" bodyend="141"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a4b8716d087bce4095c9311be05b9e4d4" prot="public" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>Configuration</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a718407039f34bdd07eb07d4e19013a91" prot="public" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>Configuration</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a6ea73edbb4742e7fcf47f03f34470511" prot="public" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>GetDefaultConfiguration</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1adab6a44405b07d254151e0c1b784f349" prot="private" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>getElementValueByName</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a95b84c4ca3f7cbf8497980c516bd504a" prot="public" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>GUI_Autostart</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a16798ccb642eb7b91de2df95064b5c58" prot="public" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>NamedPipeEncoding</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a3ca5042e63481b7835f087f91ed4a73c" prot="private" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>SystemConftFile</name></member>
+      <member refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1ae3a06a7efc262e8d285e54e530b60e6d" prot="private" virt="non-virtual"><scope>Core::Kernel::Configurations::Configuration</scope><name>SystemXmlFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

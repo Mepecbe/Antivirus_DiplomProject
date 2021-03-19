@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_logger_1_1_program" kind="class" prot="public">
+    <compoundname>Logger::Program</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_logger_1_1_program_1aebe4e1ac01252703312156f44293f29d" prot="private" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_logger_1_1_logger" kindref="compound">Logger</ref> &gt;</type>
+        <definition>List&lt;Logger&gt; Logger.Program.Loggers</definition>
+        <argsstring></argsstring>
+        <name>Loggers</name>
+        <initializer>= new List&lt;<ref refid="class_logger_1_1_logger" kindref="compound">Logger</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="118" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_logger_1_1_program_1a3d8fdfc2037d7cf5d7502aed30dca030" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task Logger.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="120" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="120" bodyend="131"/>
+        <references refid="class_logger_1_1_conf_1a574c97814bd788e16f1d2bc74e098e64" compoundref="_logger_2_program_8cs" startline="24">Logger.Conf.Loggers</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="117" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="116" bodyend="132"/>
+    <listofallmembers>
+      <member refid="class_logger_1_1_program_1aebe4e1ac01252703312156f44293f29d" prot="private" virt="non-virtual"><scope>Logger::Program</scope><name>Loggers</name></member>
+      <member refid="class_logger_1_1_program_1a3d8fdfc2037d7cf5d7502aed30dca030" prot="private" virt="non-virtual"><scope>Logger::Program</scope><name>Main</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

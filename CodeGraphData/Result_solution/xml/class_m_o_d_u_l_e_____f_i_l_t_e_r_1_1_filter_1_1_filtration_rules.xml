@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules" kind="class" prot="public">
+    <compoundname>MODULE__FILTER::Filter::FiltrationRules</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa9f6bce0f57610581cbcb3caca198b09" prot="public" static="yes" mutable="no">
+        <type>List&lt; Regex &gt;</type>
+        <definition>List&lt;Regex&gt; MODULE__FILTER.Filter.FiltrationRules.OtherRules</definition>
+        <argsstring></argsstring>
+        <name>OtherRules</name>
+        <initializer>= new List&lt;Regex&gt;()</initializer>
+        <briefdescription>
+<para>Остальные правила </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="240" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="240" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a783af1fa7ffcaeac4637088a58efd400" compoundref="_filter_8cs" startline="326" endline="337">MODULE__FILTER.Filter.FiltrationRules.Step3</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1ad729227da2175e6754044ceba397ae52" prot="public" static="yes" mutable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; MODULE__FILTER.Filter.FiltrationRules.SimpleRules</definition>
+        <argsstring></argsstring>
+        <name>SimpleRules</name>
+        <initializer>= new List&lt;string&gt;()</initializer>
+        <briefdescription>
+<para>Простые правила Если строка существует в подстроке - фильтр сработал </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="246" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="246" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a63314ff036904e78df48041987e0f2f0" compoundref="_filter_8cs" startline="339" endline="350">MODULE__FILTER.Filter.FiltrationRules.CheckSimpleRules</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa635f00f46a2184462dad9d545428654" prot="public" static="yes" mutable="no">
+        <type>List&lt; Regex &gt;</type>
+        <definition>List&lt;Regex&gt; MODULE__FILTER.Filter.FiltrationRules.Extentions</definition>
+        <argsstring></argsstring>
+        <name>Extentions</name>
+        <initializer>= new List&lt;Regex&gt;()</initializer>
+        <briefdescription>
+<para>Фильтруемые расширения ([^]+(?=.(jpg|gif|png)).) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="252" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="252" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a9259dc709bc29b31c92d9dda99fc6c75" compoundref="_filter_8cs" startline="290" endline="301">MODULE__FILTER.Filter.FiltrationRules.Step1</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a1ff555ad79e39a38f5bfb0044381a808" prot="public" static="yes" mutable="no">
+        <type>List&lt; Regex &gt;</type>
+        <definition>List&lt;Regex&gt; MODULE__FILTER.Filter.FiltrationRules.Paths</definition>
+        <argsstring></argsstring>
+        <name>Paths</name>
+        <initializer>= new List&lt;Regex&gt;()</initializer>
+        <briefdescription>
+<para>Фильтруемые пути к файлам </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="257" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="257" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1abbfd5f81a082bd2bf84f226b38bb02f8" compoundref="_filter_8cs" startline="308" endline="319">MODULE__FILTER.Filter.FiltrationRules.Step2</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a528ab47f17792c4dc340685d52d59b5f" prot="public" static="yes" mutable="no">
+        <type>List&lt; <ref refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a34d4d589eec3e7688d6a232808da33c8" kindref="member">handler</ref> &gt;</type>
+        <definition>List&lt;handler&gt; MODULE__FILTER.Filter.FiltrationRules.OtherHandlers</definition>
+        <argsstring></argsstring>
+        <name>OtherHandlers</name>
+        <initializer>= new List&lt;<ref refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a34d4d589eec3e7688d6a232808da33c8" kindref="member">handler</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Прочие обработчики </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="262" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="262" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" compoundref="_filter_8cs" startline="265" endline="283">MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a34d4d589eec3e7688d6a232808da33c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>delegate bool</type>
+        <definition>delegate bool MODULE__FILTER.Filter.FiltrationRules.handler</definition>
+        <argsstring>(string input)</argsstring>
+        <name>handler</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="234" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</definition>
+        <argsstring>(string input)</argsstring>
+        <name>ApplyFilter</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="265" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="265" bodyend="283"/>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a63314ff036904e78df48041987e0f2f0" compoundref="_filter_8cs" startline="339" endline="350">MODULE__FILTER.Filter.FiltrationRules.CheckSimpleRules</references>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a528ab47f17792c4dc340685d52d59b5f" compoundref="_filter_8cs" startline="262">MODULE__FILTER.Filter.FiltrationRules.OtherHandlers</references>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a9259dc709bc29b31c92d9dda99fc6c75" compoundref="_filter_8cs" startline="290" endline="301">MODULE__FILTER.Filter.FiltrationRules.Step1</references>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1abbfd5f81a082bd2bf84f226b38bb02f8" compoundref="_filter_8cs" startline="308" endline="319">MODULE__FILTER.Filter.FiltrationRules.Step2</references>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a783af1fa7ffcaeac4637088a58efd400" compoundref="_filter_8cs" startline="326" endline="337">MODULE__FILTER.Filter.FiltrationRules.Step3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a9259dc709bc29b31c92d9dda99fc6c75" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__FILTER.Filter.FiltrationRules.Step1</definition>
+        <argsstring>(string input)</argsstring>
+        <name>Step1</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Шаг 1 - фильтрация расширений </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="290" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="290" bodyend="301"/>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa635f00f46a2184462dad9d545428654" compoundref="_filter_8cs" startline="252">MODULE__FILTER.Filter.FiltrationRules.Extentions</references>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" compoundref="_filter_8cs" startline="265" endline="283">MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1abbfd5f81a082bd2bf84f226b38bb02f8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__FILTER.Filter.FiltrationRules.Step2</definition>
+        <argsstring>(string input)</argsstring>
+        <name>Step2</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Шаг 2 - фильтрация путей </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="308" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="308" bodyend="319"/>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a1ff555ad79e39a38f5bfb0044381a808" compoundref="_filter_8cs" startline="257">MODULE__FILTER.Filter.FiltrationRules.Paths</references>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" compoundref="_filter_8cs" startline="265" endline="283">MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a783af1fa7ffcaeac4637088a58efd400" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__FILTER.Filter.FiltrationRules.Step3</definition>
+        <argsstring>(string input)</argsstring>
+        <name>Step3</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Шаг 3 - прочие правила фильтрации </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="326" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="326" bodyend="337"/>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa9f6bce0f57610581cbcb3caca198b09" compoundref="_filter_8cs" startline="240">MODULE__FILTER.Filter.FiltrationRules.OtherRules</references>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" compoundref="_filter_8cs" startline="265" endline="283">MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a63314ff036904e78df48041987e0f2f0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool MODULE__FILTER.Filter.FiltrationRules.CheckSimpleRules</definition>
+        <argsstring>(string input)</argsstring>
+        <name>CheckSimpleRules</name>
+        <param>
+          <type>string</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="339" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="339" bodyend="350"/>
+        <references refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1ad729227da2175e6754044ceba397ae52" compoundref="_filter_8cs" startline="246">MODULE__FILTER.Filter.FiltrationRules.SimpleRules</references>
+        <referencedby refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" compoundref="_filter_8cs" startline="265" endline="283">MODULE__FILTER.Filter.FiltrationRules.ApplyFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a0bde33266172a65e7b742deb836303f3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__FILTER.Filter.FiltrationRules.InitDefaultRules</definition>
+        <argsstring>()</argsstring>
+        <name>InitDefaultRules</name>
+        <briefdescription>
+<para>Инициализация стандартных правил </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="355" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="355" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a47256638863af6236add890d037c0204" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__FILTER.Filter.FiltrationRules.AddOtherRule</definition>
+        <argsstring>(Regex rule)</argsstring>
+        <name>AddOtherRule</name>
+        <param>
+          <type>Regex</type>
+          <declname>rule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="369" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="369" bodyend="372"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Правила фильтрации, если входная строка(а это путь к файлу) попадает под хотя бы одно правило, файл не отправляется на проверку </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" line="233" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Filter.cs" bodystart="232" bodyend="373"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a47256638863af6236add890d037c0204" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>AddOtherRule</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a84d33872e5f0ec1dd3e12f260734de8e" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>ApplyFilter</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a63314ff036904e78df48041987e0f2f0" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>CheckSimpleRules</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa635f00f46a2184462dad9d545428654" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>Extentions</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a34d4d589eec3e7688d6a232808da33c8" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>handler</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a0bde33266172a65e7b742deb836303f3" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>InitDefaultRules</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a528ab47f17792c4dc340685d52d59b5f" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>OtherHandlers</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1aa9f6bce0f57610581cbcb3caca198b09" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>OtherRules</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a1ff555ad79e39a38f5bfb0044381a808" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>Paths</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1ad729227da2175e6754044ceba397ae52" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>SimpleRules</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a9259dc709bc29b31c92d9dda99fc6c75" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>Step1</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1abbfd5f81a082bd2bf84f226b38bb02f8" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>Step2</name></member>
+      <member refid="class_m_o_d_u_l_e_____f_i_l_t_e_r_1_1_filter_1_1_filtration_rules_1a783af1fa7ffcaeac4637088a58efd400" prot="public" virt="non-virtual"><scope>MODULE__FILTER::Filter::FiltrationRules</scope><name>Step3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

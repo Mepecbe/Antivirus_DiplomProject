@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_d_b___editor" kind="namespace">
+    <compoundname>DB_Editor</compoundname>
+    <innerclass refid="class_d_b___editor_1_1_add_new_signature_form" prot="public">DB_Editor::AddNewSignatureForm</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_editor" prot="public">DB_Editor::Editor</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_form1" prot="public">DB_Editor::Form1</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_signatures_d_b" prot="public">DB_Editor::SignaturesDB</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_virus_info" prot="public">DB_Editor::VirusInfo</innerclass>
+    <innerclass refid="class_d_b___editor_1_1_program" prot="public">DB_Editor::Program</innerclass>
+    <innernamespace refid="namespace_d_b___editor_1_1_properties">DB_Editor::Properties</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62" prot="public" static="no">
+        <name>VirusType</name>
+        <enumvalue id="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62aa5312fd5717d3e2fd419132e3c3ac51b" prot="public">
+          <name>Trojan</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62a4bba490de1497694047b035f77f27c56" prot="public">
+          <name>Worm</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62af42b0f0e28a6c8d4c0dba87fb61946bc" prot="public">
+          <name>Cryptor</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_d_b___editor_1a8a85e5dff1e1dc5e9e668a86a729bc62a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" line="189" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/Form1.cs" bodystart="188" bodyend="194"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/DB_Editor/AddNewSignatureForm.cs" line="14" column="1"/>
+  </compounddef>
+</doxygen>

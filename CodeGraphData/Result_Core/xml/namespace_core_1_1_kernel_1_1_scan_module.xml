@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_core_1_1_kernel_1_1_scan_module" kind="namespace">
+    <compoundname>Core::Kernel::ScanModule</compoundname>
+    <innerclass refid="class_core_1_1_kernel_1_1_scan_module_1_1_scanner_response_handler" prot="public">Core::Kernel::ScanModule::ScannerResponseHandler</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_scan_module_1_1_filter_handler" prot="public">Core::Kernel::ScanModule::FilterHandler</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks" prot="public">Core::Kernel::ScanModule::ScanTasks</innerclass>
+    <innerclass refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_task" prot="public">Core::Kernel::ScanModule::ScanTask</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel_MODULES/ScanQueue.cs" line="17" column="1"/>
+  </compounddef>
+</doxygen>

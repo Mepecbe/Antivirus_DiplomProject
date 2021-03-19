@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive" kind="struct" prot="public">
+    <compoundname>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a5a414765aef06655c3b992dcd983fa39" prot="public" static="no" mutable="no">
+        <type>DriveInfo</type>
+        <definition>DriveInfo MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.DriveInf</definition>
+        <argsstring></argsstring>
+        <name>DriveInf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="84" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a1a973a63458b2295bf2f15077856fca1" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.VolumeLabel</definition>
+        <argsstring></argsstring>
+        <name>VolumeLabel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="85" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="85" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1ab0dff05508fb1712f0cd35b0f37f4a7b" compoundref="_monitor_8cs" startline="152" endline="165">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckDrive</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1ab583a7135327034c68d537ed60f0309d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.SerialNumber</definition>
+        <argsstring></argsstring>
+        <name>SerialNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="86" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="86" bodyend="-1"/>
+        <referencedby refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aabbe8969b18aca066b51716226a9b55d" compoundref="_monitor_8cs" startline="108" endline="120">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.CheckConnect</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1aa60ee2329d3dfb276b7cc819860e9696" compoundref="_monitor_8cs" startline="139" endline="147">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckSerial</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1ad25ea7f4e961a99fb3575e389e3714cf" compoundref="_monitor_8cs" startline="170" endline="181">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.getDriveBySerial</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a0c9542220618fe9593283ddc190c6cd7" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.TotalSize</definition>
+        <argsstring></argsstring>
+        <name>TotalSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="87" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="87" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1ab0dff05508fb1712f0cd35b0f37f4a7b" compoundref="_monitor_8cs" startline="152" endline="165">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckDrive</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1a1ad5bb78ba50587f854dc27e75b649e3" compoundref="_monitor_8cs" startline="187" endline="199">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.checkDriveSerial</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a796d22476ade2f134da744324bcc626d" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.TotalFreeSpace</definition>
+        <argsstring></argsstring>
+        <name>TotalFreeSpace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="88" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a1f99ff9cca8dddb46e0e361e8e1e5665" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.FileSystem</definition>
+        <argsstring></argsstring>
+        <name>FileSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="89" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="89" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1ab0dff05508fb1712f0cd35b0f37f4a7b" compoundref="_monitor_8cs" startline="152" endline="165">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.CheckDrive</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1a1ad5bb78ba50587f854dc27e75b649e3" compoundref="_monitor_8cs" startline="187" endline="199">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.checkDriveSerial</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aa1c52af305334c2a1e9514c6154a708a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.IsConnected</definition>
+        <argsstring></argsstring>
+        <name>IsConnected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="90" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a11551b5ce5cbd2194f597d1b8ca99d37" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.RootDir</definition>
+        <argsstring></argsstring>
+        <name>RootDir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="91" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aa2103e5ca33f8ef17d5f0c17eaee4588" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.Drive</definition>
+        <argsstring>(DriveInfo drive)</argsstring>
+        <name>Drive</name>
+        <param>
+          <type>DriveInfo</type>
+          <declname>drive</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="93" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="93" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aabbe8969b18aca066b51716226a9b55d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.CheckConnect</definition>
+        <argsstring>(string[] SerialNumbers)</argsstring>
+        <name>CheckConnect</name>
+        <param>
+          <type>string[]</type>
+          <declname>SerialNumbers</declname>
+        </param>
+        <briefdescription>
+<para>Проверка подключены ли эти устройства </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="108" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="108" bodyend="120"/>
+        <references refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1ab583a7135327034c68d537ed60f0309d" compoundref="_monitor_8cs" startline="86">MODULE__RESERVE_NEW_FILE_DETECTOR.HardDrives.Drive.SerialNumber</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" line="83" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__RESERVE_NEW_FILE_DETECTOR/Monitor.cs" bodystart="82" bodyend="121"/>
+    <listofallmembers>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aabbe8969b18aca066b51716226a9b55d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>CheckConnect</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aa2103e5ca33f8ef17d5f0c17eaee4588" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>Drive</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a5a414765aef06655c3b992dcd983fa39" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>DriveInf</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a1f99ff9cca8dddb46e0e361e8e1e5665" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>FileSystem</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1aa1c52af305334c2a1e9514c6154a708a" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>IsConnected</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a11551b5ce5cbd2194f597d1b8ca99d37" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>RootDir</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1ab583a7135327034c68d537ed60f0309d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>SerialNumber</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a796d22476ade2f134da744324bcc626d" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>TotalFreeSpace</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a0c9542220618fe9593283ddc190c6cd7" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>TotalSize</name></member>
+      <member refid="struct_m_o_d_u_l_e_____r_e_s_e_r_v_e___n_e_w___f_i_l_e___d_e_t_e_c_t_o_r_1_1_hard_drives_1_1_drive_1a1a973a63458b2295bf2f15077856fca1" prot="public" virt="non-virtual"><scope>MODULE__RESERVE_NEW_FILE_DETECTOR::HardDrives::Drive</scope><name>VolumeLabel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

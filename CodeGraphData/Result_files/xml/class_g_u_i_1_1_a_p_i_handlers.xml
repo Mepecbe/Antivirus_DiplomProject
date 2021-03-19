@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_g_u_i_1_1_a_p_i_handlers" kind="class" prot="public">
+    <compoundname>GUI::APIHandlers</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_g_u_i_1_1_a_p_i_handlers_1a0b0864224e9d2dc402b6570398230e53" prot="public" static="yes" mutable="no">
+        <type>Form</type>
+        <definition>Form GUI.APIHandlers.f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" line="1207" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" bodystart="1207" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_u_i_1_1_a_p_i_handlers_1a288fa9d06a2b24fc0f3b3583ffd40acd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.APIHandlers.OnScannedFile</definition>
+        <argsstring>(string file)</argsstring>
+        <name>OnScannedFile</name>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Если проверили файл и он не вирус </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" line="1212" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" bodystart="1212" bodyend="1219"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_a_p_i_handlers_1a6f79733e780ec29c1214c4ad38198396" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.APIHandlers.OnFoundVirus</definition>
+        <argsstring>(VirusInfo info)</argsstring>
+        <name>OnFoundVirus</name>
+        <param>
+          <type>VirusInfo</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" line="1221" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" bodystart="1221" bodyend="1229"/>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_g_u_i_1_1_a_p_i_handlers_1add976806e9d422ac62e47744179a6aa0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void GUI.APIHandlers.virusInfo</definition>
+        <argsstring>(VirusInfo info)</argsstring>
+        <name>virusInfo</name>
+        <param>
+          <type>VirusInfo</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>При получении информации о вирусе </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" line="1235" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" bodystart="1235" bodyend="1249"/>
+        <references refid="class_g_u_i_1_1_main_form_1a7f3336548432efed7c3a647e740925d5" compoundref="_main_form_8cs" startline="45">GUI.MainForm.QuarantineShow</references>
+        <referencedby refid="class_g_u_i_1_1_main_form_1a74a5e75556d4f3b8fe287ac710b1bae0" compoundref="_main_form_8cs" startline="47" endline="187">GUI.MainForm.MainForm</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" line="1206" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/GUI/GUI/MainForm.cs" bodystart="1205" bodyend="1250"/>
+    <listofallmembers>
+      <member refid="class_g_u_i_1_1_a_p_i_handlers_1a0b0864224e9d2dc402b6570398230e53" prot="public" virt="non-virtual"><scope>GUI::APIHandlers</scope><name>f</name></member>
+      <member refid="class_g_u_i_1_1_a_p_i_handlers_1a6f79733e780ec29c1214c4ad38198396" prot="public" virt="non-virtual"><scope>GUI::APIHandlers</scope><name>OnFoundVirus</name></member>
+      <member refid="class_g_u_i_1_1_a_p_i_handlers_1a288fa9d06a2b24fc0f3b3583ffd40acd" prot="public" virt="non-virtual"><scope>GUI::APIHandlers</scope><name>OnScannedFile</name></member>
+      <member refid="class_g_u_i_1_1_a_p_i_handlers_1add976806e9d422ac62e47744179a6aa0" prot="public" virt="non-virtual"><scope>GUI::APIHandlers</scope><name>virusInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

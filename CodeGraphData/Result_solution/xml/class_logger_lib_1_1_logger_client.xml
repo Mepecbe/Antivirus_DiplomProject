@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_logger_lib_1_1_logger_client" kind="class" prot="public">
+    <compoundname>LoggerLib::LoggerClient</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" prot="public" static="no" mutable="no">
+        <type>NamedPipeClientStream</type>
+        <definition>NamedPipeClientStream LoggerLib.LoggerClient.outputPipe</definition>
+        <argsstring></argsstring>
+        <name>outputPipe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_logger_lib_1_1_logger_client_1ae57aa5824fce5d4da368960ac58fe26d" compoundref="_logger_client_8cs" startline="66" endline="74">LoggerLib.LoggerClient.Init</referencedby>
+        <referencedby refid="class_logger_lib_1_1_logger_client_1aa33acaf2db6f22499738140c28789ab7" compoundref="_logger_client_8cs" startline="30" endline="36">LoggerLib.LoggerClient.LoggerClient</referencedby>
+        <referencedby refid="class_logger_lib_1_1_logger_client_1af0326e2ff79ea54f43f65bb7f1c8f89a" compoundref="_logger_client_8cs" startline="38" endline="44">LoggerLib.LoggerClient.ToOutput</referencedby>
+        <referencedby refid="class_logger_lib_1_1_logger_client_1a5e83e61f93c8749349114b0e41b0eb37" compoundref="_logger_client_8cs" startline="46" endline="60">LoggerLib.LoggerClient.WriteLine</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_lib_1_1_logger_client_1aac54e8cc55284b7208f0d83c720de9ee" prot="public" static="no" mutable="no">
+        <type>BinaryWriter</type>
+        <definition>BinaryWriter LoggerLib.LoggerClient.writer</definition>
+        <argsstring></argsstring>
+        <name>writer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="24" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_logger_lib_1_1_logger_client_1ae57aa5824fce5d4da368960ac58fe26d" compoundref="_logger_client_8cs" startline="66" endline="74">LoggerLib.LoggerClient.Init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_lib_1_1_logger_client_1a5c4d0a7e8f6f32e4f369cf60214a83c2" prot="public" static="no" mutable="no">
+        <type>Mutex</type>
+        <definition>Mutex LoggerLib.LoggerClient.WriteSync</definition>
+        <argsstring></argsstring>
+        <name>WriteSync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_logger_lib_1_1_logger_client_1a8725a8dd56610564c9006b7426766dd7" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string LoggerLib.LoggerClient.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_logger_lib_1_1_logger_client_1a3ece292124bd4784725821026a322422" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string LoggerLib.LoggerClient.PipeName</definition>
+        <argsstring></argsstring>
+        <name>PipeName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="26" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_logger_lib_1_1_logger_client_1aa33acaf2db6f22499738140c28789ab7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LoggerLib.LoggerClient.LoggerClient</definition>
+        <argsstring>(string pipeName, string loggerName)</argsstring>
+        <name>LoggerClient</name>
+        <param>
+          <type>string</type>
+          <declname>pipeName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>loggerName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="30" bodyend="36"/>
+        <references refid="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" compoundref="_logger_client_8cs" startline="23">LoggerLib.LoggerClient.outputPipe</references>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_lib_1_1_logger_client_1af0326e2ff79ea54f43f65bb7f1c8f89a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoggerLib.LoggerClient.ToOutput</definition>
+        <argsstring>(string message, LogLevel level)</argsstring>
+        <name>ToOutput</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378e" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="38" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="38" bodyend="44"/>
+        <references refid="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" compoundref="_logger_client_8cs" startline="23">LoggerLib.LoggerClient.outputPipe</references>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_lib_1_1_logger_client_1a5e83e61f93c8749349114b0e41b0eb37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoggerLib.LoggerClient.WriteLine</definition>
+        <argsstring>(string message, LogLevel level=LogLevel.INFO)</argsstring>
+        <name>WriteLine</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_logger_lib_1a8d994b6d61f6f8f9301f589b404e378e" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+          <defval>LogLevel.INFO</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="46" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="46" bodyend="60"/>
+        <references refid="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" compoundref="_logger_client_8cs" startline="23">LoggerLib.LoggerClient.outputPipe</references>
+      </memberdef>
+      <memberdef kind="function" id="class_logger_lib_1_1_logger_client_1ae57aa5824fce5d4da368960ac58fe26d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LoggerLib.LoggerClient.Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <briefdescription>
+<para>Инициализация логгера </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="66" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="66" bodyend="74"/>
+        <references refid="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" compoundref="_logger_client_8cs" startline="23">LoggerLib.LoggerClient.outputPipe</references>
+        <references refid="class_logger_lib_1_1_logger_client_1aac54e8cc55284b7208f0d83c720de9ee" compoundref="_logger_client_8cs" startline="24">LoggerLib.LoggerClient.writer</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/LoggerLib/LoggerClient.cs" bodystart="21" bodyend="75"/>
+    <listofallmembers>
+      <member refid="class_logger_lib_1_1_logger_client_1ae57aa5824fce5d4da368960ac58fe26d" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>Init</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1aa33acaf2db6f22499738140c28789ab7" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>LoggerClient</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1a8725a8dd56610564c9006b7426766dd7" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>Name</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1a53d26e9029d9f3225f7f64a0488b4b20" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>outputPipe</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1a3ece292124bd4784725821026a322422" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>PipeName</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1af0326e2ff79ea54f43f65bb7f1c8f89a" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>ToOutput</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1a5e83e61f93c8749349114b0e41b0eb37" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>WriteLine</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1aac54e8cc55284b7208f0d83c720de9ee" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>writer</name></member>
+      <member refid="class_logger_lib_1_1_logger_client_1a5c4d0a7e8f6f32e4f369cf60214a83c2" prot="public" virt="non-virtual"><scope>LoggerLib::LoggerClient</scope><name>WriteSync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

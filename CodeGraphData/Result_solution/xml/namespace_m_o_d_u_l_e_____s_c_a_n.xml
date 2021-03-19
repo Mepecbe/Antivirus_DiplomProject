@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_m_o_d_u_l_e_____s_c_a_n" kind="namespace">
+    <compoundname>MODULE__SCAN</compoundname>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration" prot="public">MODULE__SCAN::Configuration</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector" prot="public">MODULE__SCAN::Connector</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner" prot="public">MODULE__SCAN::Scanner</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks" prot="public">MODULE__SCAN::ScanTasks</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_initializator" prot="public">MODULE__SCAN::Initializator</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_task" prot="public">MODULE__SCAN::ScanTask</innerclass>
+    <innerclass refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_result" prot="public">MODULE__SCAN::ScanResult</innerclass>
+    <innerclass refid="struct_m_o_d_u_l_e_____s_c_a_n_1_1_signature" prot="public">MODULE__SCAN::Signature</innerclass>
+    <innernamespace refid="namespace_m_o_d_u_l_e_____s_c_a_n_1_1_yara">MODULE__SCAN::Yara</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6" prot="public" static="no">
+        <name>result</name>
+        <enumvalue id="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6ae9c937a05823f61383da3d42881bd0e7" prot="public">
+          <name>NotVirus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6aa94d4950bba6053ab0fa6feb2ebe04ec" prot="public">
+          <name>Virus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_m_o_d_u_l_e_____s_c_a_n_1aeab12c8dab72ff47f07c61629c679fe6a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Результат сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="540" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="539" bodyend="544"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="21" column="1"/>
+  </compounddef>
+</doxygen>

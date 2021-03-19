@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration" kind="class" prot="public">
+    <compoundname>MODULE__SCAN::Configuration</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a8f0b035d8762081580c30be898454584" prot="public" static="yes" mutable="no">
+        <type>Encoding</type>
+        <definition>Encoding MODULE__SCAN.Configuration.PipeEncoding</definition>
+        <argsstring></argsstring>
+        <name>PipeEncoding</name>
+        <initializer>= Encoding.Unicode</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="24" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a381f4bc3c20e5f79a53907f8c6044ad3" compoundref="_scanner_8cs" startline="143" endline="202">MODULE__SCAN.Connector.commandThread</referencedby>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_connector_1a703d4385ff92dea3e2b61626edf7ed92" compoundref="_scanner_8cs" startline="72" endline="100">MODULE__SCAN.Connector.inputThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a946e803db93dd2d3f05cb40e0e904ac5" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool MODULE__SCAN.Configuration.UsingYara</definition>
+        <argsstring></argsstring>
+        <name>UsingYara</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="25" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1aefc1de2623429946048be79d29a95a40" compoundref="_scanner_8cs" startline="371" endline="469">MODULE__SCAN.ScanTasks.ScanThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a1dcbbc34784aaac0db4dd0716f38c07e" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int MODULE__SCAN.Configuration.THREAD_COUNT</definition>
+        <argsstring></argsstring>
+        <name>THREAD_COUNT</name>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="32" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="32" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1ae9b4cba0be87e82dd48f0c61537ded60" compoundref="_scanner_8cs" startline="475" endline="488">MODULE__SCAN.ScanTasks.Init</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a5950bedc53cc8e7609ecdd3b3bc61fa4" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MODULE__SCAN.Configuration.MAX_FAST_SCAN_FILE</definition>
+        <argsstring></argsstring>
+        <name>MAX_FAST_SCAN_FILE</name>
+        <initializer>= 1_000_000_000</initializer>
+        <briefdescription>
+<para>Максимальный размер файла для быстрого сканирования (файл подходящий под такой критерий будет полностью считываться в память) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="30" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="30" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scanner_1abb0853b6452221bcf3b44971dadd527e" compoundref="_scanner_8cs" startline="232" endline="313">MODULE__SCAN.Scanner.ScanFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1ae5e49d80944e94c18b8335c965ff8ae1" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MODULE__SCAN.Configuration.SCAN_THREAD_SLEEP</definition>
+        <argsstring></argsstring>
+        <name>SCAN_THREAD_SLEEP</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="34" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="34" bodyend="-1"/>
+        <referencedby refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_scan_tasks_1aefc1de2623429946048be79d29a95a40" compoundref="_scanner_8cs" startline="371" endline="469">MODULE__SCAN.ScanTasks.ScanThread</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a892c7bdbf81348e8aafb9e1c7f3cdf7c" prot="public" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string MODULE__SCAN.Configuration.YaraRulesDir</definition>
+        <argsstring></argsstring>
+        <name>YaraRulesDir</name>
+        <initializer>= @&quot;Modules\YARA\Rules&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="36" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a6f5cb900427bb001a99f38ea8e01e870" prot="public" static="no" mutable="no">
+        <type>const SearchOption</type>
+        <definition>const SearchOption MODULE__SCAN.Configuration.YaraRulesSearchOption</definition>
+        <argsstring></argsstring>
+        <name>YaraRulesSearchOption</name>
+        <initializer>= SearchOption.TopDirectoryOnly</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="37" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" line="23" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_SCAN/Scanner.cs" bodystart="22" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a5950bedc53cc8e7609ecdd3b3bc61fa4" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>MAX_FAST_SCAN_FILE</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a8f0b035d8762081580c30be898454584" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>PipeEncoding</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1ae5e49d80944e94c18b8335c965ff8ae1" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>SCAN_THREAD_SLEEP</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a1dcbbc34784aaac0db4dd0716f38c07e" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>THREAD_COUNT</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a946e803db93dd2d3f05cb40e0e904ac5" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>UsingYara</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a892c7bdbf81348e8aafb9e1c7f3cdf7c" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>YaraRulesDir</name></member>
+      <member refid="class_m_o_d_u_l_e_____s_c_a_n_1_1_configuration_1a6f5cb900427bb001a99f38ea8e01e870" prot="public" virt="non-virtual"><scope>MODULE__SCAN::Configuration</scope><name>YaraRulesSearchOption</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

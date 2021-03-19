@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_4a1fbf333cbaad64af31add82d54b81d" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER</compoundname>
+    <innerdir refid="dir_07ffcdcda04db06f5f9da85e04206c8f">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/Properties</innerdir>
+    <innerfile refid="_filter_8cs">Filter.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE_FILTER/"/>
+  </compounddef>
+</doxygen>

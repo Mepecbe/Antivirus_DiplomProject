@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_initializator" kind="class" prot="public">
+    <compoundname>MODULE__VIRUSES_DB::Initializator</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_initializator_1af266c74240234f9b3a38e819485ec237" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>byte</type>
+        <definition>static byte MODULE__VIRUSES_DB.Initializator.EntryPoint</definition>
+        <argsstring>()</argsstring>
+        <name>EntryPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="288" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="288" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_initializator_1af847d5f131725fe709030dc6171b9634" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void MODULE__VIRUSES_DB.Initializator.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="300" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="300" bodyend="303"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" line="287" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MODULE__VIRUSES_DB/DB.cs" bodystart="286" bodyend="304"/>
+    <listofallmembers>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_initializator_1af266c74240234f9b3a38e819485ec237" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Initializator</scope><name>EntryPoint</name></member>
+      <member refid="class_m_o_d_u_l_e_____v_i_r_u_s_e_s___d_b_1_1_initializator_1af847d5f131725fe709030dc6171b9634" prot="public" virt="non-virtual"><scope>MODULE__VIRUSES_DB::Initializator</scope><name>Stop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

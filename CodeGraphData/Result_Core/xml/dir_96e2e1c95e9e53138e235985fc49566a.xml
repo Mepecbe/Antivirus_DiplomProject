@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_96e2e1c95e9e53138e235985fc49566a" kind="dir">
+    <compoundname>C:/Users/Cisco/Desktop/Antivirus_DiplomProject</compoundname>
+    <innerdir refid="dir_02bb23351936cd38098b96a1e2ab38b9">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/"/>
+  </compounddef>
+</doxygen>

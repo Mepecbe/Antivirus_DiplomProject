@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_a_p_i___client___library_1_1_virus_action" kind="class" prot="public">
+    <compoundname>API_Client_Library::VirusAction</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_action_1a75564651072b364688836911164e2e9a" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_a_p_i___client___library_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+        <definition>readonly VirusInfo API_Client_Library.VirusAction.Info</definition>
+        <argsstring></argsstring>
+        <name>Info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="458" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="458" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_virus_action_1a9e92a7a91625a1d8c2987ae5d57974af" compoundref="_api_lib_8cs" startline="461" endline="464">API_Client_Library.VirusAction.VirusAction</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_p_i___client___library_1_1_virus_action_1af2f599ec30e13cd9bd87eec5db906b29" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_a_p_i___client___library_1a4ba78cc236c5bb92d1d8ae9149d2e803" kindref="member">ActionType</ref></type>
+        <definition>ActionType API_Client_Library.VirusAction.Action</definition>
+        <argsstring></argsstring>
+        <name>Action</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="459" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="459" bodyend="-1"/>
+        <referencedby refid="class_a_p_i___client___library_1_1_a_p_i_1a8dd98addc794248971e95af6f55fb36b" compoundref="_api_lib_8cs" startline="231" endline="264">API_Client_Library.API.ApplyingActions</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_p_i___client___library_1_1_virus_action_1a9e92a7a91625a1d8c2987ae5d57974af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>API_Client_Library.VirusAction.VirusAction</definition>
+        <argsstring>(VirusInfo Info)</argsstring>
+        <name>VirusAction</name>
+        <param>
+          <type><ref refid="class_a_p_i___client___library_1_1_virus_info" kindref="compound">VirusInfo</ref></type>
+          <declname>Info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="461" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="461" bodyend="464"/>
+        <references refid="class_a_p_i___client___library_1_1_virus_action_1a75564651072b364688836911164e2e9a" compoundref="_api_lib_8cs" startline="458">API_Client_Library.VirusAction.Info</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="171">
+        <label>API_Client_Library.VirusInfo</label>
+        <link refid="class_a_p_i___client___library_1_1_virus_info"/>
+      </node>
+      <node id="170">
+        <label>API_Client_Library.VirusAction</label>
+        <link refid="class_a_p_i___client___library_1_1_virus_action"/>
+        <childnode refid="171" relation="usage">
+          <edgelabel>Info</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" line="457" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/API_Client_Library/ApiLib.cs" bodystart="456" bodyend="465"/>
+    <listofallmembers>
+      <member refid="class_a_p_i___client___library_1_1_virus_action_1af2f599ec30e13cd9bd87eec5db906b29" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusAction</scope><name>Action</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_action_1a75564651072b364688836911164e2e9a" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusAction</scope><name>Info</name></member>
+      <member refid="class_a_p_i___client___library_1_1_virus_action_1a9e92a7a91625a1d8c2987ae5d57974af" prot="public" virt="non-virtual"><scope>API_Client_Library::VirusAction</scope><name>VirusAction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_core_1_1_kernel_initializator" kind="class" prot="public">
+    <compoundname>Core::KernelInitializator</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" prot="private" static="yes" mutable="no">
+        <type>Process</type>
+        <definition>Process Core.KernelInitializator.GUI_Proc</definition>
+        <argsstring></argsstring>
+        <name>GUI_Proc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="33" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="33" bodyend="-1"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" compoundref="_kernel_8cs" startline="184" endline="197">Core.KernelInitializator.Console_CancelKeyPress</referencedby>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration" kindref="compound">Configuration</ref></type>
+        <definition>Configuration Core.KernelInitializator.Config</definition>
+        <argsstring></argsstring>
+        <name>Config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="35" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="35" bodyend="-1"/>
+        <referencedby refid="class_core_1_1_kernel_1_1_scan_module_1_1_scan_tasks_1aa1d9059c33509f5f93637a4579affeb6" compoundref="_scan_queue_8cs" startline="381" endline="390">Core.Kernel.ScanModule.ScanTasks.Init</referencedby>
+        <referencedby refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a53e487a58647c6fa890f8f7c271c5942" compoundref="_connector_8cs" startline="60" endline="108">Core.Kernel.Connectors.KernelConnectors.InitInputConnections</referencedby>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" compoundref="_kernel_8cs" startline="41" endline="44">Core.KernelInitializator.InitKernelConfiguration</referencedby>
+        <referencedby refid="class_core_1_1_kernel_1_1_connectors_1_1_kernel_connectors_1a0ffaa2d7eff3c3d411db29f074df3971" compoundref="_connector_8cs" startline="110" endline="171">Core.Kernel.Connectors.KernelConnectors.InitOutputConnections</referencedby>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.InitKernelConfiguration</definition>
+        <argsstring>()</argsstring>
+        <name>InitKernelConfiguration</name>
+        <briefdescription>
+<para>Инициализация конфигурации ядра </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="41" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="41" bodyend="44"/>
+        <references refid="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" compoundref="_kernel_8cs" startline="35">Core.KernelInitializator.Config</references>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1a23846cc9a43efe1e76d73ad2217347c3" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.InitKernelComponents</definition>
+        <argsstring>()</argsstring>
+        <name>InitKernelComponents</name>
+        <briefdescription>
+<para>Инициализация внутренних компонентов ядра ВАЖНО! Менеджер обнаруженных вирусов должен быть запущен раньше чем менеджер задач сканирования </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="50" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="50" bodyend="58"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.InitModules</definition>
+        <argsstring>()</argsstring>
+        <name>InitModules</name>
+        <briefdescription>
+<para>Инициализация подключаемых(DLL) модулей </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="63" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="63" bodyend="78"/>
+        <references refid="class_core_1_1_kernel_1_1_module_loader_1_1_module_manager_1a46a6dff1112ecc9fa6118a439e2fe927" compoundref="_module_manager_8cs" startline="15">Core.Kernel.ModuleLoader.ModuleManager.Modules</references>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1a74ca163691e0664da0c385920d922524" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.ApplyingBasicSettings</definition>
+        <argsstring>()</argsstring>
+        <name>ApplyingBasicSettings</name>
+        <briefdescription>
+<para>Применить базовые настройки модулей </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="84" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="84" bodyend="123"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Точка входа в ядро </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="130" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="130" bodyend="172"/>
+        <references refid="class_core_1_1_kernel_initializator_1a74ca163691e0664da0c385920d922524" compoundref="_kernel_8cs" startline="84" endline="123">Core.KernelInitializator.ApplyingBasicSettings</references>
+        <references refid="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" compoundref="_kernel_8cs" startline="35">Core.KernelInitializator.Config</references>
+        <references refid="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" compoundref="_kernel_8cs" startline="184" endline="197">Core.KernelInitializator.Console_CancelKeyPress</references>
+        <references refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration_1a95b84c4ca3f7cbf8497980c516bd504a" compoundref="_configuration_8cs" startline="26">Core.Kernel.Configurations.Configuration.GUI_Autostart</references>
+        <references refid="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" compoundref="_kernel_8cs" startline="33">Core.KernelInitializator.GUI_Proc</references>
+        <references refid="class_core_1_1_kernel_initializator_1a23846cc9a43efe1e76d73ad2217347c3" compoundref="_kernel_8cs" startline="50" endline="58">Core.KernelInitializator.InitKernelComponents</references>
+        <references refid="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" compoundref="_kernel_8cs" startline="41" endline="44">Core.KernelInitializator.InitKernelConfiguration</references>
+        <references refid="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" compoundref="_kernel_8cs" startline="63" endline="78">Core.KernelInitializator.InitModules</references>
+        <references refid="class_core_1_1_kernel_initializator_1a231a1722c1a1bb079cc92357458d119f" compoundref="_kernel_8cs" startline="174" endline="182">Core.KernelInitializator.OnCloseProcess</references>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1a231a1722c1a1bb079cc92357458d119f" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.OnCloseProcess</definition>
+        <argsstring>(object sender, EventArgs e)</argsstring>
+        <name>OnCloseProcess</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>EventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="174" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="174" bodyend="182"/>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Core.KernelInitializator.Console_CancelKeyPress</definition>
+        <argsstring>(object sender, ConsoleCancelEventArgs e)</argsstring>
+        <name>Console_CancelKeyPress</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>ConsoleCancelEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="184" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="184" bodyend="197"/>
+        <references refid="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" compoundref="_kernel_8cs" startline="33">Core.KernelInitializator.GUI_Proc</references>
+        <referencedby refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" compoundref="_kernel_8cs" startline="130" endline="172">Core.KernelInitializator.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="20">
+        <label>Core.KernelInitializator</label>
+        <link refid="class_core_1_1_kernel_initializator"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>Config</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Core.Kernel.Configurations.Configuration</label>
+        <link refid="class_core_1_1_kernel_1_1_configurations_1_1_configuration"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" line="28" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Core/Kernel.cs" bodystart="27" bodyend="201"/>
+    <listofallmembers>
+      <member refid="class_core_1_1_kernel_initializator_1a74ca163691e0664da0c385920d922524" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>ApplyingBasicSettings</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1ad1d1d554835f780ae930cd1b36bfee8a" prot="public" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>Config</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1aea372b431b698f76817bd3e14226b315" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>Console_CancelKeyPress</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1a629a8f9c9f8b7b6c40a3ee9d7546d3d0" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>GUI_Proc</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1a23846cc9a43efe1e76d73ad2217347c3" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>InitKernelComponents</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1a30ad772792d443c98d7e85240c48a739" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>InitKernelConfiguration</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1abee62e4595570ad004b434ce8b46e866" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>InitModules</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1a8327efe70777b478e82105ee6399260d" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>Main</name></member>
+      <member refid="class_core_1_1_kernel_initializator_1a231a1722c1a1bb079cc92357458d119f" prot="private" virt="non-virtual"><scope>Core::KernelInitializator</scope><name>OnCloseProcess</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

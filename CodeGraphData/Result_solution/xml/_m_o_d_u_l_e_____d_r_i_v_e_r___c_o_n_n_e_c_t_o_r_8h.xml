@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8h" kind="file">
+    <compoundname>MODULE__DRIVER_CONNECTOR.h</compoundname>
+    <includes local="no">windows.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">winioctl.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">crtdbg.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">fltuser.h</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">conio.h</includes>
+    <includes local="no">tchar.h</includes>
+    <includedby refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp" local="yes">C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp</includedby>
+    <incdepgraph>
+      <node id="159">
+        <label>windows.h</label>
+      </node>
+      <node id="165">
+        <label>assert.h</label>
+      </node>
+      <node id="160">
+        <label>stdlib.h</label>
+      </node>
+      <node id="168">
+        <label>conio.h</label>
+      </node>
+      <node id="163">
+        <label>string.h</label>
+      </node>
+      <node id="162">
+        <label>winioctl.h</label>
+      </node>
+      <node id="164">
+        <label>crtdbg.h</label>
+      </node>
+      <node id="166">
+        <label>fltuser.h</label>
+      </node>
+      <node id="158">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h</label>
+        <link refid="MODULE__DRIVER_CONNECTOR.h"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+        <childnode refid="161" relation="include">
+        </childnode>
+        <childnode refid="162" relation="include">
+        </childnode>
+        <childnode refid="163" relation="include">
+        </childnode>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+      </node>
+      <node id="169">
+        <label>tchar.h</label>
+      </node>
+      <node id="167">
+        <label>thread</label>
+      </node>
+      <node id="161">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="171">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.cpp</label>
+        <link refid="_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_8cpp"/>
+      </node>
+      <node id="170">
+        <label>C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h</label>
+        <link refid="MODULE__DRIVER_CONNECTOR.h"/>
+        <childnode refid="171" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator" prot="public">MODULE__DRIVER_CONNECTOR::Initializator</innerclass>
+    <innernamespace refid="namespace_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r">MODULE__DRIVER_CONNECTOR</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;windows.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;winioctl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;crtdbg.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fltuser.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;conio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tchar.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;user32.lib&quot;)</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;kernel32.lib&quot;)</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;fltlib.lib&quot;)</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="comment">//#pragma<sp/>comment(lib,<sp/>&quot;fltmgr.lib&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>managed</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"></highlight><highlight class="normal">[assembly:CLSCompliant(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)];</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="namespace_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">MODULE__DRIVER_CONNECTOR<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>[CLSCompliant(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="27" refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">ref<sp/>class</highlight><highlight class="normal"><sp/><ref refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator" kindref="compound">Initializator</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29" refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator_1a06351bcd80afae98b62e3bf335faf223" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>byte<sp/><ref refid="class_m_o_d_u_l_e_____d_r_i_v_e_r___c_o_n_n_e_c_t_o_r_1_1_initializator_1a06351bcd80afae98b62e3bf335faf223" kindref="member">EntryPoint</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/MUDULE__DRIVER_CONNECTOR/MODULE__DRIVER_CONNECTOR.h"/>
+  </compounddef>
+</doxygen>

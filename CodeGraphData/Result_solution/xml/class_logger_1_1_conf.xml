@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_logger_1_1_conf" kind="class" prot="public">
+    <compoundname>Logger::Conf</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_logger_1_1_conf_1af836f66f6262808283d840c2b7c15c4b" prot="public" static="no" mutable="no">
+        <type>const byte</type>
+        <definition>const byte Logger.Conf.MAX_PIPES</definition>
+        <argsstring></argsstring>
+        <name>MAX_PIPES</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="15" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1a9d59a66482b6b43060ad0fb7f29ca9dd" prot="public" static="no" mutable="no">
+        <type>const ConsoleColor</type>
+        <definition>const ConsoleColor Logger.Conf.WARN_COLOR</definition>
+        <argsstring></argsstring>
+        <name>WARN_COLOR</name>
+        <initializer>= ConsoleColor.Yellow</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="18" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" compoundref="_logger_2_program_8cs" startline="41" endline="103">Logger.Logger.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1a2779cbe06348663bbf8f477840a6863c" prot="public" static="no" mutable="no">
+        <type>const ConsoleColor</type>
+        <definition>const ConsoleColor Logger.Conf.INFO_COLOR</definition>
+        <argsstring></argsstring>
+        <name>INFO_COLOR</name>
+        <initializer>= ConsoleColor.White</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="19" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" compoundref="_logger_2_program_8cs" startline="41" endline="103">Logger.Logger.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1ad5719506ed38a1d476ab3c5ef2bf3b9e" prot="public" static="no" mutable="no">
+        <type>const ConsoleColor</type>
+        <definition>const ConsoleColor Logger.Conf.ERROR_COLOR</definition>
+        <argsstring></argsstring>
+        <name>ERROR_COLOR</name>
+        <initializer>= ConsoleColor.Red</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="20" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="20" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" compoundref="_logger_2_program_8cs" startline="41" endline="103">Logger.Logger.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1aeb23a0aaa6038667dca5287c38d42c44" prot="public" static="no" mutable="no">
+        <type>const ConsoleColor</type>
+        <definition>const ConsoleColor Logger.Conf.OK_COLOR</definition>
+        <argsstring></argsstring>
+        <name>OK_COLOR</name>
+        <initializer>= ConsoleColor.Green</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="21" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" compoundref="_logger_2_program_8cs" startline="41" endline="103">Logger.Logger.Handler</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1ac0cc15664616b7b8e18526784797a1b0" prot="public" static="no" mutable="no">
+        <type>const ConsoleColor</type>
+        <definition>const ConsoleColor Logger.Conf.DEFAULT_COLOR</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_COLOR</name>
+        <initializer>= ConsoleColor.Black</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="22" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="22" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_logger_1a20d93355bf1d9717234e476cc614f055" compoundref="_logger_2_program_8cs" startline="41" endline="103">Logger.Logger.Handler</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_logger_1_1_conf_1a939db3d79d78ae28de9fb42ab2922a57" prot="public" static="yes" mutable="no">
+        <type>readonly Mutex</type>
+        <definition>readonly Mutex Logger.Conf.GlobalSync</definition>
+        <argsstring></argsstring>
+        <name>GlobalSync</name>
+        <initializer>= new Mutex()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="16" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_logger_1_1_conf_1a574c97814bd788e16f1d2bc74e098e64" prot="public" static="yes" mutable="no">
+        <type>Dictionary&lt; string, string &gt;</type>
+        <definition>Dictionary&lt;string, string&gt; Logger.Conf.Loggers</definition>
+        <argsstring></argsstring>
+        <name>Loggers</name>
+        <initializer>= new Dictionary&lt;string, string&gt;() {
+            { &quot;Logger.Modules.Scanner&quot;, &quot;Service Scanner logger&quot; },
+            { &quot;Logger.Kernel&quot;, &quot;Service Scanner logger&quot; },
+            { &quot;Logger.Filter&quot;, &quot;Service Filter logger&quot; },
+            { &quot;Logger.ApiMonitor&quot;, &quot;Service FileSysApiMon logger&quot; },
+            { &quot;Logger.VirusesDB&quot;, &quot;Service VirusesDB logger&quot; },
+            { &quot;Logger.GUI&quot;, &quot;Service GUI logger&quot; }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="24" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="24" bodyend="-1"/>
+        <referencedby refid="class_logger_1_1_program_1a3d8fdfc2037d7cf5d7502aed30dca030" compoundref="_logger_2_program_8cs" startline="120" endline="131">Logger.Program.Main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" line="14" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/Logger/Program.cs" bodystart="13" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_logger_1_1_conf_1ac0cc15664616b7b8e18526784797a1b0" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>DEFAULT_COLOR</name></member>
+      <member refid="class_logger_1_1_conf_1ad5719506ed38a1d476ab3c5ef2bf3b9e" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>ERROR_COLOR</name></member>
+      <member refid="class_logger_1_1_conf_1a939db3d79d78ae28de9fb42ab2922a57" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>GlobalSync</name></member>
+      <member refid="class_logger_1_1_conf_1a2779cbe06348663bbf8f477840a6863c" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>INFO_COLOR</name></member>
+      <member refid="class_logger_1_1_conf_1a574c97814bd788e16f1d2bc74e098e64" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>Loggers</name></member>
+      <member refid="class_logger_1_1_conf_1af836f66f6262808283d840c2b7c15c4b" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>MAX_PIPES</name></member>
+      <member refid="class_logger_1_1_conf_1aeb23a0aaa6038667dca5287c38d42c44" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>OK_COLOR</name></member>
+      <member refid="class_logger_1_1_conf_1a9d59a66482b6b43060ad0fb7f29ca9dd" prot="public" virt="non-virtual"><scope>Logger::Conf</scope><name>WARN_COLOR</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

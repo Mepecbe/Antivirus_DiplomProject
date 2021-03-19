@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_antivirus_server_updater_1_1_program" kind="class" prot="public">
+    <compoundname>AntivirusServerUpdater::Program</compoundname>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_antivirus_server_updater_1_1_program_1a1417549e73d49db196e38480a012a4e2" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void AntivirusServerUpdater.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/AntivirusServerUpdater/Program.cs" line="11" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/AntivirusServerUpdater/Program.cs" bodystart="11" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/AntivirusServerUpdater/Program.cs" line="10" column="1" bodyfile="C:/Users/Cisco/Desktop/Antivirus_DiplomProject/AntivirusServerUpdater/Program.cs" bodystart="9" bodyend="14"/>
+    <listofallmembers>
+      <member refid="class_antivirus_server_updater_1_1_program_1a1417549e73d49db196e38480a012a4e2" prot="private" virt="non-virtual"><scope>AntivirusServerUpdater::Program</scope><name>Main</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
